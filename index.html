@@ -83,7 +83,7 @@
     }
 
     .btn-cat-answer {
-      transition: background-color 0.06s ease, transform 0.05s ease, border-color 0.06s ease;
+      transition: none;
       user-select: none;
       -webkit-user-select: none;
       touch-action: manipulation;
@@ -112,24 +112,15 @@
       touch-action: manipulation;
       -webkit-tap-highlight-color: transparent;
       user-select: none;
-      transition: all 0.08s ease;
-    }
-    .btn-cat-math.key-pressed {
-      background-color: #7dd3fc !important;
-      color: #0369a1 !important;
-      border-color: #38bdf8 !important;
-      transform: scale(0.96);
-    }
-    .btn-cat-answer.key-pressed {
-      transform: scale(0.96);
-      background-color: #1E3A8A !important;
-      color: #FFFFFF !important;
-      border-color: #1E3A8A !important;
+      transition: none;
     }
 
-    .btn-cat-answer.key-pressed .hint-badge {
-      background-color: rgba(255, 255, 255, 0.2) !important;
-      color: #FFFFFF !important;
+    .btn-cat-answer.tap-flash,
+    .btn-cat-math.tap-flash {
+      background-color: #EFF6FF !important;
+      border-color: #2563EB !important;
+      color: #1E3A8A !important;
+      transform: scale(0.97);
     }
 
     @media (max-width: 640px) {
@@ -917,31 +908,6 @@
                 <input type="checkbox" id="toggleSound" checked class="w-4 h-4 accent-blue-600 rounded cursor-pointer">
               </label>
 
-              <!-- Kartu Mode Fokus Layar Penuh & Pengingat Mode Jangan Ganggu (DND) -->
-              <div class="p-3.5 rounded-xl bg-slate-900 text-white border border-slate-800 space-y-2.5 shadow-sm">
-                <div class="flex items-start gap-2.5">
-                  <div class="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-300 flex items-center justify-center shrink-0 mt-0.5">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                    </svg>
-                  </div>
-                  <div class="space-y-1 min-w-0">
-                    <div class="text-xs font-extrabold tracking-wide uppercase text-blue-200">Mode Fokus &amp; Kunci Aplikasi Aktif</div>
-                    <p class="text-[11px] text-slate-300 leading-relaxed">
-                      Aplikasi mengunci navigasi keluar kecuali tombol <strong>Logout</strong>. Karena browser tidak bisa mematikan notifikasi OS secara otomatis, aktifkan mode <strong>Jangan Ganggu (DND)</strong> di HP/Laptop agar WA, Telepon &amp; SMS tidak mengganggu saat tes.
-                    </p>
-                  </div>
-                </div>
-                <button type="button" onclick="enterStrictFullscreen(true)"
-                  class="w-full py-2 px-3 rounded-lg bg-white/10 hover:bg-white/20 text-[11px] font-bold text-white transition-colors flex items-center justify-center gap-1.5 cursor-pointer">
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-5h-4m4 0v4m0-4l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                  </svg>
-                  <span>Masuk Layar Penuh Fokus Sekarang</span>
-                </button>
-              </div>
-
-
               <!-- Banner Notifikasi Saat Akun User Terkunci oleh Admin -->
               <div id="userLockedNoticeBanner"
                 class="hidden p-3.5 rounded-xl bg-rose-50 border-2 border-rose-300 text-rose-800 text-xs font-bold flex items-center gap-2.5 shadow-sm transition-all animate-pulse">
@@ -1113,48 +1079,29 @@
         </div>
 
         <!-- TOMBOL JAWABAN BESAR A-E -->
-        <div class="bg-white rounded-2xl border border-slate-200 p-4 sm:p-5 shadow-sm space-y-3">
+        <div class="bg-white rounded-2xl border border-slate-200 p-4 sm:p-5 shadow-sm">
           <div class="grid grid-cols-5 gap-2 sm:gap-3.5">
-            <button type="button" id="ansBtn0" onpointerdown="handleAnswerInput(0, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()"
-              class="btn-cat-answer rounded-xl border-2 border-slate-300 bg-white py-4 sm:py-5 flex flex-col items-center justify-center gap-1 shadow-sm focus:outline-none">
+            <button type="button" id="ansBtn0" onpointerdown="handleAnswerInput(0, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()" onpointerleave="clearAnswerFocusStates()"
+              class="btn-cat-answer rounded-xl border-2 border-slate-300 bg-white py-5 sm:py-6 flex items-center justify-center shadow-sm focus:outline-none">
               <span class="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-none">A</span>
-              <span
-                class="hint-badge px-2 py-0.5 rounded text-[10px] sm:text-xs font-semibold bg-slate-100 text-slate-500">Key:
-                A / 1</span>
             </button>
-            <button type="button" id="ansBtn1" onpointerdown="handleAnswerInput(1, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()"
-              class="btn-cat-answer rounded-xl border-2 border-slate-300 bg-white py-4 sm:py-5 flex flex-col items-center justify-center gap-1 shadow-sm focus:outline-none">
+            <button type="button" id="ansBtn1" onpointerdown="handleAnswerInput(1, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()" onpointerleave="clearAnswerFocusStates()"
+              class="btn-cat-answer rounded-xl border-2 border-slate-300 bg-white py-5 sm:py-6 flex items-center justify-center shadow-sm focus:outline-none">
               <span class="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-none">B</span>
-              <span
-                class="hint-badge px-2 py-0.5 rounded text-[10px] sm:text-xs font-semibold bg-slate-100 text-slate-500">Key:
-                B / 2</span>
             </button>
-            <button type="button" id="ansBtn2" onpointerdown="handleAnswerInput(2, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()"
-              class="btn-cat-answer rounded-xl border-2 border-slate-300 bg-white py-4 sm:py-5 flex flex-col items-center justify-center gap-1 shadow-sm focus:outline-none">
+            <button type="button" id="ansBtn2" onpointerdown="handleAnswerInput(2, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()" onpointerleave="clearAnswerFocusStates()"
+              class="btn-cat-answer rounded-xl border-2 border-slate-300 bg-white py-5 sm:py-6 flex items-center justify-center shadow-sm focus:outline-none">
               <span class="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-none">C</span>
-              <span
-                class="hint-badge px-2 py-0.5 rounded text-[10px] sm:text-xs font-semibold bg-slate-100 text-slate-500">Key:
-                C / 3</span>
             </button>
-            <button type="button" id="ansBtn3" onpointerdown="handleAnswerInput(3, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()"
-              class="btn-cat-answer rounded-xl border-2 border-slate-300 bg-white py-4 sm:py-5 flex flex-col items-center justify-center gap-1 shadow-sm focus:outline-none">
+            <button type="button" id="ansBtn3" onpointerdown="handleAnswerInput(3, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()" onpointerleave="clearAnswerFocusStates()"
+              class="btn-cat-answer rounded-xl border-2 border-slate-300 bg-white py-5 sm:py-6 flex items-center justify-center shadow-sm focus:outline-none">
               <span class="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-none">D</span>
-              <span
-                class="hint-badge px-2 py-0.5 rounded text-[10px] sm:text-xs font-semibold bg-slate-100 text-slate-500">Key:
-                D / 4</span>
             </button>
-            <button type="button" id="ansBtn4" onpointerdown="handleAnswerInput(4, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()"
-              class="btn-cat-answer rounded-xl border-2 border-slate-300 bg-white py-4 sm:py-5 flex flex-col items-center justify-center gap-1 shadow-sm focus:outline-none">
+            <button type="button" id="ansBtn4" onpointerdown="handleAnswerInput(4, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()" onpointerleave="clearAnswerFocusStates()"
+              class="btn-cat-answer rounded-xl border-2 border-slate-300 bg-white py-5 sm:py-6 flex items-center justify-center shadow-sm focus:outline-none">
               <span class="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-none">E</span>
-              <span
-                class="hint-badge px-2 py-0.5 rounded text-[10px] sm:text-xs font-semibold bg-slate-100 text-slate-500">Key:
-                E / 5</span>
             </button>
           </div>
-          <p class="text-center text-xs text-slate-500">
-            Tips Cepat: Gunakan jari di layar HP atau tekan tombol keyboard <strong>A / B / C / D / E</strong> maupun
-            angka <strong>1 / 2 / 3 / 4 / 5</strong>.
-          </p>
         </div>
         </div>
         <!-- AKHIR TATA LETAK 1: MODE KLASIK -->
@@ -1230,29 +1177,29 @@
           <!-- Keypad Sentuh Numerik 3x3 + 0 (Persis Gambar 3) -->
           <div class="bg-white rounded-2xl border border-slate-200 p-4 sm:p-6 shadow-xs space-y-3">
             <div class="max-w-md mx-auto grid grid-cols-3 gap-2.5 sm:gap-3.5 select-none">
-              <button type="button" id="mathKeypad7" onpointerdown="handleMathNumericInput(7, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()"
+              <button type="button" id="mathKeypad7" onpointerdown="handleMathNumericInput(7, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()" onpointerleave="clearAnswerFocusStates()"
                 class="btn-cat-math py-3.5 sm:py-4 rounded-xl bg-slate-100 border-2 border-slate-200 font-cat-mono text-2xl sm:text-3xl font-bold text-slate-800 shadow-2xs focus:outline-none">7</button>
-              <button type="button" id="mathKeypad8" onpointerdown="handleMathNumericInput(8, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()"
+              <button type="button" id="mathKeypad8" onpointerdown="handleMathNumericInput(8, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()" onpointerleave="clearAnswerFocusStates()"
                 class="btn-cat-math py-3.5 sm:py-4 rounded-xl bg-slate-100 border-2 border-slate-200 font-cat-mono text-2xl sm:text-3xl font-bold text-slate-800 shadow-2xs focus:outline-none">8</button>
-              <button type="button" id="mathKeypad9" onpointerdown="handleMathNumericInput(9, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()"
+              <button type="button" id="mathKeypad9" onpointerdown="handleMathNumericInput(9, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()" onpointerleave="clearAnswerFocusStates()"
                 class="btn-cat-math py-3.5 sm:py-4 rounded-xl bg-slate-100 border-2 border-slate-200 font-cat-mono text-2xl sm:text-3xl font-bold text-slate-800 shadow-2xs focus:outline-none">9</button>
 
-              <button type="button" id="mathKeypad4" onpointerdown="handleMathNumericInput(4, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()"
+              <button type="button" id="mathKeypad4" onpointerdown="handleMathNumericInput(4, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()" onpointerleave="clearAnswerFocusStates()"
                 class="btn-cat-math py-3.5 sm:py-4 rounded-xl bg-slate-100 border-2 border-slate-200 font-cat-mono text-2xl sm:text-3xl font-bold text-slate-800 shadow-2xs focus:outline-none">4</button>
-              <button type="button" id="mathKeypad5" onpointerdown="handleMathNumericInput(5, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()"
+              <button type="button" id="mathKeypad5" onpointerdown="handleMathNumericInput(5, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()" onpointerleave="clearAnswerFocusStates()"
                 class="btn-cat-math py-3.5 sm:py-4 rounded-xl bg-slate-100 border-2 border-slate-200 font-cat-mono text-2xl sm:text-3xl font-bold text-slate-800 shadow-2xs focus:outline-none">5</button>
-              <button type="button" id="mathKeypad6" onpointerdown="handleMathNumericInput(6, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()"
+              <button type="button" id="mathKeypad6" onpointerdown="handleMathNumericInput(6, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()" onpointerleave="clearAnswerFocusStates()"
                 class="btn-cat-math py-3.5 sm:py-4 rounded-xl bg-slate-100 border-2 border-slate-200 font-cat-mono text-2xl sm:text-3xl font-bold text-slate-800 shadow-2xs focus:outline-none">6</button>
 
-              <button type="button" id="mathKeypad1" onpointerdown="handleMathNumericInput(1, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()"
+              <button type="button" id="mathKeypad1" onpointerdown="handleMathNumericInput(1, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()" onpointerleave="clearAnswerFocusStates()"
                 class="btn-cat-math py-3.5 sm:py-4 rounded-xl bg-slate-100 border-2 border-slate-200 font-cat-mono text-2xl sm:text-3xl font-bold text-slate-800 shadow-2xs focus:outline-none">1</button>
-              <button type="button" id="mathKeypad2" onpointerdown="handleMathNumericInput(2, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()"
+              <button type="button" id="mathKeypad2" onpointerdown="handleMathNumericInput(2, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()" onpointerleave="clearAnswerFocusStates()"
                 class="btn-cat-math py-3.5 sm:py-4 rounded-xl bg-slate-100 border-2 border-slate-200 font-cat-mono text-2xl sm:text-3xl font-bold text-slate-800 shadow-2xs focus:outline-none">2</button>
-              <button type="button" id="mathKeypad3" onpointerdown="handleMathNumericInput(3, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()"
+              <button type="button" id="mathKeypad3" onpointerdown="handleMathNumericInput(3, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()" onpointerleave="clearAnswerFocusStates()"
                 class="btn-cat-math py-3.5 sm:py-4 rounded-xl bg-slate-100 border-2 border-slate-200 font-cat-mono text-2xl sm:text-3xl font-bold text-slate-800 shadow-2xs focus:outline-none">3</button>
 
               <div class="invisible pointer-events-none"></div>
-              <button type="button" id="mathKeypad0" onpointerdown="handleMathNumericInput(0, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()"
+              <button type="button" id="mathKeypad0" onpointerdown="handleMathNumericInput(0, event)" onpointerup="clearAnswerFocusStates()" onpointercancel="clearAnswerFocusStates()" onpointerleave="clearAnswerFocusStates()"
                 class="btn-cat-math py-3.5 sm:py-4 rounded-xl bg-slate-100 border-2 border-slate-200 font-cat-mono text-2xl sm:text-3xl font-bold text-slate-800 shadow-2xs focus:outline-none">0</button>
               <div class="invisible pointer-events-none"></div>
             </div>
@@ -1263,10 +1210,6 @@
                 <div id="symbolMathProgressBar" class="bg-amber-400 h-full transition-all duration-150" style="width: 2%"></div>
               </div>
             </div>
-
-            <p class="text-center text-xs text-slate-400 pt-1">
-              Sentuh angka di layar HP atau tekan angka <strong>0 &ndash; 9</strong> pada keyboard/numpad laptop.
-            </p>
           </div>
         </div>
         <!-- AKHIR TATA LETAK 2: MODE SIMBOL PENJUMLAHAN -->
@@ -1840,51 +1783,6 @@
     </div>
   </div>
 
-  <!-- OVERLAY KUNCI FOKUS & ANTI-KELUAR (WAJIB LOGOUT / LAYAR PENUH) -->
-  <div id="focusLockOverlay"
-    class="fixed inset-0 z-[60] hidden bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 select-none">
-    <div class="bg-white rounded-2xl border border-slate-200 max-w-md w-full p-6 shadow-2xl space-y-4">
-      <div class="flex items-center gap-3">
-        <div class="w-11 h-11 rounded-xl bg-slate-900 text-blue-400 flex items-center justify-center shrink-0">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-          </svg>
-        </div>
-        <div>
-          <span class="inline-block px-2 py-0.5 rounded bg-blue-50 text-blue-700 text-[10px] font-extrabold uppercase tracking-wider mb-1">Mode Fokus Terkunci</span>
-          <h3 id="focusLockTitle" class="text-base font-extrabold text-slate-900">Aplikasi Sedang Terkunci</h3>
-        </div>
-      </div>
-
-      <p id="focusLockDesc" class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-        Anda terdeteksi keluar dari layar penuh atau berpindah jendela. Demi menjaga fokus ujian, aplikasi hanya dapat ditutup melalui tombol <strong>Logout</strong> resmi.
-      </p>
-
-      <div class="p-3 rounded-xl bg-amber-50 border border-amber-200 text-[11px] text-amber-900 leading-relaxed flex items-start gap-2">
-        <svg class="w-4 h-4 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-        </svg>
-        <span><strong>Tips Anti-Gangguan:</strong> Aktifkan mode <strong>Jangan Ganggu / DND</strong> di HP atau Laptop Anda agar notifikasi WA, Telepon, &amp; SMS benar-benar tidak muncul selama aplikasi dibuka.</span>
-      </div>
-
-      <div class="flex items-center justify-between text-[11px] font-bold text-slate-500 px-1">
-        <span>Gangguan fokus terdeteksi:</span>
-        <span id="focusLockDistractionBadge" class="px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-700 font-cat-mono">0 kali</span>
-      </div>
-
-      <div class="flex flex-col sm:flex-row gap-2.5 pt-1">
-        <button type="button" onclick="resumeFocusLockSession()"
-          class="flex-1 px-4 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-xs sm:text-sm font-extrabold text-white transition-colors cursor-pointer shadow-sm">
-          Masuk Kembali ke Aplikasi
-        </button>
-        <button type="button" onclick="openLogoutFromFocusLock()"
-          class="px-4 py-3 rounded-xl border border-rose-300 bg-rose-50 hover:bg-rose-100 text-xs sm:text-sm font-bold text-rose-700 transition-colors cursor-pointer">
-          Logout
-        </button>
-      </div>
-    </div>
-  </div>
-
   <!-- MODAL DETAIL RIWAYAT & HASIL EVALUASI PESERTA (LENGKAP SESUAI VIEW RESULT) -->
   <div id="modalHistoryDetail"
     class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
@@ -2333,7 +2231,6 @@
       isExplicitLogout: false,
       strictFocusArmed: false,
       strictFullscreenExpected: false,
-      distractionCount: 0,
 
       // State Display Foto Galeri (Banner Carousel)
       displayPhotos: [],
@@ -3067,7 +2964,7 @@
       initAppFaviconFromLogo();
       ensureLocalFallbackData();
       syncCharModesFromMenuSoal();
-      window.addEventListener('keydown', handleGlobalKeyDown);
+      initAnswerPressReleaseGuards();
       updateDeviceClock();
       setInterval(updateDeviceClock, 1000);
       initDisplayCarousel();
@@ -3247,7 +3144,7 @@
 
       // Aktifkan mode layar penuh dalam user-gesture submit saat masuk aplikasi
       if (typeof enterStrictFullscreen === 'function') {
-        enterStrictFullscreen(false);
+        enterStrictFullscreen();
       }
 
       var handleLoginResponse = function (res) {
@@ -3320,7 +3217,6 @@
       if (String(user.role).toUpperCase() === 'ADMIN') {
         appState.strictFocusArmed = false;
         exitStrictFullscreenSafe();
-        hideFocusLockOverlay();
         var badge = document.getElementById('adminActiveUserBadge');
         if (badge) badge.textContent = 'Admin: ' + user.nama + ' (' + user.username + ')';
         showShell('admin');
@@ -3344,17 +3240,12 @@
 
         appState.strictFocusArmed = true;
         appState.strictFullscreenExpected = !!getFullscreenElement();
-        if (isSilentRestore && isFullscreenSupported() && !getFullscreenElement()) {
-          showFocusLockOverlay('Sesi Aktif Dipulihkan', 'Klik Masuk Kembali ke Aplikasi untuk kembali mengunci layar penuh. Aplikasi hanya bisa ditutup melalui tombol Logout.');
-        } else {
-          hideFocusLockOverlay();
-        }
 
         if (!isSilentRestore) {
           if (checkIfCurrentUserLocked()) {
             showToast('Selamat datang, ' + appState.participantName + '! Akun Anda saat ini terkunci. Silahkan hubungi BG DYAN untuk aktifkan tes.', 'info');
           } else {
-            showToast('Selamat datang, ' + appState.participantName + '! Mode fokus & kunci navigasi aktif.', 'success');
+            showToast('Selamat datang, ' + appState.participantName + '! Silakan mulai simulasi tes.', 'success');
           }
         }
       }
@@ -3388,7 +3279,6 @@
       appState.isExplicitLogout = true;
       appState.strictFocusArmed = false;
       appState.strictFullscreenExpected = false;
-      if (typeof hideFocusLockOverlay === 'function') hideFocusLockOverlay();
       if (typeof exitStrictFullscreenSafe === 'function') exitStrictFullscreenSafe();
       try {
         if (getSessionToken()) {
@@ -3438,40 +3328,26 @@
       }
     }
 
-    function enterStrictFullscreen(showFailToast) {
+    function enterStrictFullscreen() {
       try {
         if (getFullscreenElement()) {
           appState.strictFullscreenExpected = true;
-          hideFocusLockOverlay();
           return;
         }
         var docEl = document.documentElement;
         if (!docEl) return;
         var req = docEl.requestFullscreen || docEl.webkitRequestFullscreen || docEl.msRequestFullscreen;
-        if (typeof req !== 'function') {
-          if (showFailToast) {
-            showToast('Browser perangkat ini tidak mendukung Layar Penuh otomatis. Gunakan Tambahkan ke Layar Utama (Add to Home Screen) & aktifkan mode Jangan Ganggu.', 'info');
-          }
-          return;
-        }
+        if (typeof req !== 'function') return;
         var ret = req.call(docEl);
         if (ret && typeof ret.then === 'function') {
           ret.then(function () {
             appState.strictFullscreenExpected = true;
-            hideFocusLockOverlay();
             pushAppHistoryGuard(3);
-          }).catch(function () {
-            if (showFailToast) {
-              showToast('Browser menahan Layar Penuh otomatis. Ketuk layar atau tombol Masuk Layar Penuh lagi.', 'warning');
-            }
-          });
+          }).catch(function () { });
         } else {
           appState.strictFullscreenExpected = !!getFullscreenElement();
-          if (appState.strictFullscreenExpected) hideFocusLockOverlay();
         }
-      } catch (e) {
-        if (showFailToast) showToast('Mode Layar Penuh tidak diizinkan browser saat ini.', 'warning');
-      }
+      } catch (e) { }
     }
 
     function exitStrictFullscreenSafe() {
@@ -3488,80 +3364,30 @@
       } catch (e) { }
     }
 
-    function showFocusLockOverlay(reasonTitle, reasonDesc) {
-      var overlay = document.getElementById('focusLockOverlay');
-      if (!overlay) return;
-      var titleEl = document.getElementById('focusLockTitle');
-      var descEl = document.getElementById('focusLockDesc');
-      var badgeEl = document.getElementById('focusLockDistractionBadge');
-      if (titleEl && reasonTitle) titleEl.textContent = reasonTitle;
-      if (descEl && reasonDesc) descEl.textContent = reasonDesc;
-      if (badgeEl) badgeEl.textContent = String(appState.distractionCount || 0) + ' kali';
-      overlay.classList.remove('hidden');
-    }
-
-    function hideFocusLockOverlay() {
-      var overlay = document.getElementById('focusLockOverlay');
-      if (overlay) overlay.classList.add('hidden');
-    }
-
-    function resumeFocusLockSession() {
-      hideFocusLockOverlay();
-      pushAppHistoryGuard(3);
-      enterStrictFullscreen(false);
-      clearAnswerFocusStates(false);
-    }
-
-    function openLogoutFromFocusLock() {
-      handleLogout();
-    }
-
     function initFocusAndKioskGuards() {
       var onFsChange = function () {
         if (appState.activeShell === 'user' && appState.strictFocusArmed && !appState.isExplicitLogout) {
-          if (!getFullscreenElement() && appState.strictFullscreenExpected) {
-            appState.strictFullscreenExpected = false;
-            appState.distractionCount++;
-            showFocusLockOverlay(
-              'Keluar Layar Penuh Terdeteksi',
-              'Anda keluar dari mode Layar Penuh. Aplikasi dikunci agar tidak bisa ditinggalkan kecuali lewat tombol Logout. Tekan Masuk Kembali ke Aplikasi untuk melanjutkan.'
-            );
-          } else if (getFullscreenElement()) {
-            appState.strictFullscreenExpected = true;
-            hideFocusLockOverlay();
-          }
+          appState.strictFullscreenExpected = !!getFullscreenElement();
+          pushAppHistoryGuard(2);
         }
       };
       document.addEventListener('fullscreenchange', onFsChange);
       document.addEventListener('webkitfullscreenchange', onFsChange);
 
+      // Masuk ulang ke layar penuh secara diam-diam saat pengguna menyentuh layar tanpa memunculkan popup peringatan
+      document.addEventListener('pointerdown', function () {
+        if (appState.activeShell === 'user' && appState.strictFocusArmed && !appState.isExplicitLogout && !getFullscreenElement()) {
+          enterStrictFullscreen();
+        }
+      });
+
       document.addEventListener('visibilitychange', function () {
-        if (document.visibilityState === 'hidden' && appState.activeShell === 'user' && appState.strictFocusArmed && !appState.isExplicitLogout) {
-          appState.distractionCount++;
-          showFocusLockOverlay(
-            'Perpindahan Aplikasi / Notifikasi Terdeteksi',
-            'Layar aplikasi sempat ditinggalkan atau tertutup notifikasi/aplikasi lain. Aktifkan mode Jangan Ganggu (DND) lalu tekan Masuk Kembali ke Aplikasi.'
-          );
+        if (document.visibilityState === 'visible' && appState.activeShell === 'user' && appState.strictFocusArmed && !appState.isExplicitLogout) {
+          pushAppHistoryGuard(2);
         }
       });
 
-      window.addEventListener('blur', function () {
-        if (appState.activeShell === 'user' && appState.examActive && appState.strictFocusArmed && !appState.isExplicitLogout) {
-          setTimeout(function () {
-            if (appState.activeShell === 'user' && appState.examActive && appState.strictFocusArmed && !appState.isExplicitLogout) {
-              if (typeof document.hasFocus === 'function' && !document.hasFocus()) {
-                appState.distractionCount++;
-                showFocusLockOverlay(
-                  'Fokus Ujian Terputus',
-                  'Notifikasi atau jendela lain menarik fokus saat simulasi berlangsung. Pastikan mode Jangan Ganggu (DND) aktif lalu lanjutkan.'
-                );
-              }
-            }
-          }, 180);
-        }
-      });
-
-      // Cegah pintasan keyboard refresh / navigasi mundur / tutup tab browser saat sesi login aktif
+      // Cegah pintasan keyboard refresh / navigasi mundur / tutup tab browser secara senyap saat sesi login aktif
       window.addEventListener('keydown', function (e) {
         if (!appState.loggedInUser || appState.activeShell === 'login' || appState.isExplicitLogout) return;
         var k = String(e.key || '');
@@ -3576,7 +3402,6 @@
 
         if (isReloadKey || isCloseKey || isNavBack || isBackKeyOutsideInput) {
           e.preventDefault();
-          showToast('Navigasi keluar/refresh dikunci. Gunakan tombol Logout untuk keluar dari aplikasi.', 'warning');
         }
       });
     }
@@ -3623,32 +3448,28 @@
           }
         }
 
-        // 4. KONDISI 4: Berada di akun user (tidak sedang tes) — terkunci kecuali via tombol Logout
+        // 4. KONDISI 4: Berada di akun user (tidak sedang tes) — terkunci senyap kecuali via tombol Logout
         if (appState.activeShell === 'user') {
           if (appState.currentView && appState.currentView !== 'prep') {
             switchView('prep');
-          } else {
-            showToast('Tombol Kembali dikunci. Gunakan tombol Logout untuk keluar dari aplikasi.', 'warning');
           }
           return;
         }
 
-        // 5. KONDISI 5: Berada di panel Admin — terkunci kecuali via tombol Logout
+        // 5. KONDISI 5: Berada di panel Admin — terkunci senyap kecuali via tombol Logout
         if (appState.activeShell === 'admin') {
           if (appState.adminActiveTab && appState.adminActiveTab !== 'dashboard') {
             switchAdminTab('dashboard');
-          } else {
-            showToast('Tombol Kembali dikunci. Gunakan tombol Logout untuk keluar dari aplikasi.', 'warning');
           }
           return;
         }
       });
 
-      // Peringatan keras sebelum tab ditutup/refresh di seluruh sesi login aktif hingga klik Logout
+      // Peringatan sebelum tab ditutup/refresh di seluruh sesi login aktif hingga klik Logout
       window.addEventListener('beforeunload', function (e) {
         if ((appState.examActive || (appState.loggedInUser && appState.activeShell !== 'login')) && !appState.isExplicitLogout) {
           e.preventDefault();
-          e.returnValue = 'Anda belum Logout dari aplikasi SI-PALING. Gunakan tombol Logout di dalam aplikasi untuk keluar.';
+          e.returnValue = 'Anda belum Logout dari aplikasi SI-PALING.';
           return e.returnValue;
         }
       });
@@ -4906,9 +4727,8 @@
       appState.currentColIndex = 0;
       appState.examActive = true;
       appState.isColumnTransition = false;
-      appState.distractionCount = 0;
       appState.strictFocusArmed = true;
-      enterStrictFullscreen(false);
+      enterStrictFullscreen();
       pushAppHistoryGuard(3);
 
       var modeBadge = document.getElementById('examModeBadge');
@@ -4937,6 +4757,7 @@
     }
 
     function startColumnTransition(colIndex) {
+      clearAnswerFocusStates();
       appState.isColumnTransition = true;
       appState.pendingColIndex = colIndex;
       appState.transitionSeconds = 3;
@@ -4983,6 +4804,7 @@
     }
 
     function initColumn(colIndex) {
+      clearAnswerFocusStates();
       appState.isColumnTransition = false;
       var overlay = document.getElementById('columnTransitionOverlay');
       if (overlay) overlay.classList.add('hidden');
@@ -5138,7 +4960,15 @@
       }
     }
 
-    function clearAnswerFocusStates(keepPressedClass) {
+    function clearAnswerButtonPressed(btnId) {
+      try {
+        var btn = btnId ? document.getElementById(btnId) : null;
+        if (btn && btn.classList) btn.classList.remove('tap-flash');
+        if (btn && btn.blur) btn.blur();
+      } catch (e) { }
+    }
+
+    function clearAnswerFocusStates() {
       try {
         var active = document.activeElement;
         if (active && active.classList && (active.classList.contains('btn-cat-answer') || active.classList.contains('btn-cat-math'))) {
@@ -5146,10 +4976,20 @@
         }
         var btns = document.querySelectorAll('.btn-cat-answer, .btn-cat-math');
         for (var i = 0; i < btns.length; i++) {
-          if (!keepPressedClass && btns[i].classList) btns[i].classList.remove('key-pressed');
+          if (btns[i].classList) {
+            btns[i].classList.remove('tap-flash');
+          }
           if (btns[i].blur) btns[i].blur();
         }
       } catch (e) { }
+    }
+
+    function setAnswerButtonPressed(btnId) {
+      clearAnswerFocusStates();
+      var btn = document.getElementById(btnId);
+      if (!btn || !btn.classList) return;
+      btn.classList.add('tap-flash');
+      if (btn.blur) btn.blur();
     }
 
     function handleAnswerInput(choiceIndex, evt) {
@@ -5159,19 +4999,14 @@
       var currentStat = appState.columnStats[appState.currentColIndex];
       if (!currentStat) return;
 
+      setAnswerButtonPressed('ansBtn' + choiceIndex);
+
       currentStat.ans++;
       if (choiceIndex === appState.currentMissingIndex) currentStat.ok++;
       else currentStat.err++;
 
       var ansCountEl = document.getElementById('currentColAnsweredCount');
       if (ansCountEl) ansCountEl.textContent = String(currentStat.ans);
-
-      // Saat diklik/sentuh di layar HP, langsung hilangkan fokus/kotak aktif untuk soal selanjutnya
-      if (evt) {
-        clearAnswerFocusStates(false);
-      } else {
-        clearAnswerFocusStates(true);
-      }
 
       generateNextQuestion();
     }
@@ -5183,16 +5018,7 @@
       var currentStat = appState.columnStats[appState.currentColIndex];
       if (!currentStat) return;
 
-      if (!evt) {
-        clearAnswerFocusStates(false);
-        var btn = document.getElementById('mathKeypad' + num);
-        if (btn) {
-          btn.classList.add('key-pressed');
-          setTimeout(function () { btn.classList.remove('key-pressed'); }, 90);
-        }
-      } else {
-        clearAnswerFocusStates(false);
-      }
+      setAnswerButtonPressed('mathKeypad' + num);
 
       currentStat.ans++;
       if (num === appState.currentMathCorrectAnswer) {
@@ -5205,41 +5031,57 @@
 
       generateNextQuestion();
     }
-    function handleGlobalKeyDown(e) {
-      if (appState.activeShell !== 'user' || !appState.examActive || appState.isColumnTransition || appState.currentView !== 'exam') return;
-      var abortModal = document.getElementById('modalAbortExam');
-      if (abortModal && !abortModal.classList.contains('hidden')) return;
-      var focusOverlay = document.getElementById('focusLockOverlay');
-      if (focusOverlay && !focusOverlay.classList.contains('hidden')) return;
-      if (e.repeat) return;
 
-      var rawKey = String(e.key || '');
+    function mapKeyToAnswerInput(rawKey) {
+      var keyStr = String(rawKey || '');
       if (isSimbolPenjumlahanMode()) {
-        if (/^[0-9]$/.test(rawKey)) {
-          e.preventDefault();
-          var num = parseInt(rawKey, 10);
-          handleMathNumericInput(num, null);
+        if (/^[0-9]$/.test(keyStr)) {
+          var num = parseInt(keyStr, 10);
+          return { type: 'math', value: num, btnId: 'mathKeypad' + num };
         }
-        return;
+        return null;
       }
-      var key = rawKey.toUpperCase();
+      var key = keyStr.toUpperCase();
       var choiceIdx = -1;
       if (key === 'A' || key === '1') choiceIdx = 0;
       else if (key === 'B' || key === '2') choiceIdx = 1;
       else if (key === 'C' || key === '3') choiceIdx = 2;
       else if (key === 'D' || key === '4') choiceIdx = 3;
       else if (key === 'E' || key === '5') choiceIdx = 4;
+      if (choiceIdx === -1) return null;
+      return { type: 'classic', value: choiceIdx, btnId: 'ansBtn' + choiceIdx };
+    }
 
-      if (choiceIdx !== -1) {
-        e.preventDefault();
-        clearAnswerFocusStates(false);
-        var btn = document.getElementById('ansBtn' + choiceIdx);
-        if (btn) {
-          btn.classList.add('key-pressed');
-          setTimeout(function () { btn.classList.remove('key-pressed'); }, 80);
-        }
-        handleAnswerInput(choiceIdx, null);
+    function handleGlobalKeyDown(e) {
+      if (appState.activeShell !== 'user' || !appState.examActive || appState.isColumnTransition || appState.currentView !== 'exam') return;
+      var abortModal = document.getElementById('modalAbortExam');
+      if (abortModal && !abortModal.classList.contains('hidden')) return;
+      if (e.repeat) return;
+
+      var mapped = mapKeyToAnswerInput(e.key);
+      if (!mapped) return;
+
+      e.preventDefault();
+      if (mapped.type === 'math') handleMathNumericInput(mapped.value, null);
+      else handleAnswerInput(mapped.value, null);
+    }
+
+    function handleGlobalKeyUp(e) {
+      var mapped = mapKeyToAnswerInput(e && e.key);
+      if (mapped && mapped.btnId) {
+        clearAnswerButtonPressed(mapped.btnId);
       }
+    }
+
+    function initAnswerPressReleaseGuards() {
+      window.addEventListener('keydown', handleGlobalKeyDown);
+      window.addEventListener('keyup', handleGlobalKeyUp);
+      window.addEventListener('pointerup', clearAnswerFocusStates);
+      window.addEventListener('pointercancel', clearAnswerFocusStates);
+      window.addEventListener('blur', clearAnswerFocusStates);
+      document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState === 'hidden') clearAnswerFocusStates();
+      });
     }
 
     function onExamTick() {
@@ -5297,6 +5139,7 @@
 
     function confirmAbortExam() {
       closeAbortModal();
+      clearAnswerFocusStates();
       if (appState.timerIntervalId) {
         clearInterval(appState.timerIntervalId);
         appState.timerIntervalId = null;
@@ -5500,6 +5343,7 @@
     }
 
     function finishSimulation() {
+      clearAnswerFocusStates();
       if (appState.timerIntervalId) {
         clearInterval(appState.timerIntervalId);
         appState.timerIntervalId = null;
