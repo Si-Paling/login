@@ -2351,36 +2351,188 @@
       return isNativeGasEnvironment() || isApiGasEnvironment();
     }
 
-    function callGasRestApi_(action, token, args, onSuccess, onFailure) {
-      fetch(GAS_API_URL, {
-        method: 'POST',
-        mode: 'cors',
-        redirect: 'follow',
-        credentials: 'omit',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify({
-          action: action,
-          token: token || '',
-          args: args || []
-        })
-      })
-        .then(function (resp) {
+    function callGasRestApi_(action, token, args, onSuccess, onFailure, onProgress) {
+      var payloadBody = JSON.stringify({
+        action: action,
+        token: token || '',
+        args: args || []
+      });
+      var REQUEST_TIMEOUT_MS = 45000;
+      var MAX_ATTEMPTS = 3;
+      var rootScope = (typeof window !== 'undefined' && window) ? window : null;
+
+      function parsePayload(rawText) {
+        var trimmed = String(rawText || '').trim();
+        if (!trimmed || trimmed.charAt(0) === '<') {
+          var htmlErr = new Error('Backend Apps Script belum diperbarui untuk REST API (pastikan code.gs terbaru sudah di-paste dan Deploy New Version).');
+          htmlErr.noRetry = true;
+          throw htmlErr;
+        }
+        try {
+          return JSON.parse(trimmed);
+        } catch (jsonErr) {
+          var parseErr = new Error('Respons server Apps Script tidak valid (' + trimmed.substring(0, 60) + ').');
+          parseErr.noRetry = true;
+          throw parseErr;
+        }
+      }
+
+      function buildFriendlyError(err) {
+        var rawMsg = (err && err.message) ? String(err.message) : '';
+        try {
+          if (rootScope && rootScope.navigator && rootScope.navigator.onLine === false) {
+            return new Error('Perangkat sedang offline. Aktifkan internet lalu coba lagi (' + (rawMsg || 'Offline') + ').');
+          }
+        } catch (e) { }
+        if (/^(Backend Apps Script|Server Apps Script merespons HTTP|Respons server Apps Script tidak valid)/.test(rawMsg)) {
+          return (err && err.message) ? err : new Error(rawMsg);
+        }
+        var isTimeout = (err && err.name === 'AbortError') || /timeout|aborted/i.test(rawMsg);
+        if (isTimeout) {
+          return new Error('Koneksi ke server Google Apps Script melebihi batas waktu. Periksa koneksi internet Anda lalu coba lagi (' + (rawMsg || 'Timeout') + ').');
+        }
+        var detail = rawMsg || 'Failed to fetch';
+        return new Error('Koneksi ke server Google Apps Script gagal atau terblokir. Periksa sinyal HP, matikan sementara Private DNS / AdGuard / VPN jika aktif, atau coba lagi (' + detail + ').');
+      }
+
+      function sendViaXhr(cbSuccess, cbFailure) {
+        var XhrCtor = rootScope ? rootScope.XMLHttpRequest : undefined;
+        if (typeof XhrCtor !== 'function') {
+          cbFailure(new Error('Failed to fetch'));
+          return;
+        }
+        try {
+          var xhr = new XhrCtor();
+          var settled = false;
+          xhr.open('POST', GAS_API_URL, true);
+          xhr.withCredentials = false;
+          xhr.timeout = REQUEST_TIMEOUT_MS;
+          xhr.setRequestHeader('Content-Type', 'text/plain;charset=utf-8');
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState !== 4 || settled) return;
+            settled = true;
+            if (xhr.status >= 200 && xhr.status < 300) {
+              try {
+                cbSuccess(parsePayload(xhr.responseText));
+              } catch (pErr) {
+                cbFailure(pErr);
+              }
+            } else if (xhr.status > 0) {
+              var httpErr = new Error('Server Apps Script merespons HTTP ' + xhr.status);
+              httpErr.noRetry = (xhr.status >= 400 && xhr.status < 500 && xhr.status !== 429);
+              cbFailure(httpErr);
+            } else {
+              cbFailure(new Error('Failed to fetch'));
+            }
+          };
+          xhr.onerror = function () {
+            if (settled) return;
+            settled = true;
+            cbFailure(new Error('Failed to fetch'));
+          };
+          xhr.ontimeout = function () {
+            if (settled) return;
+            settled = true;
+            var tErr = new Error('Request timeout');
+            tErr.name = 'AbortError';
+            cbFailure(tErr);
+          };
+          xhr.send(payloadBody);
+        } catch (xhrErr) {
+          cbFailure(xhrErr);
+        }
+      }
+
+      function sendViaFetch(cbSuccess, cbFailure) {
+        var AbortCtor = rootScope ? rootScope.AbortController : undefined;
+        var setTimerFn = rootScope ? rootScope.setTimeout : undefined;
+        var clearTimerFn = rootScope ? rootScope.clearTimeout : undefined;
+        var controller = (typeof AbortCtor === 'function') ? new AbortCtor() : null;
+        var timeoutId = null;
+        var clearReqTimer = function () {
+          if (timeoutId && typeof clearTimerFn === 'function') {
+            clearTimerFn(timeoutId);
+            timeoutId = null;
+          }
+        };
+        if (controller && typeof setTimerFn === 'function') {
+          timeoutId = setTimerFn(function () {
+            try { controller.abort(); } catch (e) { }
+          }, REQUEST_TIMEOUT_MS);
+        }
+
+        var fetchOpts = {
+          method: 'POST',
+          mode: 'cors',
+          redirect: 'follow',
+          credentials: 'omit',
+          cache: 'no-store',
+          referrerPolicy: 'no-referrer',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: payloadBody
+        };
+        if (controller) fetchOpts.signal = controller.signal;
+
+        var parsedResult = null;
+        var hasParsed = false;
+
+        var reqChain = fetch(GAS_API_URL, fetchOpts);
+        reqChain = reqChain.then(function (resp) {
           if (!resp.ok) {
-            throw new Error('Server Apps Script merespons HTTP ' + resp.status);
+            var statusErr = new Error('Server Apps Script merespons HTTP ' + resp.status);
+            statusErr.noRetry = (resp.status >= 400 && resp.status < 500 && resp.status !== 429);
+            throw statusErr;
           }
           return resp.text();
-        })
-        .then(function (rawText) {
-          var trimmed = String(rawText || '').trim();
-          if (!trimmed || trimmed.charAt(0) === '<') {
-            throw new Error('Backend Apps Script belum diperbarui untuk REST API (pastikan code.gs terbaru sudah di-paste dan Deploy New Version).');
-          }
-          var parsed = JSON.parse(trimmed);
-          if (onSuccess) onSuccess(parsed);
-        })
-        .catch(function (err) {
-          if (onFailure) onFailure(err);
         });
+        reqChain = reqChain.then(function (rawText) {
+          clearReqTimer();
+          parsedResult = parsePayload(rawText);
+          hasParsed = true;
+          cbSuccess(parsedResult);
+        });
+        reqChain.catch(function (err) {
+          clearReqTimer();
+          if (!hasParsed) {
+            cbFailure(err || new Error('Failed to fetch'));
+          }
+        });
+      }
+
+      function runAttempt(attempt) {
+        if (attempt > 1 && typeof onProgress === 'function') {
+          try { onProgress(attempt, MAX_ATTEMPTS); } catch (e) { }
+        }
+        var onAttemptFail = function (err) {
+          if (err && err.noRetry) {
+            if (onFailure) onFailure(buildFriendlyError(err));
+            return;
+          }
+          if (attempt < MAX_ATTEMPTS) {
+            var delayMs = 700 * attempt;
+            var setTimerFn = rootScope ? rootScope.setTimeout : undefined;
+            if (typeof setTimerFn === 'function') {
+              setTimerFn(function () { runAttempt(attempt + 1); }, delayMs);
+            } else {
+              runAttempt(attempt + 1);
+            }
+            return;
+          }
+          if (onFailure) onFailure(buildFriendlyError(err));
+        };
+
+        var onAttemptSuccess = function (res) {
+          if (onSuccess) onSuccess(res);
+        };
+
+        if (attempt === MAX_ATTEMPTS && rootScope && typeof rootScope.XMLHttpRequest === 'function') {
+          sendViaXhr(onAttemptSuccess, onAttemptFail);
+        } else {
+          sendViaFetch(onAttemptSuccess, onAttemptFail);
+        }
+      }
+
+      runAttempt(1);
     }
 
     function parseKarakterString(raw) {
@@ -3142,11 +3294,6 @@
         btn.textContent = 'Memproses...';
       }
 
-      // Aktifkan mode layar penuh dalam user-gesture submit saat masuk aplikasi
-      if (typeof enterStrictFullscreen === 'function') {
-        enterStrictFullscreen();
-      }
-
       var handleLoginResponse = function (res) {
         if (btn) {
           btn.disabled = false;
@@ -3239,6 +3386,9 @@
         refreshUserLockState();
 
         appState.strictFocusArmed = true;
+        if (!isSilentRestore && typeof enterStrictFullscreen === 'function') {
+          enterStrictFullscreen();
+        }
         appState.strictFullscreenExpected = !!getFullscreenElement();
 
         if (!isSilentRestore) {
