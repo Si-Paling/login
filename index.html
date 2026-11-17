@@ -123,6 +123,10 @@
       transform: scale(0.97);
     }
 
+    .masked-pass-input {
+      -webkit-text-security: disc;
+    }
+
     @media (max-width: 640px) {
 
       .fluid-table th,
@@ -158,25 +162,28 @@
         <p>Silahkan input username dan password anda</p>
       </div>
 
-      <form id="loginForm" onsubmit="event.preventDefault(); handleLoginSubmit();" class="max-w-sm mx-auto space-y-4">
+      <div id="loginForm" role="form" data-form-type="other" class="max-w-sm mx-auto space-y-4">
         <div>
-          <input type="text" id="loginUsername" required autocomplete="username" placeholder="Username" value=""
+          <input type="text" id="loginUsername" autocomplete="off" autocorrect="off" autocapitalize="off"
+            spellcheck="false" data-lpignore="true" data-form-type="other" placeholder="Username" value=""
+            onkeydown="if(event.key==='Enter'){event.preventDefault();handleLoginSubmit();}"
             class="w-full px-4 py-2.5 rounded border border-slate-300 bg-[#E8F0FE] text-center text-sm sm:text-base text-slate-800 font-medium focus:outline-none focus:ring-2 focus:ring-[#456FE8] focus:bg-white transition-all">
         </div>
 
         <div>
-          <input type="password" id="loginPassword" required autocomplete="current-password" placeholder="Password"
-            value=""
-            class="w-full px-4 py-2.5 rounded border border-slate-300 bg-[#E8F0FE] text-center text-sm sm:text-base text-slate-800 font-medium focus:outline-none focus:ring-2 focus:ring-[#456FE8] focus:bg-white transition-all">
+          <input type="text" id="loginPassword" autocomplete="off" autocorrect="off" autocapitalize="off"
+            spellcheck="false" data-lpignore="true" data-form-type="other" placeholder="Password" value=""
+            onkeydown="if(event.key==='Enter'){event.preventDefault();handleLoginSubmit();}"
+            class="masked-pass-input w-full px-4 py-2.5 rounded border border-slate-300 bg-[#E8F0FE] text-center text-sm sm:text-base text-slate-800 font-medium focus:outline-none focus:ring-2 focus:ring-[#456FE8] focus:bg-white transition-all">
         </div>
 
         <div class="pt-1">
-          <button type="submit" id="btnSubmitLogin"
+          <button type="button" id="btnSubmitLogin" onclick="handleLoginSubmit();"
             class="w-full py-2.5 px-6 rounded bg-[#456FE8] hover:bg-[#365BD6] active:scale-[0.99] text-white font-medium text-sm sm:text-base shadow transition-all">
             Login
           </button>
         </div>
-      </form>
+      </div>
 
       <!-- Garis Pemisah & Catatan Hubungi Admin -->
       <div class="max-w-sm mx-auto border-t border-slate-200 my-8"></div>
@@ -2309,7 +2316,7 @@
           var manifestObj = {
             name: 'System Education Test (SI-PALING)',
             short_name: 'SI-PALING',
-            display: 'fullscreen',
+            display: 'standalone',
             background_color: '#0f172a',
             theme_color: '#0f172a',
             icons: [{ src: SIPALING_LOGO_B64, sizes: '192x192', type: 'image/png' }]
@@ -3099,8 +3106,19 @@
       });
     }
 
+    function initMaskedPasswordFallback() {
+      try {
+        var pEl = document.getElementById('loginPassword');
+        var st = document.documentElement ? document.documentElement.style : null;
+        if (pEl && st && !('webkitTextSecurity' in st)) {
+          pEl.type = 'password';
+        }
+      } catch (e) { }
+    }
+
     window.addEventListener('DOMContentLoaded', function () {
       initAppFaviconFromLogo();
+      initMaskedPasswordFallback();
       ensureLocalFallbackData();
       syncCharModesFromMenuSoal();
       initAnswerPressReleaseGuards();
@@ -3373,10 +3391,7 @@
         refreshUserLockState();
 
         appState.strictFocusArmed = true;
-        if (!isSilentRestore && typeof enterStrictFullscreen === 'function') {
-          enterStrictFullscreen();
-        }
-        appState.strictFullscreenExpected = !!getFullscreenElement();
+        appState.strictFullscreenExpected = false;
 
         if (!isSilentRestore) {
           if (checkIfCurrentUserLocked()) {
@@ -3502,22 +3517,6 @@
     }
 
     function initFocusAndKioskGuards() {
-      var onFsChange = function () {
-        if (appState.activeShell === 'user' && appState.strictFocusArmed && !appState.isExplicitLogout) {
-          appState.strictFullscreenExpected = !!getFullscreenElement();
-          pushAppHistoryGuard(2);
-        }
-      };
-      document.addEventListener('fullscreenchange', onFsChange);
-      document.addEventListener('webkitfullscreenchange', onFsChange);
-
-      // Masuk ulang ke layar penuh secara diam-diam saat pengguna menyentuh layar tanpa memunculkan popup peringatan
-      document.addEventListener('pointerdown', function () {
-        if (appState.activeShell === 'user' && appState.strictFocusArmed && !appState.isExplicitLogout && !getFullscreenElement()) {
-          enterStrictFullscreen();
-        }
-      });
-
       document.addEventListener('visibilitychange', function () {
         if (document.visibilityState === 'visible' && appState.activeShell === 'user' && appState.strictFocusArmed && !appState.isExplicitLogout) {
           pushAppHistoryGuard(2);
@@ -4865,7 +4864,6 @@
       appState.examActive = true;
       appState.isColumnTransition = false;
       appState.strictFocusArmed = true;
-      enterStrictFullscreen();
       pushAppHistoryGuard(3);
 
       var modeBadge = document.getElementById('examModeBadge');
