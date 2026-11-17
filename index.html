@@ -997,15 +997,7 @@
 
         <!-- TABEL KUNCI REFERENSI A-E -->
         <div class="bg-white rounded-2xl border-2 border-slate-300 p-4 sm:p-6 shadow-sm">
-          <div class="flex items-center justify-between mb-3">
-            <span class="text-xs font-extrabold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
-              <svg class="w-4 h-4 text-polri-800" fill="none" stroke="currentColor" stroke-width="2.2"
-                viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
-              </svg>
-              TABEL KUNCI REFERENSI (KOLOM <span id="keyTableColNum">1</span>)
-            </span>
+          <div class="flex items-center justify-end mb-3">
             <span class="text-xs font-semibold text-slate-500">Soal Terjawab di Kolom Ini: <strong
                 id="currentColAnsweredCount" class="text-slate-900 font-cat-mono">0</strong></span>
           </div>
@@ -1056,13 +1048,8 @@
 
         <!-- AREA SOAL -->
         <div
-          class="relative bg-white rounded-2xl border-2 border-blue-600 p-5 sm:p-7 shadow-sm text-center space-y-3 overflow-hidden">
-          <div
-            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-polri-900 text-xs font-extrabold uppercase tracking-wider">
-            Manakah Karakter yang HILANG?
-          </div>
-
-          <div class="max-w-md mx-auto grid grid-cols-4 gap-2.5 sm:gap-4 pt-1">
+          class="relative bg-white rounded-2xl border-2 border-blue-600 p-5 sm:p-7 shadow-sm text-center overflow-hidden">
+          <div class="max-w-md mx-auto grid grid-cols-4 gap-2.5 sm:gap-4">
             <div id="qChar0"
               class="py-3.5 sm:py-5 rounded-xl bg-slate-50 border-2 border-slate-300 font-cat-mono text-2xl sm:text-4xl font-extrabold text-slate-900">
               9</div>
@@ -4915,12 +4902,10 @@
       var colNumber = colIndex + 1;
       var totalCols = appState.selectedColumns;
       var indEl = document.getElementById('examColIndicator');
-      var keyColNumEl = document.getElementById('keyTableColNum');
       var ansCountEl = document.getElementById('currentColAnsweredCount');
       var progBar = document.getElementById('examColProgressBar');
 
       if (indEl) indEl.textContent = 'Kolom ke-' + colNumber + ' dari ' + totalCols;
-      if (keyColNumEl) keyColNumEl.textContent = String(colNumber);
       if (ansCountEl) ansCountEl.textContent = '0';
       if (progBar) progBar.style.width = Math.round((colNumber / totalCols) * 100) + '%';
       var mathInd = document.getElementById('mathColIndicator');
@@ -5027,12 +5012,10 @@
       var colNumber = colIndex + 1;
       var totalCols = appState.selectedColumns;
       var indEl = document.getElementById('examColIndicator');
-      var keyColNumEl = document.getElementById('keyTableColNum');
       var ansCountEl = document.getElementById('currentColAnsweredCount');
       var progBar = document.getElementById('examColProgressBar');
 
       if (indEl) indEl.textContent = 'Kolom ke-' + colNumber + ' dari ' + totalCols;
-      if (keyColNumEl) keyColNumEl.textContent = String(colNumber);
       if (ansCountEl) ansCountEl.textContent = '0';
       if (progBar) progBar.style.width = Math.round((colNumber / totalCols) * 100) + '%';
 
