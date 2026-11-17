@@ -1755,9 +1755,27 @@
               <option value="HURUF">HURUF (A-Z)</option>
               <option value="SIMBOL">SIMBOL</option>
               <option value="CAMPURAN">CAMPURAN</option>
-              <option value="SIMBOL_PENJUMLAHAN">SIMBOL PENJUMLAHAN</option>
+              <option value="SIMBOL_PENJUMLAHAN">SIMBOL PENJUMLAHAN (Karakter Bawaan)</option>
+              <option value="SIMBOL_PENJUMLAHAN_GAMBAR">SIMBOL PENJUMLAHAN (Gambar 1–9 Per Kolom)</option>
               <option value="GAMBAR">GAMBAR (Per Kolom A–E)</option>
             </select>
+          </div>
+        </div>
+
+        <!-- PEMILIH CEPAT SUMBER SIMBOL PENJUMLAHAN -->
+        <div id="soalMathVariantBar"
+          class="hidden rounded-xl border border-indigo-200 bg-indigo-50/50 p-2.5 sm:p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <span class="block text-xs font-extrabold text-slate-800">Sumber Item Kunci Simbol Penjumlahan (Angka 1–9)</span>
+            <span class="text-[11px] text-slate-500">Pilih karakter bawaan atau unggah gambar manual sendiri per kolom.</span>
+          </div>
+          <div class="inline-flex rounded-lg bg-white border border-slate-200 p-0.5 shrink-0">
+            <button type="button" id="btnMathVarDefault" onclick="setMathVariantMode('SIMBOL_PENJUMLAHAN')"
+              class="px-2.5 py-1 rounded-md text-[11px] font-bold transition-colors cursor-pointer bg-slate-900 text-white">Simbol
+              Bawaan</button>
+            <button type="button" id="btnMathVarImage" onclick="setMathVariantMode('SIMBOL_PENJUMLAHAN_GAMBAR')"
+              class="px-2.5 py-1 rounded-md text-[11px] font-bold transition-colors cursor-pointer text-slate-600 hover:bg-slate-100">Gambar
+              Per Kolom (1–9)</button>
           </div>
         </div>
 
@@ -1765,7 +1783,8 @@
           <div class="sm:col-span-2">
             <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Nama Paket / Aspek Soal <span
                 class="text-rose-600">*</span></label>
-            <input type="text" id="formSoalNama" required maxlength="90" placeholder="Contoh: Kecermatan Gambar Variasi 1"
+            <input type="text" id="formSoalNama" required maxlength="90"
+              placeholder="Contoh: Kecermatan Gambar Variasi 1"
               class="w-full px-3.5 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#2B59C3]">
           </div>
           <div>
@@ -1782,19 +1801,19 @@
             class="w-full px-3.5 py-2 rounded-lg border border-slate-300 font-cat-mono focus:outline-none focus:ring-2 focus:ring-[#2B59C3]">
         </div>
 
-        <!-- EDITOR GAMBAR PER KOLOM (A-E) UNTUK MODE GAMBAR -->
+        <!-- EDITOR GAMBAR PER KOLOM (A-E / 1-9) -->
         <div id="soalImageBuilderSection"
           class="hidden space-y-3 rounded-xl border border-blue-200 bg-blue-50/40 p-3 sm:p-4">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-blue-100 pb-2.5">
             <div>
               <div class="flex flex-wrap items-center gap-2">
-                <span class="text-xs font-extrabold uppercase tracking-wide text-slate-800">Konfigurasi Gambar Per
+                <span id="soalImageSectionTitle" class="text-xs font-extrabold uppercase tracking-wide text-slate-800">Konfigurasi Gambar Per
                   Kolom (A–E)</span>
                 <span id="soalImageGlobalStatus"
                   class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-slate-200 text-slate-700">0 / 10 Kolom
                   Lengkap</span>
               </div>
-              <p class="text-[11px] text-slate-500 mt-0.5">Isi 5 gambar (A–E) untuk tiap kolom. Minimal 1 kolom lengkap
+              <p id="soalImageSectionSubtitle" class="text-[11px] text-slate-500 mt-0.5">Isi 5 gambar (A–E) untuk tiap kolom. Minimal 1 kolom lengkap
                 untuk mulai simulasi.</p>
             </div>
             <div class="flex items-center gap-2 shrink-0">
@@ -1811,7 +1830,8 @@
 
           <div id="soalImageLoadingBanner"
             class="hidden px-3 py-2 rounded-lg bg-amber-50 border border-amber-200 text-xs font-semibold text-amber-800 flex items-center gap-2">
-            <span class="inline-block w-3.5 h-3.5 rounded-full border-2 border-amber-600 border-t-transparent animate-spin"></span>
+            <span
+              class="inline-block w-3.5 h-3.5 rounded-full border-2 border-amber-600 border-t-transparent animate-spin"></span>
             <span>Mengambil data gambar kolom dari server...</span>
           </div>
 
@@ -1838,7 +1858,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round"
                       d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
                   </svg>
-                  <span>Upload 5 Sekaligus (A–E)</span>
+                  <span id="soalImageBulkBtnText">Upload 5 Sekaligus (A–E)</span>
                 </button>
                 <div class="inline-flex items-center gap-1">
                   <select id="soalImageCopySource"
@@ -1849,18 +1869,17 @@
                     class="px-2 py-1.5 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-[11px] font-bold text-slate-700 cursor-pointer">Salin</button>
                 </div>
                 <button type="button" onclick="shuffleActiveSoalImageColumn()"
-                  class="px-2 py-1.5 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-[11px] font-bold text-slate-700 cursor-pointer">Acak
-                  A–E</button>
+                  class="px-2 py-1.5 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-[11px] font-bold text-slate-700 cursor-pointer"><span id="soalImageShuffleBtnText">Acak A–E</span></button>
                 <button type="button" onclick="clearActiveSoalImageColumn()"
                   class="px-2 py-1.5 rounded-lg border border-rose-200 bg-rose-50 hover:bg-rose-100 text-[11px] font-bold text-rose-700 cursor-pointer">Kosongkan</button>
               </div>
             </div>
 
-            <!-- 5 Slot Gambar A-E -->
+            <!-- Slot Gambar A-E atau 1-9 -->
             <div id="soalImageSlotsGrid" class="grid grid-cols-2 sm:grid-cols-5 gap-2.5"></div>
 
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-1 border-t border-slate-100">
-              <p class="text-[11px] text-slate-500">
+              <p id="soalImageTipsText" class="text-[11px] text-slate-500">
                 Tips: Klik kotak A–E, <strong>seret file (Drop)</strong>, atau klik kotak lalu tekan
                 <kbd class="px-1 py-0.5 bg-slate-100 border border-slate-300 rounded text-[10px]">Ctrl+V</kbd> tempel
                 gambar. Otomatis dikompres ringan.
@@ -1879,7 +1898,7 @@
             <label class="inline-flex items-center gap-2 text-slate-700 font-medium cursor-pointer">
               <input type="checkbox" id="formSoalShuffleImages"
                 class="rounded border-slate-300 text-[#2B59C3] focus:ring-[#2B59C3]">
-              <span>Acak urutan posisi gambar A–E tiap kolom saat tes (nonaktif = tampil persis sesuai slot)</span>
+              <span id="soalImageShuffleCheckLabel">Acak urutan posisi gambar A–E tiap kolom saat tes (nonaktif = tampil persis sesuai slot)</span>
             </label>
           </div>
         </div>
@@ -2234,6 +2253,7 @@
       CAMPURAN: 'Campuran (Kombinasi)',
       BUAH: 'Simbol Gambar (Buah)',
       SIMBOL_PENJUMLAHAN: 'Simbol Penjumlahan',
+      SIMBOL_PENJUMLAHAN_GAMBAR: 'Simbol Penjumlahan (Gambar 1\u20139)',
       GAMBAR: 'Gambar (Per Kolom A\u2013E)'
     };
 
@@ -2301,11 +2321,23 @@
       return SIMBOL_MATH_SETS.SET_C;
     }
 
+    function isImageBasedModeKey(modeKey) {
+      var m = String(modeKey || '').toUpperCase().trim();
+      return m === 'GAMBAR' || m === 'SIMBOL_PENJUMLAHAN_GAMBAR';
+    }
+
+    function isSimbolPenjumlahanGambarMode() {
+      var mode = String(appState.selectedCharMode || '').toUpperCase().trim();
+      return mode === 'SIMBOL_PENJUMLAHAN_GAMBAR';
+    }
+
     function isSimbolPenjumlahanMode() {
       var mode = String(appState.selectedCharMode || '').toUpperCase().trim();
+      if (mode === 'GAMBAR') return false;
+      if (mode === 'SIMBOL_PENJUMLAHAN' || mode === 'SIMBOL_PENJUMLAHAN_GAMBAR') return true;
       var nama = String(appState.selectedSoalNama || '').toLowerCase();
       var id = String(appState.selectedSoalId || '').toUpperCase();
-      return mode === 'SIMBOL_PENJUMLAHAN' || id === 'SOAL-014' || nama.indexOf('penjumlahan') !== -1;
+      return id === 'SOAL-014' || nama.indexOf('penjumlahan') !== -1;
     }
     // Library Siluet Vektor Monokrom (SVG) identik dengan Lembar Soal CAT Polri
     function getFruitSvgSilhouette(char) {
@@ -2421,7 +2453,11 @@
         if (parts.length >= 4 && typeof appState !== 'undefined' && appState.soalImagesCache) {
           var sId = parts[1];
           var cNo = parts[2];
-          var slotIdx = ['A', 'B', 'C', 'D', 'E'].indexOf(String(parts[3] || '').toUpperCase());
+          var keyChar = String(parts[3] || '').toUpperCase();
+          var slotIdx = ['A', 'B', 'C', 'D', 'E'].indexOf(keyChar);
+          if (slotIdx === -1) {
+            slotIdx = ['1', '2', '3', '4', '5', '6', '7', '8', '9'].indexOf(keyChar);
+          }
           var entry = appState.soalImagesCache[sId];
           if (entry && entry.columns && entry.columns[cNo] && slotIdx !== -1) {
             return entry.columns[cNo][slotIdx] || '';
@@ -2431,11 +2467,17 @@
       return '';
     }
 
-    function renderCharacterVisual(el, char) {
+    function renderCharacterVisual(el, char, sizeVariant) {
       if (!el) return;
       var customImg = resolveExamImageSrc(char);
       if (customImg) {
-        el.innerHTML = '<img src="' + escapeHtml(customImg) + '" draggable="false" class="h-9 sm:h-12 w-auto max-w-[92%] inline-block object-contain mx-auto pointer-events-none select-none align-middle rounded" alt="Simbol">';
+        var imgCls = 'h-9 sm:h-12 w-auto max-w-[92%] inline-block object-contain mx-auto pointer-events-none select-none align-middle rounded';
+        if (sizeVariant === 'math-key') {
+          imgCls = 'h-7 sm:h-10 w-auto max-w-[90%] inline-block object-contain mx-auto pointer-events-none select-none align-middle rounded';
+        } else if (sizeVariant === 'math-q') {
+          imgCls = 'h-14 sm:h-20 w-auto max-w-[110px] sm:max-w-[140px] inline-block object-contain mx-auto pointer-events-none select-none align-middle rounded';
+        }
+        el.innerHTML = '<img src="' + escapeHtml(customImg) + '" draggable="false" class="' + imgCls + '" alt="Simbol">';
         return;
       }
       if (typeof VEHICLE_CUTOUT_IMAGES !== 'undefined' && VEHICLE_CUTOUT_IMAGES[char]) {
@@ -2505,6 +2547,8 @@
       columnStats: [],
       soalImagesCache: {},
       activeExamImageMap: {},
+      currentMathImageTokens: [],
+      lastMathImagePair: '',
 
       chartInstance: null,
       adminDoughnutChart: null,
@@ -2802,7 +2846,7 @@
       appState.selectedSoalNama = titleText;
       appState.selectedCharMode = mKey;
       appState.selectedSoalMeta = (soalObj.gambarMeta && typeof soalObj.gambarMeta === 'object') ? soalObj.gambarMeta : null;
-      if (mKey === 'GAMBAR') {
+      if (isImageBasedModeKey(mKey)) {
         appState.selectedSoalChars = [];
       } else {
         appState.selectedSoalChars = unique.length >= 5 ? unique : (CHAR_POOLS[mKey] || CHAR_POOLS.ANGKA);
@@ -2879,10 +2923,11 @@
         var mKey = String(s.mode || 'ANGKA').toUpperCase().trim();
         var labelText = s.namaPaket || (MODE_LABELS[mKey] || mKey);
         var subBadgeHtml = '';
-        if (mKey === 'GAMBAR') {
+        if (isImageBasedModeKey(mKey)) {
           var gMeta = parseGambarMetaObj(s.gambarMeta);
           var gColsCount = Array.isArray(gMeta.filledCols) ? gMeta.filledCols.length : 0;
-          subBadgeHtml = '<span class="block text-[11px] font-semibold text-blue-700 mt-0.5">Mode Gambar \u2022 ' + (gColsCount > 0 ? (gColsCount + ' Kolom Siap') : 'Per Kolom A\u2013E') + '</span>';
+          var modeDesc = mKey === 'SIMBOL_PENJUMLAHAN_GAMBAR' ? 'Penjumlahan Gambar (1\u20139)' : 'Mode Gambar (A\u2013E)';
+          subBadgeHtml = '<span class="block text-[11px] font-semibold text-blue-700 mt-0.5">' + modeDesc + ' \u2022 ' + (gColsCount > 0 ? (gColsCount + ' Kolom Siap') : 'Per Kolom') + '</span>';
         }
         var btnClass = isSelected
           ? 'char-mode-btn interactive-card text-left p-4 rounded-xl border-2 border-blue-600 bg-blue-50/50 transition-all flex items-center justify-between gap-3'
@@ -4746,18 +4791,20 @@
         var s = items[i];
         var modeUpper = String(s.mode || 'ANGKA').toUpperCase().trim();
         var poolHtml = '';
-        if (modeUpper === 'GAMBAR') {
+        if (isImageBasedModeKey(modeUpper)) {
           var meta = parseGambarMetaObj(s.gambarMeta);
           var fCols = Array.isArray(meta.filledCols) ? meta.filledCols.length : 0;
           var tKol = parseInt(meta.totalKolom, 10) || 10;
-          var tImgs = parseInt(meta.totalImages, 10) || (fCols * 5);
+          var slotPerCol = modeUpper === 'SIMBOL_PENJUMLAHAN_GAMBAR' ? 9 : (parseInt(meta.slotCount, 10) || 5);
+          var tImgs = parseInt(meta.totalImages, 10) || (fCols * slotPerCol);
+          var lblPrefix = modeUpper === 'SIMBOL_PENJUMLAHAN_GAMBAR' ? 'Penjumlahan 1\u20139' : 'Gambar A\u2013E';
           poolHtml = '<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-bold">' +
-            'Mode Gambar: ' + fCols + '/' + tKol + ' Kolom (' + tImgs + ' Gambar)' +
+            lblPrefix + ': ' + fCols + '/' + tKol + ' Kolom (' + tImgs + ' Gambar)' +
             '</span>';
         } else {
           poolHtml = '<span class="font-cat-mono text-xs text-slate-600">' + escapeHtml(s.karakter) + '</span>';
         }
-        var modeBadgeClass = modeUpper === 'GAMBAR'
+        var modeBadgeClass = isImageBasedModeKey(modeUpper)
           ? 'px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold text-xs'
           : 'px-2 py-0.5 rounded bg-blue-50 text-blue-800 font-bold text-xs';
 
@@ -4778,10 +4825,11 @@
     }
 
     // ============================================================================
-    // CONTROLLER EDITOR GAMBAR PER KOLOM (MODE GAMBAR A-E)
+    // CONTROLLER EDITOR GAMBAR PER KOLOM (MODE GAMBAR A-E & PENJUMLAHAN 1-9)
     // ============================================================================
     var soalImageBuilderState = {
       totalKolom: 10,
+      slotCount: 5,
       activeCol: 1,
       focusedSlot: 0,
       shufflePerCol: false,
@@ -4794,29 +4842,54 @@
     };
     var isSavingSoalModal = false;
 
-    function createEmptyImageSlots() {
-      return ['', '', '', '', ''];
+    function getSoalImageBuilderConfig(modeOverride) {
+      var modeEl = document.getElementById('formSoalMode');
+      var m = String(modeOverride !== undefined ? modeOverride : (modeEl ? modeEl.value : 'GAMBAR')).toUpperCase().trim();
+      var isMathImg = (m === 'SIMBOL_PENJUMLAHAN_GAMBAR');
+      return {
+        mode: m,
+        isMathImg: isMathImg,
+        slotCount: isMathImg ? 9 : 5,
+        labels: isMathImg ? ['1', '2', '3', '4', '5', '6', '7', '8', '9'] : ['A', 'B', 'C', 'D', 'E'],
+        rangeLabel: isMathImg ? '1\u20139' : 'A\u2013E',
+        gridClass: isMathImg ? 'grid grid-cols-3 sm:grid-cols-5 gap-2.5' : 'grid grid-cols-2 sm:grid-cols-5 gap-2.5',
+        karakterToken: isMathImg ? 'GAMBAR_PENJUMLAHAN_PER_KOLOM' : 'GAMBAR_PER_KOLOM'
+      };
     }
 
-    function getBuilderColSlots(colNo) {
+    function createEmptyImageSlots(slotCount) {
+      var n = parseInt(slotCount, 10) || soalImageBuilderState.slotCount || 5;
+      var arr = [];
+      for (var i = 0; i < n; i++) arr.push('');
+      return arr;
+    }
+
+    function getBuilderColSlots(colNo, slotCountOverride) {
+      var targetLen = parseInt(slotCountOverride, 10) || soalImageBuilderState.slotCount || 5;
       var key = String(colNo);
-      if (!Array.isArray(soalImageBuilderState.columns[key]) || soalImageBuilderState.columns[key].length !== 5) {
-        soalImageBuilderState.columns[key] = createEmptyImageSlots();
+      var cur = soalImageBuilderState.columns[key];
+      if (!Array.isArray(cur)) {
+        cur = createEmptyImageSlots(targetLen);
+        soalImageBuilderState.columns[key] = cur;
+      } else if (cur.length < targetLen) {
+        while (cur.length < targetLen) cur.push('');
       }
-      return soalImageBuilderState.columns[key];
+      return cur;
     }
 
-    function countFilledInSlots(slots) {
+    function countFilledInSlots(slots, slotCountOverride) {
       if (!Array.isArray(slots)) return 0;
+      var limit = parseInt(slotCountOverride, 10) || slots.length;
       var cnt = 0;
-      for (var i = 0; i < 5; i++) {
+      for (var i = 0; i < limit && i < slots.length; i++) {
         if (String(slots[i] || '').trim()) cnt++;
       }
       return cnt;
     }
 
-    function resetSoalImageBuilderState(totalKolom, shufflePerCol) {
+    function resetSoalImageBuilderState(totalKolom, shufflePerCol, slotCount) {
       soalImageBuilderState.totalKolom = Math.min(15, Math.max(1, parseInt(totalKolom, 10) || 10));
+      soalImageBuilderState.slotCount = parseInt(slotCount, 10) === 9 ? 9 : 5;
       soalImageBuilderState.activeCol = 1;
       soalImageBuilderState.focusedSlot = 0;
       soalImageBuilderState.shufflePerCol = !!shufflePerCol;
@@ -4841,7 +4914,8 @@
         var modal = document.getElementById('modalAdminSoal');
         var modeEl = document.getElementById('formSoalMode');
         if (!modal || modal.classList.contains('hidden')) return;
-        if (!modeEl || String(modeEl.value || '').toUpperCase() !== 'GAMBAR') return;
+        if (!modeEl || !isImageBasedModeKey(modeEl.value)) return;
+        var cfg = getSoalImageBuilderConfig(modeEl.value);
         var clip = e.clipboardData || window.clipboardData;
         if (!clip || !clip.items) return;
         for (var i = 0; i < clip.items.length; i++) {
@@ -4850,16 +4924,16 @@
             var file = item.getAsFile();
             if (file) {
               e.preventDefault();
-              var activeSlots = getBuilderColSlots(soalImageBuilderState.activeCol);
+              var activeSlots = getBuilderColSlots(soalImageBuilderState.activeCol, cfg.slotCount);
               var targetSlot = soalImageBuilderState.focusedSlot;
-              if (targetSlot < 0 || targetSlot > 4) targetSlot = 0;
+              if (targetSlot < 0 || targetSlot >= cfg.slotCount) targetSlot = 0;
               if (activeSlots[targetSlot]) {
-                for (var s = 0; s < 5; s++) {
+                for (var s = 0; s < cfg.slotCount; s++) {
                   if (!activeSlots[s]) { targetSlot = s; break; }
                 }
               }
               assignCompressedFileToSlot(soalImageBuilderState.activeCol, targetSlot, file, function () {
-                soalImageBuilderState.focusedSlot = (targetSlot + 1) % 5;
+                soalImageBuilderState.focusedSlot = (targetSlot + 1) % cfg.slotCount;
                 renderSoalImageBuilder();
               });
               break;
@@ -4869,13 +4943,48 @@
       });
     }
 
+    function setMathVariantMode(targetMode) {
+      var modeEl = document.getElementById('formSoalMode');
+      if (!modeEl) return;
+      modeEl.value = targetMode;
+      onSoalModeChange();
+    }
+
     function onSoalModeChange() {
       var modeEl = document.getElementById('formSoalMode');
+      var modeUpper = modeEl ? String(modeEl.value || 'ANGKA').toUpperCase().trim() : 'ANGKA';
       var modalBox = document.getElementById('modalAdminSoalBox');
       var karWrap = document.getElementById('formSoalKarakterWrap');
       var karInput = document.getElementById('formSoalKarakter');
       var builderEl = document.getElementById('soalImageBuilderSection');
-      var isImg = modeEl && String(modeEl.value || '').toUpperCase() === 'GAMBAR';
+      var mathVarBar = document.getElementById('soalMathVariantBar');
+      var btnMathDef = document.getElementById('btnMathVarDefault');
+      var btnMathImg = document.getElementById('btnMathVarImage');
+
+      var isMathAny = (modeUpper === 'SIMBOL_PENJUMLAHAN' || modeUpper === 'SIMBOL_PENJUMLAHAN_GAMBAR');
+      var isImg = isImageBasedModeKey(modeUpper);
+      var cfg = getSoalImageBuilderConfig(modeUpper);
+      soalImageBuilderState.slotCount = cfg.slotCount;
+      if (soalImageBuilderState.focusedSlot >= cfg.slotCount) {
+        soalImageBuilderState.focusedSlot = 0;
+      }
+
+      if (mathVarBar) {
+        if (isMathAny) {
+          mathVarBar.classList.remove('hidden');
+          if (btnMathDef && btnMathImg) {
+            if (modeUpper === 'SIMBOL_PENJUMLAHAN_GAMBAR') {
+              btnMathDef.className = 'px-2.5 py-1 rounded-md text-[11px] font-bold transition-colors cursor-pointer text-slate-600 hover:bg-slate-100';
+              btnMathImg.className = 'px-2.5 py-1 rounded-md text-[11px] font-bold transition-colors cursor-pointer bg-[#2B59C3] text-white shadow-xs';
+            } else {
+              btnMathDef.className = 'px-2.5 py-1 rounded-md text-[11px] font-bold transition-colors cursor-pointer bg-slate-900 text-white shadow-xs';
+              btnMathImg.className = 'px-2.5 py-1 rounded-md text-[11px] font-bold transition-colors cursor-pointer text-slate-600 hover:bg-slate-100';
+            }
+          }
+        } else {
+          mathVarBar.classList.add('hidden');
+        }
+      }
 
       if (modalBox) {
         if (isImg) {
@@ -4893,10 +5002,11 @@
       if (karInput) {
         karInput.required = !isImg;
         if (isImg) {
-          karInput.value = 'GAMBAR_PER_KOLOM';
-        } else if (karInput.value === 'GAMBAR_PER_KOLOM') {
-          var mVal = modeEl ? String(modeEl.value || 'ANGKA').toUpperCase() : 'ANGKA';
-          karInput.value = (CHAR_POOLS[mVal] && CHAR_POOLS[mVal].length) ? CHAR_POOLS[mVal].slice(0, 10).join(',') : '0,1,2,3,4,5,6,7,8,9';
+          karInput.value = cfg.karakterToken;
+        } else if (karInput.value === 'GAMBAR_PER_KOLOM' || karInput.value === 'GAMBAR_PENJUMLAHAN_PER_KOLOM') {
+          karInput.value = (CHAR_POOLS[modeUpper] && CHAR_POOLS[modeUpper].length)
+            ? CHAR_POOLS[modeUpper].slice(0, 10).join(',')
+            : (modeUpper === 'SIMBOL_PENJUMLAHAN' ? 'SIMBOL_PENJUMLAHAN_BAWAAN' : '0,1,2,3,4,5,6,7,8,9');
         }
       }
       if (builderEl) {
@@ -4952,18 +5062,19 @@
     }
 
     function compressQuestionImageFile(file, onSuccess, onError) {
+      var fileName = (file && file.name) ? file.name : 'clipboard.png';
       if (!file || (file.type && file.type.indexOf('image/') !== 0)) {
-        if (onError) onError('File "' + (file ? file.name : '') + '" bukan file gambar.');
+        if (onError) onError('File "' + fileName + '" bukan file gambar.');
         return;
       }
       var reader = new FileReader();
       reader.onerror = function () {
-        if (onError) onError('Gagal membaca file gambar "' + file.name + '".');
+        if (onError) onError('Gagal membaca file gambar "' + fileName + '".');
       };
       reader.onload = function (ev) {
         var img = new Image();
         img.onerror = function () {
-          if (onError) onError('Gambar "' + file.name + '" rusak atau format tidak didukung.');
+          if (onError) onError('Gambar "' + fileName + '" rusak atau format tidak didukung.');
         };
         img.onload = function () {
           try {
@@ -5024,12 +5135,12 @@
             }
 
             if (dataUri.length > 44000) {
-              if (onError) onError('Gambar "' + file.name + '" masih terlalu besar setelah kompresi.');
+              if (onError) onError('Gambar "' + fileName + '" masih terlalu besar setelah kompresi.');
               return;
             }
             if (onSuccess) onSuccess(dataUri);
           } catch (err) {
-            if (onError) onError('Gagal mengompres gambar "' + file.name + '".');
+            if (onError) onError('Gagal mengompres gambar "' + fileName + '".');
           }
         };
         img.src = ev.target.result;
@@ -5038,12 +5149,13 @@
     }
 
     function assignCompressedFileToSlot(colNo, slotIdx, file, doneCb) {
+      var cfg = getSoalImageBuilderConfig();
       soalImageBuilderState.pendingUploads++;
       compressQuestionImageFile(
         file,
         function (dataUri) {
           soalImageBuilderState.pendingUploads = Math.max(0, soalImageBuilderState.pendingUploads - 1);
-          var slots = getBuilderColSlots(colNo);
+          var slots = getBuilderColSlots(colNo, cfg.slotCount);
           slots[slotIdx] = dataUri;
           soalImageBuilderState.dirtyCols[String(colNo)] = true;
           renderSoalImageBuilder();
@@ -5062,16 +5174,18 @@
         handleBulkSoalImagesUpload(fileList);
         return;
       }
+      var cfg = getSoalImageBuilderConfig();
       var colNo = soalImageBuilderState.activeCol;
-      var slotIdx = Math.min(4, Math.max(0, soalImageBuilderState.focusedSlot || 0));
+      var slotIdx = Math.min(cfg.slotCount - 1, Math.max(0, soalImageBuilderState.focusedSlot || 0));
       assignCompressedFileToSlot(colNo, slotIdx, fileList[0], function () {
-        soalImageBuilderState.focusedSlot = (slotIdx + 1) % 5;
+        soalImageBuilderState.focusedSlot = (slotIdx + 1) % cfg.slotCount;
         renderSoalImageBuilder();
       });
     }
 
     function handleBulkSoalImagesUpload(fileList) {
       if (!fileList || !fileList.length) return;
+      var cfg = getSoalImageBuilderConfig();
       var files = [];
       for (var i = 0; i < fileList.length; i++) files.push(fileList[i]);
       files.sort(function (a, b) {
@@ -5079,23 +5193,23 @@
       });
 
       var colNo = soalImageBuilderState.activeCol;
-      var slots = getBuilderColSlots(colNo);
+      var slots = getBuilderColSlots(colNo, cfg.slotCount);
       var targetIndices = [];
 
-      if (files.length >= 5) {
-        if (files.length > 5) {
-          showToast('Hanya 5 gambar pertama yang dimasukkan ke slot A\u2013E Kolom ' + colNo + '.', 'info');
+      if (files.length >= cfg.slotCount) {
+        if (files.length > cfg.slotCount) {
+          showToast('Hanya ' + cfg.slotCount + ' gambar pertama yang dimasukkan ke slot ' + cfg.rangeLabel + ' Kolom ' + colNo + '.', 'info');
         }
-        files = files.slice(0, 5);
-        targetIndices = [0, 1, 2, 3, 4];
+        files = files.slice(0, cfg.slotCount);
+        for (var idx = 0; idx < cfg.slotCount; idx++) targetIndices.push(idx);
       } else {
-        for (var eIdx = 0; eIdx < 5 && targetIndices.length < files.length; eIdx++) {
+        for (var eIdx = 0; eIdx < cfg.slotCount && targetIndices.length < files.length; eIdx++) {
           if (!slots[eIdx]) targetIndices.push(eIdx);
         }
         var cursor = soalImageBuilderState.focusedSlot || 0;
         while (targetIndices.length < files.length) {
           if (targetIndices.indexOf(cursor) === -1) targetIndices.push(cursor);
-          cursor = (cursor + 1) % 5;
+          cursor = (cursor + 1) % cfg.slotCount;
         }
       }
 
@@ -5120,8 +5234,9 @@
     }
 
     function removeSoalImageSlot(slotIdx) {
+      var cfg = getSoalImageBuilderConfig();
       var colNo = soalImageBuilderState.activeCol;
-      var slots = getBuilderColSlots(colNo);
+      var slots = getBuilderColSlots(colNo, cfg.slotCount);
       slots[slotIdx] = '';
       soalImageBuilderState.dirtyCols[String(colNo)] = true;
       soalImageBuilderState.focusedSlot = slotIdx;
@@ -5129,17 +5244,19 @@
     }
 
     function clearActiveSoalImageColumn() {
+      var cfg = getSoalImageBuilderConfig();
       var colNo = soalImageBuilderState.activeCol;
-      soalImageBuilderState.columns[String(colNo)] = createEmptyImageSlots();
+      soalImageBuilderState.columns[String(colNo)] = createEmptyImageSlots(cfg.slotCount);
       soalImageBuilderState.dirtyCols[String(colNo)] = true;
       soalImageBuilderState.focusedSlot = 0;
       renderSoalImageBuilder();
     }
 
     function shuffleActiveSoalImageColumn() {
+      var cfg = getSoalImageBuilderConfig();
       var colNo = soalImageBuilderState.activeCol;
-      var slots = getBuilderColSlots(colNo);
-      if (countFilledInSlots(slots) < 2) {
+      var slots = getBuilderColSlots(colNo, cfg.slotCount).slice(0, cfg.slotCount);
+      if (countFilledInSlots(slots, cfg.slotCount) < 2) {
         showToast('Minimal ada 2 gambar di kolom ini untuk diacak.', 'info');
         return;
       }
@@ -5149,26 +5266,37 @@
     }
 
     function copySoalImageColumnFromSelect() {
+      var cfg = getSoalImageBuilderConfig();
       var sel = document.getElementById('soalImageCopySource');
       var srcCol = sel ? parseInt(sel.value, 10) : 0;
       if (!srcCol || srcCol === soalImageBuilderState.activeCol) {
         showToast('Pilih kolom sumber lain terlebih dahulu.', 'info');
         return;
       }
-      var srcSlots = getBuilderColSlots(srcCol);
-      if (countFilledInSlots(srcSlots) === 0) {
+      var srcSlots = getBuilderColSlots(srcCol, cfg.slotCount);
+      if (countFilledInSlots(srcSlots, cfg.slotCount) === 0) {
         showToast('Kolom ' + srcCol + ' masih kosong.', 'info');
         return;
       }
-      soalImageBuilderState.columns[String(soalImageBuilderState.activeCol)] = srcSlots.slice();
+      soalImageBuilderState.columns[String(soalImageBuilderState.activeCol)] = srcSlots.slice(0, cfg.slotCount);
       soalImageBuilderState.dirtyCols[String(soalImageBuilderState.activeCol)] = true;
       renderSoalImageBuilder();
       showToast('Gambar Kolom ' + srcCol + ' disalin ke Kolom ' + soalImageBuilderState.activeCol + '.', 'success');
     }
 
     function renderSoalImageBuilder() {
+      var cfg = getSoalImageBuilderConfig();
+      var slotCount = cfg.slotCount;
+      var labels = cfg.labels;
       var totalCols = soalImageBuilderState.totalKolom;
       var activeCol = soalImageBuilderState.activeCol;
+
+      var secTitleEl = document.getElementById('soalImageSectionTitle');
+      var secSubEl = document.getElementById('soalImageSectionSubtitle');
+      var bulkBtnTxtEl = document.getElementById('soalImageBulkBtnText');
+      var shuffleBtnTxtEl = document.getElementById('soalImageShuffleBtnText');
+      var tipsEl = document.getElementById('soalImageTipsText');
+      var shuffleChkLblEl = document.getElementById('soalImageShuffleCheckLabel');
       var tabsEl = document.getElementById('soalImageColTabs');
       var globalStatusEl = document.getElementById('soalImageGlobalStatus');
       var titleEl = document.getElementById('soalImageActiveColTitle');
@@ -5177,14 +5305,36 @@
       var gridEl = document.getElementById('soalImageSlotsGrid');
       var nextBtn = document.getElementById('btnNextSoalImageCol');
 
+      if (secTitleEl) {
+        secTitleEl.textContent = cfg.isMathImg
+          ? 'Konfigurasi Gambar Penjumlahan (1\u20139 Per Kolom)'
+          : 'Konfigurasi Gambar Per Kolom (A\u2013E)';
+      }
+      if (secSubEl) {
+        secSubEl.textContent = 'Isi ' + slotCount + ' gambar (' + cfg.rangeLabel + ') untuk tiap kolom. Minimal 1 kolom lengkap untuk mulai simulasi.';
+      }
+      if (bulkBtnTxtEl) {
+        bulkBtnTxtEl.textContent = 'Upload ' + slotCount + ' Sekaligus (' + cfg.rangeLabel + ')';
+      }
+      if (shuffleBtnTxtEl) {
+        shuffleBtnTxtEl.textContent = 'Acak ' + cfg.rangeLabel;
+      }
+      if (tipsEl) {
+        tipsEl.innerHTML = 'Tips: Klik kotak ' + cfg.rangeLabel + ', <strong>seret file (Drop)</strong>, atau klik kotak lalu tekan ' +
+          '<kbd class="px-1 py-0.5 bg-slate-100 border border-slate-300 rounded text-[10px]">Ctrl+V</kbd> tempel gambar. Otomatis dikompres ringan.';
+      }
+      if (shuffleChkLblEl) {
+        shuffleChkLblEl.textContent = 'Acak urutan posisi gambar ' + cfg.rangeLabel + ' tiap kolom saat tes (nonaktif = tampil persis sesuai slot)';
+      }
+
       var completeColsCount = 0;
       var tabsHtml = '';
       var copyOptionsHtml = '<option value="">Salin dari...</option>';
 
       for (var c = 1; c <= totalCols; c++) {
-        var cSlots = getBuilderColSlots(c);
-        var filled = countFilledInSlots(cSlots);
-        var isFull = filled === 5;
+        var cSlots = getBuilderColSlots(c, slotCount);
+        var filled = countFilledInSlots(cSlots, slotCount);
+        var isFull = filled === slotCount;
         if (isFull) completeColsCount++;
         var isActive = (c === activeCol);
 
@@ -5200,10 +5350,10 @@
         }
 
         tabsHtml += '<button type="button" onclick="selectSoalImageCol(' + c + ')" class="px-2.5 py-1 rounded-lg border text-[11px] font-bold transition-colors cursor-pointer ' + pillCls + '">' +
-          'K' + c + ' <span class="opacity-80 font-cat-mono">(' + filled + '/5)</span></button>';
+          'K' + c + ' <span class="opacity-80 font-cat-mono">(' + filled + '/' + slotCount + ')</span></button>';
 
         if (c !== activeCol && filled > 0) {
-          copyOptionsHtml += '<option value="' + c + '">Kolom ' + c + ' (' + filled + '/5)</option>';
+          copyOptionsHtml += '<option value="' + c + '">Kolom ' + c + ' (' + filled + '/' + slotCount + ')</option>';
         }
       }
 
@@ -5217,12 +5367,14 @@
           : 'px-2 py-0.5 rounded-full text-[11px] font-bold bg-slate-200 text-slate-700';
       }
 
-      var activeSlots = getBuilderColSlots(activeCol);
-      var activeFilled = countFilledInSlots(activeSlots);
-      if (titleEl) titleEl.textContent = 'Kolom ' + activeCol + ' \u2014 Set 5 Gambar Referensi (A\u2013E)';
+      var activeSlots = getBuilderColSlots(activeCol, slotCount);
+      var activeFilled = countFilledInSlots(activeSlots, slotCount);
+      if (titleEl) {
+        titleEl.textContent = 'Kolom ' + activeCol + ' \u2014 Set ' + slotCount + ' Gambar Referensi (' + cfg.rangeLabel + ')';
+      }
       if (badgeEl) {
-        badgeEl.textContent = activeFilled + '/5 Gambar';
-        badgeEl.className = activeFilled === 5
+        badgeEl.textContent = activeFilled + '/' + slotCount + ' Gambar';
+        badgeEl.className = activeFilled === slotCount
           ? 'px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800'
           : (activeFilled > 0 ? 'px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-800' : 'px-2 py-0.5 rounded text-[11px] font-bold bg-slate-100 text-slate-600');
       }
@@ -5235,9 +5387,9 @@
       }
 
       if (gridEl) {
-        var letters = ['A', 'B', 'C', 'D', 'E'];
+        gridEl.className = cfg.gridClass;
         var slotsHtml = '';
-        for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < slotCount; i++) {
           var imgSrc = String(activeSlots[i] || '').trim();
           var isFocused = (i === soalImageBuilderState.focusedSlot);
           var borderCls = isFocused ? 'border-blue-600 ring-2 ring-blue-100' : 'border-slate-300 hover:border-blue-400';
@@ -5245,9 +5397,9 @@
           var bodyContent = '';
           var deleteBtnHtml = '';
           if (imgSrc) {
-            deleteBtnHtml = '<button type="button" title="Hapus gambar ' + letters[i] + '" onclick="event.stopPropagation(); removeSoalImageSlot(' + i + ');" ' +
+            deleteBtnHtml = '<button type="button" title="Hapus gambar ' + labels[i] + '" onclick="event.stopPropagation(); removeSoalImageSlot(' + i + ');" ' +
               'class="absolute top-1.5 right-1.5 z-10 w-5 h-5 rounded-full bg-rose-600 hover:bg-rose-700 text-white text-xs font-extrabold flex items-center justify-center shadow-xs cursor-pointer">&times;</button>';
-            bodyContent = '<img src="' + escapeHtml(imgSrc) + '" draggable="false" class="h-14 sm:h-16 w-auto max-w-full object-contain mx-auto pointer-events-none select-none" alt="Slot ' + letters[i] + '">';
+            bodyContent = '<img src="' + escapeHtml(imgSrc) + '" draggable="false" class="h-14 sm:h-16 w-auto max-w-full object-contain mx-auto pointer-events-none select-none" alt="Slot ' + labels[i] + '">';
           } else {
             bodyContent = '<div class="flex flex-col items-center justify-center text-slate-400 gap-1">' +
               '<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>' +
@@ -5264,14 +5416,14 @@
             '<div onclick="event.stopPropagation(); focusSoalImageSlot(' + i + ');" class="h-20 sm:h-24 p-2 flex items-center justify-center bg-white">' +
             bodyContent +
             '</div>' +
-            '<div class="bg-slate-900 text-white text-center py-1 font-extrabold text-xs tracking-wider">' + letters[i] + '</div>' +
+            '<div class="bg-slate-900 text-white text-center py-1 font-extrabold text-xs tracking-wider">' + labels[i] + '</div>' +
             '</div>';
         }
         gridEl.innerHTML = slotsHtml;
       }
     }
 
-    function cloneImageColumnsMap(rawCols) {
+    function cloneImageColumnsMap(rawCols, minSlots) {
       var out = {};
       if (!rawCols || typeof rawCols !== 'object') return out;
       var keys = Object.keys(rawCols);
@@ -5279,13 +5431,12 @@
         var k = keys[i];
         var arr = rawCols[k];
         if (Array.isArray(arr)) {
-          out[k] = [
-            String(arr[0] || ''),
-            String(arr[1] || ''),
-            String(arr[2] || ''),
-            String(arr[3] || ''),
-            String(arr[4] || '')
-          ];
+          var targetLen = Math.max(parseInt(minSlots, 10) || 5, arr.length > 5 ? 9 : 5);
+          var copyArr = [];
+          for (var s = 0; s < targetLen; s++) {
+            copyArr.push(String(arr[s] || ''));
+          }
+          out[k] = copyArr;
         }
       }
       return out;
@@ -5299,9 +5450,11 @@
       }
       if (!isGasEnvironment()) {
         var localData = getLocalSoalImages(cleanId);
+        var lMeta = parseGambarMetaObj(localData.gambarMeta);
+        var lSlots = parseInt(lMeta.slotCount, 10) || 5;
         appState.soalImagesCache[cleanId] = {
-          columns: cloneImageColumnsMap(localData.columns),
-          gambarMeta: localData.gambarMeta || {}
+          columns: cloneImageColumnsMap(localData.columns, lSlots),
+          gambarMeta: lMeta
         };
         if (onSuccess) onSuccess(appState.soalImagesCache[cleanId]);
         return;
@@ -5310,9 +5463,11 @@
       secureRun()
         .withSuccessHandler(function (res) {
           if (res && res.success) {
+            var metaParsed = parseGambarMetaObj(res.gambarMeta);
+            var rSlots = parseInt(res.slotCount, 10) || parseInt(metaParsed.slotCount, 10) || 5;
             appState.soalImagesCache[cleanId] = {
-              columns: cloneImageColumnsMap(res.columns),
-              gambarMeta: parseGambarMetaObj(res.gambarMeta)
+              columns: cloneImageColumnsMap(res.columns, rSlots),
+              gambarMeta: metaParsed
             };
             if (onSuccess) onSuccess(appState.soalImagesCache[cleanId]);
           } else {
@@ -5334,7 +5489,7 @@
       document.getElementById('formSoalNama').value = '';
       document.getElementById('formSoalKarakter').value = '0,1,2,3,4,5,6,7,8,9';
       document.getElementById('formSoalJumlah').value = '600';
-      resetSoalImageBuilderState(10, false);
+      resetSoalImageBuilderState(10, false, 5);
       onSoalModeChange();
       document.getElementById('modalAdminSoal').classList.remove('hidden');
     }
@@ -5366,11 +5521,12 @@
       document.getElementById('formSoalJumlah').value = s.jumlah;
 
       var gMeta = parseGambarMetaObj(s.gambarMeta);
-      resetSoalImageBuilderState(gMeta.totalKolom || 10, !!gMeta.shufflePerCol);
+      var cfg = getSoalImageBuilderConfig(modeUpper);
+      resetSoalImageBuilderState(gMeta.totalKolom || 10, !!gMeta.shufflePerCol, cfg.slotCount);
       onSoalModeChange();
       document.getElementById('modalAdminSoal').classList.remove('hidden');
 
-      if (modeUpper === 'GAMBAR') {
+      if (isImageBasedModeKey(modeUpper)) {
         var loadBanner = document.getElementById('soalImageLoadingBanner');
         soalImageBuilderState.loading = true;
         if (loadBanner) loadBanner.classList.remove('hidden');
@@ -5379,14 +5535,14 @@
           function (entry) {
             soalImageBuilderState.loading = false;
             if (loadBanner) loadBanner.classList.add('hidden');
-            soalImageBuilderState.columns = cloneImageColumnsMap(entry.columns);
+            soalImageBuilderState.columns = cloneImageColumnsMap(entry.columns, cfg.slotCount);
             var origKeys = Object.keys(soalImageBuilderState.columns);
             var maxFoundCol = soalImageBuilderState.totalKolom;
             var origCols = [];
             for (var k = 0; k < origKeys.length; k++) {
               var cNum = parseInt(origKeys[k], 10);
               if (cNum >= 1) {
-                if (countFilledInSlots(soalImageBuilderState.columns[origKeys[k]]) > 0) origCols.push(cNum);
+                if (countFilledInSlots(soalImageBuilderState.columns[origKeys[k]], cfg.slotCount) > 0) origCols.push(cNum);
                 if (cNum > maxFoundCol && cNum <= 15) maxFoundCol = cNum;
               }
             }
@@ -5434,13 +5590,15 @@
       if (isSavingSoalModal) return;
 
       var modeVal = String(document.getElementById('formSoalMode').value || 'ANGKA').toUpperCase().trim();
+      var isImgMode = isImageBasedModeKey(modeVal);
+      var cfg = getSoalImageBuilderConfig(modeVal);
       var payload = {
         id: String(document.getElementById('editSoalId').value || '').trim(),
         kategori: String(document.getElementById('formSoalKategori').value || 'KECERMATAN'),
         mode: modeVal,
         namaPaket: String(document.getElementById('formSoalNama').value || '').trim(),
-        karakter: modeVal === 'GAMBAR'
-          ? 'GAMBAR_PER_KOLOM'
+        karakter: isImgMode
+          ? cfg.karakterToken
           : String(document.getElementById('formSoalKarakter').value || '').trim(),
         jumlah: parseInt(document.getElementById('formSoalJumlah').value, 10) || 500,
         status: 'AKTIF'
@@ -5453,7 +5611,7 @@
 
       var filledMap = {};
       var filledCols = [];
-      if (modeVal === 'GAMBAR') {
+      if (isImgMode) {
         if (soalImageBuilderState.loading) {
           showToast('Tunggu sebentar, gambar soal masih dimuat.', 'info');
           return;
@@ -5463,28 +5621,29 @@
           return;
         }
         for (var c = 1; c <= soalImageBuilderState.totalKolom; c++) {
-          var slots = getBuilderColSlots(c);
-          var cnt = countFilledInSlots(slots);
-          if (cnt > 0 && cnt < 5) {
+          var slots = getBuilderColSlots(c, cfg.slotCount).slice(0, cfg.slotCount);
+          var cnt = countFilledInSlots(slots, cfg.slotCount);
+          if (cnt > 0 && cnt < cfg.slotCount) {
             selectSoalImageCol(c);
-            showToast('Kolom ' + c + ' baru terisi ' + cnt + '/5 gambar. Lengkapi A\u2013E atau klik Kosongkan.', 'error');
+            showToast('Kolom ' + c + ' baru terisi ' + cnt + '/' + cfg.slotCount + ' gambar. Lengkapi ' + cfg.rangeLabel + ' atau klik Kosongkan.', 'error');
             return;
           }
-          if (cnt === 5) {
+          if (cnt === cfg.slotCount) {
             filledCols.push(c);
-            filledMap[String(c)] = slots.slice();
+            filledMap[String(c)] = slots;
           }
         }
         if (filledCols.length === 0) {
-          showToast('Minimal lengkapi 1 kolom dengan 5 gambar (A\u2013E) sebelum menyimpan.', 'error');
+          showToast('Minimal lengkapi 1 kolom dengan ' + cfg.slotCount + ' gambar (' + cfg.rangeLabel + ') sebelum menyimpan.', 'error');
           return;
         }
         var shuffleCheck = document.getElementById('formSoalShuffleImages');
         payload.gambarMeta = {
           totalKolom: soalImageBuilderState.totalKolom,
+          slotCount: cfg.slotCount,
           filledCols: filledCols,
           shufflePerCol: shuffleCheck ? !!shuffleCheck.checked : false,
-          totalImages: filledCols.length * 5
+          totalImages: filledCols.length * cfg.slotCount
         };
       } else {
         // Sinkronkan pool karakter simulasi jika pengguna mengkustomisasi karakter
@@ -5498,10 +5657,10 @@
 
       if (!isGasEnvironment()) {
         var savedLocal = saveLocalSoal(payload);
-        if (modeVal === 'GAMBAR' && savedLocal && savedLocal.id) {
+        if (isImgMode && savedLocal && savedLocal.id) {
           saveLocalSoalImages(savedLocal.id, { columns: filledMap, gambarMeta: payload.gambarMeta });
           appState.soalImagesCache[savedLocal.id] = {
-            columns: cloneImageColumnsMap(filledMap),
+            columns: cloneImageColumnsMap(filledMap, cfg.slotCount),
             gambarMeta: payload.gambarMeta
           };
         }
@@ -5522,7 +5681,7 @@
           var savedItem = res.item || {};
           var savedId = String(savedItem.id || payload.id || '').trim();
 
-          if (modeVal !== 'GAMBAR') {
+          if (!isImgMode) {
             setSaveSoalButtonBusy(false);
             closeSoalModal();
             showToast(res.message || 'Paket soal berhasil disimpan.', 'success');
@@ -5549,7 +5708,7 @@
 
           if (colsToUpload.length === 0 && !removedAny) {
             appState.soalImagesCache[savedId] = {
-              columns: cloneImageColumnsMap(filledMap),
+              columns: cloneImageColumnsMap(filledMap, cfg.slotCount),
               gambarMeta: payload.gambarMeta
             };
             setSaveSoalButtonBusy(false);
@@ -5560,7 +5719,7 @@
           }
 
           var batches = [];
-          var BATCH_SIZE = 2;
+          var BATCH_SIZE = cfg.slotCount === 9 ? 1 : 2;
           if (colsToUpload.length === 0) {
             batches.push([]);
           } else {
@@ -5592,7 +5751,7 @@
                   runBatch(batchIdx + 1);
                 } else {
                   appState.soalImagesCache[savedId] = {
-                    columns: cloneImageColumnsMap(filledMap),
+                    columns: cloneImageColumnsMap(filledMap, cfg.slotCount),
                     gambarMeta: payload.gambarMeta
                   };
                   setSaveSoalButtonBusy(false);
@@ -5607,6 +5766,7 @@
               })
               .saveSoalImagesBatch({
                 soalId: savedId,
+                slotCount: cfg.slotCount,
                 columns: chunk,
                 activeCols: filledCols,
                 gambarMeta: payload.gambarMeta,
@@ -5882,11 +6042,12 @@
       }
     }
 
-    function hasCompleteSoalImageColumns(entry) {
+    function hasCompleteSoalImageColumns(entry, requiredSlots) {
       if (!entry || !entry.columns || typeof entry.columns !== 'object') return false;
+      var slotCount = parseInt(requiredSlots, 10) === 9 ? 9 : 5;
       var keys = Object.keys(entry.columns);
       for (var i = 0; i < keys.length; i++) {
-        if (countFilledInSlots(entry.columns[keys[i]]) === 5) return true;
+        if (countFilledInSlots(entry.columns[keys[i]], slotCount) === slotCount) return true;
       }
       return false;
     }
@@ -5895,6 +6056,8 @@
       appState.columnStats = [];
       appState.currentColIndex = 0;
       appState.activeExamImageMap = {};
+      appState.currentMathImageTokens = [];
+      appState.lastMathImagePair = '';
       appState.examActive = true;
       appState.isColumnTransition = false;
       appState.strictFocusArmed = true;
@@ -5947,10 +6110,13 @@
         : (satuanInput ? satuanInput.value : 'Akpol');
       appState.soundEnabled = soundInput ? !!soundInput.checked : true;
 
-      if (String(appState.selectedCharMode || '').toUpperCase() === 'GAMBAR') {
+      var modeKey = String(appState.selectedCharMode || '').toUpperCase().trim();
+      if (isImageBasedModeKey(modeKey)) {
+        var reqSlots = modeKey === 'SIMBOL_PENJUMLAHAN_GAMBAR' ? 9 : 5;
+        var reqRange = reqSlots === 9 ? '1\u20139' : 'A\u2013E';
         var soalId = String(appState.selectedSoalId || '').trim();
         var cachedEntry = appState.soalImagesCache[soalId];
-        if (hasCompleteSoalImageColumns(cachedEntry)) {
+        if (hasCompleteSoalImageColumns(cachedEntry, reqSlots)) {
           beginExamSessionNow();
           return;
         }
@@ -5966,8 +6132,8 @@
             appState.isStartingExam = false;
             if (btnStart) btnStart.disabled = false;
             updateLockBannerUI(false);
-            if (!hasCompleteSoalImageColumns(entry)) {
-              showToast('Paket soal gambar ini belum memiliki 5 gambar lengkap di kolom manapun.', 'error');
+            if (!hasCompleteSoalImageColumns(entry, reqSlots)) {
+              showToast('Paket soal gambar ini belum memiliki ' + reqSlots + ' gambar lengkap (' + reqRange + ') di kolom manapun.', 'error');
               return;
             }
             beginExamSessionNow();
@@ -6013,6 +6179,14 @@
         var qEl = document.getElementById('qChar' + q);
         if (qEl) qEl.textContent = '\u2022';
       }
+      for (var m = 0; m < 9; m++) {
+        var mkReset = document.getElementById('mathKey' + m);
+        if (mkReset) mkReset.textContent = '\u2022';
+      }
+      var symLReset = document.getElementById('mathSymLeft');
+      var symRReset = document.getElementById('mathSymRight');
+      if (symLReset) symLReset.textContent = '\u2022';
+      if (symRReset) symRReset.textContent = '\u2022';
 
       var overlay = document.getElementById('columnTransitionOverlay');
       var badgeEl = document.getElementById('transitionBadgeLabel');
@@ -6030,6 +6204,46 @@
       }
     }
 
+    function pickExamColumnImageTokens(colIndex, slotCount, labels) {
+      var soalId = String(appState.selectedSoalId || '').trim();
+      var cacheEntry = appState.soalImagesCache[soalId] || {};
+      var colsObj = cacheEntry.columns || {};
+      var filledColNums = [];
+      for (var c = 1; c <= 15; c++) {
+        if (countFilledInSlots(colsObj[String(c)], slotCount) === slotCount) {
+          filledColNums.push(c);
+        }
+      }
+      if (filledColNums.length === 0) return null;
+
+      var targetColNo = colIndex + 1;
+      var meta = cacheEntry.gambarMeta || appState.selectedSoalMeta || {};
+      var shuffleCfg = !!meta.shufflePerCol;
+
+      var srcColNo = targetColNo;
+      var useExactCol = (countFilledInSlots(colsObj[String(targetColNo)], slotCount) === slotCount);
+      if (!useExactCol) {
+        srcColNo = filledColNums[colIndex % filledColNums.length];
+      }
+
+      var rawImgs = colsObj[String(srcColNo)] || [];
+      var paired = [];
+      for (var p = 0; p < slotCount; p++) {
+        paired.push({ label: labels[p], src: rawImgs[p] || '' });
+      }
+      if ((useExactCol && shuffleCfg) || !useExactCol) {
+        paired = shuffleArray(paired);
+      }
+
+      var keyTokens = [];
+      for (var i = 0; i < slotCount; i++) {
+        var token = 'IMG:' + soalId + ':' + srcColNo + ':' + paired[i].label;
+        appState.activeExamImageMap[token] = paired[i].src;
+        keyTokens.push(token);
+      }
+      return keyTokens;
+    }
+
     function initColumn(colIndex) {
       clearAnswerFocusStates();
       appState.isColumnTransition = false;
@@ -6039,7 +6253,13 @@
       appState.currentColIndex = colIndex;
       appState.remainingSeconds = appState.secondsPerColumn;
       appState.lastMissingIndex = -1;
+      appState.lastMathImagePair = '';
+
       if (isSimbolPenjumlahanMode()) {
+        if (isSimbolPenjumlahanGambarMode()) {
+          initMathImageColumn(colIndex);
+          return;
+        }
         var setObj = getSimbolMathSetForCol(colIndex);
         appState.currentMathSet = setObj;
         for (var k = 0; k < 9; k++) {
@@ -6121,48 +6341,48 @@
       playBeep(740, 120);
     }
 
-    function initImageColumn(colIndex) {
-      var soalId = String(appState.selectedSoalId || '').trim();
-      var cacheEntry = appState.soalImagesCache[soalId] || {};
-      var colsObj = cacheEntry.columns || {};
-      var filledColNums = [];
-      for (var c = 1; c <= 15; c++) {
-        if (countFilledInSlots(colsObj[String(c)]) === 5) {
-          filledColNums.push(c);
-        }
-      }
-      if (filledColNums.length === 0) {
-        showToast('Gambar soal kolom belum lengkap. Simulasi dihentikan.', 'error');
+    function initMathImageColumn(colIndex) {
+      var keyTokens = pickExamColumnImageTokens(colIndex, 9, ['1', '2', '3', '4', '5', '6', '7', '8', '9']);
+      if (!keyTokens) {
+        showToast('Gambar penjumlahan kolom belum lengkap (wajib 9 gambar). Simulasi dihentikan.', 'error');
         confirmAbortExam();
         return;
       }
 
+      appState.currentMathImageTokens = keyTokens;
+      for (var k = 0; k < 9; k++) {
+        var mkEl = document.getElementById('mathKey' + k);
+        renderCharacterVisual(mkEl, keyTokens[k], 'math-key');
+      }
+
+      var colNumberM = colIndex + 1;
+      var totalColsM = appState.selectedColumns;
+      var mathIndEl = document.getElementById('mathColIndicator');
+      if (mathIndEl) mathIndEl.textContent = 'KOLOM ' + colNumberM + ' / ' + totalColsM;
+      var mathProgEl = document.getElementById('symbolMathProgressBar');
+      if (mathProgEl) mathProgEl.style.width = '0%';
+
+      appState.columnStats.push({
+        col: colNumberM,
+        key: keyTokens.slice(),
+        ans: 0,
+        ok: 0,
+        err: 0
+      });
+
+      updateTimerUI();
+      generateNextQuestion();
+      playBeep(740, 120);
+    }
+
+    function initImageColumn(colIndex) {
+      var keyTokens = pickExamColumnImageTokens(colIndex, 5, ['A', 'B', 'C', 'D', 'E']);
+      if (!keyTokens) {
+        showToast('Gambar soal kolom belum lengkap. Simulasi dihentikan.', 'error');
+        confirmAbortExam();
+        return;
+      }
       var targetColNo = colIndex + 1;
-      var letters = ['A', 'B', 'C', 'D', 'E'];
-      var meta = cacheEntry.gambarMeta || appState.selectedSoalMeta || {};
-      var shuffleCfg = !!meta.shufflePerCol;
-
-      var srcColNo = targetColNo;
-      var useExactCol = (countFilledInSlots(colsObj[String(targetColNo)]) === 5);
-      if (!useExactCol) {
-        srcColNo = filledColNums[colIndex % filledColNums.length];
-      }
-
-      var rawImgs = colsObj[String(srcColNo)] || [];
-      var paired = [];
-      for (var p = 0; p < 5; p++) {
-        paired.push({ letter: letters[p], src: rawImgs[p] || '' });
-      }
-      if ((useExactCol && shuffleCfg) || !useExactCol) {
-        paired = shuffleArray(paired);
-      }
-
-      var keyTokens = [];
-      for (var i = 0; i < 5; i++) {
-        var token = 'IMG:' + soalId + ':' + srcColNo + ':' + paired[i].letter;
-        appState.activeExamImageMap[token] = paired[i].src;
-        keyTokens.push(token);
-      }
       appState.currentKeyChars = keyTokens;
 
       appState.columnStats.push({
@@ -6196,19 +6416,38 @@
       if (isSimbolPenjumlahanMode()) {
         var currentStatM = appState.columnStats[appState.currentColIndex];
         if (!currentStatM) return;
-        var setObjM = appState.currentMathSet || getSimbolMathSetForCol(appState.currentColIndex);
-        var qIdx = currentStatM.ans % setObjM.questions.length;
-        var pair = setObjM.questions[qIdx];
-        var s1 = pair[0];
-        var s2 = pair[1];
-        var v1 = setObjM.mapping[s1] || 0;
-        var v2 = setObjM.mapping[s2] || 0;
-        var correctKey = (v1 + v2) % 10;
-        appState.currentMathCorrectAnswer = correctKey;
+
         var symLEl = document.getElementById('mathSymLeft');
         var symREl = document.getElementById('mathSymRight');
-        if (symLEl) symLEl.textContent = s1;
-        if (symREl) symREl.textContent = s2;
+
+        if (isSimbolPenjumlahanGambarMode()) {
+          var tokens = appState.currentMathImageTokens || [];
+          if (tokens.length < 9) return;
+          var idx1 = Math.floor(Math.random() * 9);
+          var idx2 = Math.floor(Math.random() * 9);
+          var pairSig = idx1 + ':' + idx2;
+          if (pairSig === appState.lastMathImagePair) {
+            idx2 = (idx2 + 1 + Math.floor(Math.random() * 8)) % 9;
+            pairSig = idx1 + ':' + idx2;
+          }
+          appState.lastMathImagePair = pairSig;
+          appState.currentMathCorrectAnswer = ((idx1 + 1) + (idx2 + 1)) % 10;
+          renderCharacterVisual(symLEl, tokens[idx1], 'math-q');
+          renderCharacterVisual(symREl, tokens[idx2], 'math-q');
+        } else {
+          var setObjM = appState.currentMathSet || getSimbolMathSetForCol(appState.currentColIndex);
+          var qIdx = currentStatM.ans % setObjM.questions.length;
+          var pair = setObjM.questions[qIdx];
+          var s1 = pair[0];
+          var s2 = pair[1];
+          var v1 = setObjM.mapping[s1] || 0;
+          var v2 = setObjM.mapping[s2] || 0;
+          var correctKey = (v1 + v2) % 10;
+          appState.currentMathCorrectAnswer = correctKey;
+          if (symLEl) symLEl.textContent = s1;
+          if (symREl) symREl.textContent = s2;
+        }
+
         var countEl = document.getElementById('symbolMathQuestionCounter');
         if (countEl) countEl.textContent = 'Soal ke-' + (currentStatM.ans + 1) + ' dari 50';
         var progEl = document.getElementById('symbolMathProgressBar');
@@ -6846,11 +7085,14 @@
 
     function formatColumnKeyBadgesHtml(keyArr) {
       if (!Array.isArray(keyArr) || keyArr.length === 0) return '-';
-      var letters = ['A', 'B', 'C', 'D', 'E'];
+      var isNumericKeys = keyArr.length > 5 || (keyArr[0] && String(keyArr[0]).indexOf('IMG:') === 0 && /:[1-9]$/.test(String(keyArr[0])));
+      var labels = isNumericKeys
+        ? ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+        : ['A', 'B', 'C', 'D', 'E'];
       var out = '';
       for (var k = 0; k < keyArr.length; k++) {
         var rawTok = String(keyArr[k] || '');
-        var labelLet = letters[k] || String(k + 1);
+        var labelLet = labels[k] || String(k + 1);
         var imgSrc = resolveExamImageSrc(rawTok);
         if (imgSrc) {
           out += '<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-white border border-slate-200 text-xs mr-1 my-0.5">' +
@@ -7313,7 +7555,7 @@
             list[i].mode = payload.mode;
             list[i].karakter = payload.karakter;
             list[i].jumlah = payload.jumlah;
-            list[i].gambarMeta = payload.mode === 'GAMBAR' ? (payload.gambarMeta || {}) : {};
+            list[i].gambarMeta = isImageBasedModeKey(payload.mode) ? (payload.gambarMeta || {}) : {};
             localStorage.setItem(STORAGE_KEYS.SOAL, JSON.stringify(list));
             return list[i];
           }
@@ -7334,7 +7576,7 @@
         karakter: payload.karakter,
         jumlah: payload.jumlah,
         status: 'AKTIF',
-        gambarMeta: payload.mode === 'GAMBAR' ? (payload.gambarMeta || {}) : {}
+        gambarMeta: isImageBasedModeKey(payload.mode) ? (payload.gambarMeta || {}) : {}
       };
       list.push(newItem);
       localStorage.setItem(STORAGE_KEYS.SOAL, JSON.stringify(list));
