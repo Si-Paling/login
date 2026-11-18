@@ -1766,8 +1766,10 @@
         <div id="soalMathVariantBar"
           class="hidden rounded-xl border border-indigo-200 bg-indigo-50/50 p-2.5 sm:p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
-            <span class="block text-xs font-extrabold text-slate-800">Sumber Item Kunci Simbol Penjumlahan (Angka 1–9)</span>
-            <span class="text-[11px] text-slate-500">Pilih karakter bawaan atau unggah gambar manual sendiri per kolom.</span>
+            <span class="block text-xs font-extrabold text-slate-800">Sumber Item Kunci Simbol Penjumlahan (Angka
+              1–9)</span>
+            <span class="text-[11px] text-slate-500">Pilih karakter bawaan atau unggah gambar manual sendiri per
+              kolom.</span>
           </div>
           <div class="inline-flex rounded-lg bg-white border border-slate-200 p-0.5 shrink-0">
             <button type="button" id="btnMathVarDefault" onclick="setMathVariantMode('SIMBOL_PENJUMLAHAN')"
@@ -1807,13 +1809,15 @@
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-blue-100 pb-2.5">
             <div>
               <div class="flex flex-wrap items-center gap-2">
-                <span id="soalImageSectionTitle" class="text-xs font-extrabold uppercase tracking-wide text-slate-800">Konfigurasi Gambar Per
+                <span id="soalImageSectionTitle"
+                  class="text-xs font-extrabold uppercase tracking-wide text-slate-800">Konfigurasi Gambar Per
                   Kolom (A–E)</span>
                 <span id="soalImageGlobalStatus"
                   class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-slate-200 text-slate-700">0 / 10 Kolom
                   Lengkap</span>
               </div>
-              <p id="soalImageSectionSubtitle" class="text-[11px] text-slate-500 mt-0.5">Isi 5 gambar (A–E) untuk tiap kolom. Minimal 1 kolom lengkap
+              <p id="soalImageSectionSubtitle" class="text-[11px] text-slate-500 mt-0.5">Isi 5 gambar (A–E) untuk tiap
+                kolom. Minimal 1 kolom lengkap
                 untuk mulai simulasi.</p>
             </div>
             <div class="flex items-center gap-2 shrink-0">
@@ -1869,7 +1873,8 @@
                     class="px-2 py-1.5 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-[11px] font-bold text-slate-700 cursor-pointer">Salin</button>
                 </div>
                 <button type="button" onclick="shuffleActiveSoalImageColumn()"
-                  class="px-2 py-1.5 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-[11px] font-bold text-slate-700 cursor-pointer"><span id="soalImageShuffleBtnText">Acak A–E</span></button>
+                  class="px-2 py-1.5 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-[11px] font-bold text-slate-700 cursor-pointer"><span
+                    id="soalImageShuffleBtnText">Acak A–E</span></button>
                 <button type="button" onclick="clearActiveSoalImageColumn()"
                   class="px-2 py-1.5 rounded-lg border border-rose-200 bg-rose-50 hover:bg-rose-100 text-[11px] font-bold text-rose-700 cursor-pointer">Kosongkan</button>
               </div>
@@ -1898,7 +1903,8 @@
             <label class="inline-flex items-center gap-2 text-slate-700 font-medium cursor-pointer">
               <input type="checkbox" id="formSoalShuffleImages"
                 class="rounded border-slate-300 text-[#2B59C3] focus:ring-[#2B59C3]">
-              <span id="soalImageShuffleCheckLabel">Acak urutan posisi gambar A–E tiap kolom saat tes (nonaktif = tampil persis sesuai slot)</span>
+              <span id="soalImageShuffleCheckLabel">Acak urutan posisi gambar A–E tiap kolom saat tes (nonaktif = tampil
+                persis sesuai slot)</span>
             </label>
           </div>
         </div>
@@ -1973,6 +1979,113 @@
         <button type="button" onclick="confirmLogoutAction()"
           class="px-5 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-xs sm:text-sm font-bold text-white transition-colors cursor-pointer shadow-sm">
           Iya
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- OVERLAY ENTRY MODE FOKUS AWAL (INISIALISASI LAYAR PENUH SEBELUM / SAAT MASUK APLIKASI) -->
+  <div id="focusEntryOverlay"
+    class="fixed inset-0 z-[65] hidden bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 select-none">
+    <div
+      class="bg-white rounded-3xl border border-slate-200 max-w-md w-full p-6 sm:p-7 shadow-2xl text-center space-y-5 animate-fade-in">
+      <div
+        class="w-16 h-16 mx-auto rounded-2xl bg-slate-900 text-amber-400 flex items-center justify-center shadow-lg ring-4 ring-amber-400/20">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+        </svg>
+      </div>
+      <div class="space-y-2">
+        <span
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-[11px] font-bold uppercase tracking-wider">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+          Mode Fokus Penuh
+        </span>
+        <h3 id="focusEntryTitle" class="text-xl font-extrabold text-slate-900 tracking-tight">Masuk ke Aplikasi SI-PALING</h3>
+        <p id="focusEntrySubtitle" class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Untuk menjaga konsentrasi penuh selama penggunaan dan ujian, aplikasi dijalankan dalam <strong
+            class="text-slate-800">Mode Fokus Layar Penuh</strong> dan terkunci hingga Anda memilih <strong
+            class="text-slate-800">Logout</strong>.
+        </p>
+      </div>
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-3.5 text-left space-y-1.5 text-xs text-slate-600">
+        <div class="flex items-start gap-2">
+          <svg class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.2"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          <span>Tampilan layar penuh bebas gangguan bilah navigasi.</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <svg class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.2"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          <span>Tombol Kembali &amp; pintasan keluar dinonaktifkan selama sesi aktif.</span>
+        </div>
+      </div>
+      <button type="button" id="btnActivateFocusEntry" onclick="activateInitialFocusMode()"
+        class="w-full py-3.5 px-5 rounded-2xl bg-slate-900 hover:bg-slate-800 active:scale-[0.99] text-white font-bold text-sm shadow-lg transition-all flex items-center justify-center gap-2.5 cursor-pointer">
+        <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+        </svg>
+        <span>Masuk ke Aplikasi (Mode Fokus)</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- OVERLAY RE-ENTRY MODE FOKUS (KUNCI WAJIB KEMBALI KE MODE FOKUS ATAU LOGOUT) -->
+  <div id="focusReentryOverlay"
+    class="fixed inset-0 z-[65] hidden bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 select-none">
+    <div
+      class="bg-white rounded-3xl border-2 border-rose-200 max-w-md w-full p-6 sm:p-7 shadow-2xl text-center space-y-5 animate-fade-in">
+      <div
+        class="w-16 h-16 mx-auto rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center border border-rose-200 shadow-sm">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+        </svg>
+      </div>
+      <div class="space-y-2">
+        <span
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-100 text-rose-800 text-[11px] font-bold uppercase tracking-wider">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+          Mode Fokus Terjeda
+        </span>
+        <h3 class="text-xl font-extrabold text-slate-900 tracking-tight">Kunci Mode Fokus Aktif</h3>
+        <p id="focusReentryReasonText" class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Anda terdeteksi keluar dari layar penuh atau berpindah dari jendela aplikasi. Anda tidak dapat keluar sebelum melakukan <strong class="text-slate-800">Logout</strong>.
+        </p>
+      </div>
+      <div class="bg-rose-50/80 border border-rose-200 rounded-2xl px-4 py-3 text-xs text-rose-900 flex items-center justify-between">
+        <span class="font-semibold">Tercatat Keluar Fokus:</span>
+        <span id="focusViolationCountBadge"
+          class="px-2.5 py-0.5 rounded-full bg-rose-600 text-white font-extrabold tabular-nums">1 Kali</span>
+      </div>
+      <div class="space-y-2.5 pt-1">
+        <button type="button" id="btnResumeFocusMode" onclick="resumeFocusModeFromOverlay()"
+          class="w-full py-3.5 px-5 rounded-2xl bg-slate-900 hover:bg-slate-800 active:scale-[0.99] text-white font-bold text-sm shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer">
+          <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+          </svg>
+          <span>Aktifkan Mode Fokus &amp; Lanjutkan</span>
+        </button>
+        <button type="button" id="btnLogoutFromFocusOverlay" onclick="logoutFromFocusOverlay()"
+          class="w-full py-3 px-5 rounded-2xl bg-rose-50 hover:bg-rose-100 border border-rose-200 text-rose-700 font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+          </svg>
+          <span>Keluar Aplikasi (Logout)</span>
         </button>
       </div>
     </div>
@@ -2509,6 +2622,13 @@
       isExplicitLogout: false,
       strictFocusArmed: false,
       strictFullscreenExpected: false,
+      loginFocusArmed: false,
+      focusViolationCount: 0,
+      isFilePickerOpen: false,
+      filePickerTimer: null,
+      screenWakeLock: null,
+      focusBlurTimer: null,
+      lastFocusLostReason: '',
 
       // State Display Foto Galeri (Banner Carousel)
       displayPhotos: [],
@@ -2606,7 +2726,7 @@
           var manifestObj = {
             name: 'System Education Test (SI-PALING)',
             short_name: 'SI-PALING',
-            display: 'standalone',
+            display: 'fullscreen',
             background_color: '#0f172a',
             theme_color: '#0f172a',
             icons: [{ src: SIPALING_LOGO_B64, sizes: '192x192', type: 'image/png' }]
@@ -3192,7 +3312,23 @@
 
     function triggerDisplayUpload() {
       var inp = document.getElementById('displayPhotoInput');
-      if (inp) inp.click();
+      if (!inp) return;
+      appState.isFilePickerOpen = true;
+      if (appState.filePickerTimer) clearTimeout(appState.filePickerTimer);
+      var resetPickerFlag = function () {
+        if (appState.filePickerTimer) clearTimeout(appState.filePickerTimer);
+        appState.filePickerTimer = setTimeout(function () {
+          appState.isFilePickerOpen = false;
+        }, 1200);
+      };
+      window.addEventListener('focus', function onFocusBack() {
+        window.removeEventListener('focus', onFocusBack);
+        resetPickerFlag();
+      });
+      appState.filePickerTimer = setTimeout(function () {
+        appState.isFilePickerOpen = false;
+      }, 15000);
+      inp.click();
     }
 
     function compressImageFile(file, maxWidth, maxHeight, quality, callback) {
@@ -3285,8 +3421,14 @@
     function closeDisplayGalleryModal() {
       var modal = document.getElementById('modalDisplayGallery');
       if (modal) modal.classList.add('hidden');
+      appState.isFilePickerOpen = false;
       renderDisplaySlide();
       startDisplayAutoSlide();
+      if (appState.activeShell === 'user' && appState.strictFocusArmed && !appState.isExplicitLogout &&
+          isFullscreenSupported() && !getFullscreenElement() && !isRunningStandalonePwa()) {
+        enterStrictFullscreen();
+        requestScreenWakeLockSafe();
+      }
     }
 
     function renderDisplayGalleryGrid() {
@@ -3450,12 +3592,18 @@
           var userObj = JSON.parse(savedSession);
           if (userObj && userObj.username && (!isGasEnvironment() || getSessionToken())) {
             applyLoginSuccess(userObj, true);
+            if (String(userObj.role || '').toUpperCase() !== 'ADMIN' && isFullscreenSupported() && !getFullscreenElement() && !isRunningStandalonePwa()) {
+              openFocusEntryOverlay('restore');
+            }
             return;
           }
         }
       } catch (e) { }
 
       showShell('login');
+      if (isFullscreenSupported() && !getFullscreenElement() && !isRunningStandalonePwa()) {
+        openFocusEntryOverlay('initial');
+      }
     });
 
     // ========================================================================
@@ -3490,6 +3638,14 @@
       appState.isExplicitLogout = true;
       appState.strictFocusArmed = false;
       appState.strictFullscreenExpected = false;
+      appState.loginFocusArmed = false;
+      appState.isFilePickerOpen = false;
+      if (appState.focusBlurTimer) { clearTimeout(appState.focusBlurTimer); appState.focusBlurTimer = null; }
+      if (appState.filePickerTimer) { clearTimeout(appState.filePickerTimer); appState.filePickerTimer = null; }
+      if (typeof hideFocusEntryOverlay === 'function') hideFocusEntryOverlay();
+      if (typeof hideFocusReentryOverlay === 'function') hideFocusReentryOverlay();
+      if (typeof releaseScreenWakeLockSafe === 'function') releaseScreenWakeLockSafe();
+      if (typeof exitStrictFullscreenSafe === 'function') exitStrictFullscreenSafe();
       setSessionToken('');
       try { sessionStorage.removeItem(STORAGE_KEYS.SESSION); } catch (e) { }
       try { showToast('Sesi berakhir. Silakan login kembali.', 'error'); } catch (e) { }
@@ -3606,6 +3762,15 @@
         return;
       }
 
+      // Aktifkan Mode Fokus & Layar Penuh sinkron dengan gestur tombol/Enter Login
+      if (typeof hideFocusEntryOverlay === 'function') hideFocusEntryOverlay();
+      if (isFullscreenSupported() && !getFullscreenElement() && !isRunningStandalonePwa()) {
+        enterStrictFullscreen();
+      }
+      if (typeof requestScreenWakeLockSafe === 'function') requestScreenWakeLockSafe();
+      pushAppHistoryGuard(2);
+      appState.loginFocusArmed = true;
+
       if (btn) {
         btn.disabled = true;
         btn.textContent = 'Memproses...';
@@ -3620,7 +3785,6 @@
           setSessionToken(res.token || '');
           applyLoginSuccess(res.user, false);
         } else {
-          if (typeof exitStrictFullscreenSafe === 'function') exitStrictFullscreenSafe();
           showToast((res && res.message) || 'Username atau password salah.', 'error');
         }
       };
@@ -3630,7 +3794,6 @@
           btn.disabled = false;
           btn.textContent = 'Login';
         }
-        if (typeof exitStrictFullscreenSafe === 'function') exitStrictFullscreenSafe();
         setSessionToken('');
         var msg = (err && err.message) ? String(err.message) : 'Gagal terhubung ke server database. Periksa koneksi atau deployment Google Apps Script.';
         showToast(msg, 'error');
@@ -3680,7 +3843,9 @@
 
       if (String(user.role).toUpperCase() === 'ADMIN') {
         appState.strictFocusArmed = false;
-        exitStrictFullscreenSafe();
+        appState.loginFocusArmed = false;
+        if (typeof hideFocusEntryOverlay === 'function') hideFocusEntryOverlay();
+        if (typeof hideFocusReentryOverlay === 'function') hideFocusReentryOverlay();
         var badge = document.getElementById('adminActiveUserBadge');
         if (badge) badge.textContent = 'Admin: ' + user.nama + ' (' + user.username + ')';
         showShell('admin');
@@ -3703,7 +3868,11 @@
         refreshUserLockState();
 
         appState.strictFocusArmed = true;
-        appState.strictFullscreenExpected = false;
+        appState.loginFocusArmed = false;
+        appState.strictFullscreenExpected = Boolean(getFullscreenElement());
+        appState.focusViolationCount = 0;
+        if (typeof hideFocusReentryOverlay === 'function') hideFocusReentryOverlay();
+        if (typeof requestScreenWakeLockSafe === 'function') requestScreenWakeLockSafe();
 
         if (!isSilentRestore) {
           if (checkIfCurrentUserLocked()) {
@@ -3743,6 +3912,17 @@
       appState.isExplicitLogout = true;
       appState.strictFocusArmed = false;
       appState.strictFullscreenExpected = false;
+      appState.loginFocusArmed = false;
+      appState.isFilePickerOpen = false;
+      appState.focusViolationCount = 0;
+      if (appState.focusBlurTimer) { clearTimeout(appState.focusBlurTimer); appState.focusBlurTimer = null; }
+      if (appState.filePickerTimer) { clearTimeout(appState.filePickerTimer); appState.filePickerTimer = null; }
+      if (appState.timerIntervalId) { clearInterval(appState.timerIntervalId); appState.timerIntervalId = null; }
+      appState.examActive = false;
+      appState.isColumnTransition = false;
+      if (typeof hideFocusEntryOverlay === 'function') hideFocusEntryOverlay();
+      if (typeof hideFocusReentryOverlay === 'function') hideFocusReentryOverlay();
+      if (typeof releaseScreenWakeLockSafe === 'function') releaseScreenWakeLockSafe();
       if (typeof exitStrictFullscreenSafe === 'function') exitStrictFullscreenSafe();
       try {
         if (getSessionToken()) {
@@ -3784,6 +3964,19 @@
       }
     }
 
+    function isRunningStandalonePwa() {
+      try {
+        if (window.matchMedia) {
+          if (window.matchMedia('(display-mode: fullscreen)').matches ||
+              window.matchMedia('(display-mode: standalone)').matches) {
+            return true;
+          }
+        }
+        if (window.navigator && window.navigator.standalone === true) return true;
+      } catch (e) { }
+      return false;
+    }
+
     function getFullscreenElement() {
       try {
         return document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement || null;
@@ -3792,26 +3985,71 @@
       }
     }
 
-    function enterStrictFullscreen() {
+    function requestScreenWakeLockSafe() {
+      try {
+        if (navigator.wakeLock && typeof navigator.wakeLock.request === 'function') {
+          if (appState.screenWakeLock && !appState.screenWakeLock.released) return;
+          navigator.wakeLock.request('screen').then(function (sentinel) {
+            appState.screenWakeLock = sentinel;
+            if (sentinel && typeof sentinel.addEventListener === 'function') {
+              sentinel.addEventListener('release', function () {
+                if (appState.screenWakeLock === sentinel) {
+                  appState.screenWakeLock = null;
+                }
+              });
+            }
+          }).catch(function () { });
+        }
+      } catch (e) { }
+    }
+
+    function releaseScreenWakeLockSafe() {
+      try {
+        if (appState.screenWakeLock && typeof appState.screenWakeLock.release === 'function') {
+          appState.screenWakeLock.release().catch(function () { });
+        }
+      } catch (e) { }
+      appState.screenWakeLock = null;
+    }
+
+    function enterStrictFullscreen(onDone) {
+      var finish = function (ok) {
+        if (typeof onDone === 'function') onDone(!!ok);
+      };
       try {
         if (getFullscreenElement()) {
           appState.strictFullscreenExpected = true;
+          finish(true);
           return;
         }
         var docEl = document.documentElement;
-        if (!docEl) return;
+        if (!docEl) {
+          finish(false);
+          return;
+        }
         var req = docEl.requestFullscreen || docEl.webkitRequestFullscreen || docEl.msRequestFullscreen;
-        if (typeof req !== 'function') return;
+        if (typeof req !== 'function') {
+          finish(false);
+          return;
+        }
         var ret = req.call(docEl);
         if (ret && typeof ret.then === 'function') {
           ret.then(function () {
             appState.strictFullscreenExpected = true;
             pushAppHistoryGuard(3);
-          }).catch(function () { });
+            finish(true);
+          }).catch(function () {
+            appState.strictFullscreenExpected = Boolean(getFullscreenElement());
+            finish(appState.strictFullscreenExpected);
+          });
         } else {
           appState.strictFullscreenExpected = !!getFullscreenElement();
+          finish(appState.strictFullscreenExpected);
         }
-      } catch (e) { }
+      } catch (e) {
+        appState.strictFullscreenExpected = Boolean(getFullscreenElement());
+        finish(appState.strictFullscreenExpected);
+      }
     }
 
     function exitStrictFullscreenSafe() {
@@ -3828,27 +4066,208 @@
       } catch (e) { }
     }
 
+    function isFocusOverlayVisible() {
+      var entryEl = document.getElementById('focusEntryOverlay');
+      if (entryEl && !entryEl.classList.contains('hidden')) return true;
+      var reentryEl = document.getElementById('focusReentryOverlay');
+      if (reentryEl && !reentryEl.classList.contains('hidden')) return true;
+      return false;
+    }
+
+    function openFocusEntryOverlay(mode) {
+      var overlay = document.getElementById('focusEntryOverlay');
+      if (!overlay) return;
+      var titleEl = document.getElementById('focusEntryTitle');
+      var subEl = document.getElementById('focusEntrySubtitle');
+      if (mode === 'restore') {
+        if (titleEl) titleEl.textContent = 'Lanjutkan Mode Fokus SI-PALING';
+        if (subEl) subEl.textContent = 'Sesi peserta Anda masih aktif. Ketuk tombol di bawah untuk mengaktifkan kembali Mode Fokus Layar Penuh.';
+      } else if (mode === 'rearm') {
+        if (titleEl) titleEl.textContent = 'Aktifkan Kembali Mode Fokus';
+        if (subEl) subEl.textContent = 'Anda keluar dari layar penuh sebelum login. Ketuk tombol di bawah untuk melanjutkan ke halaman Login dalam Mode Fokus.';
+      } else {
+        if (titleEl) titleEl.textContent = 'Masuk ke Aplikasi SI-PALING';
+        if (subEl) subEl.textContent = 'Untuk menjaga konsentrasi penuh selama penggunaan dan ujian, aplikasi dijalankan dalam Mode Fokus Layar Penuh dan terkunci hingga Anda memilih Logout.';
+      }
+      overlay.classList.remove('hidden');
+    }
+
+    function hideFocusEntryOverlay() {
+      var overlay = document.getElementById('focusEntryOverlay');
+      if (overlay) overlay.classList.add('hidden');
+    }
+
+    function shouldGuardUserFocus() {
+      if (appState.activeShell !== 'user') return false;
+      if (!appState.loggedInUser || !appState.strictFocusArmed) return false;
+      if (appState.isExplicitLogout || appState.isFilePickerOpen) return false;
+      var modalGal = document.getElementById('modalDisplayGallery');
+      if (modalGal && !modalGal.classList.contains('hidden')) return false;
+      var modalLogout = document.getElementById('modalConfirmLogout');
+      if (modalLogout && !modalLogout.classList.contains('hidden')) return false;
+      var modalAbort = document.getElementById('modalAbortExam');
+      if (modalAbort && !modalAbort.classList.contains('hidden')) return false;
+      return true;
+    }
+
+    function showFocusReentryOverlay(reason) {
+      var overlay = document.getElementById('focusReentryOverlay');
+      if (!overlay) return;
+      var wasHidden = overlay.classList.contains('hidden');
+      if (wasHidden) {
+        appState.focusViolationCount = (Number(appState.focusViolationCount) || 0) + 1;
+      }
+      if (reason) appState.lastFocusLostReason = String(reason);
+      var reasonEl = document.getElementById('focusReentryReasonText');
+      if (reasonEl) {
+        var extra = appState.examActive
+          ? ' Simulasi tes sedang berjalan. Aktifkan kembali Mode Fokus untuk melanjutkan atau pilih Logout jika ingin mengakhiri sesi.'
+          : ' Anda tidak dapat keluar dari aplikasi kecuali melalui tombol Logout.';
+        reasonEl.textContent = (appState.lastFocusLostReason || 'Anda terdeteksi keluar dari layar penuh atau berpindah jendela.') + extra;
+      }
+      var badge = document.getElementById('focusViolationCountBadge');
+      if (badge) {
+        badge.textContent = appState.focusViolationCount + ' Kali';
+      }
+      overlay.classList.remove('hidden');
+    }
+
+    function hideFocusReentryOverlay() {
+      var overlay = document.getElementById('focusReentryOverlay');
+      if (overlay) overlay.classList.add('hidden');
+    }
+
+    function activateInitialFocusMode() {
+      hideFocusEntryOverlay();
+      pushAppHistoryGuard(3);
+      requestScreenWakeLockSafe();
+      enterStrictFullscreen(function (entered) {
+        appState.strictFullscreenExpected = Boolean(entered);
+        if (appState.activeShell === 'login') {
+          appState.loginFocusArmed = Boolean(entered);
+        }
+        if (!entered && isFullscreenSupported() && !isRunningStandalonePwa()) {
+          showToast('Browser membatasi Layar Penuh otomatis; pengaman navigasi aktif.', 'info');
+        }
+      });
+    }
+
+    function resumeFocusModeFromOverlay() {
+      hideFocusReentryOverlay();
+      pushAppHistoryGuard(3);
+      requestScreenWakeLockSafe();
+      enterStrictFullscreen(function (entered) {
+        appState.strictFullscreenExpected = Boolean(entered);
+        if (!entered && isFullscreenSupported() && !isRunningStandalonePwa()) {
+          showToast('Layar penuh dibatasi browser; pengaman fokus & navigasi tetap aktif.', 'info');
+        }
+      });
+    }
+
+    function logoutFromFocusOverlay() {
+      handleLogout();
+    }
+
     function initFocusAndKioskGuards() {
-      document.addEventListener('visibilitychange', function () {
-        if (document.visibilityState === 'visible' && appState.activeShell === 'user' && appState.strictFocusArmed && !appState.isExplicitLogout) {
+      var handleFullscreenChange = function () {
+        var activeFs = getFullscreenElement();
+        if (activeFs) {
+          appState.strictFullscreenExpected = true;
+          return;
+        }
+        if (appState.isExplicitLogout || appState.isFilePickerOpen) {
+          appState.strictFullscreenExpected = false;
+          return;
+        }
+        if (shouldGuardUserFocus() && appState.strictFullscreenExpected) {
+          appState.strictFullscreenExpected = false;
           pushAppHistoryGuard(2);
+          showFocusReentryOverlay('Anda keluar dari tampilan layar penuh (Mode Fokus).');
+          return;
+        }
+        if (appState.activeShell === 'login' && appState.loginFocusArmed && appState.strictFullscreenExpected) {
+          appState.strictFullscreenExpected = false;
+          pushAppHistoryGuard(2);
+          openFocusEntryOverlay('rearm');
+        }
+      };
+
+      document.addEventListener('fullscreenchange', handleFullscreenChange);
+      document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+      document.addEventListener('msfullscreenchange', handleFullscreenChange);
+
+      document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState === 'hidden') {
+          if (shouldGuardUserFocus()) {
+            showFocusReentryOverlay('Anda terdeteksi meninggalkan tab atau beralih ke aplikasi lain.');
+          }
+          return;
+        }
+        if (document.visibilityState === 'visible') {
+          if (shouldGuardUserFocus()) {
+            pushAppHistoryGuard(2);
+            requestScreenWakeLockSafe();
+            if (isFullscreenSupported() && !isRunningStandalonePwa() && !getFullscreenElement()) {
+              showFocusReentryOverlay('Mode Fokus layar penuh perlu diaktifkan kembali setelah Anda berpindah tab.');
+            }
+          } else if (appState.loggedInUser && appState.activeShell !== 'login' && !appState.isExplicitLogout) {
+            pushAppHistoryGuard(2);
+          }
         }
       });
 
-      // Cegah pintasan keyboard refresh / navigasi mundur / tutup tab browser secara senyap saat sesi login aktif
+      window.addEventListener('blur', function () {
+        if (appState.focusBlurTimer) clearTimeout(appState.focusBlurTimer);
+        if (!shouldGuardUserFocus()) return;
+        var activeTag = document.activeElement ? String(document.activeElement.tagName || '').toUpperCase() : '';
+        if (activeTag === 'SELECT' || (activeTag === 'INPUT' && document.activeElement.type === 'file')) return;
+        appState.focusBlurTimer = setTimeout(function () {
+          appState.focusBlurTimer = null;
+          if (!document.hasFocus() && shouldGuardUserFocus()) {
+            showFocusReentryOverlay('Jendela aplikasi kehilangan fokus atau Anda beralih ke aplikasi lain.');
+          }
+        }, 800);
+      });
+
+      window.addEventListener('focus', function () {
+        if (appState.focusBlurTimer) {
+          clearTimeout(appState.focusBlurTimer);
+          appState.focusBlurTimer = null;
+        }
+        if (shouldGuardUserFocus()) {
+          requestScreenWakeLockSafe();
+        }
+      });
+
+      // Cegah pintasan keyboard refresh / navigasi mundur / tutup tab browser secara senyap saat sesi atau Mode Fokus aktif
       window.addEventListener('keydown', function (e) {
-        if (!appState.loggedInUser || appState.activeShell === 'login' || appState.isExplicitLogout) return;
+        var guardActive = !appState.isExplicitLogout && (
+          (appState.loggedInUser && appState.activeShell !== 'login') ||
+          appState.loginFocusArmed ||
+          isFocusOverlayVisible()
+        );
+        if (!guardActive) return;
+
         var k = String(e.key || '');
         var kUpper = k.toUpperCase();
         var isReloadKey = (k === 'F5') || ((e.ctrlKey || e.metaKey) && kUpper === 'R');
-        var isCloseKey = ((e.ctrlKey || e.metaKey) && kUpper === 'W');
+        var isCloseOrTabKey = ((e.ctrlKey || e.metaKey) && (kUpper === 'W' || kUpper === 'T' || kUpper === 'N' || kUpper === 'L'));
+        var isFullscreenToggle = (k === 'F11');
         var isNavBack = (e.altKey && (k === 'ArrowLeft' || k === 'ArrowRight')) || k === 'BrowserBack';
+        var isEscapeLocked = (k === 'Escape' && (isFocusOverlayVisible() || shouldGuardUserFocus()));
 
         var activeTag = document.activeElement ? String(document.activeElement.tagName || '').toUpperCase() : '';
         var isTyping = activeTag === 'INPUT' || activeTag === 'TEXTAREA' || (document.activeElement && document.activeElement.isContentEditable);
         var isBackKeyOutsideInput = (k === 'Backspace' && !isTyping);
 
-        if (isReloadKey || isCloseKey || isNavBack || isBackKeyOutsideInput) {
+        if (isReloadKey || isCloseOrTabKey || isFullscreenToggle || isNavBack || isEscapeLocked || isBackKeyOutsideInput) {
+          e.preventDefault();
+        }
+      });
+
+      // Cegah menu konteks klik kanan (Back/Reload/New Tab) pada sesi Peserta agar Mode Fokus terjaga
+      document.addEventListener('contextmenu', function (e) {
+        if (appState.activeShell === 'user' && appState.strictFocusArmed && !appState.isExplicitLogout) {
           e.preventDefault();
         }
       });
@@ -3861,13 +4280,7 @@
         // Segera dorong kembali guard agar tombol back berikutnya tetap tertangkap
         pushAppHistoryGuard(2);
 
-        // 1. KONDISI 1: Saat sedang memulai atau berlangsung tes
-        if (appState.examActive) {
-          openAbortModal();
-          return;
-        }
-
-        // 2. KONDISI 2: Jika modal konfirmasi sedang terbuka, tombol back berlaku sebagai pembatal ('Tidak')
+        // 0. Jika Modal Abort/Logout terbuka di atas overlay, Back menutup modal konfirmasi dulu
         var abortModal = document.getElementById('modalAbortExam');
         if (abortModal && !abortModal.classList.contains('hidden')) {
           closeAbortModal();
@@ -3880,23 +4293,38 @@
           return;
         }
 
-        // 3. KONDISI 3: Jika ada modal dialog sekunder yang sedang terbuka, tutup modal tersebut
+        // 0b. Jika overlay Mode Fokus sedang aktif, Back tidak boleh menutup overlay tersebut
+        if (isFocusOverlayVisible()) {
+          return;
+        }
+
+        // 1. KONDISI 1: Saat sedang memulai atau berlangsung tes
+        if (appState.examActive) {
+          openAbortModal();
+          return;
+        }
+
+        // 2. KONDISI 2: Jika ada modal dialog sekunder yang sedang terbuka, tutup modal tersebut
         var secondaryModals = [
           'modalDisplayGallery',
           'modalHistoryDetail',
           'modalBukaKunciUser',
-          'modalUserForm',
-          'modalSoalForm'
+          'modalAdminUser',
+          'modalAdminSoal'
         ];
         for (var i = 0; i < secondaryModals.length; i++) {
           var mEl = document.getElementById(secondaryModals[i]);
           if (mEl && !mEl.classList.contains('hidden')) {
-            mEl.classList.add('hidden');
+            if (secondaryModals[i] === 'modalDisplayGallery') {
+              closeDisplayGalleryModal();
+            } else {
+              mEl.classList.add('hidden');
+            }
             return;
           }
         }
 
-        // 4. KONDISI 4: Berada di akun user (tidak sedang tes) — terkunci senyap kecuali via tombol Logout
+        // 3. KONDISI 3: Berada di akun user (tidak sedang tes) — terkunci senyap kecuali via tombol Logout
         if (appState.activeShell === 'user') {
           if (appState.currentView && appState.currentView !== 'prep') {
             switchView('prep');
@@ -3904,7 +4332,7 @@
           return;
         }
 
-        // 5. KONDISI 5: Berada di panel Admin — terkunci senyap kecuali via tombol Logout
+        // 4. KONDISI 4: Berada di panel Admin — terkunci senyap kecuali via tombol Logout
         if (appState.activeShell === 'admin') {
           if (appState.adminActiveTab && appState.adminActiveTab !== 'dashboard') {
             switchAdminTab('dashboard');
@@ -6096,6 +6524,11 @@
         return;
       }
 
+      if (isFullscreenSupported() && !getFullscreenElement() && !isRunningStandalonePwa()) {
+        enterStrictFullscreen();
+      }
+      if (typeof requestScreenWakeLockSafe === 'function') requestScreenWakeLockSafe();
+
       var nameInput = document.getElementById('inputNama');
       var satuanInput = document.getElementById('inputSatuan');
       var soundInput = document.getElementById('toggleSound');
@@ -6690,6 +7123,13 @@
       var overlay = document.getElementById('columnTransitionOverlay');
       if (overlay) overlay.classList.add('hidden');
       switchView('prep');
+      var reentryEl = document.getElementById('focusReentryOverlay');
+      if (reentryEl && !reentryEl.classList.contains('hidden')) {
+        showFocusReentryOverlay();
+      } else if (shouldGuardUserFocus() && isFullscreenSupported() && !getFullscreenElement() && !isRunningStandalonePwa()) {
+        enterStrictFullscreen();
+        requestScreenWakeLockSafe();
+      }
       showToast('Simulasi tes dihentikan.', 'info');
     }
 
