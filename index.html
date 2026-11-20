@@ -474,7 +474,9 @@
           <div>
             <h2 class="text-2xl font-normal text-slate-600 uppercase tracking-wide">DAFTAR USER (PESERTA &amp; ADMIN)
             </h2>
-            <p class="text-xs text-slate-500 mt-0.5">Kelola akun peserta serta buka/kunci akses <strong>Latihan Kecermatan</strong> (Bagian 2). Pendaftaran Ujian CAT Psikologi &amp; SKD dilakukan di menu <strong>Daftar Tes</strong>.</p>
+            <p class="text-xs text-slate-500 mt-0.5">Kelola akun peserta serta buka/kunci akses <strong>Latihan
+                Kecermatan</strong> (Bagian 2). Pendaftaran Ujian CAT Psikologi &amp; SKD dilakukan di menu
+              <strong>Daftar Tes</strong>.</p>
           </div>
           <div class="flex flex-wrap items-center gap-2 self-start sm:self-auto">
             <button type="button" onclick="toggleAllUsersLockConfirm(true)"
@@ -556,7 +558,8 @@
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <h2 class="text-2xl font-normal text-slate-600 uppercase tracking-wide">DAFTAR TES</h2>
-            <p class="text-xs text-slate-500 mt-0.5">Kelola pendaftaran jadwal <strong>Ujian CAT (Psikologi &amp; SKD)</strong> peserta serta pantau rekapitulasi hasil ujian.</p>
+            <p class="text-xs text-slate-500 mt-0.5">Kelola pendaftaran jadwal <strong>Ujian CAT (Psikologi &amp;
+                SKD)</strong> peserta serta pantau rekapitulasi hasil ujian.</p>
           </div>
           <div class="flex flex-wrap items-center gap-2 self-start sm:self-auto">
             <button type="button" id="btnAdminNewCatTest" onclick="openAdminNewCatTestModal()"
@@ -582,7 +585,8 @@
           <button type="button" id="btnAdminTestsSubTabCatReg" onclick="switchAdminTestsSubTab('catreg')"
             class="px-3.5 py-2 rounded-lg bg-[#2B59C3] text-white text-xs font-bold shadow-xs transition-all cursor-pointer inline-flex items-center gap-1.5">
             <span>Pendaftaran Ujian CAT</span>
-            <span id="adminCatRegCountBadge" class="px-1.5 py-0.5 rounded-full bg-white/20 text-white text-[10px] font-extrabold">0</span>
+            <span id="adminCatRegCountBadge"
+              class="px-1.5 py-0.5 rounded-full bg-white/20 text-white text-[10px] font-extrabold">0</span>
           </button>
           <button type="button" id="btnAdminTestsSubTabHistory" onclick="switchAdminTestsSubTab('history')"
             class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-white text-xs font-bold transition-all cursor-pointer">
@@ -592,8 +596,10 @@
 
         <!-- SUB-TAB 1: TABEL PENDAFTARAN UJIAN CAT (FORMAT SESUAI GAMBAR REFERENSI) -->
         <div id="adminTestsCatRegPane" class="bg-white rounded-md shadow-sm border border-slate-200 overflow-hidden">
-          <div class="px-5 py-3.5 border-b border-slate-200 bg-slate-50/70 flex flex-wrap items-center justify-between gap-2">
-            <h3 class="text-sm font-extrabold text-[#2B59C3] tracking-wide">Daftar Tes (Pendaftaran CAT Psikologi &amp; SKD)</h3>
+          <div
+            class="px-5 py-3.5 border-b border-slate-200 bg-slate-50/70 flex flex-wrap items-center justify-between gap-2">
+            <h3 class="text-sm font-extrabold text-[#2B59C3] tracking-wide">Daftar Tes (Pendaftaran CAT Psikologi &amp;
+              SKD)</h3>
           </div>
 
           <div class="p-5 space-y-4">
@@ -642,7 +648,8 @@
               </table>
             </div>
 
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2 border-t border-slate-100 text-xs text-slate-500">
+            <div
+              class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2 border-t border-slate-100 text-xs text-slate-500">
               <div id="adminCatRegPaginationInfo">Menampilkan 0 entri</div>
               <div id="adminCatRegPaginationBtns" class="inline-flex items-center gap-1.5"></div>
             </div>
@@ -650,7 +657,8 @@
         </div>
 
         <!-- SUB-TAB 2: RIWAYAT & HASIL TES PESERTA (UTUH) -->
-        <div id="adminTestsHistoryPane" class="hidden bg-white rounded-md shadow-sm border border-slate-200 p-5 space-y-4">
+        <div id="adminTestsHistoryPane"
+          class="hidden bg-white rounded-md shadow-sm border border-slate-200 p-5 space-y-4">
           <form onsubmit="event.preventDefault(); loadAdminTests(false);" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div class="sm:col-span-2">
               <input type="text" id="adminTestSearch"
@@ -1117,8 +1125,10 @@
                     </p>
                   </div>
                   <div id="prepCatPsiPaketWrap" class="hidden pt-2 border-t border-indigo-200/70 space-y-1">
-                    <span class="block text-[10px] font-extrabold uppercase tracking-wide text-indigo-700">Paket Terdaftar oleh Admin</span>
-                    <div id="prepCatPsiAssignedSummary" class="text-[11px] text-slate-700 space-y-0.5 leading-snug"></div>
+                    <span class="block text-[10px] font-extrabold uppercase tracking-wide text-indigo-700">Paket
+                      Terdaftar oleh Admin</span>
+                    <div id="prepCatPsiAssignedSummary" class="text-[11px] text-slate-700 space-y-0.5 leading-snug">
+                    </div>
                   </div>
                 </div>
 
@@ -1140,8 +1150,10 @@
                     </p>
                   </div>
                   <div id="prepCatSkdPaketWrap" class="hidden pt-2 border-t border-amber-200/70 space-y-1">
-                    <span class="block text-[10px] font-extrabold uppercase tracking-wide text-amber-800">Paket Terdaftar oleh Admin</span>
-                    <div id="prepCatSkdAssignedSummary" class="text-[11px] text-slate-700 font-semibold leading-snug"></div>
+                    <span class="block text-[10px] font-extrabold uppercase tracking-wide text-amber-800">Paket
+                      Terdaftar oleh Admin</span>
+                    <div id="prepCatSkdAssignedSummary" class="text-[11px] text-slate-700 font-semibold leading-snug">
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2221,7 +2233,8 @@
   <!-- ====================================================================== -->
   <div id="modalAdminUser"
     class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-    <div class="bg-white rounded-2xl border border-slate-200 max-w-md w-full max-h-[92vh] overflow-y-auto p-5 sm:p-6 shadow-xl space-y-4">
+    <div
+      class="bg-white rounded-2xl border border-slate-200 max-w-md w-full max-h-[92vh] overflow-y-auto p-5 sm:p-6 shadow-xl space-y-4">
       <div class="flex items-center justify-between border-b border-slate-100 pb-3">
         <h3 id="modalUserTitle" class="text-base font-extrabold text-slate-900">Daftarkan User Baru</h3>
         <button type="button" onclick="closeUserModal()"
@@ -2398,10 +2411,165 @@
             <input type="checkbox" id="formCatAcakSoal" class="w-4 h-4 accent-indigo-600 rounded">
             <span>Acak urutan nomor soal saat peserta mengerjakan ujian</span>
           </label>
-          <p class="text-[11px] text-indigo-800/90 bg-white/80 rounded-lg border border-indigo-100 px-2.5 py-2">
-            Setelah menyimpan paket ini, Anda dapat langsung menambahkan butir soal <strong>No. 1, 2, 3, dst.</strong>
-            beserta teks/gambar &amp; bobot nilai A–E.
-          </p>
+          <!-- PANEL TAMBAH BANYAK SOAL SEKALIGUS (COPY-PASTE, DOKUMEN, GAMBAR) -->
+          <div id="catBulkImportSection" class="rounded-xl border border-indigo-200 bg-white p-3.5 space-y-3 shadow-xs">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-2.5">
+              <div>
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="text-xs font-extrabold text-slate-900">Tambah Banyak Soal Sekaligus (Otomatis Tersusun)</span>
+                  <span id="catBulkDraftCountBadge" class="px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-800 text-[10px] font-extrabold">0 Draft Siap Simpan</span>
+                </div>
+                <p class="text-[11px] text-slate-500 mt-0.5">Masukkan banyak soal lewat Copy-Paste, Dokumen Word/Excel/PDF, atau Gambar — langsung tersusun &amp; tersimpan bersama paket ini.</p>
+              </div>
+              <div id="catBulkSaveModeWrap" class="hidden flex items-center gap-1.5">
+                <label for="catBulkSaveModeSelect" class="text-[10px] font-bold uppercase text-slate-500">Mode:</label>
+                <select id="catBulkSaveModeSelect"
+                  class="px-2 py-1 rounded-lg border border-slate-300 bg-slate-50 text-[11px] font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                  <option value="append">Tambah di Urutan Akhir</option>
+                  <option value="replace_by_nomor">Timpa Nomor Sama</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- 3 Tab Sumber Input Massal -->
+            <div class="grid grid-cols-3 gap-1.5 p-1 rounded-xl bg-slate-100 border border-slate-200">
+              <button type="button" id="btnCatBulkTabPaste" onclick="switchCatBulkTab('paste')"
+                class="py-2 px-2 rounded-lg bg-[#2B59C3] text-white text-[11px] sm:text-xs font-bold shadow-xs transition-all cursor-pointer flex items-center justify-center gap-1.5">
+                <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+                <span>Copy-Paste</span>
+              </button>
+              <button type="button" id="btnCatBulkTabDoc" onclick="switchCatBulkTab('doc')"
+                class="py-2 px-2 rounded-lg text-slate-600 hover:bg-white hover:text-slate-900 text-[11px] sm:text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5">
+                <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+                <span>Dokumen</span>
+              </button>
+              <button type="button" id="btnCatBulkTabImg" onclick="switchCatBulkTab('img')"
+                class="py-2 px-2 rounded-lg text-slate-600 hover:bg-white hover:text-slate-900 text-[11px] sm:text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5">
+                <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span>Gambar</span>
+              </button>
+            </div>
+
+            <!-- TAB 1: COPY-PASTE TEKS MASSAL -->
+            <div id="catBulkPanePaste" class="space-y-2">
+              <textarea id="catBulkPasteTextarea" rows="5"
+                placeholder="Tempel 10, 50, atau 100+ soal sekaligus di sini...&#10;&#10;Contoh:&#10;1. Ibu kota Indonesia adalah...&#10;A. Bandung&#10;B. Jakarta&#10;C. Surabaya&#10;D. Medan&#10;E. Semarang&#10;Kunci: B"
+                class="w-full px-3 py-2.5 rounded-xl border border-slate-300 bg-slate-50/70 focus:bg-white text-xs text-slate-800 font-cat-mono leading-relaxed focus:outline-none focus:ring-2 focus:ring-[#2B59C3]"></textarea>
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div class="flex flex-wrap items-center gap-1.5">
+                  <button type="button" onclick="fillBulkPasteSample()"
+                    class="px-2.5 py-1.5 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-[11px] font-bold text-slate-700 cursor-pointer">
+                    Isi Contoh Format
+                  </button>
+                  <button type="button" onclick="clearBulkPasteText()"
+                    class="px-2.5 py-1.5 rounded-lg border border-slate-200 bg-slate-50 hover:bg-slate-100 text-[11px] font-semibold text-slate-600 cursor-pointer">
+                    Bersihkan
+                  </button>
+                </div>
+                <button type="button" onclick="parseAndAppendBulkPaste()"
+                  class="px-3.5 py-1.5 rounded-lg bg-[#2B59C3] hover:bg-[#2349A3] text-white text-xs font-bold shadow-xs inline-flex items-center gap-1.5 cursor-pointer">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                  <span>Susun Soal Otomatis</span>
+                </button>
+              </div>
+              <p class="text-[10px] text-slate-500 leading-snug">
+                Mendukung: <strong>Kunci: B</strong> per soal, tanda <strong>*B.</strong>, bobot TKP <strong>(5)</strong> / <strong>Skor: A=5 B=4 C=3 D=2 E=1</strong>, <strong>Pembahasan:</strong>, serta daftar <strong>KUNCI JAWABAN</strong> di bagian bawah.
+              </p>
+            </div>
+
+            <!-- TAB 2: KIRIM DOKUMEN (.docx, .xlsx, .csv, .pdf, .txt) -->
+            <div id="catBulkPaneDoc" class="hidden space-y-2.5">
+              <div id="catBulkDocDropZone" onclick="triggerCatBulkDocUpload()"
+                class="p-4 rounded-xl border-2 border-dashed border-slate-300 hover:border-[#2B59C3] bg-slate-50/70 hover:bg-blue-50/40 text-center space-y-2 transition-all cursor-pointer">
+                <div class="w-9 h-9 mx-auto rounded-xl bg-blue-100 text-[#2B59C3] flex items-center justify-center">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs font-extrabold text-slate-800">Klik atau Seret Dokumen Soal ke Sini</p>
+                  <p class="text-[11px] text-slate-500 mt-0.5">Otomatis membaca &amp; menyusun soal dari <strong>Word (.docx + gambar)</strong>, <strong>Excel (.xlsx/.xls/.csv)</strong>, <strong>PDF (.pdf)</strong>, atau <strong>Teks (.txt)</strong>.</p>
+                </div>
+                <div class="flex flex-wrap items-center justify-center gap-1.5 pt-1">
+                  <span class="px-2 py-0.5 rounded bg-blue-100 text-blue-800 text-[10px] font-bold">.docx</span>
+                  <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-bold">.xlsx / .csv</span>
+                  <span class="px-2 py-0.5 rounded bg-rose-100 text-rose-800 text-[10px] font-bold">.pdf</span>
+                  <span class="px-2 py-0.5 rounded bg-slate-200 text-slate-700 text-[10px] font-bold">.txt</span>
+                </div>
+              </div>
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <button type="button" onclick="downloadCatBulkExcelTemplate()"
+                  class="px-3 py-1.5 rounded-lg border border-emerald-300 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-[11px] font-bold inline-flex items-center gap-1.5 cursor-pointer">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                  <span>Download Template Excel</span>
+                </button>
+                <button type="button" onclick="triggerCatBulkDocUpload()"
+                  class="px-3.5 py-1.5 rounded-lg bg-[#2B59C3] hover:bg-[#2349A3] text-white text-xs font-bold shadow-xs cursor-pointer">
+                  Pilih Dokumen
+                </button>
+              </div>
+            </div>
+
+            <!-- TAB 3: KIRIM GAMBAR (AUTO-OCR TEKS vs 1 GAMBAR = 1 SOAL) -->
+            <div id="catBulkPaneImg" class="hidden space-y-2.5">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <button type="button" id="btnCatBulkImgModeOcr" onclick="setCatBulkImgMode('ocr')"
+                  class="p-2.5 rounded-xl border-2 border-[#2B59C3] bg-blue-50/70 text-left transition-all cursor-pointer">
+                  <span class="block text-xs font-extrabold text-slate-900">A. Baca Teks dari Gambar (Auto-OCR)</span>
+                  <span class="block text-[10px] text-slate-600 mt-0.5">Foto/screenshot lembar soal teks → otomatis dibaca &amp; disusun menjadi soal A–E.</span>
+                </button>
+                <button type="button" id="btnCatBulkImgModeDirect" onclick="setCatBulkImgMode('direct')"
+                  class="p-2.5 rounded-xl border-2 border-slate-200 bg-white hover:border-indigo-300 text-left transition-all cursor-pointer">
+                  <span class="block text-xs font-extrabold text-slate-900">B. 1 Gambar = 1 Butir Soal</span>
+                  <span class="block text-[10px] text-slate-600 mt-0.5">Unggah banyak gambar (Figural / Screenshot) → tiap gambar langsung jadi 1 nomor soal.</span>
+                </button>
+              </div>
+
+              <div id="catBulkImgDropZone" onclick="triggerCatBulkImgUpload()"
+                class="p-4 rounded-xl border-2 border-dashed border-slate-300 hover:border-[#2B59C3] bg-slate-50/70 hover:bg-blue-50/40 text-center space-y-1.5 transition-all cursor-pointer">
+                <p class="text-xs font-extrabold text-slate-800">Klik, Seret, atau Tempel (Ctrl+V) Gambar Soal di Sini</p>
+                <p class="text-[11px] text-slate-500">Bisa memilih banyak file JPG / PNG / WebP sekaligus (otomatis diurutkan 1, 2, 3...).</p>
+              </div>
+            </div>
+
+            <!-- Progress Bar Ekstraksi / OCR / Simpan Batch -->
+            <div id="catBulkProgressWrap" class="hidden rounded-xl border border-blue-200 bg-blue-50/80 p-3 space-y-1.5">
+              <div class="flex items-center justify-between gap-2 text-xs font-bold text-blue-900">
+                <span class="inline-flex items-center gap-2">
+                  <span class="inline-block w-3.5 h-3.5 rounded-full border-2 border-[#2B59C3] border-t-transparent animate-spin shrink-0"></span>
+                  <span id="catBulkProgressText">Memproses soal...</span>
+                </span>
+              </div>
+              <div class="w-full h-2 rounded-full bg-blue-200/80 overflow-hidden">
+                <div id="catBulkProgressBar" class="h-full bg-[#2B59C3] transition-all duration-200" style="width: 10%"></div>
+              </div>
+            </div>
+
+            <!-- Pratinjau & Edit Cepat Draft Soal Tersusun -->
+            <div id="catBulkPreviewWrap" class="hidden space-y-2 pt-2 border-t border-slate-200">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="text-xs font-extrabold text-slate-900">Pratinjau Soal Tersusun</span>
+                  <span id="catBulkPreviewSummary" class="text-[11px] font-semibold text-emerald-700"></span>
+                </div>
+                <button type="button" onclick="clearCatBulkDrafts()"
+                  class="px-2.5 py-1 rounded-lg border border-rose-200 bg-rose-50 hover:bg-rose-100 text-[11px] font-bold text-rose-700 cursor-pointer">
+                  Kosongkan Draft
+                </button>
+              </div>
+              <div id="catBulkPreviewList" class="max-h-72 overflow-y-auto space-y-2 pr-1"></div>
+            </div>
+          </div>
         </div>
 
         <!-- PEMILIH CEPAT SUMBER SIMBOL PENJUMLAHAN -->
@@ -2830,7 +2998,8 @@
           </div>
           <div>
             <h3 class="text-base font-extrabold text-slate-900">Buka Kunci Latihan Kecermatan</h3>
-            <p id="bukaKunciUserSubtitle" class="text-xs text-slate-500 font-medium">Pilih masa aktif buka kunci latihan kecermatan untuk peserta ini</p>
+            <p id="bukaKunciUserSubtitle" class="text-xs text-slate-500 font-medium">Pilih masa aktif buka kunci latihan
+              kecermatan untuk peserta ini</p>
           </div>
         </div>
         <button type="button" onclick="closeBukaKunciModal()"
@@ -2985,23 +3154,28 @@
         </div>
 
         <!-- 5A. Pengaturan Mix 3 Sub-Tes Psikologi (Otomatis muncul saat Jenis Tes = Psikologi) -->
-        <div id="catRegPsiConfigWrap" class="hidden rounded-xl border border-indigo-200 bg-indigo-50/50 p-3.5 space-y-2.5">
+        <div id="catRegPsiConfigWrap"
+          class="hidden rounded-xl border border-indigo-200 bg-indigo-50/50 p-3.5 space-y-2.5">
           <div class="flex items-center justify-between gap-2">
-            <span class="text-xs font-extrabold uppercase tracking-wide text-indigo-900">Pengaturan Paket Psikologi (Bebas Mix)</span>
+            <span class="text-xs font-extrabold uppercase tracking-wide text-indigo-900">Pengaturan Paket Psikologi
+              (Bebas Mix)</span>
             <span class="text-[10px] font-semibold text-indigo-700">3 Sub-Tes</span>
           </div>
           <div>
-            <label for="catRegPsiKecerdasan" class="block text-[11px] font-bold uppercase text-indigo-900 mb-1">1. Paket Tes Kecerdasan (100 Soal / 90 Menit)</label>
+            <label for="catRegPsiKecerdasan" class="block text-[11px] font-bold uppercase text-indigo-900 mb-1">1. Paket
+              Tes Kecerdasan (100 Soal / 90 Menit)</label>
             <select id="catRegPsiKecerdasan"
               class="w-full px-3 py-2 rounded-lg border border-indigo-200 bg-white text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"></select>
           </div>
           <div>
-            <label for="catRegPsiKepribadian" class="block text-[11px] font-bold uppercase text-indigo-900 mb-1">2. Paket Tes Kepribadian (100 Soal / 60 Menit)</label>
+            <label for="catRegPsiKepribadian" class="block text-[11px] font-bold uppercase text-indigo-900 mb-1">2.
+              Paket Tes Kepribadian (100 Soal / 60 Menit)</label>
             <select id="catRegPsiKepribadian"
               class="w-full px-3 py-2 rounded-lg border border-indigo-200 bg-white text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"></select>
           </div>
           <div>
-            <label for="catRegPsiKecermatan" class="block text-[11px] font-bold uppercase text-indigo-900 mb-1">3. Model Tes Kecermatan</label>
+            <label for="catRegPsiKecermatan" class="block text-[11px] font-bold uppercase text-indigo-900 mb-1">3. Model
+              Tes Kecermatan</label>
             <select id="catRegPsiKecermatan"
               class="w-full px-3 py-2 rounded-lg border border-indigo-200 bg-white text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"></select>
           </div>
@@ -3009,10 +3183,12 @@
 
         <!-- 5B. Pengaturan Paket SKD (Otomatis muncul saat Jenis Tes = SKD) -->
         <div id="catRegSkdConfigWrap" class="hidden rounded-xl border border-amber-200 bg-amber-50/50 p-3.5 space-y-2">
-          <label for="catRegSkdPaket" class="block text-[11px] font-bold uppercase text-amber-900">Pilih Paket Ujian SKD (110 Soal / 100 Menit)</label>
+          <label for="catRegSkdPaket" class="block text-[11px] font-bold uppercase text-amber-900">Pilih Paket Ujian SKD
+            (110 Soal / 100 Menit)</label>
           <select id="catRegSkdPaket"
             class="w-full px-3 py-2 rounded-lg border border-amber-200 bg-white text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-500"></select>
-          <p class="text-[11px] text-amber-900/80">Peserta otomatis hanya mengerjakan paket SKD yang Anda pilih di atas.</p>
+          <p class="text-[11px] text-amber-900/80">Peserta otomatis hanya mengerjakan paket SKD yang Anda pilih di atas.
+          </p>
         </div>
 
         <!-- Tombol Aksi Kanan Bawah (Sesuai Gambar Referensi) -->
@@ -3035,21 +3211,25 @@
     class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
     <div class="bg-white rounded-2xl border border-slate-200 max-w-sm w-full p-5 shadow-xl space-y-4">
       <div class="flex items-start gap-3">
-        <div class="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 border border-rose-100 flex items-center justify-center shrink-0">
+        <div
+          class="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 border border-rose-100 flex items-center justify-center shrink-0">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
           </svg>
         </div>
         <div class="min-w-0">
           <h3 class="text-sm font-extrabold text-slate-900">Hapus Pendaftaran Tes?</h3>
-          <p id="deleteCatRegConfirmDesc" class="text-xs text-slate-600 mt-1 leading-relaxed">Akses ujian CAT peserta ini akan ditutup kembali.</p>
+          <p id="deleteCatRegConfirmDesc" class="text-xs text-slate-600 mt-1 leading-relaxed">Akses ujian CAT peserta
+            ini akan ditutup kembali.</p>
         </div>
       </div>
       <div class="flex items-center justify-end gap-2 pt-2 border-t border-slate-100">
         <button type="button" onclick="closeConfirmDeleteCatRegModal()"
           class="px-4 py-2 rounded-lg border border-slate-300 text-slate-700 text-xs font-bold hover:bg-slate-50 cursor-pointer">Batal</button>
         <button type="button" id="btnConfirmDeleteCatReg" onclick="executeDeleteCatRegEntry()"
-          class="px-4 py-2 rounded-lg bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold shadow-sm cursor-pointer">Ya, Hapus</button>
+          class="px-4 py-2 rounded-lg bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold shadow-sm cursor-pointer">Ya,
+          Hapus</button>
       </div>
     </div>
   </div>
@@ -3177,13 +3357,23 @@
               <span id="catQListCountBadge"
                 class="px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-700 text-[11px] font-extrabold">0 Soal</span>
             </div>
-            <button type="button" onclick="startNewCatQuestion()"
-              class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-indigo-600 text-white text-xs font-bold hover:bg-indigo-700 transition-colors shadow-sm cursor-pointer">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"></path>
-              </svg>
-              <span>Soal Baru</span>
-            </button>
+            <div class="flex items-center gap-1.5">
+              <button type="button" onclick="openBulkImportFromCatEditor()"
+                class="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-bold hover:bg-emerald-100 transition-colors cursor-pointer"
+                title="Tambah banyak soal sekaligus lewat Copy-Paste, Dokumen, atau Gambar">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                </svg>
+                <span>Import Massal</span>
+              </button>
+              <button type="button" onclick="startNewCatQuestion()"
+                class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-indigo-600 text-white text-xs font-bold hover:bg-indigo-700 transition-colors shadow-sm cursor-pointer">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"></path>
+                </svg>
+                <span>Soal Baru</span>
+              </button>
+            </div>
           </div>
           <div id="catQNavList" class="flex-1 overflow-y-auto p-3 space-y-2">
             <!-- Diisi dinamis oleh renderCatQNavList() -->
@@ -3495,9 +3685,13 @@
     </div>
   </div>
 
-  <!-- Input File Gambar Butir Soal CAT (Root level agar selalu dapat dipanggil aman) -->
+  <!-- Input File Gambar & Dokumen Soal CAT (Root level agar selalu aman dari Strict Focus) -->
   <input type="file" id="catQuestionImageInput" accept="image/*" class="hidden"
     onchange="handleCatImageFileChange(event)" />
+  <input type="file" id="catBulkDocInput" accept=".docx,.xlsx,.xls,.csv,.pdf,.txt" class="hidden"
+    onchange="handleCatBulkDocFiles(this.files); this.value='';" />
+  <input type="file" id="catBulkImgInput" accept="image/*" multiple class="hidden"
+    onchange="handleCatBulkImgFiles(this.files); this.value='';" />
 
   <!-- TOAST NOTIFICATION KUSTOM -->
   <div id="toastContainer"
@@ -8746,13 +8940,19 @@
 
       if (modalBox) {
         modalBox.classList.remove('max-w-md', 'max-w-xl', 'max-w-3xl');
-        if (isImg) {
+        if (isImg || isCat) {
           modalBox.classList.add('max-w-3xl');
-        } else if (isCat) {
-          modalBox.classList.add('max-w-xl');
         } else {
           modalBox.classList.add('max-w-md');
         }
+      }
+      var bulkSaveModeWrap = document.getElementById('catBulkSaveModeWrap');
+      if (bulkSaveModeWrap) {
+        if (isCat && editIdVal) bulkSaveModeWrap.classList.remove('hidden');
+        else bulkSaveModeWrap.classList.add('hidden');
+      }
+      if (isCat && typeof ensureCatBulkEventsBound === 'function') {
+        ensureCatBulkEventsBound();
       }
       if (karWrap) {
         if (isImg || isCat) karWrap.classList.add('hidden');
@@ -9328,6 +9528,1624 @@
       return composed;
     }
 
+    // ========================================================================
+    // ENGINE IMPORT SOAL MASSAL CAT v3.37 (COPY-PASTE, DOKUMEN, GAMBAR)
+    // ========================================================================
+    var catBulkState = {
+      activeTab: 'paste',
+      imgMode: 'ocr',
+      drafts: [],
+      expandedIdx: -1,
+      busy: false,
+      eventsBound: false
+    };
+
+    var catExternalLibPromises = {};
+
+    function loadExternalScriptWithFallback(cacheKey, checkGlobalFn, urls, onSuccess, onError) {
+      try {
+        if (checkGlobalFn()) {
+          if (onSuccess) onSuccess();
+          return;
+        }
+      } catch (e) { }
+
+      if (catExternalLibPromises[cacheKey] === 'LOADED') {
+        if (onSuccess) onSuccess();
+        return;
+      }
+
+      var idx = 0;
+      function tryNext() {
+        if (idx >= urls.length) {
+          if (onError) onError('Gagal memuat pustaka pembaca dokumen dari internet. Periksa koneksi internet Anda atau gunakan tab Copy-Paste.');
+          return;
+        }
+        var url = urls[idx];
+        idx++;
+        var s = document.createElement('script');
+        s.src = url;
+        s.async = true;
+        s.onload = function () {
+          try {
+            if (checkGlobalFn()) {
+              catExternalLibPromises[cacheKey] = 'LOADED';
+              if (onSuccess) onSuccess();
+              return;
+            }
+          } catch (e) { }
+          tryNext();
+        };
+        s.onerror = function () {
+          tryNext();
+        };
+        document.head.appendChild(s);
+      }
+      tryNext();
+    }
+
+    function setCatBulkProgress(visible, text, percent) {
+      var wrap = document.getElementById('catBulkProgressWrap');
+      var txt = document.getElementById('catBulkProgressText');
+      var bar = document.getElementById('catBulkProgressBar');
+      if (!wrap) return;
+      if (visible) {
+        wrap.classList.remove('hidden');
+        if (txt) txt.textContent = text || 'Memproses...';
+        if (bar) {
+          var pct = Math.max(5, Math.min(100, Math.round(percent || 10)));
+          bar.style.width = pct + '%';
+        }
+      } else {
+        wrap.classList.add('hidden');
+      }
+    }
+
+    function resetCatBulkImportState() {
+      catBulkState.activeTab = 'paste';
+      catBulkState.imgMode = 'ocr';
+      catBulkState.drafts = [];
+      catBulkState.expandedIdx = -1;
+      catBulkState.busy = false;
+      var ta = document.getElementById('catBulkPasteTextarea');
+      if (ta) ta.value = '';
+      var modeSel = document.getElementById('catBulkSaveModeSelect');
+      if (modeSel) modeSel.value = 'append';
+      setCatBulkProgress(false);
+      switchCatBulkTab('paste');
+      setCatBulkImgMode('ocr');
+      renderCatBulkPreviewList();
+    }
+
+    function switchCatBulkTab(tab) {
+      catBulkState.activeTab = (tab === 'doc' || tab === 'img') ? tab : 'paste';
+      var tabs = ['paste', 'doc', 'img'];
+      var btnIds = { paste: 'btnCatBulkTabPaste', doc: 'btnCatBulkTabDoc', img: 'btnCatBulkTabImg' };
+      var paneIds = { paste: 'catBulkPanePaste', doc: 'catBulkPaneDoc', img: 'catBulkPaneImg' };
+      for (var i = 0; i < tabs.length; i++) {
+        var k = tabs[i];
+        var bEl = document.getElementById(btnIds[k]);
+        var pEl = document.getElementById(paneIds[k]);
+        if (bEl) {
+          if (k === catBulkState.activeTab) {
+            bEl.className = 'py-2 px-2 rounded-lg bg-[#2B59C3] text-white text-[11px] sm:text-xs font-bold shadow-xs transition-all cursor-pointer flex items-center justify-center gap-1.5';
+          } else {
+            bEl.className = 'py-2 px-2 rounded-lg text-slate-600 hover:bg-white hover:text-slate-900 text-[11px] sm:text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5';
+          }
+        }
+        if (pEl) {
+          if (k === catBulkState.activeTab) pEl.classList.remove('hidden');
+          else pEl.classList.add('hidden');
+        }
+      }
+    }
+
+    function setCatBulkImgMode(mode) {
+      catBulkState.imgMode = (mode === 'direct') ? 'direct' : 'ocr';
+      var bOcr = document.getElementById('btnCatBulkImgModeOcr');
+      var bDir = document.getElementById('btnCatBulkImgModeDirect');
+      if (bOcr) {
+        bOcr.className = catBulkState.imgMode === 'ocr'
+          ? 'p-2.5 rounded-xl border-2 border-[#2B59C3] bg-blue-50/70 text-left transition-all cursor-pointer'
+          : 'p-2.5 rounded-xl border-2 border-slate-200 bg-white hover:border-indigo-300 text-left transition-all cursor-pointer';
+      }
+      if (bDir) {
+        bDir.className = catBulkState.imgMode === 'direct'
+          ? 'p-2.5 rounded-xl border-2 border-[#2B59C3] bg-blue-50/70 text-left transition-all cursor-pointer'
+          : 'p-2.5 rounded-xl border-2 border-slate-200 bg-white hover:border-indigo-300 text-left transition-all cursor-pointer';
+      }
+    }
+
+    function isCurrentSoalModalScaleCategory(nomor) {
+      var mainEl = document.getElementById('formSoalKategoriUtama');
+      var subEl = document.getElementById('formSoalSubKategori');
+      var mainKat = mainEl ? String(mainEl.value || '').toUpperCase() : '';
+      var subKat = subEl ? String(subEl.value || '').toUpperCase() : '';
+      if (mainKat === 'PSIKOLOGI' && subKat === 'KEPRIBADIAN') return true;
+      if (mainKat === 'SKD' && subKat === 'TKP') return true;
+      if (mainKat === 'SKD' && subKat === 'GABUNGAN' && (parseInt(nomor, 10) || 1) >= 66) return true;
+      return false;
+    }
+
+    function buildDefaultWeightsForKey(keyIdx, nomor) {
+      var isScale = isCurrentSoalModalScaleCategory(nomor);
+      var k = (keyIdx >= 0 && keyIdx <= 4) ? keyIdx : 0;
+      if (isScale) {
+        var out = [1, 1, 1, 1, 1];
+        for (var i = 0; i < 5; i++) {
+          out[(k + i) % 5] = 5 - i;
+        }
+        return out;
+      }
+      var bin = [0, 0, 0, 0, 0];
+      bin[k] = 5;
+      return bin;
+    }
+
+    function naturalSortFilesList(fileList) {
+      var arr = [];
+      for (var i = 0; i < fileList.length; i++) arr.push(fileList[i]);
+      arr.sort(function (a, b) {
+        var na = String(a.name || '').toLowerCase();
+        var nb = String(b.name || '').toLowerCase();
+        var ra = na.match(/(\d+)/);
+        var rb = nb.match(/(\d+)/);
+        if (ra && rb && na.replace(/\d+/g, '') === nb.replace(/\d+/g, '')) {
+          return parseInt(ra[1], 10) - parseInt(rb[1], 10);
+        }
+        return na.localeCompare(nb);
+      });
+      return arr;
+    }
+
+    function compressCatDataUrlAdaptive(dataUrl, onSuccess, onError) {
+      if (!dataUrl || String(dataUrl).indexOf('data:image/') !== 0) {
+        if (onError) onError('Data gambar tidak valid.');
+        return;
+      }
+      if (dataUrl.length <= 38000) {
+        if (onSuccess) onSuccess(dataUrl);
+        return;
+      }
+      var img = new Image();
+      img.onerror = function () { if (onError) onError('Gagal mengompres gambar dokumen.'); };
+      img.onload = function () {
+        var MAX_LEN = 39000;
+        var dims = [720, 560, 440, 340, 260];
+        var quals = [0.82, 0.68, 0.55, 0.45];
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+        var best = '';
+        for (var d = 0; d < dims.length; d++) {
+          var maxS = dims[d];
+          var w = img.naturalWidth || img.width || maxS;
+          var h = img.naturalHeight || img.height || maxS;
+          var sc = Math.min(1, maxS / Math.max(w, h));
+          canvas.width = Math.max(40, Math.round(w * sc));
+          canvas.height = Math.max(40, Math.round(h * sc));
+          ctx.fillStyle = '#FFFFFF';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          for (var q = 0; q < quals.length; q++) {
+            var out = '';
+            try { out = canvas.toDataURL('image/webp', quals[q]); } catch (e) { out = ''; }
+            if (!out || out.indexOf('data:image/webp') !== 0) {
+              out = canvas.toDataURL('image/jpeg', quals[q]);
+            }
+            best = out;
+            if (out.length <= MAX_LEN) {
+              if (onSuccess) onSuccess(out);
+              return;
+            }
+          }
+        }
+        if (best && best.length <= 44500) {
+          if (onSuccess) onSuccess(best);
+        } else {
+          if (onError) onError('Gambar terlalu besar untuk Google Sheets.');
+        }
+      };
+      img.src = dataUrl;
+    }
+
+    function parseBulkCatQuestionsText(rawText, embeddedImages, startNomorHint) {
+      var cleanRaw = String(rawText || '').replace(/\r\n/g, '\n').replace(/\r/g, '\n').replace(/\u00A0/g, ' ').trim();
+      if (!cleanRaw) return [];
+      var imgPool = Array.isArray(embeddedImages) ? embeddedImages : [];
+
+      // 1. Deteksi blok KUNCI JAWABAN terpisah di bagian paling bawah teks (contoh: KUNCI JAWABAN: 1.A 2.C 3.B ...)
+      var globalKeyMap = {};
+      var bodyText = cleanRaw;
+      var tailMatch = cleanRaw.match(/\n\s*(?:KUNCI\s+JAWABAN|JAWABAN\s+BENAR|KUNCI)\s*[:\-]?\s*\n([\s\S]+)$/i);
+      if (tailMatch && tailMatch.index > 30) {
+        var tailContent = tailMatch[1];
+        var keyPairs = tailContent.match(/\b(\d{1,3})\s*[\.\)\:\-\=]?\s*([A-E])\b/gi);
+        if (keyPairs && keyPairs.length >= 2) {
+          for (var kp = 0; kp < keyPairs.length; kp++) {
+            var km = keyPairs[kp].match(/(\d{1,3})\s*[\.\)\:\-\=]?\s*([A-E])/i);
+            if (km) {
+              globalKeyMap[parseInt(km[1], 10)] = km[2].toUpperCase();
+            }
+          }
+          bodyText = cleanRaw.substring(0, tailMatch.index).trim();
+        }
+      }
+
+      // 2. Pecah teks menjadi blok soal individual secara cerdas (anti salah pecah list 1) 2) di dalam teks soal)
+      var lines = bodyText.split('\n');
+      var blocks = [];
+      var curLines = [];
+      var curNum = 0;
+      var curDelim = '.';
+      var curHasOpt = false;
+      var prevLineBlank = false;
+      var qHeaderRe = /^\s*(?:(?:No\.?|Soal)\s*)?(\d{1,3})\s*([\.\)\:\-])\s*(.*)$/i;
+      var optStartRe = /^\s*\*?\s*(?:\(([A-Ea-e])\)|([A-Ea-e])[\.\)\:])\s+/;
+
+      for (var i = 0; i < lines.length; i++) {
+        var line = lines[i];
+        var isBlankNow = !String(line || '').trim();
+        var hm = line.match(qHeaderRe);
+        var isNewQuestion = false;
+        if (hm) {
+          var candNum = parseInt(hm[1], 10);
+          var candDelim = hm[2] || '.';
+          var restAfterNum = String(hm[3] || '').trim();
+          var isOptionLike = optStartRe.test(line);
+          if (!isOptionLike && candNum >= 1 && candNum <= 500) {
+            if (curLines.length === 0) {
+              isNewQuestion = true;
+            } else if (curHasOpt) {
+              isNewQuestion = true;
+            } else if (prevLineBlank && curNum > 0 && candNum === curNum + 1 && candDelim === curDelim && restAfterNum.length >= 8) {
+              isNewQuestion = true;
+            }
+          }
+        }
+        if (isNewQuestion) {
+          if (curLines.length > 0) {
+            blocks.push({ explicitNo: curNum, lines: curLines });
+          }
+          curNum = parseInt(hm[1], 10);
+          curDelim = hm[2] || '.';
+          curLines = [String(hm[3] || '').trim()];
+          curHasOpt = false;
+        } else {
+          if (optStartRe.test(line) || /\bA[\.\)]\s+.+\bB[\.\)]\s+/i.test(line)) {
+            curHasOpt = true;
+          }
+          curLines.push(line);
+        }
+        prevLineBlank = isBlankNow;
+      }
+      if (curLines.length > 0) {
+        blocks.push({ explicitNo: curNum, lines: curLines });
+      }
+
+      // 3. Parse setiap blok soal menjadi objek terstruktur (pertanyaan, gambar, opsi A..E, bobot, pembahasan)
+      var results = [];
+      var letters = ['A', 'B', 'C', 'D', 'E'];
+      var nextAutoNo = Math.max(1, parseInt(startNomorHint, 10) || 1);
+
+      function extractImgFromStr(s) {
+        var str = String(s || '');
+        var imgFound = '';
+        str = str.replace(/\[\[DOCX_IMG_(\d+)\]\]/g, function (_m, numStr) {
+          var idxImg = parseInt(numStr, 10);
+          if (!imgFound && idxImg >= 0 && idxImg < imgPool.length && imgPool[idxImg]) {
+            imgFound = imgPool[idxImg];
+          }
+          return '';
+        });
+        return { text: str.replace(/\s+\n/g, '\n').trim(), img: imgFound };
+      }
+
+      for (var b = 0; b < blocks.length; b++) {
+        var blk = blocks[b];
+        var blkLines = blk.lines;
+        var stemLines = [];
+        var optTexts = ['', '', '', '', ''];
+        var optWeights = [null, null, null, null, null];
+        var activeOptIdx = -1;
+        var inPembahasan = false;
+        var pembLines = [];
+        var explicitKeyIdx = -1;
+
+        for (var l = 0; l < blkLines.length; l++) {
+          var ln = String(blkLines[l] || '').trim();
+          if (!ln) continue;
+
+          // Deteksi baris Pembahasan
+          var pMatch = ln.match(/^(?:Pembahasan|Penjelasan|Ulasan)\s*[:\-]?\s*(.*)$/i);
+          if (pMatch) {
+            inPembahasan = true;
+            if (pMatch[1] && pMatch[1].trim()) pembLines.push(pMatch[1].trim());
+            continue;
+          }
+
+          // Deteksi baris Bobot/Skor TKP (mis. Bobot: A=5, B=4, C=3, D=2, E=1 atau Skor: A:3 B:5 ...)
+          var bobotLineMatch = ln.match(/^(?:Bobot|Skor|Poin|Nilai)\s*(?:Opsi|Jawaban)?\s*[:\-]\s*(.+)$/i);
+          if (bobotLineMatch) {
+            var pairs = bobotLineMatch[1].match(/([A-E])\s*[:\=\-]\s*(\d+(?:[\.,]\d+)?)/gi);
+            if (pairs && pairs.length >= 2) {
+              for (var bp = 0; bp < pairs.length; bp++) {
+                var pm = pairs[bp].match(/([A-E])\s*[:\=\-]\s*(\d+(?:[\.,]\d+)?)/i);
+                if (pm) {
+                  var li = letters.indexOf(pm[1].toUpperCase());
+                  if (li !== -1) optWeights[li] = parseFloat(pm[2].replace(',', '.'));
+                }
+              }
+              continue;
+            }
+          }
+
+          // Deteksi baris Kunci Jawaban (mis. Kunci: B, Jawaban: C, Kunci Jawaban = D)
+          var kMatch = ln.match(/^(?:Kunci\s+Jawaban|Kunci|Jawaban\s+Benar|Jawaban|Jawab)\s*[:\=\-]?\s*\*?\(?([A-E])\)?(?:\s|$|[\.\,\-\(])/i);
+          if (kMatch) {
+            explicitKeyIdx = letters.indexOf(kMatch[1].toUpperCase());
+            continue;
+          }
+
+          if (inPembahasan) {
+            pembLines.push(ln);
+            continue;
+          }
+
+          // Deteksi beberapa opsi dalam 1 baris (mis. A. Jakarta   B. Bandung   C. Surabaya)
+          var inlineSplit = ln.split(/(?=(?:^|\s{2,}|\t)\*?(?:\([A-Ea-e]\)|[A-Ea-e][\.\)])\s+)/);
+          if (inlineSplit.length >= 2 && optStartRe.test(inlineSplit[0].trim())) {
+            for (var sp = 0; sp < inlineSplit.length; sp++) {
+              var seg = inlineSplit[sp].trim();
+              var omIn = seg.match(/^(\*?)\s*(?:\(([A-Ea-e])\)|([A-Ea-e])[\.\)\:])\s*(.*)$/);
+              if (omIn) {
+                var oIdxIn = letters.indexOf((omIn[2] || omIn[3]).toUpperCase());
+                if (oIdxIn !== -1) {
+                  activeOptIdx = oIdxIn;
+                  if (omIn[1] === '*') explicitKeyIdx = oIdxIn;
+                  optTexts[oIdxIn] = String(omIn[4] || '').trim();
+                }
+              }
+            }
+            continue;
+          }
+
+          // Deteksi 1 opsi di awal baris (A. / a) / (A) / *B.)
+          var om = ln.match(/^(\*?)\s*(?:\(([A-Ea-e])\)|([A-Ea-e])[\.\)\:])\s*(.*)$/);
+          if (om) {
+            var oIdx = letters.indexOf((om[2] || om[3]).toUpperCase());
+            if (oIdx !== -1) {
+              activeOptIdx = oIdx;
+              if (om[1] === '*') explicitKeyIdx = oIdx;
+              optTexts[oIdx] = String(om[4] || '').trim();
+              continue;
+            }
+          }
+
+          if (activeOptIdx === -1) {
+            stemLines.push(ln);
+          } else {
+            optTexts[activeOptIdx] = (optTexts[activeOptIdx] ? (optTexts[activeOptIdx] + ' ') : '') + ln;
+          }
+        }
+
+        var stemClean = extractImgFromStr(stemLines.join('\n'));
+        if (!stemClean.text && !stemClean.img) continue;
+
+        var finalNomor = (blk.explicitNo && blk.explicitNo >= 1) ? blk.explicitNo : nextAutoNo;
+        if (finalNomor >= nextAutoNo) nextAutoNo = finalNomor + 1;
+        else nextAutoNo++;
+
+        // Cek kunci dari tabel KUNCI JAWABAN di bawah teks jika belum ada kunci inline
+        if (explicitKeyIdx === -1 && globalKeyMap[finalNomor]) {
+          explicitKeyIdx = letters.indexOf(globalKeyMap[finalNomor]);
+        }
+
+        // Cek bobot inline di ujung teks opsi, mis. "... (5)" atau "[bobot: 4]" atau "(benar)"
+        var hasExplicitWeights = false;
+        for (var oi = 0; oi < 5; oi++) {
+          if (optWeights[oi] !== null) hasExplicitWeights = true;
+        }
+        var builtOpsi = [];
+        var filledOptCount = 0;
+        for (var o = 0; o < 5; o++) {
+          var rawO = String(optTexts[o] || '').trim();
+          var extO = extractImgFromStr(rawO);
+          var txtO = extO.text;
+          var imgO = extO.img;
+
+          if (/\((?:benar|kunci)\)\s*$/i.test(txtO)) {
+            explicitKeyIdx = o;
+            txtO = txtO.replace(/\((?:benar|kunci)\)\s*$/i, '').trim();
+          }
+          var wInline = txtO.match(/(?:\(|\[)\s*(?:bobot|skor|poin|nilai)?\s*[:\=]?\s*(\d+(?:[\.,]\d+)?)\s*(?:poin|pts)?\s*(?:\)|\])$/i);
+          if (wInline && optWeights[o] === null) {
+            var wNum = parseFloat(wInline[1].replace(',', '.'));
+            if (!isNaN(wNum) && wNum >= 0 && wNum <= 20) {
+              optWeights[o] = wNum;
+              hasExplicitWeights = true;
+              txtO = txtO.substring(0, wInline.index).trim();
+            }
+          }
+          if (txtO || imgO) filledOptCount++;
+          builtOpsi.push({ key: letters[o], teks: txtO, gambar: imgO, bobot: 0 });
+        }
+
+        // Tetapkan bobot akhir opsi A..E
+        var defW = buildDefaultWeightsForKey(explicitKeyIdx !== -1 ? explicitKeyIdx : 0, finalNomor);
+        for (var w = 0; w < 5; w++) {
+          if (hasExplicitWeights) {
+            builtOpsi[w].bobot = (optWeights[w] !== null && !isNaN(optWeights[w])) ? optWeights[w] : 0;
+          } else {
+            builtOpsi[w].bobot = defW[w];
+          }
+        }
+
+        // Fallback jika soal punya teks/gambar namun opsi belum terisi
+        for (var f = 0; f < 5; f++) {
+          if (!builtOpsi[f].teks && !builtOpsi[f].gambar) {
+            builtOpsi[f].teks = 'Pilihan ' + letters[f];
+          }
+        }
+
+        results.push({
+          nomor: finalNomor,
+          teksSoal: stemClean.text,
+          gambarSoal: stemClean.img,
+          opsi: builtOpsi,
+          pembahasan: pembLines.join(' ').trim(),
+          filledOptCount: filledOptCount
+        });
+      }
+
+      return results;
+    }
+
+    function appendDraftsToCatBulk(newItems, sourceLabel) {
+      if (!Array.isArray(newItems) || newItems.length === 0) {
+        showToast('Tidak ditemukan butir soal yang bisa disusun dari ' + (sourceLabel || 'input tersebut') + '.', 'error');
+        return;
+      }
+      var maxNo = 0;
+      for (var i = 0; i < catBulkState.drafts.length; i++) {
+        var n = parseInt(catBulkState.drafts[i].nomor, 10) || 0;
+        if (n > maxNo) maxNo = n;
+      }
+      var usedNums = {};
+      for (var u = 0; u < catBulkState.drafts.length; u++) {
+        usedNums[catBulkState.drafts[u].nomor] = true;
+      }
+      for (var k = 0; k < newItems.length; k++) {
+        var it = newItems[k];
+        if (!it.nomor || usedNums[it.nomor]) {
+          maxNo++;
+          it.nomor = maxNo;
+        } else if (it.nomor > maxNo) {
+          maxNo = it.nomor;
+        }
+        usedNums[it.nomor] = true;
+        catBulkState.drafts.push(it);
+      }
+      catBulkState.expandedIdx = -1;
+      renderCatBulkPreviewList();
+      showToast(newItems.length + ' soal berhasil disusun otomatis dari ' + (sourceLabel || 'input') + '!', 'success');
+    }
+
+    function parseAndAppendBulkPaste() {
+      var ta = document.getElementById('catBulkPasteTextarea');
+      var txt = ta ? String(ta.value || '').trim() : '';
+      if (!txt) {
+        showToast('Tempel teks soal terlebih dahulu di kotak Copy-Paste.', 'error');
+        return;
+      }
+      var nextStart = catBulkState.drafts.length + 1;
+      var parsed = parseBulkCatQuestionsText(txt, [], nextStart);
+      if (parsed.length === 0) {
+        showToast('Format soal belum terbaca. Pastikan soal bernomor (1., 2., ...) dan pilihan A–E.', 'error');
+        return;
+      }
+      appendDraftsToCatBulk(parsed, 'Copy-Paste');
+      if (ta) ta.value = '';
+    }
+
+    function fillBulkPasteSample() {
+      var ta = document.getElementById('catBulkPasteTextarea');
+      if (!ta) return;
+      var isScale = isCurrentSoalModalScaleCategory(1);
+      if (isScale) {
+        ta.value =
+          '1. Ketika rekan kerja kesulitan menyelesaikan laporan yang tenggatnya tinggal 1 jam, sikap saya adalah...\n' +
+          'A. Segera membantu membagi tugas agar selesai tepat waktu (5)\n' +
+          'B. Memberikan panduan singkat lalu memantaunya (4)\n' +
+          'C. Menyemangatinya agar tetap fokus (3)\n' +
+          'D. Fokus menyelesaikan pekerjaan saya sendiri dulu (2)\n' +
+          'E. Membiarkannya karena itu tanggung jawab pribadinya (1)\n' +
+          'Pembahasan: Menunjukkan kepedulian dan kerja sama tim yang proaktif.\n\n' +
+          '2. Saat pimpinan memberikan aturan kerja baru yang lebih ketat, saya akan...\n' +
+          'A. Mempelajari dan langsung menerapkannya dengan disiplin\n' +
+          'B. Mengikutinya sambil menyesuaikan secara bertahap\n' +
+          'C. Menanyakan alasan perubahan kepada rekan kerja\n' +
+          'D. Mengeluh tetapi tetap menjalankannya\n' +
+          'E. Tetap memakai cara lama selama tidak ditegur\n' +
+          'Bobot: A=5, B=4, C=3, D=2, E=1';
+      } else {
+        ta.value =
+          '1. Lambang negara Indonesia adalah Garuda Pancasila dengan semboyan...\n' +
+          'A. Tut Wuri Handayani\n' +
+          'B. Bhinneka Tunggal Ika\n' +
+          'C. Kartika Eka Paksi\n' +
+          'D. Rastra Sewakottama\n' +
+          'E. Jalesveva Jayamahe\n' +
+          'Kunci: B\n' +
+          'Pembahasan: Pasal 36A UUD 1945 menetapkan semboyan Bhinneka Tunggal Ika.\n\n' +
+          '2. Jika 3x + 7 = 22, maka nilai dari 2x + 5 adalah...\n' +
+          'A. 10\n' +
+          'B. 12\n' +
+          'C. 15\n' +
+          'D. 18\n' +
+          'E. 20\n' +
+          'Kunci: C\n' +
+          'Pembahasan: 3x = 15 -> x = 5 -> 2(5) + 5 = 15.';
+      }
+      ta.focus();
+    }
+
+    function clearBulkPasteText() {
+      var ta = document.getElementById('catBulkPasteTextarea');
+      if (ta) ta.value = '';
+    }
+
+    function armRootFilePickerGuard() {
+      appState.isFilePickerOpen = true;
+      if (appState.filePickerTimer) clearTimeout(appState.filePickerTimer);
+      var resetFn = function () {
+        if (appState.filePickerTimer) clearTimeout(appState.filePickerTimer);
+        appState.filePickerTimer = setTimeout(function () { appState.isFilePickerOpen = false; }, 1200);
+      };
+      window.addEventListener('focus', function onBulkPickerBack() {
+        window.removeEventListener('focus', onBulkPickerBack);
+        resetFn();
+      });
+      appState.filePickerTimer = setTimeout(function () { appState.isFilePickerOpen = false; }, 15000);
+    }
+
+    function triggerCatBulkDocUpload() {
+      if (catBulkState.busy) {
+        showToast('Sedang memproses dokumen sebelumnya, mohon tunggu sebentar.', 'info');
+        return;
+      }
+      var inp = document.getElementById('catBulkDocInput');
+      if (!inp) return;
+      inp.value = '';
+      armRootFilePickerGuard();
+      inp.click();
+    }
+
+    function triggerCatBulkImgUpload() {
+      if (catBulkState.busy) {
+        showToast('Sedang memproses gambar sebelumnya, mohon tunggu sebentar.', 'info');
+        return;
+      }
+      var inp = document.getElementById('catBulkImgInput');
+      if (!inp) return;
+      inp.value = '';
+      armRootFilePickerGuard();
+      inp.click();
+    }
+
+    function parseCsvMatrixNative(csvText) {
+      var text = String(csvText || '').replace(/^\uFEFF/, '');
+      var rows = [];
+      var row = [];
+      var cell = '';
+      var inQuotes = false;
+      var sep = (text.indexOf(';') !== -1 && (text.split(';').length > text.split(',').length)) ? ';' : ',';
+      for (var i = 0; i < text.length; i++) {
+        var ch = text.charAt(i);
+        var next = text.charAt(i + 1);
+        if (inQuotes) {
+          if (ch === '"' && next === '"') { cell += '"'; i++; }
+          else if (ch === '"') { inQuotes = false; }
+          else { cell += ch; }
+        } else {
+          if (ch === '"') { inQuotes = true; }
+          else if (ch === sep) { row.push(cell.trim()); cell = ''; }
+          else if (ch === '\r' && next === '\n') { row.push(cell.trim()); rows.push(row); row = []; cell = ''; i++; }
+          else if (ch === '\n' || ch === '\r') { row.push(cell.trim()); rows.push(row); row = []; cell = ''; }
+          else { cell += ch; }
+        }
+      }
+      if (cell.length > 0 || row.length > 0) {
+        row.push(cell.trim());
+        rows.push(row);
+      }
+      return rows;
+    }
+
+    function parseSpreadsheetRowsToQuestions(matrixRows) {
+      if (!Array.isArray(matrixRows) || matrixRows.length < 2) return [];
+      var headers = matrixRows[0].map(function (h) { return String(h || '').trim().toLowerCase(); });
+
+      function findColIdx(patterns) {
+        for (var i = 0; i < headers.length; i++) {
+          for (var p = 0; p < patterns.length; p++) {
+            if (headers[i] === patterns[p] || headers[i].indexOf(patterns[p]) !== -1) return i;
+          }
+        }
+        return -1;
+      }
+
+      var cNo = findColIdx(['nomor', 'no']);
+      var cSoal = findColIdx(['pertanyaan', 'soal', 'teks soal']);
+      var cA = findColIdx(['opsi a', 'pilihan a', 'jawaban a', 'a']);
+      var cB = findColIdx(['opsi b', 'pilihan b', 'jawaban b', 'b']);
+      var cC = findColIdx(['opsi c', 'pilihan c', 'jawaban c', 'c']);
+      var cD = findColIdx(['opsi d', 'pilihan d', 'jawaban d', 'd']);
+      var cE = findColIdx(['opsi e', 'pilihan e', 'jawaban e', 'e']);
+      var cKunci = findColIdx(['kunci', 'jawaban benar']);
+      var cBA = findColIdx(['bobot a', 'skor a', 'nilai a']);
+      var cBB = findColIdx(['bobot b', 'skor b', 'nilai b']);
+      var cBC = findColIdx(['bobot c', 'skor c', 'nilai c']);
+      var cBD = findColIdx(['bobot d', 'skor d', 'nilai d']);
+      var cBE = findColIdx(['bobot e', 'skor e', 'nilai e']);
+      var cPemb = findColIdx(['pembahasan', 'penjelasan']);
+
+      if (cSoal === -1 && cA === -1) {
+        // Fallback jika Excel tidak memakai header standar: gabung teks lalu jalankan Smart Parser
+        var rawLines = [];
+        for (var r0 = 0; r0 < matrixRows.length; r0++) {
+          var joined = matrixRows[r0].join(' ').trim();
+          if (joined) rawLines.push(joined);
+        }
+        return parseBulkCatQuestionsText(rawLines.join('\n'), [], catBulkState.drafts.length + 1);
+      }
+
+      var letters = ['A', 'B', 'C', 'D', 'E'];
+      var optCols = [cA, cB, cC, cD, cE];
+      var bobotCols = [cBA, cBB, cBC, cBD, cBE];
+      var out = [];
+
+      for (var r = 1; r < matrixRows.length; r++) {
+        var row = matrixRows[r];
+        if (!row || !row.length) continue;
+        var teks = (cSoal !== -1 ? String(row[cSoal] || '').trim() : '');
+        if (!teks) continue;
+
+        var noVal = (cNo !== -1 ? parseInt(row[cNo], 10) : 0) || (out.length + 1);
+        var kunciRaw = (cKunci !== -1 ? String(row[cKunci] || '').trim().toUpperCase() : '');
+        var keyIdx = letters.indexOf(kunciRaw.charAt(0));
+        var hasCustomB = (cBA !== -1 || cBB !== -1 || cBC !== -1 || cBD !== -1 || cBE !== -1);
+        var defW = buildDefaultWeightsForKey(keyIdx !== -1 ? keyIdx : 0, noVal);
+
+        var opsi = [];
+        var filledCnt = 0;
+        for (var o = 0; o < 5; o++) {
+          var oTxt = (optCols[o] !== -1 ? String(row[optCols[o]] || '').trim() : '');
+          if (oTxt) filledCnt++;
+          var wVal = defW[o];
+          if (hasCustomB && bobotCols[o] !== -1 && String(row[bobotCols[o]] || '').trim() !== '') {
+            var parsedW = parseFloat(String(row[bobotCols[o]]).replace(',', '.'));
+            if (!isNaN(parsedW)) wVal = parsedW;
+          }
+          opsi.push({
+            key: letters[o],
+            teks: oTxt || ('Pilihan ' + letters[o]),
+            gambar: '',
+            bobot: wVal
+          });
+        }
+        out.push({
+          nomor: noVal,
+          teksSoal: teks,
+          gambarSoal: '',
+          opsi: opsi,
+          pembahasan: cPemb !== -1 ? String(row[cPemb] || '').trim() : '',
+          filledOptCount: filledCnt
+        });
+      }
+      return out;
+    }
+
+    function downloadCatBulkExcelTemplate() {
+      var headers = ['Nomor', 'Pertanyaan', 'Opsi A', 'Opsi B', 'Opsi C', 'Opsi D', 'Opsi E', 'Kunci', 'Bobot A', 'Bobot B', 'Bobot C', 'Bobot D', 'Bobot E', 'Pembahasan'];
+      var sample1 = [1, 'Lambang negara Indonesia adalah Garuda Pancasila dengan semboyan...', 'Tut Wuri Handayani', 'Bhinneka Tunggal Ika', 'Kartika Eka Paksi', 'Rastra Sewakottama', 'Jalesveva Jayamahe', 'B', 0, 5, 0, 0, 0, 'Pasal 36A UUD 1945.'];
+      var sample2 = [2, 'Jika menghadapi rekan kerja yang kesulitan mengejar deadline, sikap saya adalah...', 'Segera membantu membagi tugas', 'Memberikan saran teknis', 'Menyemangati saja', 'Fokus tugas sendiri', 'Membiarkannya', 'A', 5, 4, 3, 2, 1, 'Contoh soal berbobot TKP/Kepribadian (5-4-3-2-1).'];
+
+      loadExternalScriptWithFallback(
+        'xlsx',
+        function () { return typeof window.XLSX !== 'undefined'; },
+        [
+          'https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js',
+          'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js'
+        ],
+        function () {
+          var wb = window.XLSX.utils.book_new();
+          var ws = window.XLSX.utils.aoa_to_sheet([headers, sample1, sample2]);
+          window.XLSX.utils.book_append_sheet(wb, ws, 'TemplateSoalCAT');
+          window.XLSX.writeFile(wb, 'Template_Import_Soal_CAT_SIPALING.xlsx');
+          showToast('Template Excel (.xlsx) berhasil diunduh.', 'success');
+        },
+        function () {
+          var csvLines = [headers, sample1, sample2].map(function (r) {
+            return r.map(function (c) { return '"' + String(c).replace(/"/g, '""') + '"'; }).join(',');
+          }).join('\r\n');
+          var blob = new Blob(['\uFEFF' + csvLines], { type: 'text/csv;charset=utf-8;' });
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = 'Template_Import_Soal_CAT_SIPALING.csv';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+          showToast('Template CSV (bisa dibuka di Excel) berhasil diunduh.', 'success');
+        }
+      );
+    }
+
+    function handleCatBulkDocFiles(fileList) {
+      appState.isFilePickerOpen = false;
+      if (!fileList || !fileList.length) return;
+      var file = fileList[0];
+      var name = String(file.name || '').toLowerCase();
+      var ext = name.indexOf('.') !== -1 ? name.substring(name.lastIndexOf('.') + 1) : '';
+
+      catBulkState.busy = true;
+      var doneCleanup = function () {
+        catBulkState.busy = false;
+        setCatBulkProgress(false);
+      };
+
+      if (ext === 'txt') {
+        setCatBulkProgress(true, 'Membaca file teks...', 40);
+        var rdTxt = new FileReader();
+        rdTxt.onerror = function () { doneCleanup(); showToast('Gagal membaca file teks.', 'error'); };
+        rdTxt.onload = function (ev) {
+          var parsed = parseBulkCatQuestionsText(ev.target.result || '', [], catBulkState.drafts.length + 1);
+          doneCleanup();
+          appendDraftsToCatBulk(parsed, file.name);
+        };
+        rdTxt.readAsText(file, 'UTF-8');
+        return;
+      }
+
+      if (ext === 'csv') {
+        setCatBulkProgress(true, 'Membaca file CSV...', 40);
+        var rdCsv = new FileReader();
+        rdCsv.onerror = function () { doneCleanup(); showToast('Gagal membaca file CSV.', 'error'); };
+        rdCsv.onload = function (ev) {
+          var matrix = parseCsvMatrixNative(ev.target.result || '');
+          var parsed = parseSpreadsheetRowsToQuestions(matrix);
+          doneCleanup();
+          appendDraftsToCatBulk(parsed, file.name);
+        };
+        rdCsv.readAsText(file, 'UTF-8');
+        return;
+      }
+
+      if (ext === 'xlsx' || ext === 'xls') {
+        setCatBulkProgress(true, 'Memuat pembaca Excel (.xlsx)...', 25);
+        loadExternalScriptWithFallback(
+          'xlsx',
+          function () { return typeof window.XLSX !== 'undefined'; },
+          [
+            'https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js'
+          ],
+          function () {
+            setCatBulkProgress(true, 'Membaca lembar kerja Excel...', 65);
+            var rdX = new FileReader();
+            rdX.onerror = function () { doneCleanup(); showToast('Gagal membaca file Excel.', 'error'); };
+            rdX.onload = function (ev) {
+              try {
+                var wb = window.XLSX.read(new Uint8Array(ev.target.result), { type: 'array' });
+                var firstSheet = wb.Sheets[wb.SheetNames[0]];
+                var matrix = window.XLSX.utils.sheet_to_json(firstSheet, { header: 1, defval: '' });
+                var parsed = parseSpreadsheetRowsToQuestions(matrix);
+                doneCleanup();
+                appendDraftsToCatBulk(parsed, file.name);
+              } catch (errX) {
+                doneCleanup();
+                showToast('Format file Excel gagal dibaca: ' + errX.message, 'error');
+              }
+            };
+            rdX.readAsArrayBuffer(file);
+          },
+          function (errMsg) { doneCleanup(); showToast(errMsg, 'error'); }
+        );
+        return;
+      }
+
+      if (ext === 'docx') {
+        setCatBulkProgress(true, 'Memuat pembaca Word (.docx)...', 25);
+        loadExternalScriptWithFallback(
+          'mammoth',
+          function () { return typeof window.mammoth !== 'undefined'; },
+          [
+            'https://cdn.jsdelivr.net/npm/mammoth@1.8.0/mammoth.browser.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js'
+          ],
+          function () {
+            setCatBulkProgress(true, 'Mengekstrak teks & gambar dari Word...', 55);
+            var rdDoc = new FileReader();
+            rdDoc.onerror = function () { doneCleanup(); showToast('Gagal membaca file Word.', 'error'); };
+            rdDoc.onload = function (ev) {
+              var rawImgs = [];
+              var convOpts = {
+                convertImage: window.mammoth.images.imgElement(function (image) {
+                  return image.read('base64').then(function (b64) {
+                    var idxImg = rawImgs.length;
+                    rawImgs.push('data:' + (image.contentType || 'image/png') + ';base64,' + b64);
+                    return { src: '[[DOCX_IMG_' + idxImg + ']]' };
+                  });
+                })
+              };
+              window.mammoth.convertToHtml({ arrayBuffer: ev.target.result }, convOpts).then(function (resHtml) {
+                var htmlStr = String((resHtml && resHtml.value) || '');
+                // Konversi tag img kembali ke token teks [[DOCX_IMG_k]] dan pertahankan baris baru
+                htmlStr = htmlStr.replace(/<img[^>]+src="(\[\[DOCX_IMG_\d+\]\])"[^>]*>/gi, ' $1 ');
+                htmlStr = htmlStr.replace(/<\/(p|div|li|tr|h1|h2|h3|h4|h5|h6)>/gi, '\n').replace(/<br\s*\/?>/gi, '\n');
+                var tmpDiv = document.createElement('div');
+                tmpDiv.innerHTML = htmlStr;
+                var plainTxt = tmpDiv.textContent || tmpDiv.innerText || '';
+
+                // Kompres gambar tertanam secara sekuensial agar aman limit sel Google Sheets
+                var compressedImgs = new Array(rawImgs.length);
+                var ci = 0;
+                function compressNext() {
+                  if (ci >= rawImgs.length) {
+                    var parsed = parseBulkCatQuestionsText(plainTxt, compressedImgs, catBulkState.drafts.length + 1);
+                    doneCleanup();
+                    appendDraftsToCatBulk(parsed, file.name);
+                    return;
+                  }
+                  setCatBulkProgress(true, 'Mengompres gambar Word (' + (ci + 1) + '/' + rawImgs.length + ')...', 60 + Math.round(((ci + 1) / rawImgs.length) * 35));
+                  var curIdx = ci;
+                  ci++;
+                  compressCatDataUrlAdaptive(
+                    rawImgs[curIdx],
+                    function (cUrl) { compressedImgs[curIdx] = cUrl; compressNext(); },
+                    function () { compressedImgs[curIdx] = ''; compressNext(); }
+                  );
+                }
+                compressNext();
+              }, function (errM) {
+                doneCleanup();
+                showToast('Gagal membaca file Word (.docx): ' + (errM && errM.message ? errM.message : errM), 'error');
+              });
+            };
+            rdDoc.readAsArrayBuffer(file);
+          },
+          function (errMsg) { doneCleanup(); showToast(errMsg, 'error'); }
+        );
+        return;
+      }
+
+      if (ext === 'pdf') {
+        setCatBulkProgress(true, 'Memuat pembaca PDF (.pdf)...', 20);
+        loadExternalScriptWithFallback(
+          'pdfjs',
+          function () { return typeof window.pdfjsLib !== 'undefined'; },
+          [
+            'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js'
+          ],
+          function () {
+            try {
+              window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
+            } catch (e) { }
+            var rdPdf = new FileReader();
+            rdPdf.onerror = function () { doneCleanup(); showToast('Gagal membaca file PDF.', 'error'); };
+            rdPdf.onload = function (ev) {
+              var loadingTask = window.pdfjsLib.getDocument({ data: new Uint8Array(ev.target.result) });
+              loadingTask.promise.then(function (pdfDoc) {
+                var numPages = pdfDoc.numPages || 0;
+                var allPagesText = [];
+                var pNo = 1;
+                function readNextPage() {
+                  if (pNo > numPages) {
+                    var fullText = allPagesText.join('\n').trim();
+                    if (fullText.length < 25) {
+                      // PDF berupa hasil scan (tanpa teks digital): jalankan OCR pada maksimal 12 halaman pertama
+                      runOcrOnScannedPdf(pdfDoc, file.name, doneCleanup);
+                      return;
+                    }
+                    var parsed = parseBulkCatQuestionsText(fullText, [], catBulkState.drafts.length + 1);
+                    doneCleanup();
+                    appendDraftsToCatBulk(parsed, file.name);
+                    return;
+                  }
+                  setCatBulkProgress(true, 'Membaca halaman PDF ' + pNo + ' dari ' + numPages + '...', 25 + Math.round((pNo / Math.max(1, numPages)) * 65));
+                  pdfDoc.getPage(pNo).then(function (page) {
+                    page.getTextContent().then(function (tc) {
+                      var items = tc.items || [];
+                      var lineBuf = [];
+                      var lastY = null;
+                      var curLine = '';
+                      for (var t = 0; t < items.length; t++) {
+                        var str = String(items[t].str || '');
+                        var y = items[t].transform ? Math.round(items[t].transform[5]) : null;
+                        if (lastY !== null && y !== null && Math.abs(y - lastY) > 4) {
+                          if (curLine.trim()) lineBuf.push(curLine.trim());
+                          curLine = str;
+                        } else {
+                          curLine += (curLine && str && curLine.charAt(curLine.length - 1) !== ' ' && str.charAt(0) !== ' ' ? ' ' : '') + str;
+                        }
+                        if (y !== null) lastY = y;
+                      }
+                      if (curLine.trim()) lineBuf.push(curLine.trim());
+                      allPagesText.push(lineBuf.join('\n'));
+                      pNo++;
+                      readNextPage();
+                    }, function () { pNo++; readNextPage(); });
+                  }, function () { pNo++; readNextPage(); });
+                }
+                readNextPage();
+              }, function (errP) {
+                doneCleanup();
+                showToast('Gagal membuka PDF: ' + (errP && errP.message ? errP.message : errP), 'error');
+              });
+            };
+            rdPdf.readAsArrayBuffer(file);
+          },
+          function (errMsg) { doneCleanup(); showToast(errMsg, 'error'); }
+        );
+        return;
+      }
+
+      doneCleanup();
+      showToast('Format dokumen belum didukung. Gunakan .docx, .xlsx, .xls, .csv, .pdf, atau .txt.', 'error');
+    }
+
+    function runOcrOnScannedPdf(pdfDoc, fileName, doneCleanup) {
+      var maxPages = Math.min(pdfDoc.numPages || 1, 12);
+      setCatBulkProgress(true, 'PDF terdeteksi hasil scan. Memuat mesin OCR...', 20);
+      loadExternalScriptWithFallback(
+        'tesseract',
+        function () { return typeof window.Tesseract !== 'undefined'; },
+        [
+          'https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js',
+          'https://unpkg.com/tesseract.js@5/dist/tesseract.min.js'
+        ],
+        function () {
+          var ocrTexts = [];
+          var pNo = 1;
+          function ocrNextPage() {
+            if (pNo > maxPages) {
+              var combined = ocrTexts.join('\n\n').trim();
+              var parsed = parseBulkCatQuestionsText(combined, [], catBulkState.drafts.length + 1);
+              doneCleanup();
+              if (parsed.length === 0 && combined) {
+                var ta = document.getElementById('catBulkPasteTextarea');
+                if (ta) ta.value = combined;
+                switchCatBulkTab('paste');
+                showToast('Teks OCR ditaruh di tab Copy-Paste agar dapat Anda rapikan lalu klik Susun Soal.', 'info');
+              } else {
+                appendDraftsToCatBulk(parsed, fileName + ' (OCR)');
+              }
+              return;
+            }
+            setCatBulkProgress(true, 'Membaca OCR PDF halaman ' + pNo + ' dari ' + maxPages + '...', 25 + Math.round((pNo / maxPages) * 70));
+            pdfDoc.getPage(pNo).then(function (page) {
+              var vp = page.getViewport({ scale: 1.8 });
+              var canvas = document.createElement('canvas');
+              canvas.width = vp.width;
+              canvas.height = vp.height;
+              var ctx = canvas.getContext('2d');
+              page.render({ canvasContext: ctx, viewport: vp }).promise.then(function () {
+                window.Tesseract.recognize(canvas, 'ind+eng').then(function (res) {
+                  if (res && res.data && res.data.text) ocrTexts.push(res.data.text);
+                  pNo++;
+                  ocrNextPage();
+                }, function () { pNo++; ocrNextPage(); });
+              }, function () { pNo++; ocrNextPage(); });
+            }, function () { pNo++; ocrNextPage(); });
+          }
+          ocrNextPage();
+        },
+        function (errMsg) {
+          doneCleanup();
+          showToast('PDF ini berupa hasil scan dan mesin OCR gagal dimuat: ' + errMsg, 'error');
+        }
+      );
+    }
+
+    function handleCatBulkImgFiles(fileList) {
+      appState.isFilePickerOpen = false;
+      if (!fileList || !fileList.length) return;
+      var files = naturalSortFilesList(fileList);
+      var imgFiles = [];
+      for (var i = 0; i < files.length; i++) {
+        if (files[i] && (!files[i].type || files[i].type.indexOf('image/') === 0)) {
+          imgFiles.push(files[i]);
+        }
+      }
+      if (imgFiles.length === 0) {
+        showToast('Pilih file gambar berformat JPG, PNG, atau WebP.', 'error');
+        return;
+      }
+
+      catBulkState.busy = true;
+      var doneCleanup = function () {
+        catBulkState.busy = false;
+        setCatBulkProgress(false);
+      };
+
+      // SUB-MODE B: 1 Gambar = 1 Butir Soal (Figural / Screenshot Soal)
+      if (catBulkState.imgMode === 'direct') {
+        var newDrafts = [];
+        var idx = 0;
+        var nextNo = catBulkState.drafts.length + 1;
+        function processNextDirect() {
+          if (idx >= imgFiles.length) {
+            doneCleanup();
+            appendDraftsToCatBulk(newDrafts, imgFiles.length + ' Gambar Soal');
+            return;
+          }
+          setCatBulkProgress(true, 'Mengompres & menyusun gambar ' + (idx + 1) + ' dari ' + imgFiles.length + '...', Math.round(((idx + 1) / imgFiles.length) * 95));
+          var f = imgFiles[idx];
+          idx++;
+          compressCatImageAdaptive(
+            f,
+            function (dataUrl) {
+              var defW = buildDefaultWeightsForKey(0, nextNo);
+              var letters = ['A', 'B', 'C', 'D', 'E'];
+              var opsi = [];
+              for (var o = 0; o < 5; o++) {
+                opsi.push({ key: letters[o], teks: 'Pilihan ' + letters[o], gambar: '', bobot: defW[o] });
+              }
+              newDrafts.push({
+                nomor: nextNo,
+                teksSoal: '',
+                gambarSoal: dataUrl,
+                opsi: opsi,
+                pembahasan: '',
+                filledOptCount: 5
+              });
+              nextNo++;
+              processNextDirect();
+            },
+            function () {
+              processNextDirect();
+            }
+          );
+        }
+        processNextDirect();
+        return;
+      }
+
+      // SUB-MODE A: Auto-OCR Baca Teks dari Gambar (Tesseract.js ind+eng)
+      setCatBulkProgress(true, 'Memuat mesin pembaca teks gambar (OCR Indonesia + Inggris)...', 15);
+      loadExternalScriptWithFallback(
+        'tesseract',
+        function () { return typeof window.Tesseract !== 'undefined'; },
+        [
+          'https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js',
+          'https://unpkg.com/tesseract.js@5/dist/tesseract.min.js'
+        ],
+        function () {
+          var ocrParts = [];
+          var oi = 0;
+          function recognizeNext() {
+            if (oi >= imgFiles.length) {
+              var mergedTxt = ocrParts.join('\n\n').trim();
+              var parsed = parseBulkCatQuestionsText(mergedTxt, [], catBulkState.drafts.length + 1);
+              if (parsed.length > 0) {
+                doneCleanup();
+                appendDraftsToCatBulk(parsed, 'Auto-OCR (' + imgFiles.length + ' gambar)');
+                return;
+              }
+              // Jika teks OCR tidak membentuk pola A-E, tawarkan teks mentah ke Copy-Paste ATAU jadikan soal bergambar
+              doneCleanup();
+              if (mergedTxt) {
+                var ta = document.getElementById('catBulkPasteTextarea');
+                if (ta) ta.value = mergedTxt;
+                switchCatBulkTab('paste');
+                showToast('Teks berhasil dibaca OCR dan ditaruh di tab Copy-Paste. Rapikan sedikit lalu klik Susun Soal Otomatis.', 'info');
+              } else {
+                showToast('Teks tidak terbaca jelas dari gambar. Gunakan Mode B (1 Gambar = 1 Butir Soal) untuk gambar figural/screenshot.', 'error');
+              }
+              return;
+            }
+            var curF = imgFiles[oi];
+            var curNum = oi + 1;
+            oi++;
+            setCatBulkProgress(true, 'Membaca teks gambar ' + curNum + ' dari ' + imgFiles.length + '...', Math.round(((curNum - 0.5) / imgFiles.length) * 90));
+            window.Tesseract.recognize(curF, 'ind+eng', {
+              logger: function (m) {
+                if (m && m.status === 'recognizing text' && typeof m.progress === 'number') {
+                  var pct = Math.round(((curNum - 1 + m.progress) / imgFiles.length) * 95);
+                  setCatBulkProgress(true, 'Membaca gambar ' + curNum + '/' + imgFiles.length + ' (' + Math.round(m.progress * 100) + '%)...', pct);
+                }
+              }
+            }).then(function (res) {
+              if (res && res.data && res.data.text) {
+                ocrParts.push(res.data.text);
+              }
+              recognizeNext();
+            }, function () {
+              recognizeNext();
+            });
+          }
+          recognizeNext();
+        },
+        function (errMsg) {
+          doneCleanup();
+          showToast(errMsg, 'error');
+        }
+      );
+    }
+
+    function ensureCatBulkEventsBound() {
+      if (catBulkState.eventsBound) return;
+      catBulkState.eventsBound = true;
+
+      var docZone = document.getElementById('catBulkDocDropZone');
+      if (docZone) {
+        docZone.addEventListener('dragover', function (e) { e.preventDefault(); docZone.classList.add('border-[#2B59C3]', 'bg-blue-50/70'); });
+        docZone.addEventListener('dragleave', function () { docZone.classList.remove('border-[#2B59C3]', 'bg-blue-50/70'); });
+        docZone.addEventListener('drop', function (e) {
+          e.preventDefault();
+          docZone.classList.remove('border-[#2B59C3]', 'bg-blue-50/70');
+          if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+            handleCatBulkDocFiles(e.dataTransfer.files);
+          }
+        });
+      }
+
+      var imgZone = document.getElementById('catBulkImgDropZone');
+      if (imgZone) {
+        imgZone.addEventListener('dragover', function (e) { e.preventDefault(); imgZone.classList.add('border-[#2B59C3]', 'bg-blue-50/70'); });
+        imgZone.addEventListener('dragleave', function () { imgZone.classList.remove('border-[#2B59C3]', 'bg-blue-50/70'); });
+        imgZone.addEventListener('drop', function (e) {
+          e.preventDefault();
+          imgZone.classList.remove('border-[#2B59C3]', 'bg-blue-50/70');
+          if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+            handleCatBulkImgFiles(e.dataTransfer.files);
+          }
+        });
+      }
+
+      document.addEventListener('paste', function (e) {
+        var modal = document.getElementById('modalAdminSoal');
+        var sec = document.getElementById('catBulkImportSection');
+        if (!modal || modal.classList.contains('hidden') || !sec || catBulkState.activeTab !== 'img') return;
+        var modeEl = document.getElementById('formSoalMode');
+        if (!modeEl || !isCatPgModeKey(modeEl.value)) return;
+        var clip = e.clipboardData || window.clipboardData;
+        if (!clip || !clip.items) return;
+        var pastedImgs = [];
+        for (var i = 0; i < clip.items.length; i++) {
+          if (clip.items[i] && clip.items[i].type && clip.items[i].type.indexOf('image/') === 0) {
+            var f = clip.items[i].getAsFile();
+            if (f) pastedImgs.push(f);
+          }
+        }
+        if (pastedImgs.length > 0) {
+          e.preventDefault();
+          handleCatBulkImgFiles(pastedImgs);
+        }
+      });
+    }
+
+    function getDraftBestKeyIdx(item) {
+      var bestIdx = 0;
+      var bestW = -99999;
+      var opsi = Array.isArray(item.opsi) ? item.opsi : [];
+      for (var i = 0; i < opsi.length; i++) {
+        var w = parseFloat(opsi[i].bobot);
+        if (!isNaN(w) && w > bestW) {
+          bestW = w;
+          bestIdx = i;
+        }
+      }
+      return bestIdx;
+    }
+
+    function setCatBulkDraftQuickKey(idx, keyIdx) {
+      var d = catBulkState.drafts[idx];
+      if (!d || !Array.isArray(d.opsi)) return;
+      var weights = buildDefaultWeightsForKey(keyIdx, d.nomor);
+      for (var i = 0; i < 5; i++) {
+        if (d.opsi[i]) d.opsi[i].bobot = weights[i];
+      }
+      renderCatBulkPreviewList();
+    }
+
+    function toggleCatBulkDraftEdit(idx) {
+      catBulkState.expandedIdx = (catBulkState.expandedIdx === idx) ? -1 : idx;
+      renderCatBulkPreviewList();
+    }
+
+    function saveCatBulkDraftInlineEdit(idx) {
+      var d = catBulkState.drafts[idx];
+      if (!d) return;
+      var nEl = document.getElementById('catBulkEdNo_' + idx);
+      var tEl = document.getElementById('catBulkEdTeks_' + idx);
+      var pEl = document.getElementById('catBulkEdPemb_' + idx);
+      if (nEl) d.nomor = Math.max(1, parseInt(nEl.value, 10) || d.nomor);
+      if (tEl) d.teksSoal = String(tEl.value || '').trim();
+      if (pEl) d.pembahasan = String(pEl.value || '').trim();
+      for (var o = 0; o < 5; o++) {
+        var ot = document.getElementById('catBulkEdOptT_' + idx + '_' + o);
+        var ob = document.getElementById('catBulkEdOptB_' + idx + '_' + o);
+        if (ot && d.opsi[o]) d.opsi[o].teks = String(ot.value || '').trim() || ('Pilihan ' + ['A', 'B', 'C', 'D', 'E'][o]);
+        if (ob && d.opsi[o]) {
+          var bw = parseFloat(ob.value);
+          d.opsi[o].bobot = isNaN(bw) ? 0 : bw;
+        }
+      }
+      d.filledOptCount = 5;
+      catBulkState.expandedIdx = -1;
+      renderCatBulkPreviewList();
+      showToast('Draft soal No. ' + d.nomor + ' diperbarui.', 'success');
+    }
+
+    function deleteCatBulkDraft(idx) {
+      catBulkState.drafts.splice(idx, 1);
+      if (catBulkState.expandedIdx === idx) catBulkState.expandedIdx = -1;
+      else if (catBulkState.expandedIdx > idx) catBulkState.expandedIdx--;
+      renderCatBulkPreviewList();
+    }
+
+    function clearCatBulkDrafts() {
+      catBulkState.drafts = [];
+      catBulkState.expandedIdx = -1;
+      renderCatBulkPreviewList();
+    }
+
+    function renderCatBulkPreviewList() {
+      var drafts = catBulkState.drafts || [];
+      var badge = document.getElementById('catBulkDraftCountBadge');
+      var wrap = document.getElementById('catBulkPreviewWrap');
+      var sumEl = document.getElementById('catBulkPreviewSummary');
+      var listEl = document.getElementById('catBulkPreviewList');
+
+      if (badge) {
+        badge.textContent = drafts.length + ' Draft Siap Simpan';
+        badge.className = drafts.length > 0
+          ? 'px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-extrabold'
+          : 'px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-800 text-[10px] font-extrabold';
+      }
+      if (!wrap || !listEl) return;
+      if (drafts.length === 0) {
+        wrap.classList.add('hidden');
+        listEl.innerHTML = '';
+        return;
+      }
+
+      wrap.classList.remove('hidden');
+      var imgCount = 0;
+      for (var c = 0; c < drafts.length; c++) {
+        if (drafts[c].gambarSoal) imgCount++;
+      }
+      if (sumEl) {
+        sumEl.textContent = drafts.length + ' butir soal siap disimpan' + (imgCount > 0 ? (' (' + imgCount + ' bergambar)') : '');
+      }
+
+      var letters = ['A', 'B', 'C', 'D', 'E'];
+      var html = '';
+      for (var i = 0; i < drafts.length; i++) {
+        var d = drafts[i];
+        var bestK = getDraftBestKeyIdx(d);
+        var isExpanded = (catBulkState.expandedIdx === i);
+        var previewTitle = d.teksSoal ? d.teksSoal : (d.gambarSoal ? '[Soal Bergambar]' : '(Kosong)');
+        if (previewTitle.length > 130) previewTitle = previewTitle.substring(0, 130) + '...';
+
+        var keyBtns = '';
+        for (var k = 0; k < 5; k++) {
+          var activeCls = (k === bestK)
+            ? 'bg-emerald-600 text-white border-emerald-600'
+            : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-100';
+          keyBtns += '<button type="button" onclick="setCatBulkDraftQuickKey(' + i + ',' + k + ')" class="w-5 h-5 rounded border text-[10px] font-extrabold cursor-pointer ' + activeCls + '" title="Set kunci jawaban ' + letters[k] + '">' + letters[k] + '</button>';
+        }
+
+        var thumbHtml = d.gambarSoal
+          ? '<img src="' + d.gambarSoal + '" alt="Img" class="w-12 h-12 rounded-lg border border-slate-200 object-cover bg-white shrink-0" />'
+          : '';
+
+        var optMini = [];
+        for (var o = 0; o < 5; o++) {
+          var op = d.opsi[o] || { key: letters[o], teks: '', bobot: 0 };
+          var oSnippet = String(op.teks || (op.gambar ? '[Gambar]' : '')).trim();
+          if (oSnippet.length > 28) oSnippet = oSnippet.substring(0, 28) + '..';
+          optMini.push('<span class="' + (o === bestK ? 'text-emerald-700 font-bold' : 'text-slate-500') + '">' + letters[o] + '(' + op.bobot + '): ' + escapeHtml(oSnippet) + '</span>');
+        }
+
+        var inlineEditorHtml = '';
+        if (isExpanded) {
+          var optInputs = '';
+          for (var eo = 0; eo < 5; eo++) {
+            var eop = d.opsi[eo] || { teks: '', bobot: 0 };
+            optInputs += '<div class="grid grid-cols-12 gap-1.5 items-center">' +
+              '<span class="col-span-1 text-[11px] font-extrabold text-indigo-700 text-center">' + letters[eo] + '</span>' +
+              '<input type="text" id="catBulkEdOptT_' + i + '_' + eo + '" value="' + escapeHtml(eop.teks || '') + '" class="col-span-8 px-2 py-1 rounded border border-slate-300 bg-white text-[11px] text-slate-800" />' +
+              '<input type="number" step="0.5" id="catBulkEdOptB_' + i + '_' + eo + '" value="' + escapeHtml(String(eop.bobot)) + '" class="col-span-3 px-2 py-1 rounded border border-slate-300 bg-white text-[11px] font-bold text-indigo-800" title="Bobot ' + letters[eo] + '" />' +
+              '</div>';
+          }
+          inlineEditorHtml =
+            '<div class="mt-2 pt-2 border-t border-slate-200 space-y-2">' +
+            '<div class="grid grid-cols-12 gap-2">' +
+            '<div class="col-span-3"><label class="block text-[10px] font-bold text-slate-500">Nomor</label><input type="number" id="catBulkEdNo_' + i + '" value="' + d.nomor + '" class="w-full px-2 py-1 rounded border border-slate-300 bg-white text-xs font-bold" /></div>' +
+            '<div class="col-span-9"><label class="block text-[10px] font-bold text-slate-500">Pertanyaan</label><textarea id="catBulkEdTeks_' + i + '" rows="2" class="w-full px-2 py-1 rounded border border-slate-300 bg-white text-xs">' + escapeHtml(d.teksSoal || '') + '</textarea></div>' +
+            '</div>' +
+            '<div class="space-y-1"><div class="grid grid-cols-12 gap-1.5 text-[10px] font-bold text-slate-500"><span class="col-span-1 text-center">Opsi</span><span class="col-span-8">Teks Pilihan</span><span class="col-span-3">Bobot</span></div>' + optInputs + '</div>' +
+            '<div><label class="block text-[10px] font-bold text-slate-500">Pembahasan (Opsional)</label><input type="text" id="catBulkEdPemb_' + i + '" value="' + escapeHtml(d.pembahasan || '') + '" class="w-full px-2 py-1 rounded border border-slate-300 bg-white text-[11px]" /></div>' +
+            '<div class="flex justify-end gap-1.5">' +
+            '<button type="button" onclick="toggleCatBulkDraftEdit(' + i + ')" class="px-2.5 py-1 rounded border border-slate-300 bg-white text-[11px] font-semibold text-slate-600 cursor-pointer">Tutup</button>' +
+            '<button type="button" onclick="saveCatBulkDraftInlineEdit(' + i + ')" class="px-3 py-1 rounded bg-[#2B59C3] text-white text-[11px] font-bold cursor-pointer">Terapkan</button>' +
+            '</div></div>';
+        }
+
+        html += '<div class="p-2.5 rounded-xl border border-slate-200 bg-slate-50/70 space-y-1.5">' +
+          '<div class="flex items-start gap-2.5">' +
+          thumbHtml +
+          '<div class="flex-1 min-w-0 space-y-1">' +
+          '<div class="flex items-center justify-between gap-2 flex-wrap">' +
+          '<div class="flex items-center gap-1.5">' +
+          '<span class="px-1.5 py-0.5 rounded bg-indigo-600 text-white text-[10px] font-extrabold font-cat-mono">No. ' + d.nomor + '</span>' +
+          (d.filledOptCount >= 4 ? '<span class="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-bold">Siap</span>' : '<span class="px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 text-[10px] font-bold">Cek Opsi</span>') +
+          '</div>' +
+          '<div class="flex items-center gap-1 flex-wrap">' +
+          '<span class="text-[10px] font-bold text-slate-500 mr-0.5">Kunci:</span>' + keyBtns +
+          '<button type="button" onclick="toggleCatBulkDraftEdit(' + i + ')" class="ml-1 px-2 py-0.5 rounded border border-slate-300 bg-white hover:bg-slate-100 text-[10px] font-bold text-slate-700 cursor-pointer">' + (isExpanded ? 'Tutup' : 'Edit') + '</button>' +
+          '<button type="button" onclick="deleteCatBulkDraft(' + i + ')" class="px-2 py-0.5 rounded border border-rose-200 bg-rose-50 hover:bg-rose-100 text-[10px] font-bold text-rose-700 cursor-pointer">Hapus</button>' +
+          '</div></div>' +
+          '<p class="text-xs font-semibold text-slate-800 leading-snug break-words">' + escapeHtml(previewTitle) + '</p>' +
+          '<div class="flex flex-wrap gap-x-2.5 gap-y-0.5 text-[10px]">' + optMini.join('') + '</div>' +
+          '</div></div>' +
+          inlineEditorHtml +
+          '</div>';
+      }
+      listEl.innerHTML = html;
+    }
+
+    function saveLocalCatQuestionsBatch(soalId, items, saveMode) {
+      var cleanId = String(soalId || '').trim();
+      var existing = getLocalCatQuestions(cleanId);
+      var mode = String(saveMode || 'append').toLowerCase();
+      var maxNo = 0;
+      var byNo = {};
+      for (var i = 0; i < existing.length; i++) {
+        var n = parseInt(existing[i].nomor, 10) || 0;
+        if (n > maxNo) maxNo = n;
+        byNo[n] = i;
+      }
+      var prefix = 'CATQ-' + cleanId + '-N';
+      var maxSeq = existing.length;
+      for (var s = 0; s < existing.length; s++) {
+        if (String(existing[s].id || '').indexOf(prefix) === 0) {
+          var sq = parseInt(String(existing[s].id).substring(prefix.length), 10);
+          if (!isNaN(sq) && sq > maxSeq) maxSeq = sq;
+        }
+      }
+      for (var k = 0; k < items.length; k++) {
+        var it = items[k];
+        var fNo = parseInt(it.nomor, 10) || 0;
+        if (mode === 'replace_by_nomor' && fNo > 0 && byNo[fNo] !== undefined) {
+          var eIdx = byNo[fNo];
+          existing[eIdx] = {
+            id: existing[eIdx].id,
+            soalId: cleanId,
+            nomor: fNo,
+            teksSoal: it.teksSoal || '',
+            gambarSoal: it.gambarSoal || '',
+            opsi: it.opsi,
+            pembahasan: it.pembahasan || ''
+          };
+        } else {
+          if (fNo <= 0 || byNo[fNo] !== undefined) {
+            maxNo++;
+            fNo = maxNo;
+          } else if (fNo > maxNo) {
+            maxNo = fNo;
+          }
+          maxSeq++;
+          var rec = {
+            id: prefix + String(maxSeq).padStart(3, '0'),
+            soalId: cleanId,
+            nomor: fNo,
+            teksSoal: it.teksSoal || '',
+            gambarSoal: it.gambarSoal || '',
+            opsi: it.opsi,
+            pembahasan: it.pembahasan || ''
+          };
+          byNo[fNo] = existing.length;
+          existing.push(rec);
+        }
+      }
+      existing.sort(function (a, b) { return (parseInt(a.nomor, 10) || 0) - (parseInt(b.nomor, 10) || 0); });
+      saveLocalCatQuestions(cleanId, existing);
+      appState.catQuestionsCache[cleanId] = existing;
+      syncSoalCatCountInMemory(cleanId, existing.length);
+      return { success: true, savedCount: items.length, totalButir: existing.length };
+    }
+
+    function uploadCatBulkDraftsAfterPackageSave(soalId, drafts, saveMode, onComplete) {
+      var list = Array.isArray(drafts) ? drafts.slice() : [];
+      if (list.length === 0) {
+        if (onComplete) onComplete({ success: true, savedCount: 0, totalButir: 0 });
+        return;
+      }
+
+      if (!isGasEnvironment()) {
+        var resL = saveLocalCatQuestionsBatch(soalId, list, saveMode);
+        if (onComplete) onComplete(resL);
+        return;
+      }
+
+      // Bagi menjadi chunk adaptif: 4 soal per batch jika ada gambar, 15 soal per batch jika teks murni
+      var chunks = [];
+      var curChunk = [];
+      var curHasImg = false;
+      for (var i = 0; i < list.length; i++) {
+        var item = list[i];
+        var itemHasImg = !!item.gambarSoal;
+        if (!itemHasImg && Array.isArray(item.opsi)) {
+          for (var o = 0; o < item.opsi.length; o++) {
+            if (item.opsi[o] && item.opsi[o].gambar) { itemHasImg = true; break; }
+          }
+        }
+        var maxChunkSize = (curHasImg || itemHasImg) ? 4 : 15;
+        if (curChunk.length >= maxChunkSize) {
+          chunks.push(curChunk);
+          curChunk = [];
+          curHasImg = false;
+        }
+        curChunk.push({
+          nomor: item.nomor,
+          teksSoal: item.teksSoal || '',
+          gambarSoal: item.gambarSoal || '',
+          opsi: item.opsi,
+          pembahasan: item.pembahasan || ''
+        });
+        if (itemHasImg) curHasImg = true;
+      }
+      if (curChunk.length > 0) chunks.push(curChunk);
+
+      var totalItems = list.length;
+      var savedSoFar = 0;
+      var lastTotalButir = 0;
+      var cIdx = 0;
+      var fallbackOptLetters = ['A', 'B', 'C', 'D', 'E'];
+
+      function finishAllSaved() {
+        setCatBulkProgress(false);
+        delete appState.catQuestionsCache[soalId];
+        if (lastTotalButir > 0) syncSoalCatCountInMemory(soalId, lastTotalButir);
+        if (onComplete) onComplete({ success: true, savedCount: savedSoFar, totalButir: lastTotalButir });
+      }
+
+      // Auto-Fallback ke saveCatQuestion (1 per 1) jika backend GAS belum di-deploy ulang untuk saveCatQuestionsBatch
+      function sendViaSingleFallback(flatIdx) {
+        if (flatIdx >= list.length) {
+          finishAllSaved();
+          return;
+        }
+        var it = list[flatIdx];
+        var pctF = Math.round((savedSoFar / Math.max(1, totalItems)) * 100);
+        setSaveSoalButtonBusy(true, 'Menyimpan Soal ' + (savedSoFar + 1) + '/' + totalItems + '...');
+        setCatBulkProgress(true, 'Menyimpan butir soal ke Google Sheets (' + (savedSoFar + 1) + ' / ' + totalItems + ')...', Math.max(8, pctF));
+
+        var safeOpsi = [];
+        var srcOpsi = Array.isArray(it.opsi) ? it.opsi : [];
+        for (var o = 0; o < 5; o++) {
+          var op = srcOpsi[o] || {};
+          var oTeks = String(op.teks || '').trim();
+          var oImg = String(op.gambar || '').trim();
+          var oBobot = parseFloat(op.bobot);
+          safeOpsi.push({
+            key: fallbackOptLetters[o],
+            teks: (!oTeks && !oImg) ? ('Pilihan ' + fallbackOptLetters[o]) : oTeks,
+            gambar: oImg,
+            bobot: isNaN(oBobot) ? 0 : oBobot
+          });
+        }
+
+        secureRun()
+          .withSuccessHandler(function (res) {
+            if (!res || !res.success) {
+              setCatBulkProgress(false);
+              if (onComplete) onComplete({ success: false, savedCount: savedSoFar, message: (res && res.message) || ('Gagal menyimpan soal ke-' + (flatIdx + 1) + '.') });
+              return;
+            }
+            savedSoFar++;
+            if (res.totalButir !== undefined) lastTotalButir = res.totalButir;
+            sendViaSingleFallback(flatIdx + 1);
+          })
+          .withFailureHandler(function (err) {
+            setCatBulkProgress(false);
+            if (onComplete) onComplete({ success: false, savedCount: savedSoFar, message: 'Gagal menyimpan soal ke-' + (flatIdx + 1) + ': ' + (err && err.message ? err.message : err) });
+          })
+          .saveCatQuestion({
+            id: '',
+            soalId: soalId,
+            nomor: Math.max(1, parseInt(it.nomor, 10) || (flatIdx + 1)),
+            teksSoal: String(it.teksSoal || ''),
+            gambarSoal: String(it.gambarSoal || ''),
+            opsi: safeOpsi,
+            pembahasan: String(it.pembahasan || '')
+          });
+      }
+
+      function isMissingBatchMethodErr(msgOrObj) {
+        var code = (msgOrObj && typeof msgOrObj === 'object' && msgOrObj.code) ? String(msgOrObj.code).toUpperCase() : '';
+        if (code === 'UNKNOWN_ACTION') return true;
+        var txt = String((msgOrObj && msgOrObj.message) ? msgOrObj.message : (msgOrObj || '')).toLowerCase();
+        return txt.indexOf('tidak ditemukan') !== -1 ||
+          txt.indexOf('tidak dikenali') !== -1 ||
+          txt.indexOf('unknown_action') !== -1 ||
+          txt.indexOf('not a function') !== -1;
+      }
+
+      function sendNextChunk() {
+        if (cIdx >= chunks.length) {
+          finishAllSaved();
+          return;
+        }
+        var chunk = chunks[cIdx];
+        var pct = Math.round((savedSoFar / Math.max(1, totalItems)) * 100);
+        setSaveSoalButtonBusy(true, 'Menyimpan Soal ' + savedSoFar + '/' + totalItems + '...');
+        setCatBulkProgress(true, 'Menyimpan butir soal ke Google Sheets (' + savedSoFar + ' / ' + totalItems + ')...', Math.max(10, pct));
+
+        secureRun()
+          .withSuccessHandler(function (res) {
+            if (!res || !res.success) {
+              if (cIdx === 0 && savedSoFar === 0 && isMissingBatchMethodErr(res)) {
+                sendViaSingleFallback(0);
+                return;
+              }
+              setCatBulkProgress(false);
+              if (onComplete) onComplete({ success: false, savedCount: savedSoFar, message: (res && res.message) || 'Gagal menyimpan sebagian soal.' });
+              return;
+            }
+            savedSoFar += (res.savedCount || chunk.length);
+            if (res.totalButir !== undefined) lastTotalButir = res.totalButir;
+            cIdx++;
+            sendNextChunk();
+          })
+          .withFailureHandler(function (err) {
+            if (cIdx === 0 && savedSoFar === 0 && isMissingBatchMethodErr(err)) {
+              sendViaSingleFallback(0);
+              return;
+            }
+            setCatBulkProgress(false);
+            if (onComplete) onComplete({ success: false, savedCount: savedSoFar, message: 'Koneksi terputus saat menyimpan batch ke-' + (cIdx + 1) + ': ' + (err && err.message ? err.message : err) });
+          })
+          .saveCatQuestionsBatch({
+            soalId: soalId,
+            mode: saveMode || 'append',
+            items: chunk
+          });
+      }
+
+      // Cek langsung di native GAS: jika code.gs v3.37 belum di-deploy, otomatis pakai jalur kompatibel saveCatQuestion
+      if (isNativeGasEnvironment() && typeof google !== 'undefined' && google.script && google.script.run && typeof google.script.run.saveCatQuestionsBatch !== 'function') {
+        sendViaSingleFallback(0);
+      } else {
+        sendNextChunk();
+      }
+    }
+
+    function openBulkImportFromCatEditor() {
+      var ed = appState.catEditor;
+      if (!ed || !ed.soalId) return;
+      var targetId = String(ed.soalId);
+      closeCatQuestionsModal();
+      var list = appState.adminCache.soalList || [];
+      for (var i = 0; i < list.length; i++) {
+        if (String(list[i].id) === targetId) {
+          openEditSoalByIndex(String(i));
+          setTimeout(function () {
+            var sec = document.getElementById('catBulkImportSection');
+            if (sec && typeof sec.scrollIntoView === 'function') {
+              sec.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+          }, 120);
+          return;
+        }
+      }
+    }
+
     function openSoalModal() {
       document.getElementById('modalSoalTitle').textContent = 'Tambah Paket Soal';
       document.getElementById('editSoalId').value = '';
@@ -9348,6 +11166,7 @@
       var acakEl = document.getElementById('formCatAcakSoal');
       if (acakEl) acakEl.checked = false;
       resetSoalImageBuilderState(10, false, 5);
+      resetCatBulkImportState();
 
       var mainSel = document.getElementById('formSoalKategoriUtama');
       if (mainSel) mainSel.value = defaultMain;
@@ -9395,6 +11214,7 @@
 
       var cfg = getSoalImageBuilderConfig(modeUpper);
       resetSoalImageBuilderState(gMeta.totalKolom || 10, !!gMeta.shufflePerCol, cfg.slotCount);
+      resetCatBulkImportState();
       onSoalModeChange();
       document.getElementById('modalAdminSoal').classList.remove('hidden');
 
@@ -9559,6 +11379,14 @@
 
       appState.adminCache.dashboard = null;
 
+      var pendingBulkDrafts = (isCatMode && Array.isArray(catBulkState.drafts)) ? catBulkState.drafts.slice() : [];
+      var bulkSaveModeEl = document.getElementById('catBulkSaveModeSelect');
+      var bulkSaveMode = bulkSaveModeEl ? String(bulkSaveModeEl.value || 'append') : 'append';
+      if (isCatMode && catBulkState.busy) {
+        showToast('Proses pembacaan dokumen/gambar masih berjalan. Tunggu hingga selesai.', 'info');
+        return;
+      }
+
       if (!isGasEnvironment()) {
         var savedLocal = saveLocalSoal(payload);
         if (isImgMode && savedLocal && savedLocal.id) {
@@ -9567,6 +11395,14 @@
             columns: cloneImageColumnsMap(filledMap, cfg.slotCount),
             gambarMeta: payload.gambarMeta
           };
+        }
+        if (isCatMode && savedLocal && savedLocal.id && pendingBulkDrafts.length > 0) {
+          var bulkResLocal = saveLocalCatQuestionsBatch(savedLocal.id, pendingBulkDrafts, bulkSaveMode);
+          resetCatBulkImportState();
+          closeSoalModal();
+          showToast('Paket soal & ' + bulkResLocal.savedCount + ' butir soal berhasil disimpan!', 'success');
+          loadAdminSoal();
+          return;
         }
         closeSoalModal();
         showToast('Paket soal berhasil disimpan.', 'success');
@@ -9589,6 +11425,22 @@
           var savedId = String(savedItem.id || payload.id || '').trim();
 
           if (!isImgMode) {
+            if (isCatMode && savedId && pendingBulkDrafts.length > 0) {
+              uploadCatBulkDraftsAfterPackageSave(savedId, pendingBulkDrafts, bulkSaveMode, function (bRes) {
+                setSaveSoalButtonBusy(false);
+                if (bRes && bRes.success) {
+                  resetCatBulkImportState();
+                  closeSoalModal();
+                  showToast('Paket soal & ' + bRes.savedCount + ' butir soal berhasil disimpan ke database!', 'success');
+                  loadAdminSoal();
+                } else {
+                  showToast('Paket tersimpan, tetapi sebagian soal gagal disimpan (' + (bRes ? bRes.savedCount : 0) + ' tersimpan): ' + ((bRes && bRes.message) || 'Coba simpan ulang.'), 'error');
+                  document.getElementById('editSoalId').value = savedId;
+                  loadAdminSoal();
+                }
+              });
+              return;
+            }
             setSaveSoalButtonBusy(false);
             closeSoalModal();
             showToast(res.message || 'Paket soal berhasil disimpan.', 'success');
