@@ -476,7 +476,8 @@
             </h2>
             <p class="text-xs text-slate-500 mt-0.5">Kelola akun peserta serta buka/kunci akses <strong>Latihan
                 Kecermatan</strong> (Bagian 2). Pendaftaran Ujian CAT Psikologi &amp; SKD dilakukan di menu
-              <strong>Daftar Tes</strong>.</p>
+              <strong>Daftar Tes</strong>.
+            </p>
           </div>
           <div class="flex flex-wrap items-center gap-2 self-start sm:self-auto">
             <button type="button" onclick="toggleAllUsersLockConfirm(true)"
@@ -817,7 +818,7 @@
     </header>
 
     <!-- Kontainer Utama Halaman Tes User -->
-    <main class="flex-1 max-w-6xl w-full mx-auto px-3 sm:px-6 py-4 sm:py-6">
+    <main id="userAppMain" class="flex-1 max-w-6xl w-full mx-auto px-3 sm:px-6 py-4 sm:py-6">
 
       <!-- VIEW 1: HALAMAN UTAMA (PERSIAPAN TES USER) -->
       <section id="viewPrep" class="space-y-6">
@@ -1270,9 +1271,9 @@
       </section>
 
       <!-- VIEW 1B: HALAMAN PORTAL MENU TES PSIKOLOGI (SESUAI GAMBAR 1) -->
-      <section id="viewPsikologiHub" class="hidden max-w-4xl mx-auto">
+      <section id="viewPsikologiHub" class="hidden w-full max-w-none flex-1">
         <div
-          class="bg-white rounded-2xl border border-slate-200 shadow-sm min-h-[76vh] flex flex-col items-center justify-center p-6 sm:p-12">
+          class="bg-white min-h-screen w-full flex flex-col items-center justify-center p-6 sm:p-12">
           <h2 id="psiHubWelcomeTitle"
             class="text-xl sm:text-2xl font-normal text-slate-800 tracking-wide text-center mb-2">
             Selamat Datang, CASIS POLRI
@@ -1308,9 +1309,9 @@
       </section>
 
       <!-- VIEW 1C: HALAMAN PORTAL MENU TES SKD GABUNGAN (110 SOAL / 100 MENIT - GAYA GAMBAR 1) -->
-      <section id="viewSkdHub" class="hidden max-w-4xl mx-auto">
+      <section id="viewSkdHub" class="hidden w-full max-w-none flex-1">
         <div
-          class="bg-white rounded-2xl border border-slate-200 shadow-sm min-h-[76vh] flex flex-col items-center justify-center p-6 sm:p-12">
+          class="bg-white min-h-screen w-full flex flex-col items-center justify-center p-6 sm:p-12">
           <h2 id="skdHubWelcomeTitle"
             class="text-xl sm:text-2xl font-normal text-slate-800 tracking-wide text-center mb-2">
             Selamat Datang, CASIS POLRI
@@ -1658,98 +1659,100 @@
         </div>
         <!-- AKHIR TATA LETAK 2: MODE SIMBOL PENJUMLAHAN -->
 
-        <!-- TATA LETAK 3: MODE CAT PILIHAN GANDA A-E SESUAI GAMBAR 2 (KECERDASAN, KEPRIBADIAN, TIU, TWK, TKP) -->
-        <div id="examLayoutCatPg" class="hidden bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-          <!-- Bar Atas Gelap: Tombol < (Kiri), Timer HH:MM:SS (Tengah), Tombol > (Kanan) -->
-          <div class="bg-[#4B515A] text-white px-3 sm:px-5 py-2.5 flex items-center justify-between gap-3">
-            <button type="button" id="btnCatPrevQ" onclick="prevCatPgQuestion()"
-              class="px-4 py-1.5 rounded bg-[#4A72D6] hover:bg-[#3B62C4] text-white text-sm font-bold shadow-2xs transition-colors cursor-pointer">
-              &lt;
-            </button>
+        <!-- TATA LETAK 3: MODE CAT PILIHAN GANDA A-E LAYAR PENUH EDGE-TO-EDGE (KECERDASAN, KEPRIBADIAN, TIU, TWK, TKP) -->
+        <div id="examLayoutCatPg" class="hidden bg-white w-full min-h-screen overflow-x-hidden">
+          <div class="min-h-screen w-full flex flex-col bg-white">
+            <!-- Bar Atas Gelap Penuh Ujung-ke-Ujung: Tombol < (Kiri), Timer HH:MM:SS (Tengah), Tombol > (Kanan) -->
+            <div class="sticky top-0 z-20 w-full bg-[#4B515A] text-white px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-3 shrink-0 shadow-xs">
+              <button type="button" id="btnCatPrevQ" onclick="prevCatPgQuestion()"
+                class="px-4 py-1.5 rounded bg-[#4A72D6] hover:bg-[#3B62C4] text-white text-sm font-bold shadow-2xs transition-colors cursor-pointer">
+                &lt;
+              </button>
 
-            <div id="catExamTimerBox" class="flex items-center justify-center">
-              <span id="catExamTimerDisplay"
-                class="font-cat-mono text-lg sm:text-xl font-normal tracking-wider text-white">01:30:00</span>
-            </div>
-
-            <button type="button" id="btnCatNextQ" onclick="nextCatPgQuestion()"
-              class="px-4 py-1.5 rounded bg-[#4A72D6] hover:bg-[#3B62C4] text-white text-sm font-bold shadow-2xs transition-colors cursor-pointer">
-              &gt;
-            </button>
-          </div>
-
-          <!-- Elemen Metadata & Status Kompatibilitas (Disembunyikan agar tampilan bersih persis Gambar 2) -->
-          <div class="hidden">
-            <span id="catExamKatBadge"></span>
-            <span id="catExamPaketBadge"></span>
-            <span id="catExamParticipantLabel"></span>
-            <span id="catExamQProgressLabel"></span>
-            <div id="catExamProgressBar"></div>
-            <span id="catExamFlagIndicator"></span>
-            <button type="button" id="btnCatToggleFlag" onclick="toggleCatPgFlag()"><span
-                id="catFlagBtnLabel"></span></button>
-            <span id="catNextBtnLabel"></span>
-            <span id="catNavSummaryRatio"></span>
-            <span id="catNavCountAnswered"></span>
-            <span id="catNavCountFlagged"></span>
-            <span id="catNavCountUnanswered"></span>
-          </div>
-
-          <!-- Konten Utama 3 Kolom Sesuai Gambar 2: Kiri (Tabel 1-100), Tengah (Soal & Opsi A-E), Kanan (SOAL N & Tombol A-E) -->
-          <div class="p-4 sm:p-6 flex flex-col lg:flex-row items-start gap-6 lg:gap-10 min-h-[76vh]">
-            <!-- Kolom Kiri: Tabel Nomor 1..100 / 1..110 + Quick Jump SKD + Tombol Selesaikan Tes -->
-            <div class="w-full sm:w-[250px] shrink-0 space-y-2.5">
-              <div id="catExamSkdQuickJump" class="hidden grid grid-cols-3 gap-1 text-[10px] font-extrabold">
-                <button type="button" onclick="goToCatPgQuestion(0)"
-                  class="py-1 px-1.5 rounded bg-amber-100 hover:bg-amber-200 text-amber-900 border border-amber-300 cursor-pointer">TWK
-                  1&ndash;30</button>
-                <button type="button" onclick="goToCatPgQuestion(30)"
-                  class="py-1 px-1.5 rounded bg-blue-100 hover:bg-blue-200 text-blue-900 border border-blue-300 cursor-pointer">TIU
-                  31&ndash;65</button>
-                <button type="button" onclick="goToCatPgQuestion(65)"
-                  class="py-1 px-1.5 rounded bg-emerald-100 hover:bg-emerald-200 text-emerald-900 border border-emerald-300 cursor-pointer">TKP
-                  66&ndash;110</button>
+              <div id="catExamTimerBox" class="flex items-center justify-center">
+                <span id="catExamTimerDisplay"
+                  class="font-cat-mono text-lg sm:text-xl font-normal tracking-wider text-white">01:30:00</span>
               </div>
-              <div id="catExamNavGrid" class="grid grid-cols-5 border-t border-l border-slate-500 bg-white select-none">
-                <!-- Diisi 1..100 / 1..110 oleh renderCatPgNavGrid() -->
-              </div>
-              <button type="button" id="btnCatFinishExam" onclick="handleCatPgFinishAction()"
-                class="w-full py-2.5 px-4 rounded bg-rose-600 hover:bg-rose-700 text-white text-xs sm:text-sm font-bold shadow-xs transition-all cursor-pointer">
-                Selesaikan Tes
+
+              <button type="button" id="btnCatNextQ" onclick="nextCatPgQuestion()"
+                class="px-4 py-1.5 rounded bg-[#4A72D6] hover:bg-[#3B62C4] text-white text-sm font-bold shadow-2xs transition-colors cursor-pointer">
+                &gt;
               </button>
             </div>
 
-            <!-- Kolom Tengah: Pertanyaan & Rincian Pilihan A-E (Teks &/atau Gambar) -->
-            <div class="flex-1 min-w-0 pt-1 lg:pt-3 space-y-4">
-              <div id="catExamSkdSegmentBadge"
-                class="hidden inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-amber-50 border border-amber-200 text-amber-900 text-xs font-extrabold">
-                TWK &mdash; Tes Wawasan Kebangsaan (No. 1&ndash;30)
+            <!-- Elemen Metadata & Status Kompatibilitas (Disembunyikan agar tampilan bersih persis Gambar 2) -->
+            <div class="hidden">
+              <span id="catExamKatBadge"></span>
+              <span id="catExamPaketBadge"></span>
+              <span id="catExamParticipantLabel"></span>
+              <span id="catExamQProgressLabel"></span>
+              <div id="catExamProgressBar"></div>
+              <span id="catExamFlagIndicator"></span>
+              <button type="button" id="btnCatToggleFlag" onclick="toggleCatPgFlag()"><span
+                  id="catFlagBtnLabel"></span></button>
+              <span id="catNextBtnLabel"></span>
+              <span id="catNavSummaryRatio"></span>
+              <span id="catNavCountAnswered"></span>
+              <span id="catNavCountFlagged"></span>
+              <span id="catNavCountUnanswered"></span>
+            </div>
+
+            <!-- Konten Utama 3 Kolom Penuh Layar: Kiri (Tabel 1-100/110), Tengah (Soal & Opsi A-E), Kanan (SOAL N & Tombol A-E) -->
+            <div class="flex-1 w-full px-4 sm:px-6 lg:px-10 py-5 sm:py-7 flex flex-col lg:flex-row items-start gap-6 lg:gap-10 xl:gap-12">
+              <!-- Kolom Kiri: Tabel Nomor 1..100 / 1..110 + Quick Jump SKD + Tombol Selesaikan Tes -->
+              <div class="w-full sm:w-[270px] lg:w-[270px] xl:w-[290px] shrink-0 space-y-3">
+                <div id="catExamSkdQuickJump" class="hidden grid grid-cols-3 gap-1 text-[10px] font-extrabold">
+                  <button type="button" onclick="goToCatPgQuestion(0)"
+                    class="py-1.5 px-1.5 rounded bg-amber-100 hover:bg-amber-200 text-amber-900 border border-amber-300 cursor-pointer">TWK
+                    1&ndash;30</button>
+                  <button type="button" onclick="goToCatPgQuestion(30)"
+                    class="py-1.5 px-1.5 rounded bg-blue-100 hover:bg-blue-200 text-blue-900 border border-blue-300 cursor-pointer">TIU
+                    31&ndash;65</button>
+                  <button type="button" onclick="goToCatPgQuestion(65)"
+                    class="py-1.5 px-1.5 rounded bg-emerald-100 hover:bg-emerald-200 text-emerald-900 border border-emerald-300 cursor-pointer">TKP
+                    66&ndash;110</button>
+                </div>
+                <div id="catExamNavGrid" class="grid grid-cols-5 border-t border-l border-slate-500 bg-white select-none">
+                  <!-- Diisi 1..100 / 1..110 oleh renderCatPgNavGrid() -->
+                </div>
+                <button type="button" id="btnCatFinishExam" onclick="handleCatPgFinishAction()"
+                  class="w-full py-2.5 px-4 rounded bg-rose-600 hover:bg-rose-700 text-white text-xs sm:text-sm font-bold shadow-xs transition-all cursor-pointer">
+                  Selesaikan Tes
+                </button>
               </div>
-              <div class="space-y-3">
-                <div id="catExamQuestionText"
-                  class="text-sm sm:text-[15px] font-bold text-slate-900 leading-relaxed whitespace-pre-line"></div>
-                <div id="catExamQuestionImageWrap"
-                  class="hidden rounded-xl border border-slate-200 bg-slate-50 p-3 flex items-center justify-center">
-                  <img id="catExamQuestionImage" src="" alt="Gambar Soal"
-                    class="max-h-72 w-auto max-w-full object-contain rounded-lg select-none" />
+
+              <!-- Kolom Tengah: Pertanyaan & Rincian Pilihan A-E (Teks &/atau Gambar) -->
+              <div class="flex-1 min-w-0 pt-1 lg:pt-2 space-y-5">
+                <div id="catExamSkdSegmentBadge"
+                  class="hidden inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-amber-50 border border-amber-200 text-amber-900 text-xs sm:text-sm font-extrabold">
+                  TWK &mdash; Tes Wawasan Kebangsaan (No. 1&ndash;30)
+                </div>
+                <div class="space-y-3.5">
+                  <div id="catExamQuestionText"
+                    class="text-sm sm:text-base font-bold text-slate-900 leading-relaxed whitespace-pre-line"></div>
+                  <div id="catExamQuestionImageWrap"
+                    class="hidden rounded-xl border border-slate-200 bg-slate-50 p-3 flex items-center justify-center">
+                    <img id="catExamQuestionImage" src="" alt="Gambar Soal"
+                      class="max-h-80 w-auto max-w-full object-contain rounded-lg select-none" />
+                  </div>
+                </div>
+
+                <!-- Rincian Opsi A. B. C. D. E. di bawah soal (Sesuai Gambar 2) -->
+                <div id="catExamCenterOptionsList"
+                  class="space-y-2 pt-1 text-sm sm:text-base font-bold text-slate-900">
+                  <!-- Diisi A. ... B. ... C. ... D. ... E. ... oleh renderCatPgQuestion() -->
                 </div>
               </div>
 
-              <!-- Rincian Opsi A. B. C. D. E. di bawah soal (Sesuai Gambar 2) -->
-              <div id="catExamCenterOptionsList"
-                class="space-y-1.5 pt-1 text-sm sm:text-[15px] font-bold text-slate-900">
-                <!-- Diisi A. ... B. ... C. ... D. ... E. ... oleh renderCatPgQuestion() -->
-              </div>
-            </div>
-
-            <!-- Kolom Kanan: SOAL N + 5 Tombol Pilihan Vertikal A, B, C, D, E -->
-            <div class="w-full lg:w-[235px] shrink-0 space-y-2.5">
-              <div id="catExamQNumberBadge"
-                class="text-xl sm:text-2xl font-normal text-slate-400 tracking-wide uppercase">
-                SOAL 1
-              </div>
-              <div id="catExamOptionsContainer" class="space-y-2.5">
-                <!-- 5 Tombol Kotak A, B, C, D, E berbingkai biru -->
+              <!-- Kolom Kanan: SOAL N + 5 Tombol Pilihan Vertikal A, B, C, D, E -->
+              <div class="w-full lg:w-[250px] xl:w-[280px] shrink-0 space-y-3">
+                <div id="catExamQNumberBadge"
+                  class="text-xl sm:text-2xl font-normal text-slate-400 tracking-wide uppercase">
+                  SOAL 1
+                </div>
+                <div id="catExamOptionsContainer" class="space-y-2.5">
+                  <!-- 5 Tombol Kotak A, B, C, D, E berbingkai biru -->
+                </div>
               </div>
             </div>
           </div>
@@ -2416,10 +2419,14 @@
             <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-2.5">
               <div>
                 <div class="flex items-center gap-2 flex-wrap">
-                  <span class="text-xs font-extrabold text-slate-900">Tambah Banyak Soal Sekaligus (Otomatis Tersusun)</span>
-                  <span id="catBulkDraftCountBadge" class="px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-800 text-[10px] font-extrabold">0 Draft Siap Simpan</span>
+                  <span class="text-xs font-extrabold text-slate-900">Tambah Banyak Soal Sekaligus (Otomatis
+                    Tersusun)</span>
+                  <span id="catBulkDraftCountBadge"
+                    class="px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-800 text-[10px] font-extrabold">0 Draft
+                    Siap Simpan</span>
                 </div>
-                <p class="text-[11px] text-slate-500 mt-0.5">Masukkan banyak soal lewat Copy-Paste, Dokumen Word/Excel/PDF, atau Gambar — langsung tersusun &amp; tersimpan bersama paket ini.</p>
+                <p class="text-[11px] text-slate-500 mt-0.5">Masukkan banyak soal lewat Copy-Paste, Dokumen
+                  Word/Excel/PDF, atau Gambar — langsung tersusun &amp; tersimpan bersama paket ini.</p>
               </div>
               <div id="catBulkSaveModeWrap" class="hidden flex items-center gap-1.5">
                 <label for="catBulkSaveModeSelect" class="text-[10px] font-bold uppercase text-slate-500">Mode:</label>
@@ -2435,22 +2442,28 @@
             <div class="grid grid-cols-3 gap-1.5 p-1 rounded-xl bg-slate-100 border border-slate-200">
               <button type="button" id="btnCatBulkTabPaste" onclick="switchCatBulkTab('paste')"
                 class="py-2 px-2 rounded-lg bg-[#2B59C3] text-white text-[11px] sm:text-xs font-bold shadow-xs transition-all cursor-pointer flex items-center justify-center gap-1.5">
-                <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                 </svg>
                 <span>Copy-Paste</span>
               </button>
               <button type="button" id="btnCatBulkTabDoc" onclick="switchCatBulkTab('doc')"
                 class="py-2 px-2 rounded-lg text-slate-600 hover:bg-white hover:text-slate-900 text-[11px] sm:text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5">
-                <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
                 <span>Dokumen</span>
               </button>
               <button type="button" id="btnCatBulkTabImg" onclick="switchCatBulkTab('img')"
                 class="py-2 px-2 rounded-lg text-slate-600 hover:bg-white hover:text-slate-900 text-[11px] sm:text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5">
-                <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
                 <span>Gambar</span>
               </button>
@@ -2481,7 +2494,9 @@
                 </button>
               </div>
               <p class="text-[10px] text-slate-500 leading-snug">
-                Mendukung: <strong>Kunci: B</strong> per soal, tanda <strong>*B.</strong>, bobot TKP <strong>(5)</strong> / <strong>Skor: A=5 B=4 C=3 D=2 E=1</strong>, <strong>Pembahasan:</strong>, serta daftar <strong>KUNCI JAWABAN</strong> di bagian bawah.
+                Mendukung: <strong>Kunci: B</strong> per soal, tanda <strong>*B.</strong>, bobot TKP
+                <strong>(5)</strong> / <strong>Skor: A=5 B=4 C=3 D=2 E=1</strong>, <strong>Pembahasan:</strong>, serta
+                daftar <strong>KUNCI JAWABAN</strong> di bagian bawah.
               </p>
             </div>
 
@@ -2491,16 +2506,20 @@
                 class="p-4 rounded-xl border-2 border-dashed border-slate-300 hover:border-[#2B59C3] bg-slate-50/70 hover:bg-blue-50/40 text-center space-y-2 transition-all cursor-pointer">
                 <div class="w-9 h-9 mx-auto rounded-xl bg-blue-100 text-[#2B59C3] flex items-center justify-center">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
                   </svg>
                 </div>
                 <div>
                   <p class="text-xs font-extrabold text-slate-800">Klik atau Seret Dokumen Soal ke Sini</p>
-                  <p class="text-[11px] text-slate-500 mt-0.5">Otomatis membaca &amp; menyusun soal dari <strong>Word (.docx + gambar)</strong>, <strong>Excel (.xlsx/.xls/.csv)</strong>, <strong>PDF (.pdf)</strong>, atau <strong>Teks (.txt)</strong>.</p>
+                  <p class="text-[11px] text-slate-500 mt-0.5">Otomatis membaca &amp; menyusun soal dari <strong>Word
+                      (.docx + gambar)</strong>, <strong>Excel (.xlsx/.xls/.csv)</strong>, <strong>PDF (.pdf)</strong>,
+                    atau <strong>Teks (.txt)</strong>.</p>
                 </div>
                 <div class="flex flex-wrap items-center justify-center gap-1.5 pt-1">
                   <span class="px-2 py-0.5 rounded bg-blue-100 text-blue-800 text-[10px] font-bold">.docx</span>
-                  <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-bold">.xlsx / .csv</span>
+                  <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-bold">.xlsx /
+                    .csv</span>
                   <span class="px-2 py-0.5 rounded bg-rose-100 text-rose-800 text-[10px] font-bold">.pdf</span>
                   <span class="px-2 py-0.5 rounded bg-slate-200 text-slate-700 text-[10px] font-bold">.txt</span>
                 </div>
@@ -2509,7 +2528,8 @@
                 <button type="button" onclick="downloadCatBulkExcelTemplate()"
                   class="px-3 py-1.5 rounded-lg border border-emerald-300 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-[11px] font-bold inline-flex items-center gap-1.5 cursor-pointer">
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                   </svg>
                   <span>Download Template Excel</span>
                 </button>
@@ -2526,32 +2546,39 @@
                 <button type="button" id="btnCatBulkImgModeOcr" onclick="setCatBulkImgMode('ocr')"
                   class="p-2.5 rounded-xl border-2 border-[#2B59C3] bg-blue-50/70 text-left transition-all cursor-pointer">
                   <span class="block text-xs font-extrabold text-slate-900">A. Baca Teks dari Gambar (Auto-OCR)</span>
-                  <span class="block text-[10px] text-slate-600 mt-0.5">Foto/screenshot lembar soal teks → otomatis dibaca &amp; disusun menjadi soal A–E.</span>
+                  <span class="block text-[10px] text-slate-600 mt-0.5">Foto/screenshot lembar soal teks → otomatis
+                    dibaca &amp; disusun menjadi soal A–E.</span>
                 </button>
                 <button type="button" id="btnCatBulkImgModeDirect" onclick="setCatBulkImgMode('direct')"
                   class="p-2.5 rounded-xl border-2 border-slate-200 bg-white hover:border-indigo-300 text-left transition-all cursor-pointer">
                   <span class="block text-xs font-extrabold text-slate-900">B. 1 Gambar = 1 Butir Soal</span>
-                  <span class="block text-[10px] text-slate-600 mt-0.5">Unggah banyak gambar (Figural / Screenshot) → tiap gambar langsung jadi 1 nomor soal.</span>
+                  <span class="block text-[10px] text-slate-600 mt-0.5">Unggah banyak gambar (Figural / Screenshot) →
+                    tiap gambar langsung jadi 1 nomor soal.</span>
                 </button>
               </div>
 
               <div id="catBulkImgDropZone" onclick="triggerCatBulkImgUpload()"
                 class="p-4 rounded-xl border-2 border-dashed border-slate-300 hover:border-[#2B59C3] bg-slate-50/70 hover:bg-blue-50/40 text-center space-y-1.5 transition-all cursor-pointer">
-                <p class="text-xs font-extrabold text-slate-800">Klik, Seret, atau Tempel (Ctrl+V) Gambar Soal di Sini</p>
-                <p class="text-[11px] text-slate-500">Bisa memilih banyak file JPG / PNG / WebP sekaligus (otomatis diurutkan 1, 2, 3...).</p>
+                <p class="text-xs font-extrabold text-slate-800">Klik, Seret, atau Tempel (Ctrl+V) Gambar Soal di Sini
+                </p>
+                <p class="text-[11px] text-slate-500">Bisa memilih banyak file JPG / PNG / WebP sekaligus (otomatis
+                  diurutkan 1, 2, 3...).</p>
               </div>
             </div>
 
             <!-- Progress Bar Ekstraksi / OCR / Simpan Batch -->
-            <div id="catBulkProgressWrap" class="hidden rounded-xl border border-blue-200 bg-blue-50/80 p-3 space-y-1.5">
+            <div id="catBulkProgressWrap"
+              class="hidden rounded-xl border border-blue-200 bg-blue-50/80 p-3 space-y-1.5">
               <div class="flex items-center justify-between gap-2 text-xs font-bold text-blue-900">
                 <span class="inline-flex items-center gap-2">
-                  <span class="inline-block w-3.5 h-3.5 rounded-full border-2 border-[#2B59C3] border-t-transparent animate-spin shrink-0"></span>
+                  <span
+                    class="inline-block w-3.5 h-3.5 rounded-full border-2 border-[#2B59C3] border-t-transparent animate-spin shrink-0"></span>
                   <span id="catBulkProgressText">Memproses soal...</span>
                 </span>
               </div>
               <div class="w-full h-2 rounded-full bg-blue-200/80 overflow-hidden">
-                <div id="catBulkProgressBar" class="h-full bg-[#2B59C3] transition-all duration-200" style="width: 10%"></div>
+                <div id="catBulkProgressBar" class="h-full bg-[#2B59C3] transition-all duration-200" style="width: 10%">
+                </div>
               </div>
             </div>
 
@@ -3362,7 +3389,8 @@
                 class="inline-flex items-center gap-1 px-2 py-1.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-bold hover:bg-emerald-100 transition-colors cursor-pointer"
                 title="Tambah banyak soal sekaligus lewat Copy-Paste, Dokumen, atau Gambar">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
                 </svg>
                 <span>Import Massal</span>
               </button>
@@ -3602,19 +3630,24 @@
                 class="w-full px-3.5 py-2 rounded-xl border border-slate-200 bg-slate-50/70 focus:bg-white text-xs sm:text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
             </div>
 
-            <!-- Konfirmasi Hapus Inline (Pengganti confirm()) -->
-            <div id="catQDeleteConfirmBox"
-              class="hidden p-3 rounded-xl bg-rose-50 border border-rose-200 flex items-center justify-between gap-2 flex-wrap">
-              <span class="text-xs font-bold text-rose-800">Yakin ingin menghapus butir soal ini secara permanen?</span>
-              <div class="flex items-center gap-2">
-                <button type="button" onclick="cancelDeleteActiveCatQuestion()"
-                  class="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50 cursor-pointer">Batal</button>
-                <button type="button" onclick="confirmDeleteActiveCatQuestion()"
-                  class="px-3 py-1.5 rounded-lg bg-rose-600 text-white text-xs font-bold hover:bg-rose-700 cursor-pointer">Ya,
-                  Hapus</button>
-              </div>
-            </div>
           </form>
+
+          <!-- Konfirmasi Hapus Selalu Terlihat di Atas Footer (Pengganti confirm()) -->
+          <div id="catQDeleteConfirmBox"
+            class="hidden px-4 sm:px-5 py-3 bg-rose-50 border-t-2 border-rose-300 flex items-center justify-between gap-2.5 flex-wrap shrink-0">
+            <div class="flex items-center gap-2 min-w-0">
+              <svg class="w-4 h-4 text-rose-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0 3.75h.008v.008H12v-.008zM10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+              </svg>
+              <span id="catQDeleteConfirmText" class="text-xs sm:text-sm font-extrabold text-rose-800">Yakin ingin menghapus butir soal ini secara permanen?</span>
+            </div>
+            <div class="flex items-center gap-2 shrink-0 ml-auto">
+              <button type="button" id="btnCatQCancelDelete" onclick="cancelDeleteActiveCatQuestion()"
+                class="px-3.5 py-1.5 rounded-lg bg-white border border-slate-300 text-xs font-bold text-slate-700 hover:bg-slate-50 cursor-pointer">Batal</button>
+              <button type="button" id="btnCatQConfirmDelete" onclick="confirmDeleteActiveCatQuestion()"
+                class="px-3.5 py-1.5 rounded-lg bg-rose-600 text-white text-xs font-extrabold hover:bg-rose-700 shadow-xs cursor-pointer">Ya, Hapus</button>
+            </div>
+          </div>
 
           <!-- Footer Tombol Simpan / Hapus -->
           <div
@@ -6563,11 +6596,7 @@
       if (finishCatModal) finishCatModal.classList.add('hidden');
       var catQModal = document.getElementById('modalCatQuestions');
       if (catQModal) catQModal.classList.add('hidden');
-      var viewExamEl = document.getElementById('viewExam');
-      if (viewExamEl) {
-        viewExamEl.classList.remove('max-w-6xl', 'max-w-7xl');
-        viewExamEl.classList.add('max-w-3xl');
-      }
+      syncUserAppMainLayout('prep');
       if (typeof hideFocusEntryOverlay === 'function') hideFocusEntryOverlay();
       if (typeof hideFocusReentryOverlay === 'function') hideFocusReentryOverlay();
       if (typeof clearDisplayCarouselSessionState === 'function') clearDisplayCarouselSessionState();
@@ -11856,7 +11885,7 @@
           var segCls = qn <= 30 ? 'bg-amber-100 text-amber-900' : (qn <= 65 ? 'bg-blue-100 text-blue-900' : 'bg-emerald-100 text-emerald-900');
           skdTagHtml = '<span class="px-1.5 py-0.5 rounded ' + segCls + ' text-[10px] font-extrabold">' + segLbl + '</span>';
         }
-        html += '<button type="button" data-qid="' + escapeHtml(q.id) + '" onclick="selectCatQuestionToEdit(this.getAttribute(\'data-qid\'))" class="' + cardCls + '">' +
+        html += '<div role="button" tabindex="0" data-qid="' + escapeHtml(q.id) + '" onclick="selectCatQuestionToEdit(this.getAttribute(\'data-qid\'))" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();selectCatQuestionToEdit(this.getAttribute(\'data-qid\'));}" class="' + cardCls + '">' +
           '<div class="flex items-center justify-between gap-2 mb-1">' +
           '<div class="flex items-center gap-1">' +
           '<span class="inline-flex items-center px-2 py-0.5 rounded-md ' + (isActive ? 'bg-indigo-600 text-white' : 'bg-slate-100 text-slate-700') + ' text-[11px] font-extrabold">No. ' + q.nomor + '</span>' +
@@ -11865,10 +11894,13 @@
           '<div class="flex items-center gap-1">' +
           ((hasQImg || optImgCount > 0) ? '<span class="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-bold">IMG</span>' : '') +
           '<span class="px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 text-[10px] font-bold">Maks ' + maxW + '</span>' +
+          '<button type="button" data-qid="' + escapeHtml(q.id) + '" onclick="event.stopPropagation();requestDeleteCatQuestionById(this.getAttribute(\'data-qid\'))" title="Hapus butir No. ' + q.nomor + '" class="p-1 rounded-md text-rose-500 hover:text-rose-700 hover:bg-rose-100 transition-colors cursor-pointer">' +
+          '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>' +
+          '</button>' +
           '</div>' +
           '</div>' +
           '<p class="text-xs text-slate-700 font-medium line-clamp-2 leading-snug">' + escapeHtml(snippet) + '</p>' +
-          '</button>';
+          '</div>';
       }
       listEl.innerHTML = html;
     }
@@ -12174,12 +12206,27 @@
       appState.catEditor.saving = !!isBusy;
       var btnSave = document.getElementById('btnCatQSave');
       var btnNext = document.getElementById('btnCatQSaveNext');
+      var btnDel = document.getElementById('btnCatQDelete');
+      var btnConfDel = document.getElementById('btnCatQConfirmDelete');
+      var btnCancDel = document.getElementById('btnCatQCancelDelete');
+      var isDeleting = !!(isBusy && labelText && String(labelText).toLowerCase().indexOf('hapus') >= 0);
       if (btnSave) {
         btnSave.disabled = !!isBusy;
-        btnSave.textContent = isBusy ? (labelText || 'Menyimpan...') : 'Simpan Butir';
+        btnSave.textContent = isBusy ? (isDeleting ? 'Simpan Butir' : (labelText || 'Menyimpan...')) : 'Simpan Butir';
       }
       if (btnNext) {
         btnNext.disabled = !!isBusy;
+      }
+      if (btnDel) {
+        btnDel.disabled = !!isBusy;
+        btnDel.textContent = (isBusy && isDeleting) ? 'Menghapus...' : 'Hapus Butir';
+      }
+      if (btnConfDel) {
+        btnConfDel.disabled = !!isBusy;
+        btnConfDel.textContent = (isBusy && isDeleting) ? 'Menghapus...' : 'Ya, Hapus';
+      }
+      if (btnCancDel) {
+        btnCancDel.disabled = !!isBusy;
       }
     }
 
@@ -12311,7 +12358,44 @@
         .saveCatQuestion(payload);
     }
 
+    function requestDeleteCatQuestionById(questionId) {
+      var ed = appState.catEditor;
+      if (ed.saving) return;
+      var targetId = String(questionId || '').trim();
+      if (!targetId) return;
+      if (String(ed.activeQuestionId || '').trim() !== targetId) {
+        selectCatQuestionToEdit(targetId);
+      }
+      requestDeleteActiveCatQuestion();
+    }
+
     function requestDeleteActiveCatQuestion() {
+      var ed = appState.catEditor;
+      if (ed.saving) return;
+      var editIdEl = document.getElementById('catQEditId');
+      var qId = String(ed.activeQuestionId || (editIdEl ? editIdEl.value : '') || '').trim();
+      if (!qId) {
+        showToast('Pilih butir soal yang sudah tersimpan terlebih dahulu sebelum menghapus.', 'error');
+        return;
+      }
+      ed.activeQuestionId = qId;
+      var nomorLabel = '';
+      for (var i = 0; i < ed.questions.length; i++) {
+        if (String(ed.questions[i].id) === qId) {
+          nomorLabel = String(ed.questions[i].nomor || (i + 1));
+          break;
+        }
+      }
+      if (!nomorLabel) {
+        var nomEl = document.getElementById('catQNomorInput');
+        nomorLabel = nomEl ? String(nomEl.value || '').trim() : '';
+      }
+      var textEl = document.getElementById('catQDeleteConfirmText');
+      if (textEl) {
+        textEl.textContent = nomorLabel
+          ? ('Yakin ingin menghapus butir soal No. ' + nomorLabel + ' secara permanen?')
+          : 'Yakin ingin menghapus butir soal ini secara permanen?';
+      }
       var box = document.getElementById('catQDeleteConfirmBox');
       if (box) box.classList.remove('hidden');
     }
@@ -12323,16 +12407,29 @@
 
     function confirmDeleteActiveCatQuestion() {
       var ed = appState.catEditor;
-      var qId = String(ed.activeQuestionId || '').trim();
-      if (!ed.soalId || !qId) return;
-      cancelDeleteActiveCatQuestion();
+      if (ed.saving) return;
+      var editIdEl = document.getElementById('catQEditId');
+      var qId = String(ed.activeQuestionId || (editIdEl ? editIdEl.value : '') || '').trim();
+      if (!ed.soalId || !qId) {
+        cancelDeleteActiveCatQuestion();
+        showToast('ID paket atau butir soal tidak valid untuk dihapus.', 'error');
+        return;
+      }
+
+      var deletedIdx = 0;
+      for (var fi = 0; fi < ed.questions.length; fi++) {
+        if (String(ed.questions[fi].id) === qId) {
+          deletedIdx = fi;
+          break;
+        }
+      }
 
       function applyAfterDelete() {
         var remaining = [];
         for (var i = 0; i < ed.questions.length; i++) {
           if (String(ed.questions[i].id) !== qId) remaining.push(ed.questions[i]);
         }
-        remaining.sort(function (a, b) { return (a.nomor || 0) - (b.nomor || 0); });
+        remaining.sort(function (a, b) { return (parseInt(a.nomor, 10) || 0) - (parseInt(b.nomor, 10) || 0); });
         for (var r = 0; r < remaining.length; r++) {
           remaining[r].nomor = r + 1;
         }
@@ -12342,8 +12439,10 @@
           saveLocalCatQuestions(ed.soalId, remaining);
         }
         syncSoalCatCountInMemory(ed.soalId, remaining.length);
+        cancelDeleteActiveCatQuestion();
         if (remaining.length > 0) {
-          selectCatQuestionToEdit(remaining[0].id);
+          var nextIdx = Math.min(deletedIdx, remaining.length - 1);
+          selectCatQuestionToEdit(remaining[nextIdx].id);
         } else {
           startNewCatQuestion();
         }
@@ -12363,11 +12462,13 @@
             applyAfterDelete();
             showToast(res.message || 'Butir soal berhasil dihapus.', 'success');
           } else {
+            cancelDeleteActiveCatQuestion();
             showToast((res && res.message) ? res.message : 'Gagal menghapus butir soal.', 'error');
           }
         })
         .withFailureHandler(function (err) {
           setCatQSaveButtonsBusy(false);
+          cancelDeleteActiveCatQuestion();
           showToast('Gagal menghapus butir soal: ' + (err && err.message ? err.message : err), 'error');
         })
         .deleteCatQuestion(ed.soalId, qId);
@@ -12377,6 +12478,32 @@
     // ========================================================================
     // LOGIKA SIMULASI TES KECERMATAN USER (VIEW PREP, EXAM, RESULT, LEADERBOARD)
     // ========================================================================
+    function syncUserAppMainLayout(viewName) {
+      var mainEl = document.getElementById('userAppMain');
+      var viewExamEl = document.getElementById('viewExam');
+      var vLow = String(viewName || appState.currentView || '').toLowerCase();
+      var isCatPgActive = (vLow === 'exam' && !!(appState.catExam && appState.catExam.active));
+      var isFullBleed = (vLow === 'psikologihub' || vLow === 'skdhub' || isCatPgActive);
+
+      if (mainEl) {
+        if (isFullBleed) {
+          mainEl.className = 'flex-1 w-full max-w-none p-0 m-0 flex flex-col bg-white';
+        } else {
+          mainEl.className = 'flex-1 max-w-6xl w-full mx-auto px-3 sm:px-6 py-4 sm:py-6';
+        }
+      }
+
+      if (viewExamEl) {
+        if (isCatPgActive) {
+          viewExamEl.classList.remove('max-w-3xl', 'max-w-6xl', 'max-w-7xl', 'mx-auto');
+          viewExamEl.classList.add('w-full', 'max-w-none', 'flex-1');
+        } else {
+          viewExamEl.classList.remove('w-full', 'max-w-none', 'max-w-6xl', 'max-w-7xl', 'flex-1');
+          viewExamEl.classList.add('max-w-3xl', 'mx-auto');
+        }
+      }
+    }
+
     function switchView(viewName) {
       if (appState.examActive && viewName !== 'exam') {
         openAbortModal();
@@ -12384,6 +12511,7 @@
       }
 
       appState.currentView = viewName;
+      syncUserAppMainLayout(viewName);
       if (viewName === 'prep') {
         syncCharModesFromMenuSoal();
         refreshUserLockState();
@@ -12626,11 +12754,7 @@
       appState.strictFocusArmed = true;
       pushAppHistoryGuard(3);
 
-      var viewExamEl = document.getElementById('viewExam');
-      if (viewExamEl) {
-        viewExamEl.classList.remove('max-w-6xl', 'max-w-7xl');
-        viewExamEl.classList.add('max-w-3xl');
-      }
+      syncUserAppMainLayout('prep');
 
       var modeBadge = document.getElementById('examModeBadge');
       var partLabel = document.getElementById('examParticipantLabel');
@@ -13376,11 +13500,7 @@
       appState.examActive = false;
       appState.isColumnTransition = false;
       if (appState.catExam) appState.catExam.active = false;
-      var viewExamEl = document.getElementById('viewExam');
-      if (viewExamEl) {
-        viewExamEl.classList.remove('max-w-6xl', 'max-w-7xl');
-        viewExamEl.classList.add('max-w-3xl');
-      }
+      syncUserAppMainLayout('prep');
       var overlay = document.getElementById('columnTransitionOverlay');
       if (overlay) overlay.classList.add('hidden');
       if (appState.psikologiSessionActive) {
@@ -14074,11 +14194,7 @@
       appState.strictFocusArmed = true;
       pushAppHistoryGuard(3);
 
-      var viewExamEl = document.getElementById('viewExam');
-      if (viewExamEl) {
-        viewExamEl.classList.remove('max-w-3xl', 'max-w-6xl');
-        viewExamEl.classList.add('max-w-7xl');
-      }
+      syncUserAppMainLayout('exam');
 
       var classicLayout = document.getElementById('examLayoutClassic');
       var mathLayout = document.getElementById('examLayoutSymbolMath');
@@ -14392,11 +14508,7 @@
       appState.examActive = false;
       ce.active = false;
 
-      var viewExamEl = document.getElementById('viewExam');
-      if (viewExamEl) {
-        viewExamEl.classList.remove('max-w-6xl', 'max-w-7xl');
-        viewExamEl.classList.add('max-w-3xl');
-      }
+      syncUserAppMainLayout('prep');
 
       if (ce.isSkdCombined) {
         appState.skdSessionActive = false;
