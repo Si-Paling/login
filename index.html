@@ -171,11 +171,22 @@
             class="w-full px-4 py-2.5 rounded border border-slate-300 bg-[#E8F0FE] text-center text-sm sm:text-base text-slate-800 font-medium focus:outline-none focus:ring-2 focus:ring-[#456FE8] focus:bg-white transition-all">
         </div>
 
-        <div>
+        <div class="relative">
           <input type="text" id="loginPassword" autocomplete="off" autocorrect="off" autocapitalize="off"
             spellcheck="false" data-lpignore="true" data-form-type="other" placeholder="Password" value=""
             onkeydown="if(event.key==='Enter'){event.preventDefault();handleLoginSubmit();}"
-            class="masked-pass-input w-full px-4 py-2.5 rounded border border-slate-300 bg-[#E8F0FE] text-center text-sm sm:text-base text-slate-800 font-medium focus:outline-none focus:ring-2 focus:ring-[#456FE8] focus:bg-white transition-all">
+            class="masked-pass-input w-full px-10 py-2.5 rounded border border-slate-300 bg-[#E8F0FE] text-center text-sm sm:text-base text-slate-800 font-medium focus:outline-none focus:ring-2 focus:ring-[#456FE8] focus:bg-white transition-all">
+          <button type="button" id="btnToggleLoginPassword" onclick="toggleLoginPasswordVisibility();"
+            aria-label="Lihat password" title="Lihat password"
+            class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-md flex items-center justify-center text-slate-500 hover:text-slate-800 hover:bg-slate-200/70 transition-colors cursor-pointer">
+            <svg id="iconLoginPassEye" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+            <svg id="iconLoginPassEyeOff" class="hidden w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+            </svg>
+          </button>
         </div>
 
         <div class="pt-1">
@@ -183,6 +194,11 @@
             class="w-full py-2.5 px-6 rounded bg-[#456FE8] hover:bg-[#365BD6] active:scale-[0.99] text-white font-medium text-sm sm:text-base shadow transition-all">
             Login
           </button>
+        </div>
+
+        <div id="loginFailNoticeBox"
+          class="hidden rounded-lg border border-rose-300 bg-rose-50 px-3.5 py-2.5 text-center text-xs sm:text-sm font-extrabold text-rose-700 shadow-2xs">
+          Hubungi Bg Dyan
         </div>
       </div>
 
@@ -461,6 +477,41 @@
                   d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
               <span>Kelola Display Default</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- KARTU PENGATURAN NOMOR WHATSAPP ADMIN TERDAFTAR -->
+        <div
+          class="bg-white rounded-md shadow-sm border border-slate-200/80 p-4 sm:p-5 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div class="flex items-center gap-3.5 min-w-0">
+            <div
+              class="w-11 h-11 rounded-full bg-[#25D366]/15 text-[#1DA851] border border-[#25D366]/30 flex items-center justify-center shrink-0">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 32 32">
+                <path d="M16.004 2.667C8.64 2.667 2.667 8.64 2.667 16.004c0 2.353.615 4.648 1.783 6.672L2.667 29.333l6.835-1.792a13.28 13.28 0 006.502 1.696h.006c7.362 0 13.323-5.973 13.323-13.337 0-3.562-1.387-6.912-3.904-9.43a13.252 13.252 0 00-9.425-3.803zm7.767 18.887c-.324.912-1.893 1.745-2.616 1.857-.669.104-1.515.148-2.444-.153-.563-.182-1.285-.423-2.208-.824-3.884-1.678-6.421-5.595-6.615-5.853-.194-.258-1.581-2.103-1.581-4.012 0-1.908.999-2.847 1.353-3.235.355-.387.775-.484 1.033-.484.258 0 .517.002.743.013.239.012.559-.091.874.668.323.775 1.1 2.683 1.196 2.877.097.194.161.42.032.678-.129.259-.194.42-.387.646-.194.226-.407.505-.582.678-.194.194-.396.404-.17.792.226.387 1.004 1.656 2.156 2.683 1.481 1.321 2.73 1.73 3.118 1.924.387.194.614.161.84-.097.226-.258.969-1.13 1.227-1.518.258-.387.517-.323.872-.194.355.129 2.26 1.066 2.648 1.26.387.194.646.29.742.452.097.162.097.937-.226 1.849z"/>
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <div class="flex flex-wrap items-center gap-2">
+                <h3 class="text-sm font-bold text-slate-800">Nomor WhatsApp Admin (Tombol WA Peserta)</h3>
+                <span id="adminWaStatusBadge"
+                  class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold">Aktif: 0822-7258-5855</span>
+              </div>
+              <p class="text-xs text-slate-500 mt-0.5">
+                Nomor ini langsung dihubungkan ke tombol lambang WA bulat pada halaman Login &amp; Persiapan Peserta.
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-2 shrink-0">
+            <input type="text" id="adminWaPhoneInput" value="082272585855" placeholder="Contoh: 082272585855"
+              class="w-44 sm:w-48 px-3 py-2 rounded-lg border border-slate-300 bg-white font-cat-mono text-xs sm:text-sm font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            <button type="button" id="btnSaveAdminWa" onclick="saveAdminWaPhoneFromDashboard()"
+              class="px-3.5 py-2 rounded-lg bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs sm:text-sm font-bold shadow-xs transition-all cursor-pointer">
+              Simpan Nomor WA
+            </button>
+            <button type="button" onclick="openAdminWhatsAppChat()"
+              class="px-3 py-2 rounded-lg border border-emerald-200 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold transition-all cursor-pointer">
+              Tes Chat
             </button>
           </div>
         </div>
@@ -940,7 +991,7 @@
           </div>
         </div>
 
-        <form id="prepForm" onsubmit="event.preventDefault(); startSimulation();"
+        <form id="prepForm" onsubmit="event.preventDefault(); startKecermatanSimulation();"
           class="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div class="lg:col-span-2 space-y-6">
             <!-- 1. Identitas Peserta (Nama & Jenis Tes Terkunci Mengikuti Data Admin) -->
@@ -1062,6 +1113,46 @@
                   </button>
                 </div>
               </div>
+
+              <!-- Pengaturan Khusus Mode Tes Koran / Pauli-Kraepelin Poltekimipas (Operasi + Waktu Fleksibel Tanpa Kolom) -->
+              <div id="prepTesKoranConfigCard" class="hidden pt-3 border-t border-slate-100 space-y-4">
+                <!-- Pilihan Operasi Hitung: Penjumlahan atau Pengurangan -->
+                <div class="grid grid-cols-2 gap-2.5">
+                  <button type="button" id="btnKoranOpAdd" onclick="selectTesKoranOperation('ADD')"
+                    class="text-center py-3 px-4 rounded-xl border-2 border-teal-600 bg-teal-50/70 text-xs sm:text-sm font-extrabold text-teal-900 transition-all cursor-pointer">Penjumlahan</button>
+                  <button type="button" id="btnKoranOpSub" onclick="selectTesKoranOperation('SUB')"
+                    class="text-center py-3 px-4 rounded-xl border-2 border-slate-200 bg-white hover:border-slate-300 text-xs sm:text-sm font-extrabold text-slate-700 transition-all cursor-pointer">Pengurangan</button>
+                </div>
+
+                <!-- Pilihan Durasi Waktu Tanpa Kolom (1, 2, 3, 4, 5, 10, 15, 30, 60 Menit atau Custom) -->
+                <div class="space-y-2.5">
+                  <div class="flex flex-wrap items-center justify-between gap-2">
+                    <span class="text-xs font-extrabold uppercase tracking-wider text-slate-700">Pilih Waktu Tes Koran</span>
+                    <span id="tesKoranActiveDurationBadge" class="text-[11px] font-extrabold text-teal-800">Durasi Aktif: 5 Menit</span>
+                  </div>
+                  <div class="grid grid-cols-5 sm:grid-cols-10 gap-1.5" id="tesKoranDurationPresets">
+                    <button type="button" data-kmin="1" onclick="selectTesKoranDuration(1)" class="koran-dur-btn py-2 px-1.5 rounded-lg border border-slate-200 bg-white hover:border-teal-400 text-xs font-extrabold text-slate-700 text-center transition-all cursor-pointer">1m</button>
+                    <button type="button" data-kmin="2" onclick="selectTesKoranDuration(2)" class="koran-dur-btn py-2 px-1.5 rounded-lg border border-slate-200 bg-white hover:border-teal-400 text-xs font-extrabold text-slate-700 text-center transition-all cursor-pointer">2m</button>
+                    <button type="button" data-kmin="3" onclick="selectTesKoranDuration(3)" class="koran-dur-btn py-2 px-1.5 rounded-lg border border-slate-200 bg-white hover:border-teal-400 text-xs font-extrabold text-slate-700 text-center transition-all cursor-pointer">3m</button>
+                    <button type="button" data-kmin="4" onclick="selectTesKoranDuration(4)" class="koran-dur-btn py-2 px-1.5 rounded-lg border border-slate-200 bg-white hover:border-teal-400 text-xs font-extrabold text-slate-700 text-center transition-all cursor-pointer">4m</button>
+                    <button type="button" data-kmin="5" onclick="selectTesKoranDuration(5)" class="koran-dur-btn py-2 px-1.5 rounded-lg border-2 border-teal-600 bg-teal-50 text-xs font-extrabold text-teal-900 text-center transition-all cursor-pointer">5m</button>
+                    <button type="button" data-kmin="10" onclick="selectTesKoranDuration(10)" class="koran-dur-btn py-2 px-1.5 rounded-lg border border-slate-200 bg-white hover:border-teal-400 text-xs font-extrabold text-slate-700 text-center transition-all cursor-pointer">10m</button>
+                    <button type="button" data-kmin="15" onclick="selectTesKoranDuration(15)" class="koran-dur-btn py-2 px-1.5 rounded-lg border border-slate-200 bg-white hover:border-teal-400 text-xs font-extrabold text-slate-700 text-center transition-all cursor-pointer">15m</button>
+                    <button type="button" data-kmin="30" onclick="selectTesKoranDuration(30)" class="koran-dur-btn py-2 px-1.5 rounded-lg border border-slate-200 bg-white hover:border-teal-400 text-xs font-extrabold text-slate-700 text-center transition-all cursor-pointer">30m</button>
+                    <button type="button" data-kmin="60" onclick="selectTesKoranDuration(60)" class="koran-dur-btn py-2 px-1.5 rounded-lg border border-slate-200 bg-white hover:border-teal-400 text-xs font-extrabold text-slate-700 text-center transition-all cursor-pointer">60m</button>
+                    <button type="button" data-kmin="CUSTOM" onclick="focusTesKoranCustomDuration()" class="koran-dur-btn py-2 px-1.5 rounded-lg border border-slate-200 bg-white hover:border-teal-400 text-[11px] font-extrabold text-slate-700 text-center transition-all cursor-pointer">Custom</button>
+                  </div>
+                  <div class="flex flex-wrap items-center justify-between gap-2 p-2.5 rounded-xl bg-slate-50 border border-slate-200">
+                    <label for="tesKoranCustomMinInput" class="text-xs font-bold text-slate-700">Atur Waktu Sendiri (Custom Menit):</label>
+                    <div class="flex items-center gap-2">
+                      <input type="number" id="tesKoranCustomMinInput" min="1" max="180" value="5"
+                        onchange="onTesKoranCustomDurationInput(this.value)" oninput="onTesKoranCustomDurationInput(this.value)"
+                        class="w-20 px-2.5 py-1.5 rounded-lg border border-slate-300 bg-white font-cat-mono text-xs sm:text-sm font-extrabold text-center text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                      <span class="text-xs font-bold text-slate-600">Menit (1&ndash;180)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <!-- 3. Pengaturan Ujian CAT (Khusus CAT Psikologi & SKD — Terbuka setelah didaftarkan Admin) -->
@@ -1110,52 +1201,14 @@
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <!-- 3A. Ujian CAT Psikologi -->
                 <div id="prepCatCardPsikologi" onclick="selectPrepCatExam('CAT_PSIKOLOGI')"
-                  class="rounded-xl border-2 border-slate-200 bg-slate-50/80 p-4 space-y-2.5 opacity-65 cursor-not-allowed transition-all select-none">
-                  <div class="flex items-center justify-between gap-2">
-                    <span
-                      class="px-2 py-0.5 rounded-md bg-indigo-100 text-indigo-800 text-[10px] font-extrabold uppercase tracking-wide">CAT
-                      PSIKOLOGI</span>
-                    <span id="prepCatPsiStatusPill"
-                      class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-200 text-slate-600 text-[10px] font-bold">Terkunci</span>
-                  </div>
-                  <div>
-                    <h4 class="text-sm font-extrabold text-slate-900">Ujian CAT Psikologi</h4>
-                    <p class="text-[11px] text-slate-600 mt-0.5 leading-relaxed">
-                      Portal 3 Sub-Tes: <strong>Kecerdasan</strong> (100 Soal / 90 Menit),
-                      <strong>Kepribadian</strong> (100 Soal / 60 Menit), &amp; <strong>Kecermatan</strong>.
-                    </p>
-                  </div>
-                  <div id="prepCatPsiPaketWrap" class="hidden pt-2 border-t border-indigo-200/70 space-y-1">
-                    <span class="block text-[10px] font-extrabold uppercase tracking-wide text-indigo-700">Paket
-                      Terdaftar oleh Admin</span>
-                    <div id="prepCatPsiAssignedSummary" class="text-[11px] text-slate-700 space-y-0.5 leading-snug">
-                    </div>
-                  </div>
+                  class="rounded-xl border-2 border-slate-200 bg-slate-50/80 px-4 py-5 flex items-center justify-center text-center opacity-65 cursor-not-allowed transition-all select-none">
+                  <h4 class="text-sm sm:text-base font-extrabold text-slate-900">Ujian CAT Psikologi</h4>
                 </div>
 
-                <!-- 3B. Ujian CAT SKD (Gabungan 110 Soal / 100 Menit) -->
+                <!-- 3B. Ujian CAT SKD -->
                 <div id="prepCatCardSkd" onclick="selectPrepCatExam('CAT_SKD')"
-                  class="rounded-xl border-2 border-slate-200 bg-slate-50/80 p-4 space-y-2.5 opacity-65 cursor-not-allowed transition-all select-none">
-                  <div class="flex items-center justify-between gap-2">
-                    <span
-                      class="px-2 py-0.5 rounded-md bg-amber-100 text-amber-900 text-[10px] font-extrabold uppercase tracking-wide">CAT
-                      SKD</span>
-                    <span id="prepCatSkdStatusPill"
-                      class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-200 text-slate-600 text-[10px] font-bold">Terkunci</span>
-                  </div>
-                  <div>
-                    <h4 class="text-sm font-extrabold text-slate-900">Ujian CAT SKD (Gabungan)</h4>
-                    <p class="text-[11px] text-slate-600 mt-0.5 leading-relaxed">
-                      <strong>110 Soal &bull; 100 Menit</strong> — TWK (1&ndash;30, PG &ge;65), TIU (31&ndash;65, PG
-                      &ge;80), &amp; TKP (66&ndash;110, PG &ge;166).
-                    </p>
-                  </div>
-                  <div id="prepCatSkdPaketWrap" class="hidden pt-2 border-t border-amber-200/70 space-y-1">
-                    <span class="block text-[10px] font-extrabold uppercase tracking-wide text-amber-800">Paket
-                      Terdaftar oleh Admin</span>
-                    <div id="prepCatSkdAssignedSummary" class="text-[11px] text-slate-700 font-semibold leading-snug">
-                    </div>
-                  </div>
+                  class="rounded-xl border-2 border-slate-200 bg-slate-50/80 px-4 py-5 flex items-center justify-center text-center opacity-65 cursor-not-allowed transition-all select-none">
+                  <h4 class="text-sm sm:text-base font-extrabold text-slate-900">Ujian CAT SKD</h4>
                 </div>
               </div>
 
@@ -1170,7 +1223,7 @@
                       class="px-2.5 py-0.5 rounded-full bg-indigo-600 text-white text-[11px] font-extrabold">Paket
                       1</span>
                   </div>
-                  <button type="button" id="btnStartSelectedCatDirect" onclick="startSimulation()"
+                  <button type="button" id="btnStartSelectedCatDirect" onclick="startSelectedCatExam()"
                     class="px-3.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-extrabold shadow-xs inline-flex items-center gap-1.5 transition-all cursor-pointer">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round"
@@ -1207,30 +1260,39 @@
           <div class="space-y-6">
             <div class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm space-y-5 sticky top-22">
               <div class="border-b border-slate-100 pb-3">
-                <h3 class="text-base font-extrabold text-slate-900">Ringkasan Simulasi</h3>
-                <p class="text-xs text-slate-500 mt-0.5">Pastikan pengaturan sudah sesuai sebelum memulai.</p>
+                <h3 class="text-base font-extrabold text-slate-900">Aturan Simulasi</h3>
+                <p class="text-xs text-slate-500 mt-0.5">Harap perhatikan ketentuan berikut sebelum memulai tes.</p>
               </div>
 
-              <div class="space-y-3 text-sm">
-                <div class="flex items-center justify-between gap-2 py-2 border-b border-slate-100">
-                  <span class="text-slate-500 shrink-0">Soal Terpilih</span>
-                  <span id="summaryCharMode" class="font-bold text-slate-900 text-right truncate">Speed, Accuracy,
-                    Hardiness (Hilang Angka)</span>
-                </div>
-                <div class="flex items-center justify-between py-2 border-b border-slate-100">
-                  <span id="summaryRowColLabel" class="text-slate-500">Jumlah Kolom</span>
-                  <span id="summaryColCount" class="font-bold text-slate-900">10 Kolom (Standar)</span>
-                </div>
-                <div class="flex items-center justify-between py-2 border-b border-slate-100">
-                  <span id="summaryRowTimeLabel" class="text-slate-500">Waktu per Kolom</span>
-                  <span id="summaryTimeValue" class="font-bold text-slate-900">60 Detik (Otomatis Pindah)</span>
-                </div>
-                <div class="flex items-center justify-between py-2 border-b border-slate-100">
-                  <span class="text-slate-500">Ambang Batas Lulus</span>
-                  <span id="summaryPassValue" class="font-bold text-emerald-700">Skor Akhir &ge; 18 (MS - Tanpa Predikat
-                    R)</span>
-                </div>
-              </div>
+              <ol class="space-y-3 text-xs sm:text-[13px] text-slate-700 leading-relaxed">
+                <li class="flex items-start gap-2.5">
+                  <span class="w-5 h-5 rounded-full bg-polri-900 text-white text-[11px] font-extrabold flex items-center justify-center shrink-0 mt-0.5">1</span>
+                  <span>Tes hanya aktif ketika diaktifkan oleh Admin.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="w-5 h-5 rounded-full bg-polri-900 text-white text-[11px] font-extrabold flex items-center justify-center shrink-0 mt-0.5">2</span>
+                  <span>Tes hanya bisa digunakan untuk user yang terdaftar, tidak boleh memakai akun user lain untuk memulai tes.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="w-5 h-5 rounded-full bg-polri-900 text-white text-[11px] font-extrabold flex items-center justify-center shrink-0 mt-0.5">3</span>
+                  <span>Jika tes terkunci, silahkan hubungi Admin.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="w-5 h-5 rounded-full bg-polri-900 text-white text-[11px] font-extrabold flex items-center justify-center shrink-0 mt-0.5">4</span>
+                  <div class="space-y-1.5">
+                    <span>Untuk informasi lebih lanjut, silahkan hubungi WA yang tertera.</span>
+                    <div>
+                      <button type="button" id="aturanWaLinkBtn" onclick="openAdminWhatsAppChat()"
+                        class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#25D366]/15 hover:bg-[#25D366]/25 text-emerald-800 border border-[#25D366]/35 text-[11px] font-extrabold transition-colors cursor-pointer">
+                        <svg class="w-3.5 h-3.5 text-[#1DA851] shrink-0" fill="currentColor" viewBox="0 0 32 32">
+                          <path d="M16.004 2.667C8.64 2.667 2.667 8.64 2.667 16.004c0 2.353.615 4.648 1.783 6.672L2.667 29.333l6.835-1.792a13.28 13.28 0 006.502 1.696h.006c7.362 0 13.323-5.973 13.323-13.337 0-3.562-1.387-6.912-3.904-9.43a13.252 13.252 0 00-9.425-3.803zm7.767 18.887c-.324.912-1.893 1.745-2.616 1.857-.669.104-1.515.148-2.444-.153-.563-.182-1.285-.423-2.208-.824-3.884-1.678-6.421-5.595-6.615-5.853-.194-.258-1.581-2.103-1.581-4.012 0-1.908.999-2.847 1.353-3.235.355-.387.775-.484 1.033-.484.258 0 .517.002.743.013.239.012.559-.091.874.668.323.775 1.1 2.683 1.196 2.877.097.194.161.42.032.678-.129.259-.194.42-.387.646-.194.226-.407.505-.582.678-.194.194-.396.404-.17.792.226.387 1.004 1.656 2.156 2.683 1.481 1.321 2.73 1.73 3.118 1.924.387.194.614.161.84-.097.226-.258.969-1.13 1.227-1.518.258-.387.517-.323.872-.194.355.129 2.26 1.066 2.648 1.26.387.194.646.29.742.452.097.162.097.937-.226 1.849z"/>
+                        </svg>
+                        <span id="aturanWaNumberText">0822-7258-5855</span>
+                      </button>
+                    </div>
+                  </div>
+                </li>
+              </ol>
 
               <label
                 class="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-200 cursor-pointer">
@@ -1256,7 +1318,7 @@
               </div>
 
               <button type="submit" id="btnStartExam"
-                onclick="if(isSelectedPrepExamLocked()){ event.preventDefault(); showToast('silahkan hubungi BG DYAN untuk aktifkan tes', 'error'); updateLockBannerUI(true); return false; }"
+                onclick="if(checkIfCurrentUserLocked()){ event.preventDefault(); showToast('silahkan hubungi BG DYAN untuk aktifkan tes', 'error'); updateLockBannerUI(true); return false; }"
                 class="w-full py-3.5 px-5 rounded-xl bg-polri-900 hover:bg-polri-800 active:scale-[0.99] text-white font-extrabold text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round"
@@ -1272,8 +1334,7 @@
 
       <!-- VIEW 1B: HALAMAN PORTAL MENU TES PSIKOLOGI (SESUAI GAMBAR 1) -->
       <section id="viewPsikologiHub" class="hidden w-full max-w-none flex-1">
-        <div
-          class="bg-white min-h-screen w-full flex flex-col items-center justify-center p-6 sm:p-12">
+        <div class="bg-white min-h-screen w-full flex flex-col items-center justify-center p-6 sm:p-12">
           <h2 id="psiHubWelcomeTitle"
             class="text-xl sm:text-2xl font-normal text-slate-800 tracking-wide text-center mb-2">
             Selamat Datang, CASIS POLRI
@@ -1310,8 +1371,7 @@
 
       <!-- VIEW 1C: HALAMAN PORTAL MENU TES SKD GABUNGAN (110 SOAL / 100 MENIT - GAYA GAMBAR 1) -->
       <section id="viewSkdHub" class="hidden w-full max-w-none flex-1">
-        <div
-          class="bg-white min-h-screen w-full flex flex-col items-center justify-center p-6 sm:p-12">
+        <div class="bg-white min-h-screen w-full flex flex-col items-center justify-center p-6 sm:p-12">
           <h2 id="skdHubWelcomeTitle"
             class="text-xl sm:text-2xl font-normal text-slate-800 tracking-wide text-center mb-2">
             Selamat Datang, CASIS POLRI
@@ -1555,7 +1615,7 @@
           </div>
 
           <!-- Tabel Kunci Referensi Simbol Horizontal (Persis Gambar 3) -->
-          <div class="bg-white rounded-2xl border-2 border-slate-300 overflow-hidden shadow-xs">
+          <div id="symbolMathKeyCard" class="bg-white rounded-2xl border-2 border-slate-300 overflow-hidden shadow-xs">
             <!-- Baris 1: Angka Indeks 1 sampai 9 -->
             <div
               class="grid grid-cols-9 divide-x-2 divide-slate-300 border-b-2 border-slate-300 bg-slate-100 text-center font-cat-mono text-xs sm:text-base font-extrabold text-slate-700 py-1 sm:py-1.5">
@@ -1584,13 +1644,13 @@
             </div>
           </div>
 
-          <!-- Area Soal Besar di Tengah Layar (Persis Gambar 3: Ш + α) -->
+          <!-- Area Soal Besar di Tengah Layar (Persis Gambar 3: Ш + α atau Tes Koran: 9 + 3) -->
           <div class="bg-white rounded-2xl border-2 border-blue-500/80 p-6 sm:p-8 shadow-xs text-center space-y-2">
             <div
               class="inline-flex items-center justify-center font-cat-mono text-5xl sm:text-7xl font-black text-slate-800 tracking-wider select-none"
               id="symbolMathQuestionDisplay">
               <span id="mathSymLeft" class="text-slate-900">X</span>
-              <span class="mx-4 sm:mx-6 text-slate-400 font-light">+</span>
+              <span id="mathOperatorSign" class="mx-4 sm:mx-6 text-slate-400 font-light">+</span>
               <span id="mathSymRight" class="text-slate-900">Շ</span>
             </div>
             <div class="text-xs sm:text-sm font-semibold text-slate-400" id="symbolMathQuestionCounter">
@@ -1663,7 +1723,8 @@
         <div id="examLayoutCatPg" class="hidden bg-white w-full min-h-screen overflow-x-hidden">
           <div class="min-h-screen w-full flex flex-col bg-white">
             <!-- Bar Atas Gelap Penuh Ujung-ke-Ujung: Tombol < (Kiri), Timer HH:MM:SS (Tengah), Tombol > (Kanan) -->
-            <div class="sticky top-0 z-20 w-full bg-[#4B515A] text-white px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-3 shrink-0 shadow-xs">
+            <div
+              class="sticky top-0 z-20 w-full bg-[#4B515A] text-white px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-3 shrink-0 shadow-xs">
               <button type="button" id="btnCatPrevQ" onclick="prevCatPgQuestion()"
                 class="px-4 py-1.5 rounded bg-[#4A72D6] hover:bg-[#3B62C4] text-white text-sm font-bold shadow-2xs transition-colors cursor-pointer">
                 &lt;
@@ -1698,21 +1759,12 @@
             </div>
 
             <!-- Konten Utama 3 Kolom Penuh Layar: Kiri (Tabel 1-100/110), Tengah (Soal & Opsi A-E), Kanan (SOAL N & Tombol A-E) -->
-            <div class="flex-1 w-full px-4 sm:px-6 lg:px-10 py-5 sm:py-7 flex flex-col lg:flex-row items-start gap-6 lg:gap-10 xl:gap-12">
-              <!-- Kolom Kiri: Tabel Nomor 1..100 / 1..110 + Quick Jump SKD + Tombol Selesaikan Tes -->
+            <div
+              class="flex-1 w-full px-4 sm:px-6 lg:px-10 py-5 sm:py-7 flex flex-col lg:flex-row items-start gap-6 lg:gap-10 xl:gap-12">
+              <!-- Kolom Kiri: Tabel Nomor 1..100 / 1..110 + Tombol Selesaikan Tes -->
               <div class="w-full sm:w-[270px] lg:w-[270px] xl:w-[290px] shrink-0 space-y-3">
-                <div id="catExamSkdQuickJump" class="hidden grid grid-cols-3 gap-1 text-[10px] font-extrabold">
-                  <button type="button" onclick="goToCatPgQuestion(0)"
-                    class="py-1.5 px-1.5 rounded bg-amber-100 hover:bg-amber-200 text-amber-900 border border-amber-300 cursor-pointer">TWK
-                    1&ndash;30</button>
-                  <button type="button" onclick="goToCatPgQuestion(30)"
-                    class="py-1.5 px-1.5 rounded bg-blue-100 hover:bg-blue-200 text-blue-900 border border-blue-300 cursor-pointer">TIU
-                    31&ndash;65</button>
-                  <button type="button" onclick="goToCatPgQuestion(65)"
-                    class="py-1.5 px-1.5 rounded bg-emerald-100 hover:bg-emerald-200 text-emerald-900 border border-emerald-300 cursor-pointer">TKP
-                    66&ndash;110</button>
-                </div>
-                <div id="catExamNavGrid" class="grid grid-cols-5 border-t border-l border-slate-500 bg-white select-none">
+                <div id="catExamNavGrid"
+                  class="grid grid-cols-5 border-t border-l border-slate-500 bg-white select-none">
                   <!-- Diisi 1..100 / 1..110 oleh renderCatPgNavGrid() -->
                 </div>
                 <button type="button" id="btnCatFinishExam" onclick="handleCatPgFinishAction()"
@@ -1723,10 +1775,6 @@
 
               <!-- Kolom Tengah: Pertanyaan & Rincian Pilihan A-E (Teks &/atau Gambar) -->
               <div class="flex-1 min-w-0 pt-1 lg:pt-2 space-y-5">
-                <div id="catExamSkdSegmentBadge"
-                  class="hidden inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-amber-50 border border-amber-200 text-amber-900 text-xs sm:text-sm font-extrabold">
-                  TWK &mdash; Tes Wawasan Kebangsaan (No. 1&ndash;30)
-                </div>
                 <div class="space-y-3.5">
                   <div id="catExamQuestionText"
                     class="text-sm sm:text-base font-bold text-slate-900 leading-relaxed whitespace-pre-line"></div>
@@ -1738,8 +1786,7 @@
                 </div>
 
                 <!-- Rincian Opsi A. B. C. D. E. di bawah soal (Sesuai Gambar 2) -->
-                <div id="catExamCenterOptionsList"
-                  class="space-y-2 pt-1 text-sm sm:text-base font-bold text-slate-900">
+                <div id="catExamCenterOptionsList" class="space-y-2 pt-1 text-sm sm:text-base font-bold text-slate-900">
                   <!-- Diisi A. ... B. ... C. ... D. ... E. ... oleh renderCatPgQuestion() -->
                 </div>
               </div>
@@ -1845,18 +1892,18 @@
           <div class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm space-y-4">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-100 pb-3">
               <div>
-                <h3 class="text-base font-extrabold text-slate-900">Analisis 3 Aspek Penilaian CAT Kecermatan Polri</h3>
-                <p class="text-xs text-slate-500">Predikat Mutu: B (12), CB (9), C (6), K (3), R (1). Ambang kelulusan
+                <h3 id="resAspectsSectionTitle" class="text-base font-extrabold text-slate-900">Analisis 3 Aspek Penilaian CAT Kecermatan Polri</h3>
+                <p id="resAspectsSectionSubtitle" class="text-xs text-slate-500">Predikat Mutu: B (12), CB (9), C (6), K (3), R (1). Ambang kelulusan
                   minimal 18 dan tanpa predikat R.</p>
               </div>
-              <span class="text-xs font-semibold text-slate-500">Skor Akhir = Speed + Hardiness + Accuracy</span>
+              <span id="resAspectsSectionFormula" class="text-xs font-semibold text-slate-500">Skor Akhir = Speed + Hardiness + Accuracy</span>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <!-- 1. SPEED -->
               <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
                 <div class="flex items-center justify-between">
-                  <span class="text-xs font-extrabold uppercase tracking-wider text-slate-700">1. SPEED
+                  <span id="titleAspectSpeed" class="text-xs font-extrabold uppercase tracking-wider text-slate-700">1. SPEED
                     (Kecepatan)</span>
                   <span id="badgeSpeed" class="px-2 py-0.5 rounded text-[11px] font-bold bg-blue-100 text-blue-800">B
                     (12)</span>
@@ -1871,7 +1918,7 @@
                 <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
                   <div id="barSpeed" class="bg-blue-600 h-full" style="width: 100%"></div>
                 </div>
-                <p class="text-[11px] text-slate-500 leading-relaxed">Kecepatan dinilai dari total seluruh soal dijawab
+                <p id="descAspectSpeed" class="text-[11px] text-slate-500 leading-relaxed">Kecepatan dinilai dari total seluruh soal dijawab
                   (benar &amp; salah) kolom 1-10 (B &ge; 231, CB 181-230, C 141-180, K 101-140, R &le; 100).</p>
 
               </div>
@@ -1879,7 +1926,7 @@
               <!-- 2. HARDINESS -->
               <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
                 <div class="flex items-center justify-between">
-                  <span class="text-xs font-extrabold uppercase tracking-wider text-slate-700">2. HARDINESS
+                  <span id="titleAspectHardiness" class="text-xs font-extrabold uppercase tracking-wider text-slate-700">2. HARDINESS
                     (Ketahanan)</span>
                   <span id="badgeHardiness"
                     class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-800">C (6)</span>
@@ -1894,7 +1941,7 @@
                 <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
                   <div id="barHardiness" class="bg-amber-500 h-full" style="width: 50%"></div>
                 </div>
-                <p class="text-[11px] text-slate-500 leading-relaxed">Ketahanan kerja & daya tahan konsistensi ritme
+                <p id="descAspectHardiness" class="text-[11px] text-slate-500 leading-relaxed">Ketahanan kerja & daya tahan konsistensi ritme
                   kerja
                   pada kolom akhir dibanding kolom awal.</p>
               </div>
@@ -1902,7 +1949,7 @@
               <!-- 3. ACCURACY -->
               <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
                 <div class="flex items-center justify-between">
-                  <span class="text-xs font-extrabold uppercase tracking-wider text-slate-700">3. ACCURACY
+                  <span id="titleAspectAccuracy" class="text-xs font-extrabold uppercase tracking-wider text-slate-700">3. ACCURACY
                     (Ketelitian)</span>
                   <span id="badgeAccuracy"
                     class="px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">CB (9)</span>
@@ -1917,7 +1964,7 @@
                 <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
                   <div id="barAccuracy" class="bg-emerald-600 h-full" style="width: 75%"></div>
                 </div>
-                <p class="text-[11px] text-slate-500 leading-relaxed">Dinilai dari kesalahan terbanyak pada salah satu
+                <p id="descAspectAccuracy" class="text-[11px] text-slate-500 leading-relaxed">Dinilai dari kesalahan terbanyak pada salah satu
                   kolom (0 = B, 1-3 = CB, 4-6 = C, 7-9 = K, &gt;9 = R).</p>
               </div>
             </div>
@@ -2369,6 +2416,7 @@
             <option value="HURUF">HURUF (A-Z)</option>
             <option value="SIMBOL">SIMBOL</option>
             <option value="CAMPURAN">CAMPURAN</option>
+            <option value="TES_KORAN">TES KORAN / PAULI-KRAEPELIN (Angka Berkelanjutan - Poltekimipas)</option>
             <option value="SIMBOL_PENJUMLAHAN">SIMBOL PENJUMLAHAN (Karakter Bawaan)</option>
             <option value="SIMBOL_PENJUMLAHAN_GAMBAR">SIMBOL PENJUMLAHAN (Gambar 1–9 Per Kolom)</option>
             <option value="GAMBAR">GAMBAR (Per Kolom A–E)</option>
@@ -3154,11 +3202,9 @@
           <select id="catRegTujuanSelect"
             class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 bg-white text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#3B6DF0]/40 focus:border-[#3B6DF0]">
             <option value="">Pilih Tujuan Tes..</option>
-            <option value="Akpol">Akpol</option>
-            <option value="Akmil">Akmil</option>
-            <option value="Bintara">Bintara</option>
-            <option value="Kedinasan">Kedinasan</option>
-            <option value="Unhan">Unhan</option>
+            <option value="Konsultasi">Konsultasi</option>
+            <option value="Seleksi dan Penempatan">Seleksi dan Penempatan</option>
+            <option value="Pemetaan">Pemetaan</option>
           </select>
         </div>
 
@@ -3636,16 +3682,20 @@
           <div id="catQDeleteConfirmBox"
             class="hidden px-4 sm:px-5 py-3 bg-rose-50 border-t-2 border-rose-300 flex items-center justify-between gap-2.5 flex-wrap shrink-0">
             <div class="flex items-center gap-2 min-w-0">
-              <svg class="w-4 h-4 text-rose-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0 3.75h.008v.008H12v-.008zM10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+              <svg class="w-4 h-4 text-rose-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 9v3.75m0 3.75h.008v.008H12v-.008zM10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
               </svg>
-              <span id="catQDeleteConfirmText" class="text-xs sm:text-sm font-extrabold text-rose-800">Yakin ingin menghapus butir soal ini secara permanen?</span>
+              <span id="catQDeleteConfirmText" class="text-xs sm:text-sm font-extrabold text-rose-800">Yakin ingin
+                menghapus butir soal ini secara permanen?</span>
             </div>
             <div class="flex items-center gap-2 shrink-0 ml-auto">
               <button type="button" id="btnCatQCancelDelete" onclick="cancelDeleteActiveCatQuestion()"
                 class="px-3.5 py-1.5 rounded-lg bg-white border border-slate-300 text-xs font-bold text-slate-700 hover:bg-slate-50 cursor-pointer">Batal</button>
               <button type="button" id="btnCatQConfirmDelete" onclick="confirmDeleteActiveCatQuestion()"
-                class="px-3.5 py-1.5 rounded-lg bg-rose-600 text-white text-xs font-extrabold hover:bg-rose-700 shadow-xs cursor-pointer">Ya, Hapus</button>
+                class="px-3.5 py-1.5 rounded-lg bg-rose-600 text-white text-xs font-extrabold hover:bg-rose-700 shadow-xs cursor-pointer">Ya,
+                Hapus</button>
             </div>
           </div>
 
@@ -3726,6 +3776,15 @@
   <input type="file" id="catBulkImgInput" accept="image/*" multiple class="hidden"
     onchange="handleCatBulkImgFiles(this.files); this.value='';" />
 
+  <!-- TOMBOL MELAYANG LAMBANG WHATSAPP BULAT (TERHUBUNG LANGSUNG CHAT ADMIN) -->
+  <button type="button" id="floatingWaBtn" onclick="openAdminWhatsAppChat()"
+    aria-label="Hubungi Admin via WhatsApp" title="Chat WhatsApp Admin (0822-7258-5855)"
+    class="fixed bottom-5 right-5 z-[45] w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#1EBE5D] active:scale-95 text-white shadow-lg shadow-emerald-600/35 hover:shadow-xl flex items-center justify-center transition-all cursor-pointer ring-4 ring-white/80">
+    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M16.004 2.667C8.64 2.667 2.667 8.64 2.667 16.004c0 2.353.615 4.648 1.783 6.672L2.667 29.333l6.835-1.792a13.28 13.28 0 006.502 1.696h.006c7.362 0 13.323-5.973 13.323-13.337 0-3.562-1.387-6.912-3.904-9.43a13.252 13.252 0 00-9.425-3.803zm7.767 18.887c-.324.912-1.893 1.745-2.616 1.857-.669.104-1.515.148-2.444-.153-.563-.182-1.285-.423-2.208-.824-3.884-1.678-6.421-5.595-6.615-5.853-.194-.258-1.581-2.103-1.581-4.012 0-1.908.999-2.847 1.353-3.235.355-.387.775-.484 1.033-.484.258 0 .517.002.743.013.239.012.559-.091.874.668.323.775 1.1 2.683 1.196 2.877.097.194.161.42.032.678-.129.259-.194.42-.387.646-.194.226-.407.505-.582.678-.194.194-.396.404-.17.792.226.387 1.004 1.656 2.156 2.683 1.481 1.321 2.73 1.73 3.118 1.924.387.194.614.161.84-.097.226-.258.969-1.13 1.227-1.518.258-.387.517-.323.872-.194.355.129 2.26 1.066 2.648 1.26.387.194.646.29.742.452.097.162.097.937-.226 1.849z"/>
+    </svg>
+  </button>
+
   <!-- TOAST NOTIFICATION KUSTOM -->
   <div id="toastContainer"
     class="fixed bottom-4 right-4 z-[80] flex flex-col gap-2 max-w-sm w-full pointer-events-none px-4 sm:px-0"></div>
@@ -3749,6 +3808,7 @@
       SIMBOL: 'Simbol',
       CAMPURAN: 'Campuran (Kombinasi)',
       BUAH: 'Simbol Gambar (Buah)',
+      TES_KORAN: 'Tes Koran / Pauli-Kraepelin (Poltekimipas)',
       SIMBOL_PENJUMLAHAN: 'Simbol Penjumlahan',
       SIMBOL_PENJUMLAHAN_GAMBAR: 'Simbol Penjumlahan (Gambar 1\u20139)',
       GAMBAR: 'Gambar (Per Kolom A\u2013E)',
@@ -3829,7 +3889,20 @@
       return mode === 'SIMBOL_PENJUMLAHAN_GAMBAR';
     }
 
+    function isTesKoranModeKey(modeKey) {
+      return String(modeKey || '').toUpperCase().trim() === 'TES_KORAN';
+    }
+
+    function isTesKoranMode() {
+      var mode = String(appState.selectedCharMode || '').toUpperCase().trim();
+      if (mode === 'TES_KORAN') return true;
+      var id = String(appState.selectedSoalId || '').toUpperCase();
+      var nama = String(appState.selectedSoalNama || '').toLowerCase();
+      return id === 'SOAL-018' || nama.indexOf('tes koran') !== -1 || nama.indexOf('pauli') !== -1 || nama.indexOf('kraepelin') !== -1 || nama.indexOf('poltekimipas') !== -1;
+    }
+
     function isSimbolPenjumlahanMode() {
+      if (isTesKoranMode()) return true;
       var mode = String(appState.selectedCharMode || '').toUpperCase().trim();
       if (mode === 'GAMBAR') return false;
       if (mode === 'SIMBOL_PENJUMLAHAN' || mode === 'SIMBOL_PENJUMLAHAN_GAMBAR') return true;
@@ -4040,6 +4113,16 @@
       selectedCharMode: 'ANGKA',
       selectedColumns: 10,
       secondsPerColumn: 60,
+      tesKoranOperation: 'ADD', // 'ADD' (Penjumlahan) | 'SUB' (Pengurangan)
+      tesKoranDurationMinutes: 5,
+      tesKoranTotalSeconds: 300,
+      tesKoranSegmentSeconds: 60,
+      tesKoranSegmentCount: 5,
+      tesKoranTotalAnswered: 0,
+      tesKoranTotalCorrect: 0,
+      tesKoranTotalWrong: 0,
+      tesKoranLastLeft: -1,
+      tesKoranLastRight: -1,
       participantName: 'Casis Polri',
       participantSatuan: 'Akpol',
       soundEnabled: true,
@@ -4475,8 +4558,13 @@
       if (fMain === 'LATIHAN KECERMATAN') {
         return !!meta.isKecermatan;
       }
-      if (fMain === 'PSIKOLOGI' || fMain === 'SKD') {
-        if (meta.main !== fMain) return false;
+      if (fMain === 'PSIKOLOGI') {
+        if (fSub === 'KECERMATAN') return !!meta.isKecermatan;
+        if (!fSub || fSub === 'ALL') return meta.main === 'PSIKOLOGI' || !!meta.isKecermatan;
+        return meta.main === 'PSIKOLOGI' && meta.sub === fSub;
+      }
+      if (fMain === 'SKD') {
+        if (meta.main !== 'SKD') return false;
         if (fSub && fSub !== 'ALL' && meta.sub !== fSub) return false;
         return true;
       }
@@ -4756,12 +4844,44 @@
       return parseAksesCatConfigLocal(getCurrentUserAksesCat());
     }
 
-    function hasCurrentUserCatAccess(examType) {
-      var cfg = getCurrentUserAksesCatConfig();
+    function isCatScheduleExpiredLocal(isoDate) {
+      var clean = sanitizeCatDateLocal(isoDate);
+      if (!clean) return false;
+      return getTodayIsoDateLocal() > clean;
+    }
+
+    function getCurrentUserCatAccessState(examType) {
       var target = String(examType || '').trim().toUpperCase();
-      if (target === 'PSIKOLOGI') return !!cfg.psi.on;
-      if (target === 'SKD') return !!cfg.skd.on;
-      return false;
+      if (appState.loggedInUser && String(appState.loggedInUser.role || '').toUpperCase() === 'ADMIN') {
+        return { active: true, expired: false, registered: true, tanggal: '' };
+      }
+      var cfg = getCurrentUserAksesCatConfig();
+      var sub = (target === 'PSIKOLOGI') ? cfg.psi : (target === 'SKD' ? cfg.skd : null);
+      if (!sub || !sub.on) {
+        return { active: false, expired: false, registered: false, tanggal: '' };
+      }
+      var tgl = sanitizeCatDateLocal(sub.tanggal);
+      var exp = isCatScheduleExpiredLocal(tgl);
+      return {
+        active: !exp,
+        expired: exp,
+        registered: true,
+        tanggal: tgl
+      };
+    }
+
+    function getCatDeniedMessageLocal(examType) {
+      var target = String(examType || '').trim().toUpperCase();
+      var lbl = target === 'PSIKOLOGI' ? 'Psikologi' : 'SKD';
+      var st = getCurrentUserCatAccessState(target);
+      if (st.expired) {
+        return 'Ujian CAT ' + lbl + ' sudah kadaluarsa (melewati tanggal ' + formatCatDateDisplayId(st.tanggal) + ' yang ditetapkan Admin) dan tidak dapat digunakan lagi.';
+      }
+      return 'Ujian CAT ' + lbl + ' belum didaftarkan oleh Admin.';
+    }
+
+    function hasCurrentUserCatAccess(examType) {
+      return !!getCurrentUserCatAccessState(examType).active;
     }
 
     function getAllActiveSoalListCached() {
@@ -4769,10 +4889,24 @@
         ? appState.adminCache.soalList
         : getLocalSoalList();
       var out = [];
+      var hasTesKoran = false;
       for (var i = 0; i < list.length; i++) {
+        var mUp = String(list[i].mode || '').toUpperCase().trim();
+        if (mUp === 'TES_KORAN' || String(list[i].id || '') === 'SOAL-018') hasTesKoran = true;
         if (String(list[i].status || 'AKTIF').toUpperCase() !== 'NONAKTIF') {
           out.push(list[i]);
         }
+      }
+      if (!hasTesKoran) {
+        out.unshift({
+          id: 'SOAL-018',
+          kategori: 'LATIHAN KECERMATAN',
+          namaPaket: 'Tes Koran / Pauli-Kraepelin (Poltekimipas \u2014 Angka Berkelanjutan)',
+          mode: 'TES_KORAN',
+          karakter: '0,1,2,3,4,5,6,7,8,9',
+          jumlah: 9999,
+          status: 'AKTIF'
+        });
       }
       return out;
     }
@@ -4954,12 +5088,7 @@
       var catCard = document.getElementById('prepCatPgInfoCard');
       var detailBox = document.getElementById('prepCatSelectedDetailBox');
 
-      var summaryEl = document.getElementById('summaryCharMode');
-      var rowColLbl = document.getElementById('summaryRowColLabel');
-      var colCountEl = document.getElementById('summaryColCount');
-      var rowTimeLbl = document.getElementById('summaryRowTimeLabel');
-      var timeValEl = document.getElementById('summaryTimeValue');
-      var passValEl = document.getElementById('summaryPassValue');
+      // Panel kanan kini menampilkan Aturan Simulasi statis + nomor WA Admin
 
       var liveCfg = getCurrentUserAksesCatConfig();
       if (target === 'CAT_PSIKOLOGI') {
@@ -4986,15 +5115,8 @@
         if (pDurP) pDurP.textContent = '90m / 60m / 10m';
         if (pPassP) pPassP.textContent = psiKcmLbl;
 
-        if (summaryEl) summaryEl.textContent = 'Ujian CAT Psikologi (' + psiKcdLbl + ', ' + psiKprLbl + ')';
-        if (rowColLbl) rowColLbl.textContent = 'Model Kecermatan';
-        if (colCountEl) colCountEl.textContent = psiKcmLbl;
-        if (rowTimeLbl) rowTimeLbl.textContent = 'Durasi Sub-Tes';
-        if (timeValEl) timeValEl.textContent = '90 Menit / 60 Menit / 10 Kolom';
-        if (passValEl) passValEl.textContent = 'Sesuai Ambang Batas Sub-Tes';
       } else if (target === 'CAT_SKD') {
         var skdPaketNo = Math.max(1, parseInt(liveCfg.skd.paketNo || appState.skdSelectedPaketNo, 10) || 1);
-        var skdDesc = describeSkdAssignedLabel(liveCfg.skd);
         if (kecCard) kecCard.className = 'bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm space-y-4 transition-all';
         if (kecTag) {
           kecTag.textContent = 'Klik untuk Kecermatan';
@@ -5009,18 +5131,11 @@
         var pTotalS = document.getElementById('prepCatPgTotalButir');
         var pDurS = document.getElementById('prepCatPgDurasi');
         var pPassS = document.getElementById('prepCatPgPassGrade');
-        if (selCatTitleS) selCatTitleS.textContent = 'Ujian CAT SKD Gabungan Terpilih';
+        if (selCatTitleS) selCatTitleS.textContent = 'Ujian CAT SKD Terpilih';
         if (pBadgeS) pBadgeS.textContent = 'SKD Paket ' + skdPaketNo;
         if (pTotalS) pTotalS.textContent = '110 Soal (TWK+TIU+TKP)';
         if (pDurS) pDurS.textContent = '100 Menit (01:40:00)';
         if (pPassS) pPassS.textContent = '65 / 80 / 166';
-
-        if (summaryEl) summaryEl.textContent = skdDesc;
-        if (rowColLbl) rowColLbl.textContent = 'Format SKD Gabungan';
-        if (colCountEl) colCountEl.textContent = '110 Soal (TWK 30, TIU 35, TKP 45)';
-        if (rowTimeLbl) rowTimeLbl.textContent = 'Durasi Ujian SKD';
-        if (timeValEl) timeValEl.textContent = '100 Menit (01:40:00)';
-        if (passValEl) passValEl.textContent = 'TWK \u2265 65, TIU \u2265 80, TKP \u2265 166';
       } else {
         if (kecCard) kecCard.className = 'bg-white rounded-2xl border-2 border-blue-600 p-5 sm:p-6 shadow-sm space-y-4 transition-all';
         if (kecTag) {
@@ -5030,25 +5145,33 @@
         if (charBtn) charBtn.className = 'w-full p-4 rounded-xl border-2 border-blue-600 bg-blue-50/40 hover:bg-blue-50/70 transition-all flex items-center justify-between gap-3 text-left cursor-pointer';
         if (catCard) catCard.className = 'bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm space-y-4 transition-all';
         if (detailBox) detailBox.classList.add('hidden');
+      }
 
-        var kecName = (appState.selectedKecermatanSoalObj && appState.selectedKecermatanSoalObj.namaPaket)
-          ? appState.selectedKecermatanSoalObj.namaPaket
-          : (appState.selectedSoalNama || (MODE_LABELS[appState.selectedCharMode] || 'Tes Kecermatan'));
-        if (summaryEl) summaryEl.textContent = kecName;
-        if (rowColLbl) rowColLbl.textContent = 'Jumlah Kolom';
-        if (colCountEl) colCountEl.textContent = appState.selectedColumns === 10 ? '10 Kolom (Standar)' : (appState.selectedColumns + ' Kolom (Mode Latihan)');
-        if (rowTimeLbl) rowTimeLbl.textContent = 'Waktu per Kolom';
-        if (timeValEl) timeValEl.textContent = appState.secondsPerColumn + ' Detik (Otomatis Pindah)';
-        if (passValEl) passValEl.textContent = 'Skor Akhir \u2265 18 (MS - Tanpa Predikat R)';
+      // Toggle kartu pengaturan durasi Kecermatan standar vs mode Tes Koran
+      var durCardNormal = document.getElementById('prepKecermatanDurationCard');
+      var koranCfgCard = document.getElementById('prepTesKoranConfigCard');
+      var isKoranActive = isTesKoranMode();
+
+      if (durCardNormal && koranCfgCard) {
+        if (isKoranActive) {
+          durCardNormal.classList.add('hidden');
+          koranCfgCard.classList.remove('hidden');
+        } else {
+          durCardNormal.classList.remove('hidden');
+          koranCfgCard.classList.add('hidden');
+        }
       }
     }
 
     function renderUserCatExamSection() {
-      var hasPsi = hasCurrentUserCatAccess('PSIKOLOGI');
-      var hasSkd = hasCurrentUserCatAccess('SKD');
+      var psiState = getCurrentUserCatAccessState('PSIKOLOGI');
+      var skdState = getCurrentUserCatAccessState('SKD');
+      var hasPsi = psiState.active;
+      var hasSkd = skdState.active;
       var hasAny = hasPsi || hasSkd;
+      var anyExpired = psiState.expired || skdState.expired;
 
-      // Jika target CAT yang sebelumnya dipilih ternyata dicabut Admin, kembalikan ke KECERMATAN
+      // Jika target CAT yang sebelumnya dipilih ternyata dicabut Admin atau kadaluarsa, kembalikan ke KECERMATAN
       if (appState.prepExamTarget === 'CAT_PSIKOLOGI' && !hasPsi) {
         appState.prepExamTarget = 'KECERMATAN';
       } else if (appState.prepExamTarget === 'CAT_SKD' && !hasSkd) {
@@ -5068,6 +5191,9 @@
           if (hasSkd) openLabels.push('SKD');
           accessBadge.className = 'inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200 text-[11px] font-extrabold shrink-0';
           accessBadge.innerHTML = '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/></svg><span>TERBUKA \u2022 ' + escapeHtml(openLabels.join(' & ')) + '</span>';
+        } else if (anyExpired) {
+          accessBadge.className = 'inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-rose-100 text-rose-800 border border-rose-200 text-[11px] font-extrabold shrink-0';
+          accessBadge.innerHTML = '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><span>KADALUARSA</span>';
         } else {
           accessBadge.className = 'inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 border border-slate-200 text-[11px] font-extrabold shrink-0';
           accessBadge.innerHTML = '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg><span>TERKUNCI</span>';
@@ -5076,91 +5202,37 @@
 
       var liveCfg = getCurrentUserAksesCatConfig();
 
-      // Kartu 3A: CAT Psikologi (menampilkan 3 paket mix yang ditetapkan Admin)
+      // Kartu 3A: Ujian CAT Psikologi (tampilan ringkas hanya judul, status dibedakan lewat border/warna kartu)
       var psiCard = document.getElementById('prepCatCardPsikologi');
-      var psiPill = document.getElementById('prepCatPsiStatusPill');
-      var psiPkgWrap = document.getElementById('prepCatPsiPaketWrap');
-      var psiSumEl = document.getElementById('prepCatPsiAssignedSummary');
       var psiSelected = (appState.prepExamTarget === 'CAT_PSIKOLOGI' && hasPsi);
-
       if (psiCard) {
-        if (!hasPsi) {
-          psiCard.className = 'rounded-xl border-2 border-slate-200 bg-slate-50/80 p-4 space-y-2.5 opacity-60 cursor-not-allowed transition-all select-none';
+        if (psiState.expired) {
+          psiCard.className = 'rounded-xl border-2 border-rose-200 bg-rose-50/50 px-4 py-5 flex items-center justify-center text-center opacity-70 cursor-not-allowed transition-all select-none';
+        } else if (!hasPsi) {
+          psiCard.className = 'rounded-xl border-2 border-slate-200 bg-slate-50/80 px-4 py-5 flex items-center justify-center text-center opacity-60 cursor-not-allowed transition-all select-none';
         } else if (psiSelected) {
-          psiCard.className = 'rounded-xl border-2 border-indigo-600 bg-indigo-50/60 p-4 space-y-2.5 shadow-sm cursor-pointer transition-all select-none';
+          psiCard.className = 'rounded-xl border-2 border-indigo-600 bg-indigo-50/70 px-4 py-5 flex items-center justify-center text-center shadow-sm cursor-pointer transition-all select-none';
         } else {
-          psiCard.className = 'rounded-xl border-2 border-slate-200 bg-white hover:border-indigo-400 hover:bg-indigo-50/20 p-4 space-y-2.5 cursor-pointer transition-all select-none';
-        }
-      }
-      if (psiPill) {
-        if (!hasPsi) {
-          psiPill.className = 'inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-200 text-slate-600 text-[10px] font-bold';
-          psiPill.textContent = 'Terkunci';
-        } else if (psiSelected) {
-          psiPill.className = 'inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-indigo-600 text-white text-[10px] font-extrabold';
-          psiPill.textContent = 'Terpilih';
-        } else {
-          psiPill.className = 'inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-extrabold';
-          psiPill.textContent = 'Terbuka \u2022 Pilih';
-        }
-      }
-      if (psiPkgWrap && psiSumEl) {
-        if (hasPsi) {
-          var lblKcd = describeSoalLabelShort(liveCfg.psi.kecerdasan, 'Paket 1 (Default)');
-          var lblKpr = describeSoalLabelShort(liveCfg.psi.kepribadian, 'Paket 1 (Default)');
-          var lblKcm = describeSoalLabelShort(liveCfg.psi.kecermatan, 'Kecermatan Default');
-          var tglPsiHtml = liveCfg.psi.tanggal
-            ? '<div class="truncate"><span class="text-slate-500">Tanggal Tes:</span> <strong class="text-indigo-800">' + escapeHtml(formatCatDateDisplayId(liveCfg.psi.tanggal)) + '</strong>' + (liveCfg.psi.tujuan ? (' &bull; ' + escapeHtml(liveCfg.psi.tujuan)) : '') + '</div>'
-            : '';
-          psiSumEl.innerHTML = tglPsiHtml +
-            '<div class="truncate"><span class="text-slate-500">Kecerdasan:</span> <strong class="text-slate-900">' + escapeHtml(lblKcd) + '</strong></div>' +
-            '<div class="truncate"><span class="text-slate-500">Kepribadian:</span> <strong class="text-slate-900">' + escapeHtml(lblKpr) + '</strong></div>' +
-            '<div class="truncate"><span class="text-slate-500">Kecermatan:</span> <strong class="text-slate-900">' + escapeHtml(lblKcm) + '</strong></div>';
-          psiPkgWrap.classList.remove('hidden');
-        } else {
-          psiPkgWrap.classList.add('hidden');
+          psiCard.className = 'rounded-xl border-2 border-slate-200 bg-white hover:border-indigo-400 hover:bg-indigo-50/30 px-4 py-5 flex items-center justify-center text-center cursor-pointer transition-all select-none';
         }
       }
 
-      // Kartu 3B: CAT SKD (menampilkan paket SKD spesifik yang ditetapkan Admin)
+      // Kartu 3B: Ujian CAT SKD (tampilan ringkas hanya judul, sinkronisasi paket SKD tetap terjaga)
       var skdCard = document.getElementById('prepCatCardSkd');
-      var skdPill = document.getElementById('prepCatSkdStatusPill');
-      var skdPkgWrap = document.getElementById('prepCatSkdPaketWrap');
-      var skdSumEl = document.getElementById('prepCatSkdAssignedSummary');
       var skdSelected = (appState.prepExamTarget === 'CAT_SKD' && hasSkd);
-
+      if (hasSkd) {
+        appState.skdSelectedPaketNo = Math.max(1, parseInt(liveCfg.skd.paketNo, 10) || 1);
+        appState.skdPrimarySoalId = String(liveCfg.skd.soalId || '');
+      }
       if (skdCard) {
-        if (!hasSkd) {
-          skdCard.className = 'rounded-xl border-2 border-slate-200 bg-slate-50/80 p-4 space-y-2.5 opacity-60 cursor-not-allowed transition-all select-none';
+        if (skdState.expired) {
+          skdCard.className = 'rounded-xl border-2 border-rose-200 bg-rose-50/50 px-4 py-5 flex items-center justify-center text-center opacity-70 cursor-not-allowed transition-all select-none';
+        } else if (!hasSkd) {
+          skdCard.className = 'rounded-xl border-2 border-slate-200 bg-slate-50/80 px-4 py-5 flex items-center justify-center text-center opacity-60 cursor-not-allowed transition-all select-none';
         } else if (skdSelected) {
-          skdCard.className = 'rounded-xl border-2 border-amber-500 bg-amber-50/60 p-4 space-y-2.5 shadow-sm cursor-pointer transition-all select-none';
+          skdCard.className = 'rounded-xl border-2 border-amber-500 bg-amber-50/70 px-4 py-5 flex items-center justify-center text-center shadow-sm cursor-pointer transition-all select-none';
         } else {
-          skdCard.className = 'rounded-xl border-2 border-slate-200 bg-white hover:border-amber-400 hover:bg-amber-50/20 p-4 space-y-2.5 cursor-pointer transition-all select-none';
-        }
-      }
-      if (skdPill) {
-        if (!hasSkd) {
-          skdPill.className = 'inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-200 text-slate-600 text-[10px] font-bold';
-          skdPill.textContent = 'Terkunci';
-        } else if (skdSelected) {
-          skdPill.className = 'inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-600 text-white text-[10px] font-extrabold';
-          skdPill.textContent = 'Terpilih';
-        } else {
-          skdPill.className = 'inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-extrabold';
-          skdPill.textContent = 'Terbuka \u2022 Pilih';
-        }
-      }
-      if (skdPkgWrap && skdSumEl) {
-        if (hasSkd) {
-          appState.skdSelectedPaketNo = Math.max(1, parseInt(liveCfg.skd.paketNo, 10) || 1);
-          appState.skdPrimarySoalId = String(liveCfg.skd.soalId || '');
-          var tglSkdHtml = liveCfg.skd.tanggal
-            ? '<div class="text-[11px] font-normal text-slate-600 mb-0.5">Tanggal Tes: <strong class="text-amber-900">' + escapeHtml(formatCatDateDisplayId(liveCfg.skd.tanggal)) + '</strong>' + (liveCfg.skd.tujuan ? (' &bull; ' + escapeHtml(liveCfg.skd.tujuan)) : '') + '</div>'
-            : '';
-          skdSumEl.innerHTML = tglSkdHtml + '<div>' + escapeHtml(describeSkdAssignedLabel(liveCfg.skd)) + '</div>';
-          skdPkgWrap.classList.remove('hidden');
-        } else {
-          skdPkgWrap.classList.add('hidden');
+          skdCard.className = 'rounded-xl border-2 border-slate-200 bg-white hover:border-amber-400 hover:bg-amber-50/30 px-4 py-5 flex items-center justify-center text-center cursor-pointer transition-all select-none';
         }
       }
 
@@ -5173,7 +5245,7 @@
     function selectPrepCatExam(targetType) {
       var reqAccess = (targetType === 'CAT_PSIKOLOGI') ? 'PSIKOLOGI' : 'SKD';
       if (!hasCurrentUserCatAccess(reqAccess)) {
-        showToast('Ujian CAT ' + reqAccess + ' belum didaftarkan oleh Admin.', 'error');
+        showToast(getCatDeniedMessageLocal(reqAccess), 'error');
         return;
       }
       appState.prepExamTarget = targetType;
@@ -5314,12 +5386,29 @@
       if (!container) return;
 
       var kecItems = [];
+      var hasTesKoranInList = false;
       if (list && list.length) {
         for (var i = 0; i < list.length; i++) {
+          if (String(list[i].mode || '').toUpperCase() === 'TES_KORAN' || String(list[i].id || '') === 'SOAL-018') {
+            hasTesKoranInList = true;
+          }
           if (String(list[i].status || 'AKTIF').toUpperCase() === 'NONAKTIF') continue;
           if (!isSection2KecermatanSoal(list[i])) continue;
           kecItems.push(list[i]);
         }
+      }
+      if (!hasTesKoranInList) {
+        var defaultKoranItem = {
+          id: 'SOAL-018',
+          kategori: 'LATIHAN KECERMATAN',
+          namaPaket: 'Tes Koran / Pauli-Kraepelin (Poltekimipas \u2014 Angka Berkelanjutan)',
+          mode: 'TES_KORAN',
+          karakter: '0,1,2,3,4,5,6,7,8,9',
+          jumlah: 9999,
+          status: 'AKTIF'
+        };
+        if (Array.isArray(list)) list.unshift(defaultKoranItem);
+        kecItems.unshift(defaultKoranItem);
       }
 
       renderUserSoalFilterBars(kecItems);
@@ -5365,7 +5454,9 @@
         var labelText = s.namaPaket || (MODE_LABELS[mKey] || mKey);
         var katBadgeHtml = renderSoalCategoryBadgeHtml(s.kategori, true);
         var subBadgeHtml = '';
-        if (isImageBasedModeKey(mKey)) {
+        if (mKey === 'TES_KORAN') {
+          subBadgeHtml = '<span class="block text-[11px] font-semibold text-teal-700 mt-0.5">Penjumlahan (+) &amp; Pengurangan (&minus;) \u2022 Waktu 1&ndash;60 Menit / Custom \u2022 Penilaian Poltekimipas</span>';
+        } else if (isImageBasedModeKey(mKey)) {
           var gMeta = parseGambarMetaObj(s.gambarMeta);
           var gColsCount = Array.isArray(gMeta.filledCols) ? gMeta.filledCols.length : 0;
           var modeDesc = mKey === 'SIMBOL_PENJUMLAHAN_GAMBAR' ? 'Penjumlahan Gambar (1\u20139)' : 'Mode Gambar (A\u2013E)';
@@ -6223,19 +6314,252 @@
       });
     }
 
+    var loginPasswordVisible = false;
+    var LOGIN_FAIL_COUNT_KEY = 'SIEDU_LOGIN_FAIL_COUNT_V1';
+    var loginFailCountMemory = 0;
+
+    function getLoginFailCount() {
+      var n = loginFailCountMemory;
+      try {
+        var saved = parseInt(sessionStorage.getItem(LOGIN_FAIL_COUNT_KEY) || '0', 10);
+        if (!isNaN(saved) && saved > n) n = saved;
+      } catch (e) { }
+      return n;
+    }
+
+    function setLoginFailCount(val) {
+      var n = Math.max(0, parseInt(val, 10) || 0);
+      loginFailCountMemory = n;
+      try {
+        if (n > 0) sessionStorage.setItem(LOGIN_FAIL_COUNT_KEY, String(n));
+        else sessionStorage.removeItem(LOGIN_FAIL_COUNT_KEY);
+      } catch (e) { }
+      updateLoginFailNoticeUI();
+    }
+
+    function updateLoginFailNoticeUI() {
+      var box = document.getElementById('loginFailNoticeBox');
+      if (!box) return;
+      if (getLoginFailCount() >= 3) {
+        box.textContent = 'Hubungi Bg Dyan';
+        box.classList.remove('hidden');
+      } else {
+        box.classList.add('hidden');
+      }
+    }
+
+    function recordLoginFailure(defaultMsg) {
+      var nextCount = getLoginFailCount() + 1;
+      setLoginFailCount(nextCount);
+      if (nextCount >= 3) {
+        showToast('Hubungi Bg Dyan', 'error');
+      } else {
+        showToast(defaultMsg || 'Username atau password salah.', 'error');
+      }
+    }
+
+    function resetLoginFailureCounter() {
+      setLoginFailCount(0);
+    }
+
+    function setLoginPasswordVisible(show) {
+      loginPasswordVisible = !!show;
+      var pEl = document.getElementById('loginPassword');
+      var eyeOpen = document.getElementById('iconLoginPassEye');
+      var eyeClosed = document.getElementById('iconLoginPassEyeOff');
+      var toggleBtn = document.getElementById('btnToggleLoginPassword');
+      var st = document.documentElement ? document.documentElement.style : null;
+      var supportsWebkitMask = !!(st && ('webkitTextSecurity' in st));
+
+      if (pEl) {
+        if (loginPasswordVisible) {
+          pEl.classList.remove('masked-pass-input');
+          if (!supportsWebkitMask) pEl.type = 'text';
+        } else {
+          pEl.classList.add('masked-pass-input');
+          if (!supportsWebkitMask) pEl.type = 'password';
+        }
+      }
+      if (eyeOpen && eyeClosed) {
+        if (loginPasswordVisible) {
+          eyeOpen.classList.add('hidden');
+          eyeClosed.classList.remove('hidden');
+        } else {
+          eyeOpen.classList.remove('hidden');
+          eyeClosed.classList.add('hidden');
+        }
+      }
+      if (toggleBtn) {
+        var lbl = loginPasswordVisible ? 'Sembunyikan password' : 'Lihat password';
+        toggleBtn.setAttribute('aria-label', lbl);
+        toggleBtn.setAttribute('title', lbl);
+      }
+    }
+
+    function toggleLoginPasswordVisibility() {
+      setLoginPasswordVisible(!loginPasswordVisible);
+      var pEl = document.getElementById('loginPassword');
+      if (pEl) {
+        try { pEl.focus(); } catch (e) { }
+      }
+    }
+
     function initMaskedPasswordFallback() {
       try {
-        var pEl = document.getElementById('loginPassword');
-        var st = document.documentElement ? document.documentElement.style : null;
-        if (pEl && st && !('webkitTextSecurity' in st)) {
-          pEl.type = 'password';
-        }
+        setLoginPasswordVisible(false);
+        updateLoginFailNoticeUI();
       } catch (e) { }
+    }
+
+    var DEFAULT_ADMIN_WA_PHONE = '6282272585855';
+    var STORAGE_ADMIN_WA_KEY = 'SIEDU_ADMIN_WA_PHONE_V1';
+    var activeAdminWaPhone = DEFAULT_ADMIN_WA_PHONE;
+
+    function normalizeWaPhoneLocal(rawVal) {
+      var digits = String(rawVal !== undefined && rawVal !== null ? rawVal : '').replace(/[^0-9]/g, '');
+      if (!digits) return '';
+      if (digits.indexOf('0') === 0) {
+        digits = '62' + digits.substring(1);
+      } else if (digits.indexOf('8') === 0) {
+        digits = '62' + digits;
+      }
+      if (digits.length < 9 || digits.length > 16) return '';
+      return digits;
+    }
+
+    function formatWaDisplayLocal(phone62) {
+      var clean = normalizeWaPhoneLocal(phone62) || DEFAULT_ADMIN_WA_PHONE;
+      var local = clean.indexOf('62') === 0 ? ('0' + clean.substring(2)) : clean;
+      if (local.length >= 10) {
+        return local.substring(0, 4) + '-' + local.substring(4, 8) + '-' + local.substring(8);
+      }
+      return local;
+    }
+
+    function getEffectiveAdminWaPhone() {
+      var cached = '';
+      try {
+        cached = normalizeWaPhoneLocal(localStorage.getItem(STORAGE_ADMIN_WA_KEY) || '');
+      } catch (e) { }
+      return normalizeWaPhoneLocal(activeAdminWaPhone) || cached || DEFAULT_ADMIN_WA_PHONE;
+    }
+
+    function applyAdminWaPhoneUI(phone62) {
+      var clean = normalizeWaPhoneLocal(phone62) || DEFAULT_ADMIN_WA_PHONE;
+      activeAdminWaPhone = clean;
+      try { localStorage.setItem(STORAGE_ADMIN_WA_KEY, clean); } catch (e) { }
+      var disp = formatWaDisplayLocal(clean);
+      var localRaw = clean.indexOf('62') === 0 ? ('0' + clean.substring(2)) : clean;
+
+      var badgeEl = document.getElementById('adminWaStatusBadge');
+      if (badgeEl) badgeEl.textContent = 'Aktif: ' + disp;
+      var inpEl = document.getElementById('adminWaPhoneInput');
+      if (inpEl && document.activeElement !== inpEl) inpEl.value = localRaw;
+      var aturanTxtEl = document.getElementById('aturanWaNumberText');
+      if (aturanTxtEl) aturanTxtEl.textContent = disp;
+      var fabEl = document.getElementById('floatingWaBtn');
+      if (fabEl) fabEl.setAttribute('title', 'Chat WhatsApp Admin (' + disp + ')');
+    }
+
+    function loadAdminWaConfig() {
+      applyAdminWaPhoneUI(getEffectiveAdminWaPhone());
+      var onOk = function (res) {
+        if (res && res.success && res.phone) {
+          applyAdminWaPhoneUI(res.phone);
+        }
+      };
+      if (isNativeGasEnvironment()) {
+        try {
+          google.script.run.withSuccessHandler(onOk).withFailureHandler(function () { }).getAdminWaConfig();
+        } catch (e) { }
+      } else if (isApiGasEnvironment()) {
+        try {
+          callGasRestApi_('getAdminWaConfig', '', [], onOk, function () { });
+        } catch (e) { }
+      }
+    }
+
+    function saveAdminWaPhoneFromDashboard() {
+      var inpEl = document.getElementById('adminWaPhoneInput');
+      var btnEl = document.getElementById('btnSaveAdminWa');
+      var rawVal = inpEl ? String(inpEl.value || '').trim() : '';
+      var clean = normalizeWaPhoneLocal(rawVal);
+      if (!clean) {
+        showToast('Nomor WhatsApp tidak valid. Masukkan 9–15 digit angka (contoh: 082272585855).', 'error');
+        return;
+      }
+      applyAdminWaPhoneUI(clean);
+      if (!isGasEnvironment()) {
+        showToast('Nomor WhatsApp Admin tersimpan: ' + formatWaDisplayLocal(clean), 'success');
+        return;
+      }
+      if (btnEl) {
+        btnEl.disabled = true;
+        btnEl.textContent = 'Menyimpan...';
+      }
+      secureRun()
+        .withSuccessHandler(function (res) {
+          if (btnEl) {
+            btnEl.disabled = false;
+            btnEl.textContent = 'Simpan Nomor WA';
+          }
+          if (res && res.success) {
+            applyAdminWaPhoneUI(res.phone || clean);
+            showToast(res.message || 'Nomor WhatsApp Admin berhasil disimpan.', 'success');
+          } else {
+            showToast((res && res.message) || 'Gagal menyimpan nomor WhatsApp Admin.', 'error');
+          }
+        })
+        .withFailureHandler(function (err) {
+          if (btnEl) {
+            btnEl.disabled = false;
+            btnEl.textContent = 'Simpan Nomor WA';
+          }
+          var msg = (err && err.message) ? String(err.message) : 'Gagal terhubung ke server saat menyimpan nomor WA.';
+          showToast(msg, 'error');
+        })
+        .saveAdminWaConfig({ phone: clean });
+    }
+
+    function openAdminWhatsAppChat() {
+      var phone = getEffectiveAdminWaPhone();
+      if (!phone) {
+        showToast('Nomor WhatsApp Admin belum didaftarkan.', 'error');
+        return;
+      }
+      var greeting = 'Halo Admin SI-PALING, saya ingin bertanya mengenai akun / simulasi tes.';
+      if (appState.loggedInUser && String(appState.loggedInUser.role || '').toUpperCase() !== 'ADMIN') {
+        var nm = appState.participantName || appState.loggedInUser.nama || appState.loggedInUser.username || '';
+        greeting = 'Halo Admin SI-PALING, saya ' + nm + ' ingin bertanya mengenai simulasi tes.';
+      }
+      var url = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(greeting);
+      try {
+        var win = window.open(url, '_blank', 'noopener,noreferrer');
+        if (!win) window.location.href = url;
+      } catch (e) {
+        window.location.href = url;
+      }
+    }
+
+    function syncFloatingWaButtonVisibility() {
+      var fab = document.getElementById('floatingWaBtn');
+      if (!fab) return;
+      var shell = appState.activeShell || 'login';
+      var viewLow = String(appState.currentView || 'prep').toLowerCase();
+      var shouldShow = false;
+      if (shell === 'login') {
+        shouldShow = true;
+      } else if (shell === 'user' && !appState.examActive && viewLow !== 'exam' && viewLow !== 'psikologihub' && viewLow !== 'skdhub') {
+        shouldShow = true;
+      }
+      if (shouldShow) fab.classList.remove('hidden');
+      else fab.classList.add('hidden');
     }
 
     window.addEventListener('DOMContentLoaded', function () {
       initAppFaviconFromLogo();
       initMaskedPasswordFallback();
+      loadAdminWaConfig();
       ensureLocalFallbackData();
       syncCharModesFromMenuSoal();
       initAnswerPressReleaseGuards();
@@ -6406,11 +6730,14 @@
         var pEl = document.getElementById('loginPassword');
         if (uEl) uEl.value = '';
         if (pEl) pEl.value = '';
+        setLoginPasswordVisible(false);
+        updateLoginFailNoticeUI();
       }
 
       if (loginEl) loginEl.className = shellName === 'login' ? 'min-h-screen w-full bg-[#4E5261] flex flex-col items-center justify-center px-4 py-10' : 'hidden';
       if (adminEl) adminEl.className = shellName === 'admin' ? 'min-h-screen w-full flex flex-col md:flex-row bg-[#F4F6F9]' : 'hidden';
       if (userEl) userEl.className = shellName === 'user' ? 'min-h-screen flex flex-col bg-slate-50' : 'hidden';
+      if (typeof syncFloatingWaButtonVisibility === 'function') syncFloatingWaButtonVisibility();
     }
 
     function handleLoginSubmit() {
@@ -6446,10 +6773,11 @@
           btn.textContent = 'Login';
         }
         if (res && res.success && res.user) {
+          resetLoginFailureCounter();
           setSessionToken(res.token || '');
           applyLoginSuccess(res.user, false);
         } else {
-          showToast((res && res.message) || 'Username atau password salah.', 'error');
+          recordLoginFailure((res && res.message) || 'Username atau password salah.');
         }
       };
 
@@ -6477,14 +6805,16 @@
         }
         var resLocal = authenticateLocalFallback(username, password);
         if (resLocal.success) {
+          resetLoginFailureCounter();
           applyLoginSuccess(resLocal.user, false);
         } else {
-          showToast(resLocal.message, 'error');
+          recordLoginFailure(resLocal.message || 'Username atau password salah.');
         }
       }
     }
 
     function applyLoginSuccess(user, isSilentRestore) {
+      resetLoginFailureCounter();
       if (!isGasEnvironment() && user && user.username) {
         try {
           var latestUsers = JSON.parse(localStorage.getItem(STORAGE_KEYS.USERS) || '[]');
@@ -7138,24 +7468,184 @@
       }
     }
 
+    var DASH_SUBMATERI_LIST = [
+      { key: 'MM', label: 'MM' },
+      { key: 'BAHASA_INDONESIA', label: 'Bahasa Indonesia' },
+      { key: 'VERBAL', label: 'Verbal' },
+      { key: 'FIGURAL', label: 'Figural' },
+      { key: 'SILOGISME', label: 'Silogisme' },
+      { key: 'DERET', label: 'Deret Angka dan Huruf' },
+      { key: 'PETA', label: 'Peta' },
+      { key: 'ANALISA_URUTAN', label: 'Analisa Urutan' }
+    ];
+
+    function detectKecerdasanTiuTopic(namaPaket, rawKategori) {
+      var text = (String(namaPaket || '') + ' ' + String(rawKategori || '')).toLowerCase().replace(/[^a-z]+/g, ' ').trim();
+      if (!text) return 'LAINNYA';
+      if (/\b(deret|barisan|seri angka|seri huruf|pola bilangan|pola angka|pola huruf|angka dan huruf|angka huruf|irama bilangan)\b/.test(text)) {
+        return 'DERET';
+      }
+      if (/\b(analisa urutan|analisis urutan|urutan|analitis|penalaran analitis|analisa posisi|susunan duduk|meja bundar|peringkat)\b/.test(text)) {
+        return 'ANALISA_URUTAN';
+      }
+      if (/\b(bahasa indonesia|bhs indonesia|b indonesia|b indo|bindo|puebi|eyd|kalimat efektif|wacana|pemahaman bacaan|ide pokok)\b/.test(text)) {
+        return 'BAHASA_INDONESIA';
+      }
+      if (/\b(silogisme|silogis|logika|penalaran logis|penarikan kesimpulan|premis)\b/.test(text)) {
+        return 'SILOGISME';
+      }
+      if (/\b(figural|spasial|gambar|rotasi|pencerminan|jaring|pola bentuk|bangun ruang)\b/.test(text)) {
+        return 'FIGURAL';
+      }
+      if (/\b(peta|denah|arah mata angin|kompas|rute|koordinat|navigasi)\b/.test(text)) {
+        return 'PETA';
+      }
+      if (/\b(verbal|sinonim|antonim|analogi|padanan kata|kosakata|perbendaharaan kata|persamaan kata|lawan kata)\b/.test(text)) {
+        return 'VERBAL';
+      }
+      if (/\b(mm|matematika|mtk|numerik|berhitung|hitung|aritmatika|aritmetika|aljabar|kuantitatif|soal cerita|perbandingan|pecahan|persen)\b/.test(text)) {
+        return 'MM';
+      }
+      return 'LAINNYA';
+    }
+
+    function createEmptySubmateriTotals() {
+      return {
+        MM: 0,
+        BAHASA_INDONESIA: 0,
+        VERBAL: 0,
+        FIGURAL: 0,
+        SILOGISME: 0,
+        DERET: 0,
+        PETA: 0,
+        ANALISA_URUTAN: 0,
+        LAINNYA: 0
+      };
+    }
+
+    function buildDashboardSoalCategoryGroups(soalItems) {
+      var list = Array.isArray(soalItems) ? soalItems : [];
+      var kcdSubs = createEmptySubmateriTotals();
+      var tiuSubs = createEmptySubmateriTotals();
+      var totals = {
+        KECERDASAN: 0,
+        KEPRIBADIAN: 0,
+        KECERMATAN: 0,
+        TWK: 0,
+        TIU: 0,
+        TKP: 0,
+        SKD_GABUNGAN: 0,
+        LAINNYA: 0
+      };
+
+      for (var i = 0; i < list.length; i++) {
+        var s = list[i];
+        var jml = parseInt(s.jumlah, 10) || 0;
+        var meta = (typeof parseSoalKategoriMeta === 'function')
+          ? parseSoalKategoriMeta(s.kategori)
+          : { main: String(s.kategori || '').toUpperCase(), sub: '', isKecermatan: false };
+
+        if (meta.isKecermatan || (meta.main === 'PSIKOLOGI' && meta.sub === 'KECERMATAN') || meta.main === 'LATIHAN KECERMATAN') {
+          totals.KECERMATAN += jml;
+        } else if (meta.main === 'PSIKOLOGI' && meta.sub === 'KECERDASAN') {
+          totals.KECERDASAN += jml;
+          var tk = detectKecerdasanTiuTopic(s.namaPaket, s.kategori);
+          kcdSubs[tk] = (kcdSubs[tk] || 0) + jml;
+        } else if (meta.main === 'PSIKOLOGI' && meta.sub === 'KEPRIBADIAN') {
+          totals.KEPRIBADIAN += jml;
+        } else if (meta.main === 'SKD' && meta.sub === 'TWK') {
+          totals.TWK += jml;
+        } else if (meta.main === 'SKD' && meta.sub === 'TIU') {
+          totals.TIU += jml;
+          var tt = detectKecerdasanTiuTopic(s.namaPaket, s.kategori);
+          tiuSubs[tt] = (tiuSubs[tt] || 0) + jml;
+        } else if (meta.main === 'SKD' && meta.sub === 'TKP') {
+          totals.TKP += jml;
+        } else if (meta.main === 'SKD' && meta.sub === 'GABUNGAN') {
+          totals.SKD_GABUNGAN += jml;
+        } else {
+          totals.LAINNYA += jml;
+        }
+      }
+
+      return {
+        totals: totals,
+        kcdSubs: kcdSubs,
+        tiuSubs: tiuSubs
+      };
+    }
+
+    function renderDashSubmateriGroupHtml(title, totalVal, subsMap, accentBorderCls) {
+      var subHtml = '';
+      for (var i = 0; i < DASH_SUBMATERI_LIST.length; i++) {
+        var item = DASH_SUBMATERI_LIST[i];
+        var val = subsMap[item.key] || 0;
+        subHtml += '<div class="py-1 flex items-center justify-between gap-2 text-[12px]">' +
+          '<span class="text-slate-500">' + escapeHtml(item.label) + '</span>' +
+          '<span class="font-cat-mono text-slate-600 shrink-0">' + val + '</span>' +
+          '</div>';
+      }
+      if ((subsMap.LAINNYA || 0) > 0) {
+        subHtml += '<div class="py-1 flex items-center justify-between gap-2 text-[12px]">' +
+          '<span class="text-slate-400 italic">Lainnya / Umum</span>' +
+          '<span class="font-cat-mono text-slate-500 shrink-0">' + subsMap.LAINNYA + '</span>' +
+          '</div>';
+      }
+      return '<div class="py-2.5">' +
+        '<div class="flex items-center justify-between gap-2">' +
+        '<strong class="text-slate-800 uppercase tracking-wide">' + escapeHtml(title) + '</strong>' +
+        '<span class="font-cat-mono font-bold text-slate-800 shrink-0">' + totalVal + '</span>' +
+        '</div>' +
+        '<div class="mt-1.5 ml-2 pl-3 border-l-2 ' + accentBorderCls + ' divide-y divide-slate-100/80">' +
+        subHtml +
+        '</div>' +
+        '</div>';
+    }
+
     function renderAdminDashboard(data) {
       if (typeof renderAdminDisplayDefaultSummary === 'function') {
         renderAdminDisplayDefaultSummary();
       }
-      // A. Render JUMLAH SOAL
+      if (typeof applyAdminWaPhoneUI === 'function') {
+        applyAdminWaPhoneUI(getEffectiveAdminWaPhone());
+      }
+      // A. Render JUMLAH SOAL (Digabungkan per kategori & 8 sub-materi Kecerdasan / TIU)
       var soalContainer = document.getElementById('dashJumlahSoalList');
       if (soalContainer) {
-        var htmlSoal = '';
         var list = data.soalItems || [];
-        for (var i = 0; i < list.length; i++) {
-          var s = list[i];
-          var katLabel = (typeof parseSoalKategoriMeta === 'function') ? parseSoalKategoriMeta(s.kategori).label : s.kategori;
+        var grp = buildDashboardSoalCategoryGroups(list);
+        var htmlSoal = '';
+        htmlSoal += renderDashSubmateriGroupHtml('KECERDASAN', grp.totals.KECERDASAN, grp.kcdSubs, 'border-indigo-200');
+        htmlSoal += '<div class="py-2.5 flex items-center justify-between gap-2">' +
+          '<strong class="text-slate-800 uppercase tracking-wide">KEPRIBADIAN</strong>' +
+          '<span class="font-cat-mono font-bold text-slate-800 shrink-0">' + grp.totals.KEPRIBADIAN + '</span>' +
+          '</div>';
+        htmlSoal += '<div class="py-2.5 flex items-center justify-between gap-2">' +
+          '<strong class="text-slate-800 uppercase tracking-wide">KECERMATAN</strong>' +
+          '<span class="font-cat-mono font-bold text-slate-800 shrink-0">' + grp.totals.KECERMATAN + '</span>' +
+          '</div>';
+        htmlSoal += '<div class="py-2.5 flex items-center justify-between gap-2">' +
+          '<strong class="text-slate-800 uppercase tracking-wide">TWK</strong>' +
+          '<span class="font-cat-mono font-bold text-slate-800 shrink-0">' + grp.totals.TWK + '</span>' +
+          '</div>';
+        htmlSoal += renderDashSubmateriGroupHtml('TIU', grp.totals.TIU, grp.tiuSubs, 'border-amber-200');
+        htmlSoal += '<div class="py-2.5 flex items-center justify-between gap-2">' +
+          '<strong class="text-slate-800 uppercase tracking-wide">TKP</strong>' +
+          '<span class="font-cat-mono font-bold text-slate-800 shrink-0">' + grp.totals.TKP + '</span>' +
+          '</div>';
+        if (grp.totals.SKD_GABUNGAN > 0) {
           htmlSoal += '<div class="py-2.5 flex items-center justify-between gap-2">' +
-            '<div><strong class="text-slate-700">' + escapeHtml(katLabel) + '</strong> - ' + escapeHtml(s.namaPaket) + '</div>' +
-            '<span class="font-cat-mono text-slate-600 shrink-0">' + s.jumlah + '</span>' +
+            '<strong class="text-slate-700 uppercase tracking-wide">SKD GABUNGAN</strong>' +
+            '<span class="font-cat-mono font-bold text-slate-700 shrink-0">' + grp.totals.SKD_GABUNGAN + '</span>' +
             '</div>';
         }
-        soalContainer.innerHTML = htmlSoal || '<div class="py-4 text-slate-400">Belum ada paket soal.</div>';
+        if (grp.totals.LAINNYA > 0) {
+          htmlSoal += '<div class="py-2.5 flex items-center justify-between gap-2">' +
+            '<strong class="text-slate-600 uppercase tracking-wide">LAINNYA</strong>' +
+            '<span class="font-cat-mono font-bold text-slate-600 shrink-0">' + grp.totals.LAINNYA + '</span>' +
+            '</div>';
+        }
+        soalContainer.innerHTML = htmlSoal;
       }
       var totalSoalEl = document.getElementById('dashTotalSoalVal');
       if (totalSoalEl) totalSoalEl.textContent = String(data.totalSoalCount || 0);
@@ -7866,7 +8356,13 @@
         var jenisBadge = row.jenis === 'PSIKOLOGI'
           ? '<span class="px-2.5 py-0.5 rounded-full bg-indigo-100 text-indigo-800 text-[11px] font-extrabold">Psikologi</span>'
           : '<span class="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 text-[11px] font-extrabold">SKD</span>';
-        var tglDisp = row.tanggal ? row.tanggal : '<span class="text-slate-400 italic">Fleksibel</span>';
+        var isRowExp = row.tanggal ? isCatScheduleExpiredLocal(row.tanggal) : false;
+        var tglDisp = row.tanggal
+          ? ('<div>' + escapeHtml(row.tanggal) + '</div>' +
+            (isRowExp
+              ? '<span class="inline-block mt-0.5 px-1.5 py-0.5 rounded bg-rose-100 text-rose-800 border border-rose-200 text-[10px] font-extrabold">KADALUARSA</span>'
+              : '<span class="inline-block mt-0.5 px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 border border-emerald-200 text-[10px] font-extrabold">AKTIF</span>'))
+          : '<span class="text-slate-400 italic">Fleksibel</span>';
 
         html += '<tr class="hover:bg-slate-50 transition-colors">' +
           '<td class="py-3 px-3 font-cat-mono text-xs font-bold text-slate-500">' + no + '.</td>' +
@@ -7937,9 +8433,6 @@
       var idx = findUserCacheIndex(adminCatRegAllUsersCache, parts[0], parts[1]);
       if (idx !== -1) {
         var u = adminCatRegAllUsersCache[idx];
-        if (tujuanSel && u.cabang) {
-          tujuanSel.value = u.cabang;
-        }
         var jenisSel = document.getElementById('catRegJenisSelect');
         if (jenisSel && jenisSel.value) {
           populateCatRegSelectControls('catReg', parseAksesCatConfigLocal(u.aksesCat));
@@ -8037,7 +8530,10 @@
         userSel.disabled = true;
       }
       var node = (jUp === 'SKD') ? cfg.skd : cfg.psi;
-      if (tujuanSel) tujuanSel.value = node.tujuan || u.cabang || '';
+      if (tujuanSel) {
+        var validTujuanList = ['Konsultasi', 'Seleksi dan Penempatan', 'Pemetaan'];
+        tujuanSel.value = (validTujuanList.indexOf(node.tujuan) !== -1) ? node.tujuan : '';
+      }
       if (tglEl) tglEl.value = node.tanggal || getTodayIsoDateLocal();
       if (jenisSel) {
         jenisSel.value = jUp;
@@ -8509,7 +9005,23 @@
       return null;
     }
 
+    function parseTesKoranRecordDetail(item) {
+      if (!item || !item.detailKolomJson) return null;
+      var raw = String(item.detailKolomJson || '').trim();
+      if (!raw || raw.charAt(0) !== '{') return null;
+      try {
+        var obj = JSON.parse(raw);
+        if (obj && !Array.isArray(obj) && obj.type === 'TES_KORAN') return obj;
+      } catch (e) { }
+      return null;
+    }
+
     function formatSHAValue(item) {
+      var koranDet = parseTesKoranRecordDetail(item);
+      if (koranDet) {
+        return '<span class="px-2 py-0.5 rounded bg-teal-50 text-teal-900 border border-teal-200 font-bold text-[10px]">Poltekimipas ' +
+          escapeHtml(koranDet.predikatKode || 'B') + ' \u2022 ' + Number(koranDet.bpmCorrect || 0).toFixed(1) + '/mnt</span>';
+      }
       var catDet = parseCatPgRecordDetail(item);
       if (catDet) {
         if (catDet.type === 'SKD_COMBINED' && catDet.skdSummary) {
@@ -8558,9 +9070,10 @@
         var badge = isMS
           ? '<span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-800">MS</span>'
           : '<span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-rose-100 text-rose-800">TMS</span>';
+        var koranDet = parseTesKoranRecordDetail(item);
         var shaDisplay = formatSHAValue(item);
-        var skorDisplay = catDet ? Number(Number(item.skorAkhir || 0).toFixed(2)) : Math.round(Number(item.skorAkhir) || 0);
-        var unitLbl = catDet ? ' Soal' : ' Kol';
+        var skorDisplay = (catDet || koranDet) ? Number(Number(item.skorAkhir || 0).toFixed(1)) : Math.round(Number(item.skorAkhir) || 0);
+        var unitLbl = catDet ? ' Soal' : (koranDet ? ' Menit' : ' Kol');
 
         html += '<tr class="hover:bg-slate-50 transition-colors">' +
           '<td class="py-3 px-3"><div class="font-cat-mono font-bold text-xs text-slate-800">' + escapeHtml(item.id) + '</div><div class="text-[11px] text-slate-400">' + escapeHtml(item.tanggal) + '</div></td>' +
@@ -12551,6 +13064,7 @@
         }
       }
 
+      if (typeof syncFloatingWaButtonVisibility === 'function') syncFloatingWaButtonVisibility();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -12580,8 +13094,6 @@
 
     function selectCharMode(modeKey) {
       appState.selectedCharMode = modeKey;
-      var summaryEl = document.getElementById('summaryCharMode');
-      if (summaryEl) summaryEl.textContent = MODE_LABELS[modeKey] || modeKey;
 
       var selTitle = document.getElementById('selectedCharModeTitle');
       if (selTitle) selTitle.textContent = MODE_LABELS[modeKey] || modeKey;
@@ -12606,6 +13118,83 @@
       } else {
         syncPrepSummaryAndHighlights();
       }
+    }
+
+    function selectTesKoranOperation(opType) {
+      var op = String(opType || 'ADD').toUpperCase() === 'SUB' ? 'SUB' : 'ADD';
+      appState.tesKoranOperation = op;
+      var btnAdd = document.getElementById('btnKoranOpAdd');
+      var btnSub = document.getElementById('btnKoranOpSub');
+      if (btnAdd && btnSub) {
+        var clsActive = 'text-center py-3 px-4 rounded-xl border-2 border-teal-600 bg-teal-50/70 text-xs sm:text-sm font-extrabold text-teal-900 transition-all cursor-pointer';
+        var clsInactive = 'text-center py-3 px-4 rounded-xl border-2 border-slate-200 bg-white hover:border-slate-300 text-xs sm:text-sm font-extrabold text-slate-700 transition-all cursor-pointer';
+        if (op === 'ADD') {
+          btnAdd.className = clsActive;
+          btnSub.className = clsInactive;
+        } else {
+          btnSub.className = clsActive;
+          btnAdd.className = clsInactive;
+        }
+      }
+      if (appState.prepExamTarget !== 'KECERMATAN') {
+        activatePrepKecermatanMode();
+      } else {
+        syncPrepSummaryAndHighlights();
+      }
+    }
+
+    function updateTesKoranDurationUI(minutes, isCustomMode) {
+      var cleanMin = Math.min(180, Math.max(1, parseInt(minutes, 10) || 5));
+      appState.tesKoranDurationMinutes = cleanMin;
+      var inp = document.getElementById('tesKoranCustomMinInput');
+      if (inp && parseInt(inp.value, 10) !== cleanMin) {
+        inp.value = String(cleanMin);
+      }
+      var badge = document.getElementById('tesKoranActiveDurationBadge');
+      if (badge) {
+        badge.textContent = 'Durasi Aktif: ' + cleanMin + ' Menit (' + (cleanMin * 60) + ' Detik)';
+      }
+      var presets = [1, 2, 3, 4, 5, 10, 15, 30, 60];
+      var matchesPreset = (!isCustomMode && presets.indexOf(cleanMin) !== -1);
+      var btns = document.querySelectorAll('.koran-dur-btn');
+      for (var i = 0; i < btns.length; i++) {
+        var b = btns[i];
+        var attr = b.getAttribute('data-kmin');
+        var active = false;
+        if (attr === 'CUSTOM') {
+          active = !matchesPreset;
+        } else {
+          active = (matchesPreset && parseInt(attr, 10) === cleanMin);
+        }
+        b.className = active
+          ? 'koran-dur-btn py-2 px-1.5 rounded-lg border-2 border-teal-600 bg-teal-50 text-xs font-extrabold text-teal-900 text-center transition-all cursor-pointer'
+          : 'koran-dur-btn py-2 px-1.5 rounded-lg border border-slate-200 bg-white hover:border-teal-400 text-xs font-extrabold text-slate-700 text-center transition-all cursor-pointer';
+      }
+      if (appState.prepExamTarget !== 'KECERMATAN') {
+        activatePrepKecermatanMode();
+      } else {
+        syncPrepSummaryAndHighlights();
+      }
+    }
+
+    function selectTesKoranDuration(minutes) {
+      updateTesKoranDurationUI(minutes, false);
+    }
+
+    function focusTesKoranCustomDuration() {
+      var inp = document.getElementById('tesKoranCustomMinInput');
+      updateTesKoranDurationUI(inp ? inp.value : appState.tesKoranDurationMinutes, true);
+      if (inp) {
+        try { inp.focus(); inp.select(); } catch (e) { }
+      }
+    }
+
+    function onTesKoranCustomDurationInput(rawVal) {
+      var val = parseInt(rawVal, 10);
+      if (isNaN(val) || val < 1) return;
+      if (val > 180) val = 180;
+      var presets = [1, 2, 3, 4, 5, 10, 15, 30, 60];
+      updateTesKoranDurationUI(val, presets.indexOf(val) === -1);
     }
 
     function shuffleArray(arr) {
@@ -12657,16 +13246,12 @@
     }
 
     function isSelectedPrepExamLocked() {
-      // Kunci dari menu Daftar User HANYA berlaku untuk Latihan Kecermatan (Bagian 2).
-      // Ujian CAT Psikologi & SKD (Bagian 3) dikontrol mandiri oleh pendaftaran di menu Daftar Tes.
-      if (appState.prepExamTarget === 'CAT_PSIKOLOGI' || appState.prepExamTarget === 'CAT_SKD') {
-        return false;
-      }
+      // Tombol MULAI TES SEKARANG khusus untuk Latihan Tes Kecermatan (Bagian 2).
       return checkIfCurrentUserLocked();
     }
 
     function updateLockBannerUI(isLocked) {
-      var effectiveLock = !!isLocked && appState.prepExamTarget !== 'CAT_PSIKOLOGI' && appState.prepExamTarget !== 'CAT_SKD';
+      var effectiveLock = !!isLocked;
       var banner = document.getElementById('userLockedNoticeBanner');
       var btn = document.getElementById('btnStartExam');
       var btnText = document.getElementById('btnStartExamText');
@@ -12783,6 +13368,29 @@
       appState.timerIntervalId = setInterval(onExamTick, 1000);
     }
 
+    function startKecermatanSimulation() {
+      if (checkIfCurrentUserLocked()) {
+        showToast('silahkan hubungi BG DYAN untuk aktifkan tes', 'error');
+        updateLockBannerUI(true);
+        return;
+      }
+      appState.prepExamTarget = 'KECERMATAN';
+      appState.psikologiLaunchingSubTest = false;
+      if (appState.selectedKecermatanSoalObj && isCatPgModeKey(appState.selectedCharMode)) {
+        applySelectedSoalItem(appState.selectedKecermatanSoalObj);
+      }
+      syncPrepSummaryAndHighlights();
+      startSimulation();
+    }
+
+    function startSelectedCatExam() {
+      if (appState.prepExamTarget !== 'CAT_PSIKOLOGI' && appState.prepExamTarget !== 'CAT_SKD') {
+        showToast('Silakan pilih Ujian CAT Psikologi atau Ujian CAT SKD terlebih dahulu.', 'error');
+        return;
+      }
+      startSimulation();
+    }
+
     function startSimulation() {
       if (appState.isStartingExam) return;
       var isCatExamFlow = !!appState.psikologiLaunchingSubTest ||
@@ -12816,7 +13424,7 @@
       if (!appState.psikologiLaunchingSubTest) {
         if (appState.prepExamTarget === 'CAT_PSIKOLOGI') {
           if (!hasCurrentUserCatAccess('PSIKOLOGI')) {
-            showToast('Ujian CAT Psikologi belum didaftarkan oleh Admin.', 'error');
+            showToast(getCatDeniedMessageLocal('PSIKOLOGI'), 'error');
             renderUserCatExamSection();
             return;
           }
@@ -12825,7 +13433,7 @@
         }
         if (appState.prepExamTarget === 'CAT_SKD') {
           if (!hasCurrentUserCatAccess('SKD')) {
-            showToast('Ujian CAT SKD belum didaftarkan oleh Admin.', 'error');
+            showToast(getCatDeniedMessageLocal('SKD'), 'error');
             renderUserCatExamSection();
             return;
           }
@@ -12970,8 +13578,17 @@
       var badgeEl = document.getElementById('transitionBadgeLabel');
       var titleEl = document.getElementById('transitionNextColTitle');
 
-      if (badgeEl) badgeEl.textContent = colIndex === 0 ? 'Persiapan Mulai Tes' : 'Pergantian Kolom';
-      if (titleEl) titleEl.textContent = 'Bersiap Masuk ke Kolom ke-' + colNumber;
+      if (isTesKoranMode()) {
+        var opStrT = appState.tesKoranOperation === 'SUB' ? 'PENGURANGAN (\u2212)' : 'PENJUMLAHAN (+)';
+        var minT = Math.max(1, parseInt(appState.tesKoranDurationMinutes, 10) || 5);
+        if (badgeEl) badgeEl.textContent = 'Persiapan Tes Koran (Poltekimipas)';
+        if (titleEl) titleEl.textContent = 'Bersiap Mulai Tes Koran ' + opStrT + ' \u2022 ' + minT + ' Menit Non-Stop';
+        var mathIndK = document.getElementById('mathColIndicator');
+        if (mathIndK) mathIndK.textContent = 'TES KORAN \u2022 ' + opStrT;
+      } else {
+        if (badgeEl) badgeEl.textContent = colIndex === 0 ? 'Persiapan Mulai Tes' : 'Pergantian Kolom';
+        if (titleEl) titleEl.textContent = 'Bersiap Masuk ke Kolom ke-' + colNumber;
+      }
       if (overlay) overlay.classList.remove('hidden');
 
       var disp = document.getElementById('examTimerDisplay');
@@ -13034,6 +13651,22 @@
       appState.lastMathImagePair = '';
 
       if (isSimbolPenjumlahanMode()) {
+        var keyCardEl = document.getElementById('symbolMathKeyCard');
+        var keyRowEl = document.getElementById('symbolKeyRowHorizontal');
+        var opSignEl = document.getElementById('mathOperatorSign');
+
+        if (isTesKoranMode()) {
+          if (keyCardEl) keyCardEl.classList.add('hidden');
+          var isSubOp = (appState.tesKoranOperation === 'SUB');
+          if (opSignEl) opSignEl.textContent = isSubOp ? '\u2212' : '+';
+          initTesKoranContinuousSession();
+          return;
+        }
+
+        if (keyCardEl) keyCardEl.classList.remove('hidden');
+        if (keyRowEl) keyRowEl.classList.remove('hidden');
+        if (opSignEl) opSignEl.textContent = '+';
+
         if (isSimbolPenjumlahanGambarMode()) {
           initMathImageColumn(colIndex);
           return;
@@ -13190,13 +13823,125 @@
       playBeep(740, 120);
     }
 
+    function initTesKoranContinuousSession() {
+      var durMin = Math.min(180, Math.max(1, parseInt(appState.tesKoranDurationMinutes, 10) || 5));
+      var totalSec = durMin * 60;
+      var segCount = durMin;
+      var segSec = 60;
+      if (durMin === 1) {
+        segCount = 6;
+        segSec = 10;
+      } else if (durMin > 15) {
+        segCount = 10;
+        segSec = Math.max(60, Math.round(totalSec / 10));
+      }
+
+      appState.tesKoranTotalSeconds = totalSec;
+      appState.tesKoranSegmentSeconds = segSec;
+      appState.tesKoranSegmentCount = segCount;
+      appState.tesKoranTotalAnswered = 0;
+      appState.tesKoranTotalCorrect = 0;
+      appState.tesKoranTotalWrong = 0;
+      appState.tesKoranLastLeft = -1;
+      appState.tesKoranLastRight = -1;
+      appState.remainingSeconds = totalSec;
+      appState.currentColIndex = 0;
+      appState.columnStats = [];
+
+      var opCode = appState.tesKoranOperation === 'SUB' ? 'SUB' : 'ADD';
+      for (var s = 0; s < segCount; s++) {
+        var segLbl = durMin === 1
+          ? ('Detik ' + (s * 10 + 1) + '\u2013' + ((s + 1) * 10))
+          : (durMin <= 15
+            ? ('Menit ke-' + (s + 1))
+            : ('Segmen ' + (s + 1) + ' (' + Math.round((s * segSec) / 60) + '\u2013' + Math.round(((s + 1) * segSec) / 60) + ' mnt)'));
+        appState.columnStats.push({
+          col: s + 1,
+          segLabel: segLbl,
+          key: ['TES_KORAN', opCode, String(durMin) + 'm'],
+          ans: 0,
+          ok: 0,
+          err: 0
+        });
+      }
+
+      var mathIndEl = document.getElementById('mathColIndicator');
+      if (mathIndEl) {
+        mathIndEl.textContent = 'TES KORAN \u2022 ' + (opCode === 'SUB' ? 'PENGURANGAN (\u2212)' : 'PENJUMLAHAN (+)') + ' \u2022 ' + durMin + ' MENIT';
+      }
+      var mathProgEl = document.getElementById('symbolMathProgressBar');
+      if (mathProgEl) mathProgEl.style.width = '1%';
+
+      updateTimerUI();
+      generateNextQuestion();
+      playBeep(740, 120);
+    }
+
+    function getActiveTesKoranSegmentIndex() {
+      var totalSec = Math.max(1, appState.tesKoranTotalSeconds || 300);
+      var elapsed = Math.max(0, totalSec - Math.max(0, appState.remainingSeconds || 0));
+      var segSec = Math.max(1, appState.tesKoranSegmentSeconds || 60);
+      var segCount = Math.max(1, appState.columnStats.length || 1);
+      var idx = Math.floor(elapsed / segSec);
+      if (idx < 0) idx = 0;
+      if (idx >= segCount) idx = segCount - 1;
+      appState.currentColIndex = idx;
+      return idx;
+    }
+
     function generateNextQuestion() {
       if (isSimbolPenjumlahanMode()) {
-        var currentStatM = appState.columnStats[appState.currentColIndex];
-        if (!currentStatM) return;
-
         var symLEl = document.getElementById('mathSymLeft');
         var symREl = document.getElementById('mathSymRight');
+        var opSignEl = document.getElementById('mathOperatorSign');
+
+        if (isTesKoranMode()) {
+          var isSub = (appState.tesKoranOperation === 'SUB');
+          if (opSignEl) opSignEl.textContent = isSub ? '\u2212' : '+';
+          var d1, d2;
+          if (isSub) {
+            // Pengurangan 1 digit positif (0..9): d1 >= d2
+            d1 = 1 + Math.floor(Math.random() * 9); // 1..9
+            d2 = Math.floor(Math.random() * (d1 + 1)); // 0..d1
+            if (d1 === appState.tesKoranLastLeft && d2 === appState.tesKoranLastRight) {
+              d1 = ((d1) % 9) + 1;
+              d2 = Math.min(d1, (d2 + 1) % (d1 + 1));
+            }
+            appState.currentMathCorrectAnswer = d1 - d2;
+          } else {
+            // Penjumlahan Tes Koran (Pauli/Kraepelin): 2 angka 1..9, mengalir nyambung
+            if (appState.tesKoranLastRight >= 1 && appState.tesKoranLastRight <= 9 && Math.random() < 0.75) {
+              d1 = appState.tesKoranLastRight;
+            } else {
+              d1 = 1 + Math.floor(Math.random() * 9);
+            }
+            d2 = 1 + Math.floor(Math.random() * 9);
+            if (d1 === appState.tesKoranLastLeft && d2 === appState.tesKoranLastRight) {
+              d2 = (d2 % 9) + 1;
+            }
+            appState.currentMathCorrectAnswer = (d1 + d2) % 10;
+          }
+          appState.tesKoranLastLeft = d1;
+          appState.tesKoranLastRight = d2;
+          if (symLEl) symLEl.textContent = String(d1);
+          if (symREl) symREl.textContent = String(d2);
+
+          var countKoranEl = document.getElementById('symbolMathQuestionCounter');
+          if (countKoranEl) {
+            countKoranEl.textContent = 'Soal ke-' + (appState.tesKoranTotalAnswered + 1) + ' \u2022 Terjawab: ' + appState.tesKoranTotalAnswered + ' (Benar: ' + appState.tesKoranTotalCorrect + ' | Salah: ' + appState.tesKoranTotalWrong + ')';
+          }
+          var progKoranEl = document.getElementById('symbolMathProgressBar');
+          if (progKoranEl) {
+            var totS = Math.max(1, appState.tesKoranTotalSeconds || 300);
+            var elapS = Math.max(0, totS - Math.max(0, appState.remainingSeconds || 0));
+            var pctK = Math.min(100, Math.max(1, Math.round((elapS / totS) * 100)));
+            progKoranEl.style.width = pctK + '%';
+          }
+          return;
+        }
+
+        var currentStatM = appState.columnStats[appState.currentColIndex];
+        if (!currentStatM) return;
 
         if (isSimbolPenjumlahanGambarMode()) {
           var tokens = appState.currentMathImageTokens || [];
@@ -13334,18 +14079,26 @@
       if (evt && evt.preventDefault) evt.preventDefault();
       if (!appState.examActive || appState.isColumnTransition) return;
 
-      var currentStat = appState.columnStats[appState.currentColIndex];
+      if (isTesKoranMode()) {
+        getActiveTesKoranSegmentIndex();
+      }
+      var currentStat = appState.columnStats[appState.currentColIndex] || appState.columnStats[0];
       if (!currentStat) return;
 
       setAnswerButtonPressed('mathKeypad' + num);
 
       currentStat.ans++;
+      if (isTesKoranMode()) {
+        appState.tesKoranTotalAnswered++;
+      }
       if (num === appState.currentMathCorrectAnswer) {
         currentStat.ok++;
-        playBeep(840, 60);
+        if (isTesKoranMode()) appState.tesKoranTotalCorrect++;
+        playBeep(840, 45);
       } else {
         currentStat.err++;
-        playBeep(320, 90);
+        if (isTesKoranMode()) appState.tesKoranTotalWrong++;
+        playBeep(320, 75);
       }
 
       generateNextQuestion();
@@ -13449,6 +14202,25 @@
 
       appState.remainingSeconds--;
 
+      if (isTesKoranMode()) {
+        getActiveTesKoranSegmentIndex();
+        var progKEl = document.getElementById('symbolMathProgressBar');
+        if (progKEl) {
+          var totSK = Math.max(1, appState.tesKoranTotalSeconds || 300);
+          var elapSK = Math.max(0, totSK - Math.max(0, appState.remainingSeconds || 0));
+          progKEl.style.width = Math.min(100, Math.max(1, Math.round((elapSK / totSK) * 100))) + '%';
+        }
+        if (appState.remainingSeconds <= 0) {
+          appState.remainingSeconds = 0;
+          updateTimerUI();
+          finishSimulation();
+        } else {
+          if (appState.remainingSeconds <= 5) playBeep(520, 60);
+          updateTimerUI();
+        }
+        return;
+      }
+
       if (appState.remainingSeconds <= 0) {
         var nextCol = appState.currentColIndex + 1;
         if (nextCol < appState.selectedColumns) {
@@ -13524,6 +14296,11 @@
     // PORTAL MENU TES PSIKOLOGI (GAMBAR 1) & NAVIGASI 3 SUB-TES
     // ============================================================================
     function openPsikologiHub() {
+      if (!hasCurrentUserCatAccess('PSIKOLOGI')) {
+        showToast(getCatDeniedMessageLocal('PSIKOLOGI'), 'error');
+        exitPsikologiHubToUserPanel();
+        return;
+      }
       appState.psikologiSessionActive = true;
       appState.strictFocusArmed = true;
       pushAppHistoryGuard(3);
@@ -13722,7 +14499,7 @@
     function startPsikologiSubTest(subType) {
       if (appState.isStartingExam) return;
       if (!hasCurrentUserCatAccess('PSIKOLOGI')) {
-        showToast('Ujian CAT Psikologi belum didaftarkan oleh Admin.', 'error');
+        showToast(getCatDeniedMessageLocal('PSIKOLOGI'), 'error');
         exitPsikologiHubToUserPanel();
         return;
       }
@@ -13782,7 +14559,7 @@
             btnEl.textContent = origLabel;
           }
           var lowErr = String(errMsg || '').toLowerCase();
-          if (lowErr.indexOf('belum didaftarkan') !== -1 || lowErr.indexOf('tidak sesuai') !== -1) {
+          if (lowErr.indexOf('belum didaftarkan') !== -1 || lowErr.indexOf('tidak sesuai') !== -1 || lowErr.indexOf('kadaluarsa') !== -1) {
             showToast(String(errMsg), 'error');
             refreshUserLockState();
             exitPsikologiHubToUserPanel();
@@ -13810,6 +14587,11 @@
     // PORTAL & ENGINE TES SKD GABUNGAN (110 SOAL: TWK 1-30, TIU 31-65, TKP 66-110 | 100 MENIT)
     // ============================================================================
     function openSkdHub() {
+      if (!hasCurrentUserCatAccess('SKD')) {
+        showToast(getCatDeniedMessageLocal('SKD'), 'error');
+        exitSkdHubToUserPanel();
+        return;
+      }
       appState.skdSessionActive = true;
       appState.psikologiSessionActive = false;
       appState.strictFocusArmed = true;
@@ -14050,7 +14832,7 @@
     function startSkdCombinedExam() {
       if (appState.isStartingExam) return;
       if (!hasCurrentUserCatAccess('SKD')) {
-        showToast('Ujian CAT SKD belum didaftarkan oleh Admin.', 'error');
+        showToast(getCatDeniedMessageLocal('SKD'), 'error');
         exitSkdHubToUserPanel();
         return;
       }
@@ -14108,13 +14890,14 @@
       }
       secureRun()
         .withSuccessHandler(function (res) {
-          if (res && res.code === 'CAT_NOT_REGISTERED') {
+          if (res && (res.code === 'CAT_NOT_REGISTERED' || res.code === 'CAT_EXPIRED')) {
             appState.isStartingExam = false;
             if (btnEl) {
               btnEl.disabled = false;
               btnEl.textContent = origLabel;
             }
-            showToast(res.message || 'Ujian CAT SKD belum didaftarkan oleh Admin.', 'error');
+            showToast(res.message || getCatDeniedMessageLocal('SKD'), 'error');
+            refreshUserLockState();
             exitSkdHubToUserPanel();
             return;
           }
@@ -14275,28 +15058,7 @@
       if (numBadge) numBadge.textContent = 'SOAL ' + dispNo;
       if (progBar) progBar.style.width = Math.max(3, Math.round((dispNo / total) * 100)) + '%';
 
-      var skdSegBadge = document.getElementById('catExamSkdSegmentBadge');
-      var skdQuickJump = document.getElementById('catExamSkdQuickJump');
-      if (ce.isSkdCombined) {
-        var curSec = getSkdSectionByNumber(dispNo);
-        if (skdQuickJump) skdQuickJump.classList.remove('hidden');
-        if (skdSegBadge) {
-          skdSegBadge.classList.remove('hidden');
-          if (curSec === 'TWK') {
-            skdSegBadge.textContent = 'TWK \u2014 Tes Wawasan Kebangsaan (No. 1\u201330 | Benar 5, Salah 0 | Ambang Batas \u2265 65)';
-            skdSegBadge.className = 'inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-amber-50 border border-amber-200 text-amber-900 text-xs font-extrabold';
-          } else if (curSec === 'TIU') {
-            skdSegBadge.textContent = 'TIU \u2014 Tes Intelegensi Umum (No. 31\u201365 | Benar 5, Salah 0 | Ambang Batas \u2265 80)';
-            skdSegBadge.className = 'inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-blue-50 border border-blue-200 text-blue-900 text-xs font-extrabold';
-          } else {
-            skdSegBadge.textContent = 'TKP \u2014 Tes Karakteristik Pribadi (No. 66\u2013110 | Bobot A\u2013E | Ambang Batas \u2265 166)';
-            skdSegBadge.className = 'inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs font-extrabold';
-          }
-        }
-      } else {
-        if (skdSegBadge) skdSegBadge.classList.add('hidden');
-        if (skdQuickJump) skdQuickJump.classList.add('hidden');
-      }
+      // Bar & badge sub-bagian SKD (TWK/TIU/TKP) dihapus saat tes berlangsung agar layar ujian bersih fokus
 
       if (flagInd) {
         if (isFlagged) flagInd.classList.remove('hidden');
@@ -15006,6 +15768,197 @@
       };
     }
 
+    // ============================================================================
+    // ENGINE PENILAIAN TES KORAN (PAULI / KRAEPELIN) STANDAR POLTEKIMIPAS (0 - 100)
+    // ============================================================================
+    function calculateTesKoranPoltekimipasMetrics(detailSegments, durasiMenit, operationType) {
+      var segs = Array.isArray(detailSegments) ? detailSegments : [];
+      var durMin = Math.max(1, Number(durasiMenit) || 5);
+      var opCode = String(operationType || 'ADD').toUpperCase() === 'SUB' ? 'SUB' : 'ADD';
+      var opLabel = opCode === 'SUB' ? 'Pengurangan (\u2212)' : 'Penjumlahan (+)';
+
+      var totalAns = 0;
+      var totalOk = 0;
+      var totalErr = 0;
+      var maxError = 0;
+
+      for (var i = 0; i < segs.length; i++) {
+        var s = segs[i] || {};
+        var a = Number(s.ans || 0);
+        var o = Number(s.ok || 0);
+        var e = s.err !== undefined ? Number(s.err) : Math.max(0, a - o);
+        totalAns += a;
+        totalOk += o;
+        totalErr += e;
+        if (e > maxError) maxError = e;
+      }
+
+      var bpmAnswered = Number((totalAns / durMin).toFixed(2));
+      var bpmCorrect = Number((totalOk / durMin).toFixed(2));
+      var errPerMin = Number((totalErr / durMin).toFixed(2));
+      var akurasi = totalAns > 0 ? Number(((totalOk / totalAns) * 100).toFixed(2)) : 0;
+
+      // 1. KECEPATAN KERJA (PANKER - Bobot 35%): Standar Laju Benar Per Menit (BPM) Poltekimipas
+      var skorKecepatan = 0;
+      if (totalOk <= 0) {
+        skorKecepatan = 0;
+      } else if (bpmCorrect >= 45) {
+        skorKecepatan = 100;
+      } else if (bpmCorrect >= 35) {
+        skorKecepatan = 85 + ((bpmCorrect - 35) / 10) * 15;
+      } else if (bpmCorrect >= 25) {
+        skorKecepatan = 70 + ((bpmCorrect - 25) / 10) * 15;
+      } else if (bpmCorrect >= 18) {
+        skorKecepatan = 61 + ((bpmCorrect - 18) / 7) * 9;
+      } else {
+        skorKecepatan = Math.max(15, (bpmCorrect / 18) * 60);
+      }
+      skorKecepatan = Number(Math.min(100, Math.max(0, skorKecepatan)).toFixed(1));
+
+      // 2. KETELITIAN KERJA (TIANKER - Bobot 30%): Persentase Ketepatan & Penalti Kesalahan/Menit
+      var skorKetelitian = 0;
+      if (totalAns > 0) {
+        skorKetelitian = Math.max(0, akurasi - (errPerMin * 2.5));
+        if (akurasi >= 98 && totalOk >= 10) skorKetelitian = Math.max(skorKetelitian, 94);
+      }
+      skorKetelitian = Number(Math.min(100, Math.max(0, skorKetelitian)).toFixed(1));
+
+      // 3. KEAJEGAN & KETAHANAN RITME KERJA (JANKER 20% + HANKER 15% = 35%)
+      var activeSegs = segs.length || 1;
+      var avgOkPerSeg = totalOk / activeSegs;
+      var sumSq = 0;
+      for (var j = 0; j < segs.length; j++) {
+        var d = Number(segs[j].ok || 0) - avgOkPerSeg;
+        sumSq += d * d;
+      }
+      var stdDev = Math.sqrt(sumSq / activeSegs);
+      var cv = avgOkPerSeg > 0 ? (stdDev / avgOkPerSeg) : 1;
+
+      var skorKeajegan = totalOk > 0 ? Math.max(25, Math.min(100, 100 - (cv * 115))) : 0;
+      skorKeajegan = Number(skorKeajegan.toFixed(1));
+
+      var half = Math.floor(segs.length / 2) || 1;
+      var h1 = 0;
+      var h2 = 0;
+      for (var p1 = 0; p1 < half; p1++) h1 += Number((segs[p1] && segs[p1].ok) || 0);
+      for (var p2 = segs.length - half; p2 < segs.length; p2++) h2 += Number((segs[p2] && segs[p2].ok) || 0);
+      var avgFirstHalf = h1 / half;
+      var avgSecondHalf = h2 / half;
+      var drop = avgFirstHalf - avgSecondHalf;
+      var deltaPct = avgFirstHalf > 0 ? ((avgSecondHalf - avgFirstHalf) / avgFirstHalf) * 100 : 0;
+
+      var skorKetahanan = 0;
+      var hardinessDetail = '';
+      if (totalOk <= 0) {
+        skorKetahanan = 0;
+        hardinessDetail = 'Belum ada jawaban benar';
+      } else if (deltaPct >= 5) {
+        skorKetahanan = Math.min(100, 90 + Math.min(10, deltaPct * 0.4));
+        hardinessDetail = 'Stamina Menanjak (+' + deltaPct.toFixed(1) + '% di paruh akhir)';
+      } else if (deltaPct >= -5) {
+        skorKetahanan = 84 + ((deltaPct + 5) / 10) * 6;
+        hardinessDetail = 'Ritme Stabil & Konsisten (SD \u00B1' + stdDev.toFixed(1) + ')';
+      } else if (deltaPct >= -15) {
+        skorKetahanan = 68 + ((deltaPct + 15) / 10) * 16;
+        hardinessDetail = 'Fluktuasi Ringan (' + deltaPct.toFixed(1) + '% di paruh akhir)';
+      } else if (deltaPct >= -30) {
+        skorKetahanan = 52 + ((deltaPct + 30) / 15) * 16;
+        hardinessDetail = 'Penurunan Stamina (' + deltaPct.toFixed(1) + '% di paruh akhir)';
+      } else {
+        skorKetahanan = Math.max(25, 50 + (deltaPct + 30) * 0.8);
+        hardinessDetail = 'Indikasi Kelelahan / Fatigue (' + deltaPct.toFixed(1) + '%)';
+      }
+      skorKetahanan = Number(Math.min(100, Math.max(0, skorKetahanan)).toFixed(1));
+      var skorKetahananGabungan = Number(((skorKeajegan * (20 / 35)) + (skorKetahanan * (15 / 35))).toFixed(1));
+
+      // 4. SKOR AKHIR POLTEKIMIPAS (0 - 100)
+      var skorAkhir = Number(((0.35 * skorKecepatan) + (0.30 * skorKetelitian) + (0.20 * skorKeajegan) + (0.15 * skorKetahanan)).toFixed(1));
+
+      function toPoltekimipasGrade(val) {
+        if (val >= 80) return { code: 'SB', label: 'Sangat Baik' };
+        if (val >= 70) return { code: 'B', label: 'Baik' };
+        if (val >= 61) return { code: 'C', label: 'Cukup' };
+        if (val >= 50) return { code: 'K', label: 'Kurang' };
+        return { code: 'SK', label: 'Sangat Kurang' };
+      }
+
+      var gFinal = toPoltekimipasGrade(skorAkhir);
+      var gSpd = toPoltekimipasGrade(skorKecepatan);
+      var gAcc = toPoltekimipasGrade(skorKetelitian);
+      var gHard = toPoltekimipasGrade(skorKetahananGabungan);
+
+      var passingGrade = 61.0;
+      var isLulus = (skorAkhir >= passingGrade) && (akurasi >= 75.0) && (totalOk > 0);
+      var statusLabel = isLulus ? 'MEMENUHI SYARAT (MS)' : 'TIDAK MEMENUHI SYARAT (TMS)';
+      var failReason = '';
+      if (!isLulus) {
+        if (totalOk <= 0) {
+          failReason = 'Belum ada soal yang dijawab dengan benar';
+        } else if (akurasi < 75.0 && skorAkhir >= passingGrade) {
+          failReason = 'Akurasi ketelitian (' + akurasi.toFixed(1) + '%) di bawah batas minimal Poltekimipas 75%';
+        } else {
+          failReason = 'Skor Akhir (' + skorAkhir.toFixed(1) + ') di bawah Ambang Batas Minimal Poltekimipas (61.0)';
+        }
+      }
+
+      var trendTitle = 'Kurva Tes Koran Poltekimipas: ' + gFinal.label + ' (' + gFinal.code + ')';
+      var trendClass = isLulus
+        ? 'inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold bg-teal-50 text-teal-900 border border-teal-200'
+        : 'inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold bg-rose-50 text-rose-800 border border-rose-200';
+      var narrative = 'Pada Tes Koran (' + opLabel + ') berdurasi ' + durMin + ' menit non-stop, kecepatan rata-rata Anda mencapai ' +
+        bpmCorrect.toFixed(1) + ' benar/menit (total ' + totalOk + ' benar dari ' + totalAns + ' soal) dengan tingkat ketelitian ' +
+        akurasi.toFixed(1) + '%. ' + hardinessDetail + '.';
+      var advice = '';
+      if (akurasi < 90) {
+        advice = 'Tingkatkan ketelitian hitung cepat ' + opLabel + ' agar akurasi di atas 95%. Hindari menekan tombol secara terburu-buru.';
+      } else if (bpmCorrect < 30) {
+        advice = 'Ketelitian Anda sudah baik. Latih refleks jari pada keypad angka 0\u20139 untuk menembus laju \u2265 35\u201345 jawaban benar/menit.';
+      } else {
+        advice = 'Laju dan ketelitian Tes Koran Anda sudah memenuhi standar tinggi Poltekimipas. Pertahankan konsistensi pada durasi 15\u201360 menit.';
+      }
+
+      return {
+        type: 'TES_KORAN',
+        operation: opCode,
+        operationLabel: opLabel,
+        durasiMenit: durMin,
+        totalAns: totalAns,
+        totalOk: totalOk,
+        totalErr: totalErr,
+        maxError: maxError,
+        akurasi: akurasi,
+        bpmAnswered: bpmAnswered,
+        bpmCorrect: bpmCorrect,
+        errPerMin: errPerMin,
+        stdDev: Number(stdDev.toFixed(2)),
+        drop: Number(drop.toFixed(2)),
+        deltaPct: Number(deltaPct.toFixed(1)),
+        skorKecepatan: skorKecepatan,
+        skorKetelitian: skorKetelitian,
+        skorKeajegan: skorKeajegan,
+        skorKetahanan: skorKetahanan,
+        skorKetahananGabungan: skorKetahananGabungan,
+        skorAkhir: skorAkhir,
+        passingGrade: passingGrade,
+        predikatKode: gFinal.code,
+        predikatLabel: gFinal.label + ' (' + gFinal.code + ')',
+        gradeSpeed: gSpd.code,
+        gradeHardiness: gHard.code,
+        gradeAccuracy: gAcc.code,
+        hardinessDetail: hardinessDetail,
+        isLulus: isLulus,
+        statusLabel: statusLabel,
+        failReason: failReason,
+        evaluation: {
+          trendTitle: trendTitle,
+          trendClass: trendClass,
+          narrative: narrative,
+          advice: advice
+        },
+        intervals: segs
+      };
+    }
+
     function finishSimulation() {
       clearAnswerFocusStates();
       if (appState.timerIntervalId) {
@@ -15019,6 +15972,73 @@
       playBeep(980, 220);
 
       var stats = appState.columnStats;
+
+      if (isTesKoranMode()) {
+        var durMinK = Math.max(1, parseInt(appState.tesKoranDurationMinutes, 10) || 5);
+        var opK = appState.tesKoranOperation === 'SUB' ? 'SUB' : 'ADD';
+        var kMetrics = calculateTesKoranPoltekimipasMetrics(stats, durMinK, opK);
+        var koranModeLabel = 'Tes Koran Poltekimipas \u2014 ' + kMetrics.operationLabel;
+
+        renderResultView({
+          isTesKoran: true,
+          tesKoranDetail: kMetrics,
+          nama: appState.participantName,
+          satuan: appState.participantSatuan,
+          modeKarakter: koranModeLabel,
+          jumlahKolom: durMinK,
+          totalDijawab: kMetrics.totalAns,
+          totalBenar: kMetrics.totalOk,
+          totalSalah: kMetrics.totalErr,
+          akurasi: kMetrics.akurasi,
+          maxError: kMetrics.maxError,
+          drop: kMetrics.drop,
+          gradeSpeed: kMetrics.gradeSpeed,
+          weightSpeed: kMetrics.skorKecepatan,
+          gradeHardiness: kMetrics.gradeHardiness,
+          weightHardiness: kMetrics.skorKetahananGabungan,
+          gradeAccuracy: kMetrics.gradeAccuracy,
+          weightAccuracy: kMetrics.skorKetelitian,
+          hardinessDetail: kMetrics.hardinessDetail,
+          skorAkhir: kMetrics.skorAkhir,
+          isLulus: kMetrics.isLulus,
+          status: kMetrics.statusLabel,
+          failReason: kMetrics.failReason,
+          evaluation: kMetrics.evaluation,
+          detailKolom: stats
+        });
+
+        if (appState.psikologiSessionActive) {
+          openPsikologiHub();
+          showToast('Tes Koran selesai. Skor Poltekimipas Anda telah disimpan.', 'success');
+        } else {
+          switchView('result');
+        }
+
+        persistSimulationResult({
+          nama: appState.participantName,
+          satuan: appState.participantSatuan,
+          modeKarakter: koranModeLabel,
+          jumlahKolom: durMinK,
+          totalDijawab: kMetrics.totalAns,
+          totalBenar: kMetrics.totalOk,
+          totalSalah: kMetrics.totalErr,
+          akurasi: kMetrics.akurasi,
+          skorPanker: kMetrics.skorKecepatan,
+          skorTianker: kMetrics.skorKetelitian,
+          skorJanker: kMetrics.skorKeajegan,
+          skorHanker: kMetrics.skorKetahanan,
+          skorSpeed: kMetrics.skorKecepatan,
+          skorAccuracy: kMetrics.skorKetelitian,
+          skorHardiness: kMetrics.skorKetahananGabungan,
+          gradeSpeed: kMetrics.gradeSpeed,
+          gradeAccuracy: kMetrics.gradeAccuracy,
+          gradeHardiness: kMetrics.gradeHardiness,
+          skorAkhir: kMetrics.skorAkhir,
+          status: kMetrics.statusLabel,
+          detailKolom: kMetrics
+        });
+        return;
+      }
       var numCols = stats.length || 1;
       var metrics = calculatePsychMetrics(stats);
       var accuracy = metrics.totalAns > 0 ? Number(((metrics.totalOk / metrics.totalAns) * 100).toFixed(2)) : 0;
@@ -15317,27 +16337,83 @@
 
       if (kecWrap) kecWrap.classList.remove('hidden');
       if (catWrap) catWrap.classList.add('hidden');
-      if (scoreTitleEl) scoreTitleEl.textContent = 'Skor Akhir Psikologi';
-      if (minPassEl) minPassEl.innerHTML = 'Ambang Lulus Minimal: <strong>&ge; 18</strong> (Tanpa Predikat R)';
-      if (lbl1) lbl1.textContent = 'Total Soal Dijawab';
-      if (unit1) unit1.textContent = 'soal';
-      if (lbl2) lbl2.textContent = 'Total Jawaban Benar';
-      if (unit2) unit2.textContent = 'benar';
-      if (lbl3) lbl3.textContent = 'Total Jawaban Salah';
-      if (unit3) unit3.textContent = 'kesalahan';
-      if (lbl4) lbl4.textContent = 'Persentase Akurasi';
-      if (unit4) unit4.textContent = 'ketepatan';
 
-      document.getElementById('resMetaSubtitle').textContent = 'Mode Karakter: ' + data.modeKarakter + ' \u2022 Durasi: ' + data.jumlahKolom + ' Kolom (60 Detik/Kolom)';
+      var secTitleEl = document.getElementById('resAspectsSectionTitle');
+      var secSubEl = document.getElementById('resAspectsSectionSubtitle');
+      var secFormEl = document.getElementById('resAspectsSectionFormula');
+      var tSpdEl = document.getElementById('titleAspectSpeed');
+      var tHardEl = document.getElementById('titleAspectHardiness');
+      var tAccEl = document.getElementById('titleAspectAccuracy');
+      var dSpdEl = document.getElementById('descAspectSpeed');
+      var dHardEl = document.getElementById('descAspectHardiness');
+      var dAccEl = document.getElementById('descAspectAccuracy');
 
-      if (formulaEl) {
-        formulaEl.innerHTML = 'Kalkulasi: Speed (' + data.weightSpeed + ') + Hardiness (' + data.weightHardiness + ') + Accuracy (' + data.weightAccuracy + ') = <strong>' + data.skorAkhir + '</strong>' +
-          (data.failReason ? ('<span class="block text-rose-700 font-bold mt-0.5">&bull; ' + escapeHtml(data.failReason) + '</span>') : '');
+      if (data.isTesKoran && data.tesKoranDetail) {
+        var kd = data.tesKoranDetail;
+        if (scoreTitleEl) scoreTitleEl.textContent = 'Skor Akhir Tes Koran (Poltekimipas)';
+        if (minPassEl) minPassEl.innerHTML = 'Ambang Lulus Minimal: <strong>&ge; 61.0</strong> (Skala 0&ndash;100 &bull; Akurasi &ge; 75%)';
+        if (lbl1) lbl1.textContent = 'Total Soal Dijawab';
+        if (unit1) unit1.textContent = 'soal (' + kd.bpmAnswered + '/mnt)';
+        if (lbl2) lbl2.textContent = 'Total Jawaban Benar';
+        if (unit2) unit2.textContent = 'benar (' + kd.bpmCorrect + '/mnt)';
+        if (lbl3) lbl3.textContent = 'Total Jawaban Salah';
+        if (unit3) unit3.textContent = 'kesalahan';
+        if (lbl4) lbl4.textContent = 'Persentase Akurasi';
+        if (unit4) unit4.textContent = 'ketepatan';
+
+        document.getElementById('resMetaSubtitle').textContent = data.modeKarakter + ' \u2022 Durasi: ' + kd.durasiMenit + ' Menit Non-Stop (Tanpa Kolom) \u2022 Predikat: ' + kd.predikatLabel;
+
+        if (formulaEl) {
+          formulaEl.innerHTML = 'Poltekimipas: 35% Kecepatan (' + kd.skorKecepatan + ') + 30% Ketelitian (' + kd.skorKetelitian + ') + 35% Keajegan/Ketahanan (' + kd.skorKetahananGabungan + ') = <strong>' + kd.skorAkhir + '</strong> (' + escapeHtml(kd.predikatLabel) + ')' +
+            (data.failReason ? ('<span class="block text-rose-700 font-bold mt-0.5">&bull; ' + escapeHtml(data.failReason) + '</span>') : '');
+        }
+
+        if (secTitleEl) secTitleEl.textContent = 'Analisis Penilaian Tes Koran Standar Poltekimipas (Skala 0\u2013100)';
+        if (secSubEl) secSubEl.textContent = 'Predikat Poltekimipas: Sangat Baik (80\u2013100), Baik (70\u201379.9), Cukup (61\u201369.9), Kurang (50\u201360.9), Sangat Kurang (<50). Lulus MS \u2265 61.0.';
+        if (secFormEl) secFormEl.textContent = '35% Panker + 30% Tianker + 35% Janker & Hanker';
+        if (tSpdEl) tSpdEl.textContent = '1. KECEPATAN KERJA (PANKER - 35%)';
+        if (tHardEl) tHardEl.textContent = '2. KEAJEGAN & KETAHANAN (35%)';
+        if (tAccEl) tAccEl.textContent = '3. KETELITIAN KERJA (TIANKER - 30%)';
+        if (dSpdEl) dSpdEl.textContent = 'Diukur dari rata-rata jawaban benar per menit (BPM) sepanjang ' + kd.durasiMenit + ' menit pengerjaan non-stop (Sangat Baik \u2265 40 benar/menit).';
+        if (dHardEl) dHardEl.textContent = 'Mengukur konsistensi ritme kerja (Keajegan ' + kd.skorKeajegan + ') dan daya tahan stamina pada paruh akhir dibanding paruh awal (Ketahanan ' + kd.skorKetahanan + ').';
+        if (dAccEl) dAccEl.textContent = 'Diukur dari persentase ketepatan jawaban benar terhadap total soal dijawab serta rasio kesalahan per menit (Minimal akurasi lulus \u2265 75%).';
+
+        setPoltekimipasPsychCard('Speed', kd.gradeSpeed, kd.skorKecepatan, 'Laju: ' + kd.bpmCorrect + ' benar/menit');
+        setPoltekimipasPsychCard('Hardiness', kd.gradeHardiness, kd.skorKetahananGabungan, kd.hardinessDetail);
+        setPoltekimipasPsychCard('Accuracy', kd.gradeAccuracy, kd.skorKetelitian, 'Akurasi: ' + kd.akurasi + '% (' + kd.totalErr + ' salah)');
+      } else {
+        if (scoreTitleEl) scoreTitleEl.textContent = 'Skor Akhir Psikologi';
+        if (minPassEl) minPassEl.innerHTML = 'Ambang Lulus Minimal: <strong>&ge; 18</strong> (Tanpa Predikat R)';
+        if (lbl1) lbl1.textContent = 'Total Soal Dijawab';
+        if (unit1) unit1.textContent = 'soal';
+        if (lbl2) lbl2.textContent = 'Total Jawaban Benar';
+        if (unit2) unit2.textContent = 'benar';
+        if (lbl3) lbl3.textContent = 'Total Jawaban Salah';
+        if (unit3) unit3.textContent = 'kesalahan';
+        if (lbl4) lbl4.textContent = 'Persentase Akurasi';
+        if (unit4) unit4.textContent = 'ketepatan';
+
+        document.getElementById('resMetaSubtitle').textContent = 'Mode Karakter: ' + data.modeKarakter + ' \u2022 Durasi: ' + data.jumlahKolom + ' Kolom (60 Detik/Kolom)';
+
+        if (formulaEl) {
+          formulaEl.innerHTML = 'Kalkulasi: Speed (' + data.weightSpeed + ') + Hardiness (' + data.weightHardiness + ') + Accuracy (' + data.weightAccuracy + ') = <strong>' + data.skorAkhir + '</strong>' +
+            (data.failReason ? ('<span class="block text-rose-700 font-bold mt-0.5">&bull; ' + escapeHtml(data.failReason) + '</span>') : '');
+        }
+
+        if (secTitleEl) secTitleEl.textContent = 'Analisis 3 Aspek Penilaian CAT Kecermatan Polri';
+        if (secSubEl) secSubEl.textContent = 'Predikat Mutu: B (12), CB (9), C (6), K (3), R (1). Ambang kelulusan minimal 18 dan tanpa predikat R.';
+        if (secFormEl) secFormEl.textContent = 'Skor Akhir = Speed + Hardiness + Accuracy';
+        if (tSpdEl) tSpdEl.textContent = '1. SPEED (Kecepatan)';
+        if (tHardEl) tHardEl.textContent = '2. HARDINESS (Ketahanan)';
+        if (tAccEl) tAccEl.textContent = '3. ACCURACY (Ketelitian)';
+        if (dSpdEl) dSpdEl.textContent = 'Kecepatan dinilai dari total seluruh soal dijawab (benar & salah) kolom 1-10 (B \u2265 231, CB 181-230, C 141-180, K 101-140, R \u2264 100).';
+        if (dHardEl) dHardEl.textContent = 'Ketahanan kerja & daya tahan konsistensi ritme kerja pada kolom akhir dibanding kolom awal.';
+        if (dAccEl) dAccEl.textContent = 'Dinilai dari kesalahan terbanyak pada salah satu kolom (0 = B, 1-3 = CB, 4-6 = C, 7-9 = K, >9 = R).';
+
+        setPsychCard('Speed', data.gradeSpeed, data.weightSpeed, 'Total: ' + data.totalDijawab + ' dijawab di ' + data.jumlahKolom + ' kolom');
+        setPsychCard('Hardiness', data.gradeHardiness, data.weightHardiness, data.hardinessDetail || ('Stabilitas: ' + (data.drop <= 0 ? 'Stabil / Naik' : ('Turun ' + data.drop.toFixed(1) + ' soal'))));
+        setPsychCard('Accuracy', data.gradeAccuracy, data.weightAccuracy, 'Kesalahan Terbanyak: ' + data.maxError + ' soal');
       }
-
-      setPsychCard('Speed', data.gradeSpeed, data.weightSpeed, 'Total: ' + data.totalDijawab + ' dijawab di ' + data.jumlahKolom + ' kolom');
-      setPsychCard('Hardiness', data.gradeHardiness, data.weightHardiness, data.hardinessDetail || ('Stabilitas: ' + (data.drop <= 0 ? 'Stabil / Naik' : ('Turun ' + data.drop.toFixed(1) + ' soal'))));
-      setPsychCard('Accuracy', data.gradeAccuracy, data.weightAccuracy, 'Kesalahan Terbanyak: ' + data.maxError + ' soal');
 
       var trendBadge = document.getElementById('evalTrendBadge');
       if (trendBadge) {
@@ -15362,10 +16438,15 @@
             else { diffText = '0 stabil'; diffClass = 'text-blue-700 font-semibold'; }
           }
 
-          var keyBadges = formatColumnKeyBadgesHtml(row.key);
+          var isKoranSegRow = (row.segLabel || (Array.isArray(row.key) && row.key[0] === 'TES_KORAN'));
+          var colTitleCell = isKoranSegRow ? escapeHtml(row.segLabel || ('Segmen ' + row.col)) : ('Kolom ' + row.col);
+          var keyBadges = isKoranSegRow
+            ? ('<span class="px-2 py-0.5 rounded bg-teal-50 text-teal-900 border border-teal-200 font-bold text-xs">' +
+              escapeHtml((Array.isArray(row.key) && row.key[1] === 'SUB') ? 'Tes Koran \u2022 Pengurangan (\u2212)' : 'Tes Koran \u2022 Penjumlahan (+)') + '</span>')
+            : formatColumnKeyBadgesHtml(row.key);
 
           htmlRows += '<tr class="hover:bg-slate-50 transition-colors">' +
-            '<td class="py-2.5 px-3 font-bold text-slate-900">Kolom ' + row.col + '</td>' +
+            '<td class="py-2.5 px-3 font-bold text-slate-900">' + colTitleCell + '</td>' +
             '<td class="py-2.5 px-3">' + keyBadges + '</td>' +
             '<td class="py-2.5 px-3 text-center font-cat-mono font-semibold text-slate-800">' + row.ans + '</td>' +
             '<td class="py-2.5 px-3 text-center font-cat-mono font-bold text-emerald-600">' + row.ok + '</td>' +
@@ -15441,6 +16522,36 @@
       }
     }
 
+    function setPoltekimipasPsychCard(name, gradeCode, score100, detailText) {
+      var badgeEl = document.getElementById('badge' + name);
+      var gradeEl = document.getElementById('grade' + name);
+      var weightEl = document.getElementById('weight' + name);
+      var detailEl = document.getElementById('detail' + name);
+      var barEl = document.getElementById('bar' + name);
+
+      var lblMap = { 'SB': 'Sangat Baik', 'B': 'Baik', 'C': 'Cukup', 'K': 'Kurang', 'SK': 'Sangat Kurang' };
+      var clsMap = {
+        'SB': 'bg-emerald-100 text-emerald-800 border-emerald-300',
+        'B': 'bg-blue-100 text-blue-800 border-blue-300',
+        'C': 'bg-amber-100 text-amber-800 border-amber-300',
+        'K': 'bg-orange-100 text-orange-800 border-orange-300',
+        'SK': 'bg-rose-100 text-rose-800 border-rose-300'
+      };
+      var lbl = lblMap[gradeCode] || gradeCode;
+      var cls = clsMap[gradeCode] || 'bg-slate-100 text-slate-800 border-slate-300';
+
+      if (badgeEl) {
+        badgeEl.textContent = gradeCode + ' (' + lbl + ')';
+        badgeEl.className = 'px-2 py-0.5 rounded text-[11px] font-bold border ' + cls;
+      }
+      if (gradeEl) gradeEl.textContent = String(score100);
+      if (weightEl) weightEl.textContent = '/ 100 (' + lbl + ')';
+      if (detailEl) detailEl.textContent = detailText;
+      if (barEl) {
+        barEl.style.width = Math.min(100, Math.max(4, Math.round(Number(score100) || 0))) + '%';
+      }
+    }
+
     function setPsychCard(name, grade, weight, detailText) {
       var badgeEl = document.getElementById('badge' + name);
       var gradeEl = document.getElementById('grade' + name);
@@ -15478,7 +16589,7 @@
       var dataCorrect = [];
 
       for (var i = 0; i < detailKolom.length; i++) {
-        labels.push('Kolom ' + detailKolom[i].col);
+        labels.push(detailKolom[i].segLabel ? String(detailKolom[i].segLabel) : ('Kolom ' + detailKolom[i].col));
         dataAnswered.push(detailKolom[i].ans);
         dataCorrect.push(detailKolom[i].ok);
       }
@@ -15554,6 +16665,7 @@
             { id: 'SOAL-017', kategori: 'SKD - GABUNGAN', namaPaket: 'Tes SKD Lengkap (TWK + TIU + TKP)', mode: 'CAT_PG', karakter: 'CAT_PILIHAN_GANDA_AE', jumlah: 110, status: 'AKTIF', gambarMeta: { engine: 'CAT_PG', paketNo: 1, durasiMenit: 100, passingGrade: 311, pgTwk: 65, pgTiu: 80, pgTkp: 166, totalButir: 110, acakSoal: false } },
             { id: 'SOAL-015', kategori: 'PSIKOLOGI - KECERDASAN', namaPaket: 'Tes Kecerdasan', mode: 'CAT_PG', karakter: 'CAT_PILIHAN_GANDA_AE', jumlah: 100, status: 'AKTIF', gambarMeta: { engine: 'CAT_PG', paketNo: 1, durasiMenit: 90, passingGrade: 61, totalButir: 100, acakSoal: false } },
             { id: 'SOAL-016', kategori: 'PSIKOLOGI - KEPRIBADIAN', namaPaket: 'Tes Kepribadian', mode: 'CAT_PG', karakter: 'CAT_PILIHAN_GANDA_AE', jumlah: 100, status: 'AKTIF', gambarMeta: { engine: 'CAT_PG', paketNo: 1, durasiMenit: 60, passingGrade: 61, totalButir: 100, acakSoal: false } },
+            { id: 'SOAL-018', kategori: 'LATIHAN KECERMATAN', namaPaket: 'Tes Koran / Pauli-Kraepelin (Poltekimipas \u2014 Angka Berkelanjutan)', mode: 'TES_KORAN', karakter: '0,1,2,3,4,5,6,7,8,9', jumlah: 9999, status: 'AKTIF' },
             { id: 'SOAL-014', kategori: 'LATIHAN KECERMATAN', namaPaket: 'Tes Kecermatan Simbol Penjumlahan (10 Kolom / Halaman 1-10)', mode: 'SIMBOL_PENJUMLAHAN', karakter: '५,^,P,Ψ,ɮ,X,Շ,Ƥ,ᵭ,δ,γ,η,β,α,Ћ,Q,Ʊ,ʄ,ϕ,©,£,§,μ,∄,⊐,⇎,⋒', jumlah: 500, status: 'AKTIF' },
             { id: 'SOAL-013', kategori: 'LATIHAN KECERMATAN', namaPaket: 'Tes Kecermatan Simbol Gambar (Kendaraan: Sedan, Truk, Van, Bus)', mode: 'SIMBOL', karakter: '\uD83D\uDE97,\uD83D\uDEFB,\uD83D\uDE90,\uD83D\uDE99,\uD83D\uDE8C,\uD83C\uDFCD\uFE0F,\uD83D\uDEB2,\uD83D\uDE9C,\uD83D\uDE81,\u2708\uFE0F,\uD83D\uDE82,\uD83D\uDEA2', jumlah: 600, status: 'AKTIF' },
             { id: 'SOAL-001', kategori: 'LATIHAN KECERMATAN', namaPaket: 'Speed, Accuracy, Hardiness (Hilang Angka)', mode: 'ANGKA', karakter: '0,1,2,3,4,5,6,7,8,9', jumlah: 600, status: 'AKTIF' },
@@ -15628,12 +16740,13 @@
               listChanged = true;
             }
 
-            var hasS15 = false, hasS16 = false, hasS17 = false;
+            var hasS15 = false, hasS16 = false, hasS17 = false, hasS18 = false;
             for (var ps = 0; ps < cleanedList.length; ps++) {
               var pid = String(cleanedList[ps].id || '');
               if (pid === 'SOAL-015') hasS15 = true;
               if (pid === 'SOAL-016') hasS16 = true;
               if (pid === 'SOAL-017') hasS17 = true;
+              if (pid === 'SOAL-018' || String(cleanedList[ps].mode || '') === 'TES_KORAN') hasS18 = true;
               if ((pid === 'SOAL-005' || pid === 'SOAL-006' || pid === 'SOAL-007') && cleanedList[ps].mode !== 'CAT_PG' && cleanedList[ps].kategori !== 'PSIKOLOGI - KECERMATAN') {
                 cleanedList[ps].kategori = 'PSIKOLOGI - KECERMATAN';
                 listChanged = true;
@@ -15645,6 +16758,10 @@
             }
             if (!hasS15) {
               cleanedList.unshift({ id: 'SOAL-015', kategori: 'PSIKOLOGI - KECERDASAN', namaPaket: 'Tes Kecerdasan', mode: 'CAT_PG', karakter: 'CAT_PILIHAN_GANDA_AE', jumlah: 100, status: 'AKTIF', gambarMeta: { engine: 'CAT_PG', paketNo: 1, durasiMenit: 90, passingGrade: 61, totalButir: 100, acakSoal: false } });
+              listChanged = true;
+            }
+            if (!hasS18) {
+              cleanedList.unshift({ id: 'SOAL-018', kategori: 'LATIHAN KECERMATAN', namaPaket: 'Tes Koran / Pauli-Kraepelin (Poltekimipas \u2014 Angka Berkelanjutan)', mode: 'TES_KORAN', karakter: '0,1,2,3,4,5,6,7,8,9', jumlah: 9999, status: 'AKTIF' });
               listChanged = true;
             }
             if (!hasS17) {
@@ -16340,9 +17457,10 @@
           var statusBadge = isMS
             ? '<span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-800">MS</span>'
             : '<span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-rose-100 text-rose-800">TMS</span>';
+          var koranDetLb = parseTesKoranRecordDetail(item);
           var shaDisplay = formatSHAValue(item);
-          var skorDisplay = catDet ? Number(Number(item.skorAkhir || 0).toFixed(2)) : Math.round(Number(item.skorAkhir) || 0);
-          var unitStr = catDet ? ' Soal' : ' Kolom';
+          var skorDisplay = (catDet || koranDetLb) ? Number(Number(item.skorAkhir || 0).toFixed(1)) : Math.round(Number(item.skorAkhir) || 0);
+          var unitStr = catDet ? ' Soal' : (koranDetLb ? ' Menit (Non-Stop)' : ' Kolom');
           var accStr = catDet ? ('Capaian ' + Number(item.akurasi || 0).toFixed(1) + '%') : ('Akurasi ' + Number(item.akurasi).toFixed(1) + '%');
 
           html += '<tr class="hover:bg-slate-50 transition-colors">' +
@@ -16420,6 +17538,86 @@
 
       var parsedDetail = null;
       try { parsedDetail = JSON.parse(item.detailKolomJson || '[]'); } catch (e) { parsedDetail = []; }
+
+      // Branch khusus untuk Riwayat Tes Koran Poltekimipas
+      if (parsedDetail && !Array.isArray(parsedDetail) && parsedDetail.type === 'TES_KORAN') {
+        var kdM = parsedDetail;
+        var koranBodyEl = document.getElementById('modalDetailBody');
+        var kLulus = !!(kdM.isLulus !== undefined ? kdM.isLulus : (Number(item.skorAkhir || 0) >= 61));
+        var kSegs = Array.isArray(kdM.intervals) ? kdM.intervals : [];
+        var kHtml = '';
+
+        kHtml += '<div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-xs">' +
+          '<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">' +
+          '<div class="space-y-1.5">' +
+          '<div class="flex flex-wrap items-center gap-2">' +
+          '<span class="px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider ' + (kLulus ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-rose-100 text-rose-800 border border-rose-300') + '">' +
+          (kLulus ? 'MEMENUHI SYARAT (MS)' : 'TIDAK MEMENUHI SYARAT (TMS)') +
+          '</span>' +
+          '<span class="px-2.5 py-0.5 rounded-full bg-teal-100 text-teal-900 text-xs font-extrabold">Poltekimipas \u2022 ' + escapeHtml(kdM.predikatLabel || kdM.predikatKode || '-') + '</span>' +
+          '<span class="text-xs font-medium text-slate-500">ID: ' + escapeHtml(item.id) + '</span>' +
+          '</div>' +
+          '<h3 class="text-lg sm:text-xl font-extrabold text-slate-900 leading-tight">Hasil Evaluasi Tes Koran: ' + escapeHtml(item.nama) + ' (' + escapeHtml(item.satuan) + ')</h3>' +
+          '<p class="text-xs text-slate-600">' + escapeHtml(item.modeKarakter) + ' \u2022 Durasi ' + (kdM.durasiMenit || item.jumlahKolom || 5) + ' Menit Non-Stop (Tanpa Kolom)</p>' +
+          '</div>' +
+          '<div class="flex items-center gap-4 bg-white border border-slate-200 rounded-2xl px-4 py-3 shrink-0 shadow-xs">' +
+          '<div>' +
+          '<span class="block text-[11px] font-bold uppercase tracking-wider text-slate-500">SKOR AKHIR POLTEKIMIPAS</span>' +
+          '<span class="block text-[10px] text-slate-500">Ambang Lulus: <strong>\u2265 61.0</strong> (Skala 0\u2013100)</span>' +
+          '<div class="text-[11px] font-semibold text-slate-700 mt-0.5">35% Panker (' + kdM.skorKecepatan + ') + 30% Tianker (' + kdM.skorKetelitian + ') + 35% Janker/Hanker (' + kdM.skorKetahananGabungan + ')</div>' +
+          (kdM.failReason ? ('<div class="text-[11px] font-bold text-rose-600 mt-0.5">&bull; ' + escapeHtml(kdM.failReason) + '</div>') : '') +
+          '</div>' +
+          '<div class="font-cat-mono text-3xl sm:text-4xl font-extrabold text-polri-900">' + Number(item.skorAkhir || kdM.skorAkhir || 0).toFixed(1) + '</div>' +
+          '</div>' +
+          '</div>' +
+          '</div>';
+
+        kHtml += '<div class="grid grid-cols-2 lg:grid-cols-4 gap-3">' +
+          '<div class="bg-white rounded-2xl border border-slate-200 p-3.5 sm:p-4 shadow-xs">' +
+          '<span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">TOTAL DIJAWAB</span>' +
+          '<div class="mt-1 flex items-baseline gap-1.5"><span class="font-cat-mono text-2xl font-black text-slate-900">' + (item.totalDijawab || kdM.totalAns || 0) + '</span><span class="text-xs text-slate-500">(' + (kdM.bpmAnswered || 0) + '/mnt)</span></div>' +
+          '</div>' +
+          '<div class="bg-white rounded-2xl border border-slate-200 p-3.5 sm:p-4 shadow-xs">' +
+          '<span class="text-[11px] font-bold uppercase tracking-wider text-emerald-700 block">TOTAL BENAR</span>' +
+          '<div class="mt-1 flex items-baseline gap-1.5"><span class="font-cat-mono text-2xl font-black text-emerald-600">' + (item.totalBenar || kdM.totalOk || 0) + '</span><span class="text-xs text-slate-500">(' + (kdM.bpmCorrect || 0) + '/mnt)</span></div>' +
+          '</div>' +
+          '<div class="bg-white rounded-2xl border border-slate-200 p-3.5 sm:p-4 shadow-xs">' +
+          '<span class="text-[11px] font-bold uppercase tracking-wider text-rose-700 block">TOTAL SALAH</span>' +
+          '<div class="mt-1 flex items-baseline gap-1.5"><span class="font-cat-mono text-2xl font-black text-rose-600">' + (item.totalSalah !== undefined ? item.totalSalah : (kdM.totalErr || 0)) + '</span><span class="text-xs text-slate-500">kesalahan</span></div>' +
+          '</div>' +
+          '<div class="bg-white rounded-2xl border border-slate-200 p-3.5 sm:p-4 shadow-xs">' +
+          '<span class="text-[11px] font-bold uppercase tracking-wider text-blue-700 block">AKURASI KETELITIAN</span>' +
+          '<div class="mt-1 flex items-baseline gap-1.5"><span class="font-cat-mono text-2xl font-black text-blue-700">' + Number(item.akurasi || kdM.akurasi || 0).toFixed(1) + '%</span><span class="text-xs text-slate-500">ketepatan</span></div>' +
+          '</div>' +
+          '</div>';
+
+        if (kSegs.length > 0) {
+          kHtml += '<div class="bg-white rounded-2xl border border-slate-200 p-4 sm:p-5 shadow-xs space-y-3">' +
+            '<h4 class="text-sm sm:text-base font-extrabold text-slate-900">Rincian Ritme Kerja Per Segmen Waktu</h4>' +
+            '<div class="overflow-x-auto border border-slate-200 rounded-xl">' +
+            '<table class="w-full text-left border-collapse text-xs">' +
+            '<thead><tr class="bg-slate-50 border-b border-slate-200 text-slate-600 font-bold">' +
+            '<th class="py-2.5 px-3">Segmen Waktu</th><th class="py-2.5 px-3">Operasi</th><th class="py-2.5 px-3 text-center">Dijawab</th><th class="py-2.5 px-3 text-center">Benar</th><th class="py-2.5 px-3 text-center">Salah</th><th class="py-2.5 px-3 text-center">Akurasi</th>' +
+            '</tr></thead><tbody class="divide-y divide-slate-200">';
+          for (var ks = 0; ks < kSegs.length; ks++) {
+            var sg = kSegs[ks];
+            var sgAcc = sg.ans > 0 ? ((sg.ok / sg.ans) * 100).toFixed(1) + '%' : '0.0%';
+            kHtml += '<tr class="hover:bg-slate-50">' +
+              '<td class="py-2 px-3 font-bold text-slate-900">' + escapeHtml(sg.segLabel || ('Segmen ' + (ks + 1))) + '</td>' +
+              '<td class="py-2 px-3 text-teal-800 font-semibold">' + escapeHtml(kdM.operationLabel || 'Penjumlahan (+)') + '</td>' +
+              '<td class="py-2 px-3 text-center font-cat-mono font-semibold">' + sg.ans + '</td>' +
+              '<td class="py-2 px-3 text-center font-cat-mono font-bold text-emerald-600">' + sg.ok + '</td>' +
+              '<td class="py-2 px-3 text-center font-cat-mono font-bold text-rose-600">' + sg.err + '</td>' +
+              '<td class="py-2 px-3 text-center font-cat-mono">' + sgAcc + '</td>' +
+              '</tr>';
+          }
+          kHtml += '</tbody></table></div></div>';
+        }
+
+        if (koranBodyEl) koranBodyEl.innerHTML = kHtml;
+        document.getElementById('modalHistoryDetail').classList.remove('hidden');
+        return;
+      }
 
       // Branch khusus untuk Riwayat Ujian CAT Pilihan Ganda (A-E) & SKD Gabungan (110 Soal)
       if (parsedDetail && !Array.isArray(parsedDetail) && (parsedDetail.type === 'CAT_PG' || parsedDetail.type === 'SKD_COMBINED')) {
