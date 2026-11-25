@@ -680,6 +680,7 @@
                   <option value="ALL">Semua Jenis Tes</option>
                   <option value="PSIKOLOGI">Psikologi</option>
                   <option value="SKD">SKD</option>
+                  <option value="AKADEMIK">Akademik</option>
                 </select>
                 <input type="text" id="adminCatRegSearch" oninput="onAdminCatRegFilterChange()"
                   placeholder="Cari nama user, tujuan, tanggal..."
@@ -972,20 +973,22 @@
               <div id="dailyMotivationCard"
                 class="bg-gradient-to-br from-blue-50/90 via-white to-indigo-50/80 border border-blue-200/80 rounded-xl p-3.5 shrink-0 text-xs space-y-2 w-full sm:w-[245px] md:w-[260px] shadow-2xs">
                 <div class="flex items-center justify-between gap-2">
-                  <span class="inline-flex items-center gap-1.5 font-extrabold text-polri-900 text-[11px] uppercase tracking-wider">
+                  <span
+                    class="inline-flex items-center gap-1.5 font-extrabold text-polri-900 text-[11px] uppercase tracking-wider">
                     <svg class="w-3.5 h-3.5 text-amber-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                     <span>Motivasi Hari Ini</span>
                   </span>
                   <span id="dailyMotivationDayBadge"
                     class="px-2 py-0.5 rounded-full bg-blue-100 text-blue-800 text-[10px] font-bold shrink-0">Harian</span>
                 </div>
-                <p id="dailyMotivationQuote"
-                  class="text-[12px] font-semibold text-slate-700 leading-relaxed italic">
+                <p id="dailyMotivationQuote" class="text-[12px] font-semibold text-slate-700 leading-relaxed italic">
                   &ldquo;Disiplin hari ini adalah seragam kebanggaan yang akan kamu kenakan di hari esok.&rdquo;
                 </p>
-                <div class="pt-1 border-t border-blue-100/80 flex items-center justify-between text-[10px] font-bold text-slate-500">
+                <div
+                  class="pt-1 border-t border-blue-100/80 flex items-center justify-between text-[10px] font-bold text-slate-500">
                   <span id="dailyMotivationTag" class="text-polri-900">Disiplin &amp; Fokus</span>
                   <span class="uppercase tracking-wider text-slate-400">SI-PALING</span>
                 </div>
@@ -1182,8 +1185,8 @@
                     class="w-6 h-6 rounded-full bg-polri-900 text-white text-xs font-bold flex items-center justify-center">3</span>
                   <div>
                     <h3 class="text-base font-bold text-slate-900">Pengaturan Ujian CAT</h3>
-                    <p class="text-[11px] text-slate-500">Ujian CAT Psikologi &amp; SKD (Dibuka sesuai pendaftaran
-                      Admin)</p>
+                    <p class="text-[11px] text-slate-500">Ujian CAT Psikologi, SKD &amp; Akademik (Dibuka sesuai
+                      pendaftaran Admin)</p>
                   </div>
                 </div>
                 <span id="prepCatAccessBadge"
@@ -1196,7 +1199,7 @@
                 </span>
               </div>
 
-              <!-- Banner Terkunci Saat Admin Belum Mendaftarkan Ujian CAT Psikologi maupun SKD -->
+              <!-- Banner Terkunci Saat Admin Belum Mendaftarkan Ujian CAT Psikologi, SKD maupun Akademik -->
               <div id="prepCatLockedBanner"
                 class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-3">
                 <div
@@ -1207,16 +1210,16 @@
                   </svg>
                 </div>
                 <div class="space-y-0.5">
-                  <p class="text-xs font-extrabold text-slate-800">Ujian CAT Psikologi &amp; SKD Belum Didaftarkan</p>
+                  <p class="text-xs font-extrabold text-slate-800">Ujian CAT Belum Didaftarkan</p>
                   <p class="text-[11px] text-slate-500 leading-relaxed">
-                    Bagian ini hanya dapat dibuka apabila Admin sudah mendaftarkan ujian <strong>CAT Psikologi</strong>
-                    atau <strong>CAT SKD</strong> pada akun Anda.
+                    Bagian ini hanya dapat dibuka apabila Admin sudah mendaftarkan ujian <strong>CAT Psikologi</strong>,
+                    <strong>CAT SKD</strong>, atau <strong>CAT Akademik</strong> pada akun Anda.
                   </p>
                 </div>
               </div>
 
-              <!-- Kartu Pilihan Ujian CAT Psikologi & CAT SKD -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              <!-- Kartu Pilihan Ujian CAT Psikologi, CAT SKD & CAT Akademik -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
                 <!-- 3A. Ujian CAT Psikologi -->
                 <div id="prepCatCardPsikologi" onclick="selectPrepCatExam('CAT_PSIKOLOGI')"
                   class="rounded-xl border-2 border-slate-200 bg-slate-50/80 px-4 py-5 flex items-center justify-center text-center opacity-65 cursor-not-allowed transition-all select-none">
@@ -1227,6 +1230,12 @@
                 <div id="prepCatCardSkd" onclick="selectPrepCatExam('CAT_SKD')"
                   class="rounded-xl border-2 border-slate-200 bg-slate-50/80 px-4 py-5 flex items-center justify-center text-center opacity-65 cursor-not-allowed transition-all select-none">
                   <h4 class="text-sm sm:text-base font-extrabold text-slate-900">Ujian CAT SKD</h4>
+                </div>
+
+                <!-- 3C. Ujian CAT Akademik -->
+                <div id="prepCatCardAkademik" onclick="selectPrepCatExam('CAT_AKADEMIK')"
+                  class="rounded-xl border-2 border-slate-200 bg-slate-50/80 px-4 py-5 flex items-center justify-center text-center opacity-65 cursor-not-allowed transition-all select-none">
+                  <h4 class="text-sm sm:text-base font-extrabold text-slate-900">Ujian CAT Akademik</h4>
                 </div>
               </div>
 
@@ -1429,6 +1438,93 @@
             <div class="pt-3">
               <button type="button" id="btnSkdHubBackToUser" onclick="exitSkdHubToUserPanel()"
                 class="w-full py-3.5 px-6 rounded-md bg-[#F5C342] hover:bg-[#E8B635] active:scale-[0.99] text-slate-700 text-sm sm:text-base font-medium shadow-xs transition-all text-center cursor-pointer">
+                Kembali Ke Panel Pengguna
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 1D: HALAMAN PORTAL MENU TES AKADEMIK (AKPOL / BINTARA / TAMTAMA — 5 SUB-TES) -->
+      <section id="viewAkademikHub" class="hidden w-full max-w-none flex-1">
+        <div class="bg-white min-h-screen w-full flex flex-col items-center justify-start py-8 px-4 sm:px-8">
+          <div class="w-full max-w-4xl space-y-5">
+            <div class="text-center space-y-2">
+              <div class="flex items-center justify-center gap-2 flex-wrap">
+                <span id="akaHubJalurBadge"
+                  class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200 text-xs font-extrabold uppercase tracking-wider">
+                  JALUR AKPOL
+                </span>
+                <span id="akaHubProgressBadge"
+                  class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200 text-xs font-bold">
+                  0 / 5 Sub-Tes Selesai
+                </span>
+              </div>
+              <h2 id="akaHubWelcomeTitle"
+                class="text-xl sm:text-2xl font-bold text-slate-800 tracking-wide">
+                Selamat Datang, CASIS POLRI
+              </h2>
+              <p id="akaHubSubInfo" class="text-xs sm:text-sm text-slate-500">
+                Ujian CAT Akademik (5 Mata Pelajaran &bull; Skala Nilai 0&ndash;100)
+              </p>
+            </div>
+
+            <!-- Daftar 5 Sub-Tes Akademik Sesuai Jalur -->
+            <div id="akaHubSubtestList" class="grid grid-cols-1 md:grid-cols-2 gap-3.5"></div>
+
+            <!-- Rekap Live Nilai Akhir Akademik (Sesuai Tabel Penilaian Resmi) -->
+            <div id="akaHubScoreTableWrap"
+              class="rounded-2xl border border-slate-200 bg-slate-50/70 p-4 sm:p-5 space-y-3">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div>
+                  <h3 class="text-sm sm:text-base font-extrabold text-slate-900">Rekap Penilaian CAT Akademik (Skala
+                    0&ndash;100)</h3>
+                  <p class="text-[11px] text-slate-500">Nilai Efektif = Poin/Soal &times; Bobot Subtes &bull;
+                    Kontribusi = Skor Subtes &times; Bobot Subtes</p>
+                </div>
+                <span id="akaHubStatusBadge"
+                  class="px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-slate-200 text-slate-700">
+                  Belum Ada Sub-Tes Selesai
+                </span>
+              </div>
+              <div class="overflow-x-auto rounded-xl border border-slate-200 bg-white">
+                <table class="w-full text-left border-collapse text-xs">
+                  <thead>
+                    <tr class="bg-slate-50 border-b border-slate-200 text-slate-600 font-bold uppercase text-[11px]">
+                      <th class="py-2.5 px-3">Mata Pelajaran</th>
+                      <th class="py-2.5 px-2.5 text-center">Durasi</th>
+                      <th class="py-2.5 px-2.5 text-center">Benar / Soal</th>
+                      <th class="py-2.5 px-2.5 text-center">Poin/Soal</th>
+                      <th class="py-2.5 px-2.5 text-center">Skor Subtes</th>
+                      <th class="py-2.5 px-2.5 text-center">Bobot</th>
+                      <th class="py-2.5 px-2.5 text-center">Efektif/Benar</th>
+                      <th class="py-2.5 px-3 text-right">Kontribusi</th>
+                    </tr>
+                  </thead>
+                  <tbody id="akaHubScoreTableBody" class="divide-y divide-slate-100"></tbody>
+                  <tfoot>
+                    <tr class="bg-emerald-50/80 border-t-2 border-emerald-200 font-extrabold text-slate-900">
+                      <td colspan="5" class="py-2.5 px-3 text-xs uppercase tracking-wide text-emerald-950">
+                        Total Skor Akhir Akademik (Skala 0&ndash;100)
+                      </td>
+                      <td id="akaHubTotalBobotVal" class="py-2.5 px-2.5 text-center font-cat-mono text-emerald-900">100%</td>
+                      <td class="py-2.5 px-2.5 text-center text-[11px] text-slate-500">&mdash;</td>
+                      <td id="akaHubTotalScoreVal"
+                        class="py-2.5 px-3 text-right font-cat-mono text-base font-black text-emerald-700">0.00</td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+
+            <!-- Tombol Aksi Portal Akademik -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 pt-1">
+              <button type="button" id="btnAkaHubFinishAll" onclick="finishAndShowAkademikCombinedResult()"
+                class="w-full sm:w-auto sm:min-w-[280px] py-3.5 px-6 rounded-md bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white text-sm sm:text-base font-semibold shadow-xs transition-all text-center cursor-pointer">
+                Simpan &amp; Lihat Hasil Akhir Akademik
+              </button>
+              <button type="button" id="btnAkaHubBackToUser" onclick="exitAkademikHubToUserPanel()"
+                class="w-full sm:w-auto sm:min-w-[240px] py-3.5 px-6 rounded-md bg-[#F5C342] hover:bg-[#E8B635] active:scale-[0.99] text-slate-800 text-sm sm:text-base font-medium shadow-xs transition-all text-center cursor-pointer">
                 Kembali Ke Panel Pengguna
               </button>
             </div>
@@ -2171,7 +2267,49 @@
             </div>
           </div>
 
-          <div class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm space-y-4">
+          <!-- Rincian 5 Sub-Tes CAT Akademik (Skala 0-100) -->
+          <div id="resAkademikSubScoresWrap"
+            class="hidden bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-100 pb-3">
+              <div>
+                <h3 id="resAkademikHeaderTitle" class="text-base font-extrabold text-slate-900">Rincian Nilai CAT
+                  Akademik (5 Sub-Tes)</h3>
+                <p id="resAkademikHeaderSub" class="text-xs text-slate-500">Nilai Akhir Akademik = Jumlah Kontribusi
+                  seluruh sub-tes (Skala 0&ndash;100).</p>
+              </div>
+              <span class="text-xs font-bold text-emerald-700">Skor Subtes &times; Bobot % = Kontribusi</span>
+            </div>
+            <div class="overflow-x-auto rounded-xl border border-slate-200">
+              <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                  <tr class="bg-slate-50 border-b border-slate-200 text-slate-600 font-bold uppercase text-[11px]">
+                    <th class="py-2.5 px-3">Mata Pelajaran</th>
+                    <th class="py-2.5 px-2.5 text-center">Durasi</th>
+                    <th class="py-2.5 px-2.5 text-center">Benar / Soal</th>
+                    <th class="py-2.5 px-2.5 text-center">Poin/Soal</th>
+                    <th class="py-2.5 px-2.5 text-center">Skor Subtes</th>
+                    <th class="py-2.5 px-2.5 text-center">Bobot</th>
+                    <th class="py-2.5 px-2.5 text-center">Efektif/Benar</th>
+                    <th class="py-2.5 px-3 text-right">Kontribusi</th>
+                  </tr>
+                </thead>
+                <tbody id="resAkademikTableBody" class="divide-y divide-slate-100"></tbody>
+                <tfoot>
+                  <tr class="bg-emerald-50 border-t-2 border-emerald-200 font-extrabold text-slate-900">
+                    <td colspan="5" class="py-2.5 px-3 text-xs uppercase text-emerald-950">Total Skor Akhir Akademik
+                    </td>
+                    <td id="resAkademikTotalBobotCell" class="py-2.5 px-2.5 text-center font-cat-mono text-emerald-900">
+                      100%</td>
+                    <td class="py-2.5 px-2.5 text-center text-slate-400">&mdash;</td>
+                    <td id="resAkademikTotalScoreCell"
+                      class="py-2.5 px-3 text-right font-cat-mono text-base font-black text-emerald-700">0.00</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+
+          <div id="resCatPgBreakdownCard" class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm space-y-4">
             <div class="border-b border-slate-100 pb-3">
               <h3 class="text-base font-extrabold text-slate-900">Rincian Jawaban &amp; Bobot Nilai Per Nomor</h3>
               <p class="text-xs text-slate-500">Perbandingan pilihan Anda, bobot nilai yang diperoleh, opsi bobot
@@ -2423,6 +2561,7 @@
                 class="w-full px-3 py-2 rounded-lg border border-slate-300 bg-white font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#2B59C3]">
                 <option value="PSIKOLOGI">PSIKOLOGI</option>
                 <option value="SKD">SKD</option>
+                <option value="AKADEMIK">AKADEMIK</option>
                 <option value="LATIHAN KECERMATAN">LATIHAN KECERMATAN</option>
               </select>
             </div>
@@ -2491,6 +2630,41 @@
                 class="w-full px-3 py-2 rounded-lg border border-slate-300 bg-white font-cat-mono font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500">
             </div>
           </div>
+
+          <!-- Pengaturan Poin per Soal & Bobot Subtes Khusus Kategori AKADEMIK -->
+          <div id="catAkademikScoringWrap"
+            class="hidden rounded-xl border border-emerald-200 bg-emerald-50/70 p-3 space-y-2">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="text-[11px] font-extrabold uppercase tracking-wide text-emerald-900">
+                Sistem Penilaian Akademik (Skala 0&ndash;100)
+              </span>
+              <span id="formCatEffectiveVal"
+                class="px-2.5 py-0.5 rounded-full bg-emerald-600 text-white text-[11px] font-extrabold font-cat-mono">
+                Nilai Efektif: 0,625 poin / benar
+              </span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div>
+                <label for="formCatPoinPerSoal"
+                  class="block text-[11px] font-bold uppercase text-emerald-900 mb-1">Poin per Soal (Benar)</label>
+                <input type="number" id="formCatPoinPerSoal" min="0.05" max="100" step="0.05" value="2.5"
+                  oninput="updateSoalModalAkademikEffective()"
+                  class="w-full px-3 py-2 rounded-lg border border-emerald-300 bg-white font-cat-mono font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+              </div>
+              <div>
+                <label for="formCatBobotSubtes"
+                  class="block text-[11px] font-bold uppercase text-emerald-900 mb-1">Bobot Subtes (%)</label>
+                <input type="number" id="formCatBobotSubtes" min="0" max="100" step="0.5" value="25"
+                  oninput="updateSoalModalAkademikEffective()"
+                  class="w-full px-3 py-2 rounded-lg border border-emerald-300 bg-white font-cat-mono font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+              </div>
+            </div>
+            <p class="text-[11px] text-emerald-900/80 leading-snug">
+              Durasi bawaan <strong>60 menit</strong> (dapat diubah di atas). Poin/Soal, Bobot %, &amp; Durasi juga
+              dapat disesuaikan per peserta pada menu <strong>Daftar Tes</strong>.
+            </p>
+          </div>
+
           <label class="flex items-center gap-2 text-xs text-slate-700 font-semibold cursor-pointer">
             <input type="checkbox" id="formCatAcakSoal" class="w-4 h-4 accent-indigo-600 rounded">
             <span>Acak urutan nomor soal saat peserta mengerjakan ujian</span>
@@ -2680,8 +2854,11 @@
               <div id="catBulkKeyPasteBox" class="rounded-xl border border-emerald-200 bg-emerald-50/60 p-3 space-y-2">
                 <div class="flex flex-wrap items-center justify-between gap-2">
                   <div>
-                    <span class="text-xs font-extrabold text-emerald-950">Tempel Kunci Jawaban &amp; Bobot Massal (Otomatis Sesuai Nomor)</span>
-                    <p class="text-[10px] text-emerald-800 mt-0.5">Langsung tempel (Ctrl+V): <strong>1. a, 2. b, 3. c</strong> atau Kepribadian/TKP: <strong>1. (a-5, b-4, c-3, d-2, e-1)</strong> &mdash; otomatis menyesuaikan nomor &amp; bobot soal.</p>
+                    <span class="text-xs font-extrabold text-emerald-950">Tempel Kunci Jawaban &amp; Bobot Massal
+                      (Otomatis Sesuai Nomor)</span>
+                    <p class="text-[10px] text-emerald-800 mt-0.5">Langsung tempel (Ctrl+V): <strong>1. a, 2. b, 3.
+                        c</strong> atau Kepribadian/TKP: <strong>1. (a-5, b-4, c-3, d-2, e-1)</strong> &mdash; otomatis
+                      menyesuaikan nomor &amp; bobot soal.</p>
                   </div>
                   <div class="flex flex-wrap items-center gap-1">
                     <button type="button" onclick="fillCatBulkKeySample('single', 'draft')"
@@ -3242,7 +3419,7 @@
   <!-- ====================================================================== -->
   <div id="modalAdminCatReg"
     class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4">
-    <div class="bg-white rounded-xl border border-slate-200 max-w-lg w-full max-h-[92vh] overflow-y-auto shadow-2xl">
+    <div id="modalAdminCatRegBox" class="bg-white rounded-xl border border-slate-200 max-w-lg w-full max-h-[92vh] overflow-y-auto shadow-2xl transition-all">
       <div class="flex items-center justify-between px-6 py-4 border-b border-slate-200 sticky top-0 bg-white z-10">
         <h3 id="catRegModalTitle" class="text-lg font-semibold text-slate-700">Tambah Tes Baru</h3>
         <button type="button" onclick="closeAdminCatRegModal()"
@@ -3294,6 +3471,7 @@
             <option value="">Pilih Jenis Tes..</option>
             <option value="PSIKOLOGI">Psikologi</option>
             <option value="SKD">SKD</option>
+            <option value="AKADEMIK">Akademik (Akpol / Bintara / Tamtama)</option>
           </select>
         </div>
 
@@ -3326,13 +3504,216 @@
         </div>
 
         <!-- 5B. Pengaturan Paket SKD (Otomatis muncul saat Jenis Tes = SKD) -->
-        <div id="catRegSkdConfigWrap" class="hidden rounded-xl border border-amber-200 bg-amber-50/50 p-3.5 space-y-2">
-          <label for="catRegSkdPaket" class="block text-[11px] font-bold uppercase text-amber-900">Pilih Paket Ujian SKD
-            (110 Soal / 100 Menit)</label>
-          <select id="catRegSkdPaket"
-            class="w-full px-3 py-2 rounded-lg border border-amber-200 bg-white text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-500"></select>
-          <p class="text-[11px] text-amber-900/80">Peserta otomatis hanya mengerjakan paket SKD yang Anda pilih di atas.
+        <div id="catRegSkdConfigWrap" class="hidden rounded-xl border border-amber-200 bg-amber-50/50 p-3.5 space-y-2.5">
+          <div>
+            <label for="catRegSkdPaket" class="block text-[11px] font-bold uppercase text-amber-900 mb-1">Pilih Paket Ujian SKD
+              (110 Soal / 100 Menit)</label>
+            <select id="catRegSkdPaket"
+              class="w-full px-3 py-2 rounded-lg border border-amber-200 bg-white text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-500"></select>
+          </div>
+          <div>
+            <label for="catRegSkdTwkSoal" class="block text-[11px] font-bold uppercase text-amber-900 mb-1">Paket Soal TWK
+              (No. 1&ndash;30 &bull; Lintas Bank SKD &amp; Akademik)</label>
+            <select id="catRegSkdTwkSoal"
+              class="w-full px-3 py-2 rounded-lg border border-amber-200 bg-white text-xs font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-500"></select>
+          </div>
+          <p class="text-[11px] text-amber-900/80">Bisa memilih paket TWK dari kategori SKD maupun Akademik; saat ujian SKD
+            tetap otomatis dinilai dengan aturan SKD (30 soal pertama, Benar = 5, PG &ge; 65).
           </p>
+        </div>
+
+        <!-- 5C. Pengaturan Ujian CAT Akademik (Otomatis muncul saat Jenis Tes = AKADEMIK) -->
+        <div id="catRegAkaConfigWrap"
+          class="hidden rounded-xl border border-emerald-200 bg-emerald-50/50 p-3.5 sm:p-4 space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-emerald-200 pb-2.5">
+            <div>
+              <span class="block text-xs font-extrabold uppercase tracking-wide text-emerald-950">Pengaturan CAT
+                Akademik (5 Sub-Tes)</span>
+              <span class="text-[11px] text-emerald-900/80">Pilih jalur, paket soal, durasi (menit), poin/soal &amp;
+                bobot subtes (%).</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span id="catRegAkaTotalBobotBadge"
+                class="px-2.5 py-0.5 rounded-full bg-emerald-600 text-white text-[11px] font-extrabold font-cat-mono">
+                Total Bobot: 100%
+              </span>
+              <button type="button" onclick="resetCatRegAkademikDefaults()"
+                class="px-2.5 py-1 rounded-lg bg-white border border-emerald-300 hover:bg-emerald-100 text-emerald-900 text-[11px] font-bold cursor-pointer">
+                Reset Default
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <div>
+              <label for="catRegAkaJalur" class="block text-[11px] font-bold uppercase text-emerald-900 mb-1">Jalur
+                Akademik</label>
+              <select id="catRegAkaJalur" onchange="onCatRegAkaJalurChange()"
+                class="w-full px-3 py-2 rounded-lg border border-emerald-300 bg-white text-xs font-extrabold text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                <option value="AKPOL">Akpol (Numerik, B. Indonesia, PU, TWK, Uji Komputer)</option>
+                <option value="BINTARA">Bintara (Numerik, B. Inggris, PU, TWK, Uji Komputer)</option>
+                <option value="TAMTAMA">Tamtama (Numerik, B. Indonesia, PU, TWK, Uji Komputer)</option>
+              </select>
+            </div>
+            <div>
+              <label for="catRegAkaPassingGrade"
+                class="block text-[11px] font-bold uppercase text-emerald-900 mb-1">Ambang Batas Akhir (0&ndash;100)</label>
+              <input type="number" id="catRegAkaPassingGrade" min="0" max="100" step="0.5" value="61"
+                class="w-full px-3 py-2 rounded-lg border border-emerald-300 bg-white font-cat-mono text-xs font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            </div>
+          </div>
+
+          <div class="space-y-2.5">
+            <!-- Sub-Tes 1: Penalaran Numerik -->
+            <div class="rounded-lg bg-white border border-emerald-200/80 p-2.5 space-y-2">
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-xs font-extrabold text-slate-800">1. Penalaran Numerik</span>
+                <span id="catRegAkaEff_NUMERIK"
+                  class="text-[11px] font-cat-mono font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Efektif: 0,625 / benar</span>
+              </div>
+              <select id="catRegAkaSoal_NUMERIK" onchange="onCatRegAkaSoalSelected('NUMERIK')"
+                class="w-full px-2.5 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-semibold text-slate-800"></select>
+              <div class="grid grid-cols-3 gap-2">
+                <div>
+                  <label for="catRegAkaDurasi_NUMERIK" class="block text-[10px] font-bold uppercase text-slate-500 mb-0.5">Durasi (Mnt)</label>
+                  <input type="number" id="catRegAkaDurasi_NUMERIK" min="1" max="300" value="60"
+                    class="w-full px-2 py-1.5 rounded border border-slate-300 font-cat-mono text-xs font-bold text-slate-900">
+                </div>
+                <div>
+                  <label for="catRegAkaPoin_NUMERIK" class="block text-[10px] font-bold uppercase text-slate-500 mb-0.5">Poin / Soal</label>
+                  <input type="number" id="catRegAkaPoin_NUMERIK" min="0.05" max="100" step="0.05" value="2.5"
+                    oninput="updateCatRegAkademikLiveReadout()"
+                    class="w-full px-2 py-1.5 rounded border border-slate-300 font-cat-mono text-xs font-bold text-slate-900">
+                </div>
+                <div>
+                  <label for="catRegAkaBobot_NUMERIK" class="block text-[10px] font-bold uppercase text-slate-500 mb-0.5">Bobot (%)</label>
+                  <input type="number" id="catRegAkaBobot_NUMERIK" min="0" max="100" step="0.5" value="25"
+                    oninput="updateCatRegAkademikLiveReadout()"
+                    class="w-full px-2 py-1.5 rounded border border-slate-300 font-cat-mono text-xs font-bold text-slate-900">
+                </div>
+              </div>
+            </div>
+
+            <!-- Sub-Tes 2: Bahasa Indonesia (Akpol/Tamtama) atau Bahasa Inggris (Bintara) -->
+            <div class="rounded-lg bg-white border border-emerald-200/80 p-2.5 space-y-2">
+              <div class="flex items-center justify-between gap-2">
+                <span id="catRegAkaLabelBAHASA" class="text-xs font-extrabold text-slate-800">2. Bahasa Indonesia</span>
+                <span id="catRegAkaEff_BAHASA"
+                  class="text-[11px] font-cat-mono font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Efektif: 0,50 / benar</span>
+              </div>
+              <select id="catRegAkaSoal_BAHASA" onchange="onCatRegAkaSoalSelected('BAHASA')"
+                class="w-full px-2.5 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-semibold text-slate-800"></select>
+              <div class="grid grid-cols-3 gap-2">
+                <div>
+                  <label for="catRegAkaDurasi_BAHASA" class="block text-[10px] font-bold uppercase text-slate-500 mb-0.5">Durasi (Mnt)</label>
+                  <input type="number" id="catRegAkaDurasi_BAHASA" min="1" max="300" value="60"
+                    class="w-full px-2 py-1.5 rounded border border-slate-300 font-cat-mono text-xs font-bold text-slate-900">
+                </div>
+                <div>
+                  <label for="catRegAkaPoin_BAHASA" class="block text-[10px] font-bold uppercase text-slate-500 mb-0.5">Poin / Soal</label>
+                  <input type="number" id="catRegAkaPoin_BAHASA" min="0.05" max="100" step="0.05" value="2"
+                    oninput="updateCatRegAkademikLiveReadout()"
+                    class="w-full px-2 py-1.5 rounded border border-slate-300 font-cat-mono text-xs font-bold text-slate-900">
+                </div>
+                <div>
+                  <label for="catRegAkaBobot_BAHASA" class="block text-[10px] font-bold uppercase text-slate-500 mb-0.5">Bobot (%)</label>
+                  <input type="number" id="catRegAkaBobot_BAHASA" min="0" max="100" step="0.5" value="25"
+                    oninput="updateCatRegAkademikLiveReadout()"
+                    class="w-full px-2 py-1.5 rounded border border-slate-300 font-cat-mono text-xs font-bold text-slate-900">
+                </div>
+              </div>
+            </div>
+
+            <!-- Sub-Tes 3: Pengetahuan Umum -->
+            <div class="rounded-lg bg-white border border-emerald-200/80 p-2.5 space-y-2">
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-xs font-extrabold text-slate-800">3. Pengetahuan Umum</span>
+                <span id="catRegAkaEff_PU"
+                  class="text-[11px] font-cat-mono font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Efektif: 0,40 / benar</span>
+              </div>
+              <select id="catRegAkaSoal_PU" onchange="onCatRegAkaSoalSelected('PU')"
+                class="w-full px-2.5 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-semibold text-slate-800"></select>
+              <div class="grid grid-cols-3 gap-2">
+                <div>
+                  <label for="catRegAkaDurasi_PU" class="block text-[10px] font-bold uppercase text-slate-500 mb-0.5">Durasi (Mnt)</label>
+                  <input type="number" id="catRegAkaDurasi_PU" min="1" max="300" value="60"
+                    class="w-full px-2 py-1.5 rounded border border-slate-300 font-cat-mono text-xs font-bold text-slate-900">
+                </div>
+                <div>
+                  <label for="catRegAkaPoin_PU" class="block text-[10px] font-bold uppercase text-slate-500 mb-0.5">Poin / Soal</label>
+                  <input type="number" id="catRegAkaPoin_PU" min="0.05" max="100" step="0.05" value="2"
+                    oninput="updateCatRegAkademikLiveReadout()"
+                    class="w-full px-2 py-1.5 rounded border border-slate-300 font-cat-mono text-xs font-bold text-slate-900">
+                </div>
+                <div>
+                  <label for="catRegAkaBobot_PU" class="block text-[10px] font-bold uppercase text-slate-500 mb-0.5">Bobot (%)</label>
+                  <input type="number" id="catRegAkaBobot_PU" min="0" max="100" step="0.5" value="20"
+                    oninput="updateCatRegAkademikLiveReadout()"
+                    class="w-full px-2 py-1.5 rounded border border-slate-300 font-cat-mono text-xs font-bold text-slate-900">
+                </div>
+              </div>
+            </div>
+
+            <!-- Sub-Tes 4: Wawasan Kebangsaan (TWK) -->
+            <div class="rounded-lg bg-white border border-emerald-200/80 p-2.5 space-y-2">
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-xs font-extrabold text-slate-800">4. Wawasan Kebangsaan (TWK)</span>
+                <span id="catRegAkaEff_TWK"
+                  class="text-[11px] font-cat-mono font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Efektif: 0,40 / benar</span>
+              </div>
+              <select id="catRegAkaSoal_TWK" onchange="onCatRegAkaSoalSelected('TWK')"
+                class="w-full px-2.5 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-semibold text-slate-800"></select>
+              <div class="grid grid-cols-3 gap-2">
+                <div>
+                  <label for="catRegAkaDurasi_TWK" class="block text-[10px] font-bold uppercase text-slate-500 mb-0.5">Durasi (Mnt)</label>
+                  <input type="number" id="catRegAkaDurasi_TWK" min="1" max="300" value="60"
+                    class="w-full px-2 py-1.5 rounded border border-slate-300 font-cat-mono text-xs font-bold text-slate-900">
+                </div>
+                <div>
+                  <label for="catRegAkaPoin_TWK" class="block text-[10px] font-bold uppercase text-slate-500 mb-0.5">Poin / Soal</label>
+                  <input type="number" id="catRegAkaPoin_TWK" min="0.05" max="100" step="0.05" value="2"
+                    oninput="updateCatRegAkademikLiveReadout()"
+                    class="w-full px-2 py-1.5 rounded border border-slate-300 font-cat-mono text-xs font-bold text-slate-900">
+                </div>
+                <div>
+                  <label for="catRegAkaBobot_TWK" class="block text-[10px] font-bold uppercase text-slate-500 mb-0.5">Bobot (%)</label>
+                  <input type="number" id="catRegAkaBobot_TWK" min="0" max="100" step="0.5" value="20"
+                    oninput="updateCatRegAkademikLiveReadout()"
+                    class="w-full px-2 py-1.5 rounded border border-slate-300 font-cat-mono text-xs font-bold text-slate-900">
+                </div>
+              </div>
+            </div>
+
+            <!-- Sub-Tes 5: Uji Komputer -->
+            <div class="rounded-lg bg-white border border-emerald-200/80 p-2.5 space-y-2">
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-xs font-extrabold text-slate-800">5. Uji Komputer</span>
+                <span id="catRegAkaEff_KOMPUTER"
+                  class="text-[11px] font-cat-mono font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Efektif: 0,40 / benar</span>
+              </div>
+              <select id="catRegAkaSoal_KOMPUTER" onchange="onCatRegAkaSoalSelected('KOMPUTER')"
+                class="w-full px-2.5 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-semibold text-slate-800"></select>
+              <div class="grid grid-cols-3 gap-2">
+                <div>
+                  <label for="catRegAkaDurasi_KOMPUTER" class="block text-[10px] font-bold uppercase text-slate-500 mb-0.5">Durasi (Mnt)</label>
+                  <input type="number" id="catRegAkaDurasi_KOMPUTER" min="1" max="300" value="60"
+                    class="w-full px-2 py-1.5 rounded border border-slate-300 font-cat-mono text-xs font-bold text-slate-900">
+                </div>
+                <div>
+                  <label for="catRegAkaPoin_KOMPUTER" class="block text-[10px] font-bold uppercase text-slate-500 mb-0.5">Poin / Soal</label>
+                  <input type="number" id="catRegAkaPoin_KOMPUTER" min="0.05" max="100" step="0.05" value="4"
+                    oninput="updateCatRegAkademikLiveReadout()"
+                    class="w-full px-2 py-1.5 rounded border border-slate-300 font-cat-mono text-xs font-bold text-slate-900">
+                </div>
+                <div>
+                  <label for="catRegAkaBobot_KOMPUTER" class="block text-[10px] font-bold uppercase text-slate-500 mb-0.5">Bobot (%)</label>
+                  <input type="number" id="catRegAkaBobot_KOMPUTER" min="0" max="100" step="0.5" value="10"
+                    oninput="updateCatRegAkademikLiveReadout()"
+                    class="w-full px-2 py-1.5 rounded border border-slate-300 font-cat-mono text-xs font-bold text-slate-900">
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Tombol Aksi Kanan Bawah (Sesuai Gambar Referensi) -->
@@ -3490,11 +3871,14 @@
       </div>
 
       <!-- Panel Paste Kunci Jawaban & Bobot Massal (Untuk Soal yang Sudah Tersimpan) -->
-      <div id="catQBulkKeysPanel" class="hidden px-4 sm:px-6 py-3 bg-emerald-50/80 border-b border-emerald-200 space-y-2 shrink-0">
+      <div id="catQBulkKeysPanel"
+        class="hidden px-4 sm:px-6 py-3 bg-emerald-50/80 border-b border-emerald-200 space-y-2 shrink-0">
         <div class="flex flex-wrap items-center justify-between gap-2">
           <div>
-            <span class="text-xs font-extrabold text-emerald-950">Paste Massal Kunci Jawaban &amp; Bobot Nilai (Otomatis Sesuai Nomor Soal)</span>
-            <p class="text-[11px] text-emerald-800">Contoh soal biasa: <strong>1. a, 2. b, 3. c</strong> &bull; Contoh Kepribadian / TKP: <strong>1. (a-5, b-4, c-3, d-2, e-1)</strong></p>
+            <span class="text-xs font-extrabold text-emerald-950">Paste Massal Kunci Jawaban &amp; Bobot Nilai (Otomatis
+              Sesuai Nomor Soal)</span>
+            <p class="text-[11px] text-emerald-800">Contoh soal biasa: <strong>1. a, 2. b, 3. c</strong> &bull; Contoh
+              Kepribadian / TKP: <strong>1. (a-5, b-4, c-3, d-2, e-1)</strong></p>
           </div>
           <div class="flex flex-wrap items-center gap-1.5">
             <button type="button" onclick="fillCatBulkKeySample('single', 'saved')"
@@ -3511,8 +3895,8 @@
             </button>
           </div>
         </div>
-        <textarea id="catQBulkKeysTextarea" rows="2"
-          oninput="previewCatQBulkKeys()" onpaste="setTimeout(function(){ previewCatQBulkKeys(true); }, 30);"
+        <textarea id="catQBulkKeysTextarea" rows="2" oninput="previewCatQBulkKeys()"
+          onpaste="setTimeout(function(){ previewCatQBulkKeys(true); }, 30);"
           placeholder="Tempel kunci jawaban massal di sini (otomatis cocokkan dengan nomor soal di paket ini)..."
           class="w-full px-3 py-2 rounded-lg border border-emerald-300 bg-white text-xs font-cat-mono text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
         <div class="flex flex-wrap items-center justify-between gap-2">
@@ -4291,9 +4675,18 @@
       skdSessionActive: false,
       skdSelectedPaketNo: 1,
       skdPrimarySoalId: '',
+      akademikSessionActive: false,
+      akademikJalur: 'AKPOL',
+      akademikSessionResults: {},
       catExam: {
         active: false,
         isSkdCombined: false,
+        isAkademikSubtest: false,
+        akademikJalur: 'AKPOL',
+        akademikSubKey: '',
+        akademikSubLabel: '',
+        akademikPoinPerSoal: 2,
+        akademikBobotSubtes: 20,
         soalId: '',
         soalNama: '',
         kategoriLabel: '',
@@ -4604,14 +4997,120 @@
       ],
       SKD: [
         { value: 'GABUNGAN', label: 'GABUNGAN (TWK 1-30 + TIU 31-65 + TKP 66-110)' },
-        { value: 'TWK', label: 'TWK (Tes Wawasan Kebangsaan — No. 1-30)' },
-        { value: 'TIU', label: 'TIU (Tes Intelegensia Umum — No. 31-65)' },
-        { value: 'TKP', label: 'TKP (Tes Karakteristik Pribadi — No. 66-110)' }
+        { value: 'TWK', label: 'TWK (Tes Wawasan Kebangsaan \u2014 No. 1-30)' },
+        { value: 'TIU', label: 'TIU (Tes Intelegensia Umum \u2014 No. 31-65)' },
+        { value: 'TKP', label: 'TKP (Tes Karakteristik Pribadi \u2014 No. 66-110)' }
+      ],
+      AKADEMIK: [
+        { value: 'PENALARAN NUMERIK', label: 'PENALARAN NUMERIK (40 Soal \u2022 60 Menit \u2022 2,5 Poin \u2022 25%)' },
+        { value: 'BAHASA INDONESIA', label: 'BAHASA INDONESIA \u2014 Akpol/Tamtama (50 Soal \u2022 60 Menit \u2022 2 Poin \u2022 25%)' },
+        { value: 'BAHASA INGGRIS', label: 'BAHASA INGGRIS \u2014 Bintara (50 Soal \u2022 60 Menit \u2022 2 Poin \u2022 25%)' },
+        { value: 'PENGETAHUAN UMUM', label: 'PENGETAHUAN UMUM (50 Soal \u2022 60 Menit \u2022 2 Poin \u2022 20%)' },
+        { value: 'TWK', label: 'TWK / WAWASAN KEBANGSAAN (50 Soal \u2022 60 Menit \u2022 2 Poin \u2022 20%)' },
+        { value: 'UJI KOMPUTER', label: 'UJI KOMPUTER (25\u201350 Soal \u2022 60 Menit \u2022 4/2 Poin \u2022 10%)' }
       ],
       'LATIHAN KECERMATAN': [
         { value: 'SEMUA', label: 'SELURUH SOAL KECERMATAN' }
       ]
     };
+
+    var AKADEMIK_SUBTEST_KEYS = ['NUMERIK', 'BAHASA', 'PU', 'TWK', 'KOMPUTER'];
+
+    var AKADEMIK_JALUR_CONFIG = {
+      AKPOL: {
+        label: 'Akpol',
+        subtests: [
+          { key: 'NUMERIK', label: 'Penalaran Numerik', subKat: 'PENALARAN NUMERIK', defaultSoal: 40, defaultPoin: 2.5, defaultBobot: 25, defaultDurasi: 60 },
+          { key: 'BAHASA', label: 'Bahasa Indonesia', subKat: 'BAHASA INDONESIA', defaultSoal: 50, defaultPoin: 2, defaultBobot: 25, defaultDurasi: 60 },
+          { key: 'PU', label: 'Pengetahuan Umum', subKat: 'PENGETAHUAN UMUM', defaultSoal: 50, defaultPoin: 2, defaultBobot: 20, defaultDurasi: 60 },
+          { key: 'TWK', label: 'Wawasan Kebangsaan (TWK)', subKat: 'TWK', defaultSoal: 50, defaultPoin: 2, defaultBobot: 20, defaultDurasi: 60 },
+          { key: 'KOMPUTER', label: 'Uji Komputer', subKat: 'UJI KOMPUTER', defaultSoal: 25, defaultPoin: 4, defaultBobot: 10, defaultDurasi: 60 }
+        ]
+      },
+      BINTARA: {
+        label: 'Bintara',
+        subtests: [
+          { key: 'NUMERIK', label: 'Penalaran Numerik', subKat: 'PENALARAN NUMERIK', defaultSoal: 40, defaultPoin: 2.5, defaultBobot: 25, defaultDurasi: 60 },
+          { key: 'BAHASA', label: 'Bahasa Inggris', subKat: 'BAHASA INGGRIS', defaultSoal: 50, defaultPoin: 2, defaultBobot: 25, defaultDurasi: 60 },
+          { key: 'PU', label: 'Pengetahuan Umum', subKat: 'PENGETAHUAN UMUM', defaultSoal: 50, defaultPoin: 2, defaultBobot: 20, defaultDurasi: 60 },
+          { key: 'TWK', label: 'Wawasan Kebangsaan (TWK)', subKat: 'TWK', defaultSoal: 50, defaultPoin: 2, defaultBobot: 20, defaultDurasi: 60 },
+          { key: 'KOMPUTER', label: 'Uji Komputer', subKat: 'UJI KOMPUTER', defaultSoal: 25, defaultPoin: 4, defaultBobot: 10, defaultDurasi: 60 }
+        ]
+      },
+      TAMTAMA: {
+        label: 'Tamtama',
+        subtests: [
+          { key: 'NUMERIK', label: 'Penalaran Numerik', subKat: 'PENALARAN NUMERIK', defaultSoal: 40, defaultPoin: 2.5, defaultBobot: 25, defaultDurasi: 60 },
+          { key: 'BAHASA', label: 'Bahasa Indonesia', subKat: 'BAHASA INDONESIA', defaultSoal: 50, defaultPoin: 2, defaultBobot: 25, defaultDurasi: 60 },
+          { key: 'PU', label: 'Pengetahuan Umum', subKat: 'PENGETAHUAN UMUM', defaultSoal: 50, defaultPoin: 2, defaultBobot: 20, defaultDurasi: 60 },
+          { key: 'TWK', label: 'Wawasan Kebangsaan (TWK)', subKat: 'TWK', defaultSoal: 50, defaultPoin: 2, defaultBobot: 20, defaultDurasi: 60 },
+          { key: 'KOMPUTER', label: 'Uji Komputer', subKat: 'UJI KOMPUTER', defaultSoal: 25, defaultPoin: 4, defaultBobot: 10, defaultDurasi: 60 }
+        ]
+      }
+    };
+
+    function sanitizeAkademikJalurLocal(val) {
+      var up = String(val || 'AKPOL').trim().toUpperCase();
+      if (up === 'BINTARA') return 'BINTARA';
+      if (up === 'TAMTAMA') return 'TAMTAMA';
+      return 'AKPOL';
+    }
+
+    function getAkademikJalurSpec(jalur) {
+      var j = sanitizeAkademikJalurLocal(jalur);
+      return AKADEMIK_JALUR_CONFIG[j] || AKADEMIK_JALUR_CONFIG.AKPOL;
+    }
+
+    function formatDecimalId(val, maxDec) {
+      var n = Number(val);
+      if (isNaN(n)) return '0';
+      var dec = (maxDec !== undefined) ? maxDec : 3;
+      var s = n.toFixed(dec);
+      s = s.replace(/(\.\d*?[1-9])0+$/, '$1').replace(/\.0+$/, '');
+      return s.replace('.', ',');
+    }
+
+    function createDefaultAkademikSubtestsLocal() {
+      return {
+        NUMERIK: { soalId: '', poin: 2.5, bobot: 25, durasi: 60 },
+        BAHASA: { soalId: '', poin: 2, bobot: 25, durasi: 60 },
+        PU: { soalId: '', poin: 2, bobot: 20, durasi: 60 },
+        TWK: { soalId: '', poin: 2, bobot: 20, durasi: 60 },
+        KOMPUTER: { soalId: '', poin: 4, bobot: 10, durasi: 60 }
+      };
+    }
+
+    function sanitizeAkademikSubtestsLocal(rawSubs) {
+      var defs = createDefaultAkademikSubtestsLocal();
+      var src = (rawSubs && typeof rawSubs === 'object') ? rawSubs : {};
+      var out = {};
+      for (var i = 0; i < AKADEMIK_SUBTEST_KEYS.length; i++) {
+        var k = AKADEMIK_SUBTEST_KEYS[i];
+        var d = defs[k];
+        var it = (src[k] && typeof src[k] === 'object') ? src[k] : {};
+        var pNum = parseFloat(it.poin);
+        var bNum = parseFloat(it.bobot);
+        var durNum = parseInt(it.durasi, 10);
+        out[k] = {
+          soalId: sanitizeCatSoalIdLocal(it.soalId),
+          poin: (!isNaN(pNum) && pNum > 0 && pNum <= 100) ? Number(pNum.toFixed(4)) : d.poin,
+          bobot: (!isNaN(bNum) && bNum >= 0 && bNum <= 100) ? Number(bNum.toFixed(2)) : d.bobot,
+          durasi: (!isNaN(durNum) && durNum >= 1 && durNum <= 300) ? durNum : d.durasi
+        };
+      }
+      return out;
+    }
+
+    function createEmptyAkademikCfgLocal() {
+      return {
+        on: false,
+        jalur: 'AKPOL',
+        tanggal: '',
+        tujuan: '',
+        passingGrade: 61,
+        subtests: createDefaultAkademikSubtestsLocal()
+      };
+    }
 
     var userSoalFilterState = { main: 'ALL', sub: 'ALL' };
     var adminSoalFilterState = { main: 'ALL', sub: 'ALL', search: '' };
@@ -4622,6 +5121,24 @@
 
       if (!up || up === 'LATIHAN KECERMATAN' || up === 'KECERMATAN') {
         return { main: 'LATIHAN KECERMATAN', sub: 'KECERMATAN', label: 'LATIHAN KECERMATAN', isKecermatan: true };
+      }
+      if (up.indexOf('AKADEMIK') === 0 || up === 'PENALARAN NUMERIK' || up === 'BAHASA INDONESIA' || up === 'BAHASA INGGRIS' || up === 'PENGETAHUAN UMUM' || up === 'UJI KOMPUTER') {
+        if (up.indexOf('INGGRIS') !== -1) {
+          return { main: 'AKADEMIK', sub: 'BAHASA INGGRIS', label: 'AKADEMIK - BAHASA INGGRIS', isKecermatan: false };
+        }
+        if (up.indexOf('INDONESIA') !== -1) {
+          return { main: 'AKADEMIK', sub: 'BAHASA INDONESIA', label: 'AKADEMIK - BAHASA INDONESIA', isKecermatan: false };
+        }
+        if (up.indexOf('PENGETAHUAN UMUM') !== -1 || up === 'AKADEMIK - PU') {
+          return { main: 'AKADEMIK', sub: 'PENGETAHUAN UMUM', label: 'AKADEMIK - PENGETAHUAN UMUM', isKecermatan: false };
+        }
+        if (up.indexOf('TWK') !== -1 || up.indexOf('WAWASAN KEBANGSAAN') !== -1) {
+          return { main: 'AKADEMIK', sub: 'TWK', label: 'AKADEMIK - TWK', isKecermatan: false };
+        }
+        if (up.indexOf('KOMPUTER') !== -1) {
+          return { main: 'AKADEMIK', sub: 'UJI KOMPUTER', label: 'AKADEMIK - UJI KOMPUTER', isKecermatan: false };
+        }
+        return { main: 'AKADEMIK', sub: 'PENALARAN NUMERIK', label: 'AKADEMIK - PENALARAN NUMERIK', isKecermatan: false };
       }
       if (up.indexOf('PSIKOLOGI') === 0) {
         if (up.indexOf('KEPRIBADIAN') !== -1) {
@@ -4668,6 +5185,11 @@
         if (s !== 'GABUNGAN' && s !== 'TIU' && s !== 'TWK' && s !== 'TKP') s = 'GABUNGAN';
         return 'SKD - ' + s;
       }
+      if (m === 'AKADEMIK') {
+        var validAka = ['PENALARAN NUMERIK', 'BAHASA INDONESIA', 'BAHASA INGGRIS', 'PENGETAHUAN UMUM', 'TWK', 'UJI KOMPUTER'];
+        if (validAka.indexOf(s) === -1) s = 'PENALARAN NUMERIK';
+        return 'AKADEMIK - ' + s;
+      }
       return s ? (m + ' - ' + s) : m;
     }
 
@@ -4685,10 +5207,16 @@
         if (!fSub || fSub === 'ALL') return meta.main === 'PSIKOLOGI' || !!meta.isKecermatan;
         return meta.main === 'PSIKOLOGI' && meta.sub === fSub;
       }
+      var isSharedTwk = (meta.sub === 'TWK' && (meta.main === 'SKD' || meta.main === 'AKADEMIK'));
       if (fMain === 'SKD') {
-        if (meta.main !== 'SKD') return false;
-        if (fSub && fSub !== 'ALL' && meta.sub !== fSub) return false;
-        return true;
+        if (fSub === 'TWK') return isSharedTwk;
+        if (!fSub || fSub === 'ALL') return meta.main === 'SKD' || isSharedTwk;
+        return meta.main === 'SKD' && meta.sub === fSub;
+      }
+      if (fMain === 'AKADEMIK') {
+        if (fSub === 'TWK') return isSharedTwk;
+        if (!fSub || fSub === 'ALL') return meta.main === 'AKADEMIK' || isSharedTwk;
+        return meta.main === 'AKADEMIK' && meta.sub === fSub;
       }
       return meta.label.toUpperCase() === fMain;
     }
@@ -4706,6 +5234,12 @@
         return '<span class="inline-flex items-center gap-1 flex-wrap">' +
           '<span class="' + pad + ' rounded-md bg-amber-50 border border-amber-200 text-amber-900 font-extrabold">SKD</span>' +
           '<span class="' + pad + ' rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800 font-bold">' + escapeHtml(meta.sub) + '</span>' +
+          '</span>';
+      }
+      if (meta.main === 'AKADEMIK') {
+        return '<span class="inline-flex items-center gap-1 flex-wrap">' +
+          '<span class="' + pad + ' rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800 font-extrabold">AKADEMIK</span>' +
+          '<span class="' + pad + ' rounded-md bg-teal-50 border border-teal-200 text-teal-800 font-bold">' + escapeHtml(meta.sub) + '</span>' +
           '</span>';
       }
       if (meta.main === 'LATIHAN KECERMATAN') {
@@ -4727,6 +5261,9 @@
       if (m === 'SKD') {
         return s === 'GABUNGAN' || s === 'TIU' || s === 'TWK' || s === 'TKP';
       }
+      if (m === 'AKADEMIK') {
+        return true;
+      }
       return false;
     }
 
@@ -4742,6 +5279,14 @@
       if (m === 'PSIKOLOGI') {
         if (s === 'KECERDASAN') return { durasiMenit: 90, passingGrade: 61 };
         return { durasiMenit: 60, passingGrade: 61 };
+      }
+      if (m === 'AKADEMIK') {
+        if (s === 'PENALARAN NUMERIK') return { durasiMenit: 60, passingGrade: 61, poinPerSoal: 2.5, bobotSubtes: 25 };
+        if (s === 'BAHASA INDONESIA' || s === 'BAHASA INGGRIS') return { durasiMenit: 60, passingGrade: 61, poinPerSoal: 2, bobotSubtes: 25 };
+        if (s === 'PENGETAHUAN UMUM') return { durasiMenit: 60, passingGrade: 61, poinPerSoal: 2, bobotSubtes: 20 };
+        if (s === 'TWK') return { durasiMenit: 60, passingGrade: 61, poinPerSoal: 2, bobotSubtes: 20 };
+        if (s === 'UJI KOMPUTER') return { durasiMenit: 60, passingGrade: 61, poinPerSoal: 4, bobotSubtes: 10 };
+        return { durasiMenit: 60, passingGrade: 61, poinPerSoal: 2, bobotSubtes: 20 };
       }
       return { durasiMenit: 60, passingGrade: 65 };
     }
@@ -4759,7 +5304,7 @@
       if (isNaN(totalButir) || totalButir < 0) totalButir = isNaN(fallbackJumlah) ? 0 : Math.max(0, fallbackJumlah);
       if (!isNaN(fallbackJumlah) && fallbackJumlah > totalButir) totalButir = fallbackJumlah;
       var acakSoal = (gMeta.acakSoal === true || String(gMeta.acakSoal).toLowerCase() === 'true');
-      return {
+      var out = {
         engine: 'CAT_PG',
         paketNo: paketNo,
         durasiMenit: durasiMenit,
@@ -4767,6 +5312,21 @@
         totalButir: totalButir,
         acakSoal: acakSoal
       };
+      var kMeta = soalObj && soalObj.kategori ? parseSoalKategoriMeta(soalObj.kategori) : null;
+      var akaDefs = (kMeta && kMeta.main === 'AKADEMIK') ? getDefaultCatPgSettings('AKADEMIK', kMeta.sub) : null;
+      var pRaw = parseFloat(gMeta.poinPerSoal);
+      if (!isNaN(pRaw) && pRaw > 0 && pRaw <= 100) {
+        out.poinPerSoal = Number(pRaw.toFixed(4));
+      } else if (akaDefs && akaDefs.poinPerSoal !== undefined) {
+        out.poinPerSoal = (kMeta.sub === 'UJI KOMPUTER' && totalButir >= 40) ? 2 : akaDefs.poinPerSoal;
+      }
+      var bRaw = parseFloat(gMeta.bobotSubtes);
+      if (!isNaN(bRaw) && bRaw >= 0 && bRaw <= 100) {
+        out.bobotSubtes = Number(bRaw.toFixed(2));
+      } else if (akaDefs && akaDefs.bobotSubtes !== undefined) {
+        out.bobotSubtes = akaDefs.bobotSubtes;
+      }
+      return out;
     }
 
     function getNextCatPaketNo(kategoriComposite) {
@@ -4818,7 +5378,8 @@
     function parseAksesCatConfigLocal(rawVal) {
       var emptyCfg = {
         psi: { on: false, tanggal: '', tujuan: '', kecerdasan: '', kepribadian: '', kecermatan: '' },
-        skd: { on: false, tanggal: '', tujuan: '', paketNo: 1, soalId: '' }
+        skd: { on: false, tanggal: '', tujuan: '', paketNo: 1, soalId: '', twkSoalId: '' },
+        aka: createEmptyAkademikCfgLocal()
       };
       if (rawVal === undefined || rawVal === null || rawVal === '') return emptyCfg;
 
@@ -4841,9 +5402,13 @@
       if (obj) {
         var psiSrc = (obj.psi && typeof obj.psi === 'object') ? obj.psi : null;
         var skdSrc = (obj.skd && typeof obj.skd === 'object') ? obj.skd : null;
+        var akaSrc = (obj.aka && typeof obj.aka === 'object') ? obj.aka : null;
         var psiOn = psiSrc ? !!psiSrc.on : (!!obj.psikologi || !!obj.PSIKOLOGI);
         var skdOn = skdSrc ? !!skdSrc.on : (!!obj.skd || !!obj.SKD);
+        var akaOn = akaSrc ? !!akaSrc.on : (!!obj.akademik || !!obj.AKADEMIK);
         var skdPaket = Math.max(1, parseInt(skdSrc ? skdSrc.paketNo : obj.skdPaketNo, 10) || 1);
+        var akaPgRaw = akaSrc && akaSrc.passingGrade !== undefined ? parseFloat(akaSrc.passingGrade) : 61;
+        var akaPg = (!isNaN(akaPgRaw) && akaPgRaw >= 0 && akaPgRaw <= 100) ? Number(akaPgRaw.toFixed(2)) : 61;
         return {
           psi: {
             on: psiOn,
@@ -4858,37 +5423,56 @@
             tanggal: skdOn ? sanitizeCatDateLocal(skdSrc ? skdSrc.tanggal : obj.skdTanggal) : '',
             tujuan: skdOn ? sanitizeCatTujuanLocal(skdSrc ? skdSrc.tujuan : obj.skdTujuan) : '',
             paketNo: skdOn ? skdPaket : 1,
-            soalId: skdOn ? sanitizeCatSoalIdLocal(skdSrc ? skdSrc.soalId : obj.skdSoalId) : ''
+            soalId: skdOn ? sanitizeCatSoalIdLocal(skdSrc ? skdSrc.soalId : obj.skdSoalId) : '',
+            twkSoalId: skdOn ? sanitizeCatSoalIdLocal(skdSrc ? skdSrc.twkSoalId : obj.skdTwkSoalId) : ''
+          },
+          aka: {
+            on: akaOn,
+            jalur: akaOn ? sanitizeAkademikJalurLocal(akaSrc ? akaSrc.jalur : obj.akaJalur) : 'AKPOL',
+            tanggal: akaOn ? sanitizeCatDateLocal(akaSrc ? akaSrc.tanggal : obj.akaTanggal) : '',
+            tujuan: akaOn ? sanitizeCatTujuanLocal(akaSrc ? akaSrc.tujuan : obj.akaTujuan) : '',
+            passingGrade: akaOn ? akaPg : 61,
+            subtests: akaOn ? sanitizeAkademikSubtestsLocal(akaSrc ? akaSrc.subtests : null) : createDefaultAkademikSubtestsLocal()
           }
         };
       }
 
       var hasPsi = false;
       var hasSkd = false;
+      var hasAka = false;
       var tokens = Array.isArray(rawVal)
         ? rawVal
         : String(rawVal || '').toUpperCase().split(/[,;|\/\s]+/);
       for (var i = 0; i < tokens.length; i++) {
         var t = String(tokens[i] || '').trim().toUpperCase();
         if (!t) continue;
-        if (t === 'ALL' || t === 'SEMUA' || t === 'BOTH') {
+        if (t === 'ALL' || t === 'SEMUA') {
+          hasPsi = true;
+          hasSkd = true;
+          hasAka = true;
+        } else if (t === 'BOTH') {
           hasPsi = true;
           hasSkd = true;
         } else if (t.indexOf('PSIKOLOGI') !== -1 || t === 'PSI') {
           hasPsi = true;
         } else if (t.indexOf('SKD') !== -1) {
           hasSkd = true;
+        } else if (t.indexOf('AKADEMIK') !== -1 || t === 'AKA') {
+          hasAka = true;
         }
       }
+      var akaFallback = createEmptyAkademikCfgLocal();
+      akaFallback.on = hasAka;
       return {
         psi: { on: hasPsi, tanggal: '', tujuan: '', kecerdasan: '', kepribadian: '', kecermatan: '' },
-        skd: { on: hasSkd, tanggal: '', tujuan: '', paketNo: 1, soalId: '' }
+        skd: { on: hasSkd, tanggal: '', tujuan: '', paketNo: 1, soalId: '', twkSoalId: '' },
+        aka: akaFallback
       };
     }
 
     function normalizeAksesCatLocal(rawVal) {
       var cfg = parseAksesCatConfigLocal(rawVal);
-      if (!cfg.psi.on && !cfg.skd.on) return '';
+      if (!cfg.psi.on && !cfg.skd.on && !cfg.aka.on) return '';
       return JSON.stringify(cfg);
     }
 
@@ -4927,12 +5511,26 @@
           tanggal: sanitizeCatDateLocal(s.tanggal),
           tujuan: sanitizeCatTujuanLocal(s.tujuan),
           paketNo: Math.max(1, parseInt(s.paketNo, 10) || 1),
-          soalId: sanitizeCatSoalIdLocal(s.soalId)
+          soalId: sanitizeCatSoalIdLocal(s.soalId),
+          twkSoalId: sanitizeCatSoalIdLocal(s.twkSoalId)
+        };
+      } else if (mode === 'MERGE_AKA') {
+        var a = (reqObj.aka && typeof reqObj.aka === 'object') ? reqObj.aka : {};
+        var pgNum = parseFloat(a.passingGrade);
+        cur.aka = {
+          on: true,
+          jalur: sanitizeAkademikJalurLocal(a.jalur),
+          tanggal: sanitizeCatDateLocal(a.tanggal),
+          tujuan: sanitizeCatTujuanLocal(a.tujuan),
+          passingGrade: (!isNaN(pgNum) && pgNum >= 0 && pgNum <= 100) ? Number(pgNum.toFixed(2)) : 61,
+          subtests: sanitizeAkademikSubtestsLocal(a.subtests)
         };
       } else if (mode === 'REMOVE_PSI') {
         cur.psi = { on: false, tanggal: '', tujuan: '', kecerdasan: '', kepribadian: '', kecermatan: '' };
       } else if (mode === 'REMOVE_SKD') {
-        cur.skd = { on: false, tanggal: '', tujuan: '', paketNo: 1, soalId: '' };
+        cur.skd = { on: false, tanggal: '', tujuan: '', paketNo: 1, soalId: '', twkSoalId: '' };
+      } else if (mode === 'REMOVE_AKA') {
+        cur.aka = createEmptyAkademikCfgLocal();
       } else {
         return normalizeAksesCatLocal(incomingPayload);
       }
@@ -4942,7 +5540,7 @@
     function getCurrentUserAksesCat() {
       if (!appState.loggedInUser) return '';
       if (String(appState.loggedInUser.role || '').toUpperCase() === 'ADMIN') {
-        return normalizeAksesCatLocal({ psi: { on: true }, skd: { on: true, paketNo: 1 } });
+        return normalizeAksesCatLocal({ psi: { on: true }, skd: { on: true, paketNo: 1 }, aka: { on: true, jalur: 'AKPOL' } });
       }
       if (!isGasEnvironment()) {
         try {
@@ -4978,7 +5576,7 @@
         return { active: true, expired: false, registered: true, tanggal: '' };
       }
       var cfg = getCurrentUserAksesCatConfig();
-      var sub = (target === 'PSIKOLOGI') ? cfg.psi : (target === 'SKD' ? cfg.skd : null);
+      var sub = (target === 'PSIKOLOGI') ? cfg.psi : (target === 'SKD' ? cfg.skd : (target === 'AKADEMIK' ? cfg.aka : null));
       if (!sub || !sub.on) {
         return { active: false, expired: false, registered: false, tanggal: '' };
       }
@@ -4994,7 +5592,7 @@
 
     function getCatDeniedMessageLocal(examType) {
       var target = String(examType || '').trim().toUpperCase();
-      var lbl = target === 'PSIKOLOGI' ? 'Psikologi' : 'SKD';
+      var lbl = target === 'PSIKOLOGI' ? 'Psikologi' : (target === 'AKADEMIK' ? 'Akademik' : 'SKD');
       var st = getCurrentUserCatAccessState(target);
       if (st.expired) {
         return 'Ujian CAT ' + lbl + ' sudah kadaluarsa (melewati tanggal ' + formatCatDateDisplayId(st.tanggal) + ' yang ditetapkan Admin) dan tidak dapat digunakan lagi.';
@@ -5058,6 +5656,15 @@
       var psiKpr = [];
       var kecModels = [];
       var skdByPaket = {};
+      var sharedTwkOpts = [];
+      var akaBySub = {
+        'PENALARAN NUMERIK': [],
+        'BAHASA INDONESIA': [],
+        'BAHASA INGGRIS': [],
+        'PENGETAHUAN UMUM': [],
+        'TWK': [],
+        'UJI KOMPUTER': []
+      };
 
       for (var j = 0; j < active.length; j++) {
         var s = active[j];
@@ -5080,6 +5687,26 @@
             nama: s.namaPaket || 'Tes Kepribadian',
             label: 'Paket ' + (cMeta.paketNo || 1) + ' \u2014 ' + (s.namaPaket || 'Tes Kepribadian') + ' (' + cMeta.totalButir + ' Soal)'
           });
+        } else if (isCat && km.main === 'AKADEMIK') {
+          var akaSubKey = km.sub || 'PENALARAN NUMERIK';
+          if (!akaBySub[akaSubKey]) akaBySub[akaSubKey] = [];
+          var akaItemObj = {
+            id: String(s.id),
+            sourceMain: 'AKADEMIK',
+            paketNo: cMeta.paketNo || 1,
+            totalButir: cMeta.totalButir || 0,
+            durasiMenit: cMeta.durasiMenit || 60,
+            poinPerSoal: cMeta.poinPerSoal,
+            bobotSubtes: cMeta.bobotSubtes,
+            nama: s.namaPaket || akaSubKey,
+            label: 'Paket ' + (cMeta.paketNo || 1) + ' \u2014 ' + (s.namaPaket || akaSubKey) +
+              (akaSubKey === 'TWK' ? ' [Akademik]' : '') +
+              ' (' + cMeta.totalButir + ' Soal \u2022 ' + cMeta.durasiMenit + 'm)'
+          };
+          akaBySub[akaSubKey].push(akaItemObj);
+          if (akaSubKey === 'TWK') {
+            sharedTwkOpts.push(akaItemObj);
+          }
         } else if (!isCat) {
           var modeShort = MODE_LABELS[mKey] || mKey;
           kecModels.push({
@@ -5102,12 +5729,37 @@
             if (skdByPaket[pNo].subs.indexOf(km.sub) === -1) {
               skdByPaket[pNo].subs.push(km.sub);
             }
+            if (km.sub === 'TWK') {
+              var skdTwkSharedObj = {
+                id: String(s.id),
+                sourceMain: 'SKD',
+                paketNo: pNo,
+                totalButir: cMeta.totalButir || 0,
+                durasiMenit: 60,
+                poinPerSoal: 2,
+                bobotSubtes: 20,
+                nama: s.namaPaket || 'TWK',
+                label: 'Paket ' + pNo + ' \u2014 ' + (s.namaPaket || 'TWK') + ' [SKD] (' + (cMeta.totalButir || 0) + ' Soal)'
+              };
+              akaBySub['TWK'].push(skdTwkSharedObj);
+              sharedTwkOpts.push(skdTwkSharedObj);
+            }
           }
         }
       }
 
       psiKcd.sort(function (a, b) { return a.paketNo - b.paketNo || a.id.localeCompare(b.id); });
       psiKpr.sort(function (a, b) { return a.paketNo - b.paketNo || a.id.localeCompare(b.id); });
+      var akaSubNames = Object.keys(akaBySub);
+      for (var ak = 0; ak < akaSubNames.length; ak++) {
+        akaBySub[akaSubNames[ak]].sort(function (a, b) {
+          var sa = (a.sourceMain === 'SKD') ? 1 : 0;
+          var sb = (b.sourceMain === 'SKD') ? 1 : 0;
+          if (sa !== sb) return sa - sb;
+          return a.paketNo - b.paketNo || a.id.localeCompare(b.id);
+        });
+      }
+      sharedTwkOpts.sort(function (a, b) { return a.paketNo - b.paketNo || a.id.localeCompare(b.id); });
 
       var skdOpts = [];
       var pKeys = Object.keys(skdByPaket).map(function (k) { return parseInt(k, 10) || 1; });
@@ -5139,7 +5791,9 @@
         psiKecerdasan: psiKcd,
         psiKepribadian: psiKpr,
         psiKecermatan: kecModels,
-        skdPackages: skdOpts
+        skdPackages: skdOpts,
+        akaBySub: akaBySub,
+        sharedTwkPackages: sharedTwkOpts
       };
     }
 
@@ -5167,17 +5821,34 @@
     function describeSkdAssignedLabel(skdCfg) {
       var pNo = Math.max(1, parseInt(skdCfg && skdCfg.paketNo, 10) || 1);
       var opts = getCatRegistrationOptionsFromSoalList().skdPackages;
+      var baseLbl = 'Paket ' + pNo + ' \u2014 Tes SKD Lengkap (TWK + TIU + TKP)';
       for (var i = 0; i < opts.length; i++) {
-        if (opts[i].paketNo === pNo) return opts[i].label;
+        if (opts[i].paketNo === pNo) { baseLbl = opts[i].label; break; }
       }
-      return 'Paket ' + pNo + ' \u2014 Tes SKD Lengkap (TWK + TIU + TKP)';
+      if (skdCfg && skdCfg.twkSoalId) {
+        baseLbl += ' + TWK: ' + describeSoalLabelShort(skdCfg.twkSoalId, 'TWK Pilihan');
+      }
+      return baseLbl;
+    }
+
+    function describeAkademikAssignedSummary(akaCfg) {
+      var spec = getAkademikJalurSpec(akaCfg && akaCfg.jalur);
+      var subs = (akaCfg && akaCfg.subtests) ? akaCfg.subtests : createDefaultAkademikSubtestsLocal();
+      var parts = [];
+      for (var i = 0; i < spec.subtests.length; i++) {
+        var st = spec.subtests[i];
+        var cfg = subs[st.key] || { durasi: 60, poin: st.defaultPoin, bobot: st.defaultBobot };
+        var shortNm = st.key === 'NUMERIK' ? 'Num' : (st.key === 'BAHASA' ? (spec.label === 'Bintara' ? 'B.Ing' : 'B.Ind') : (st.key === 'PU' ? 'PU' : (st.key === 'TWK' ? 'TWK' : 'Komp')));
+        parts.push(shortNm + '(' + (cfg.durasi || 60) + 'm/' + formatDecimalId(cfg.bobot, 1) + '%)');
+      }
+      return 'Jalur ' + spec.label + ' \u2022 ' + parts.join(', ');
     }
 
     function isSection2KecermatanSoal(soalObj) {
       if (!soalObj) return false;
       if (isCatPgModeKey(soalObj.mode)) return false;
       var kMeta = parseSoalKategoriMeta(soalObj.kategori);
-      if (kMeta.main === 'PSIKOLOGI' || kMeta.main === 'SKD') return false;
+      if (kMeta.main === 'PSIKOLOGI' || kMeta.main === 'SKD' || kMeta.main === 'AKADEMIK') return false;
       return true;
     }
 
@@ -5258,6 +5929,33 @@
         if (pTotalS) pTotalS.textContent = '110 Soal (TWK+TIU+TKP)';
         if (pDurS) pDurS.textContent = '100 Menit (01:40:00)';
         if (pPassS) pPassS.textContent = '65 / 80 / 166';
+      } else if (target === 'CAT_AKADEMIK') {
+        var akaSpec = getAkademikJalurSpec(liveCfg.aka.jalur);
+        var akaSubs = liveCfg.aka.subtests || createDefaultAkademikSubtestsLocal();
+        var totalDurAka = 0;
+        for (var ad = 0; ad < akaSpec.subtests.length; ad++) {
+          var skA = akaSpec.subtests[ad].key;
+          totalDurAka += (akaSubs[skA] && akaSubs[skA].durasi ? parseInt(akaSubs[skA].durasi, 10) : 60);
+        }
+        if (kecCard) kecCard.className = 'bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm space-y-4 transition-all';
+        if (kecTag) {
+          kecTag.textContent = 'Klik untuk Kecermatan';
+          kecTag.className = 'px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 text-[11px] font-bold shrink-0';
+        }
+        if (charBtn) charBtn.className = 'w-full p-4 rounded-xl border border-slate-200 bg-slate-50/60 hover:bg-blue-50/40 transition-all flex items-center justify-between gap-3 text-left cursor-pointer';
+        if (catCard) catCard.className = 'bg-white rounded-2xl border-2 border-emerald-600 p-5 sm:p-6 shadow-sm space-y-4 transition-all';
+
+        if (detailBox) detailBox.classList.remove('hidden');
+        var selCatTitleA = document.getElementById('prepCatSelectedTitle');
+        var pBadgeA = document.getElementById('prepCatPgPaketBadge');
+        var pTotalA = document.getElementById('prepCatPgTotalButir');
+        var pDurA = document.getElementById('prepCatPgDurasi');
+        var pPassA = document.getElementById('prepCatPgPassGrade');
+        if (selCatTitleA) selCatTitleA.textContent = 'Ujian CAT Akademik Terpilih';
+        if (pBadgeA) pBadgeA.textContent = 'Jalur ' + akaSpec.label;
+        if (pTotalA) pTotalA.textContent = '5 Sub-Tes (' + (akaSpec.label === 'Bintara' ? 'B. Inggris' : 'B. Indonesia') + ')';
+        if (pDurA) pDurA.textContent = totalDurAka + ' Menit Total (5 Sub-Tes)';
+        if (pPassA) pPassA.textContent = 'Skala 0\u2013100 (PG \u2265 ' + (liveCfg.aka.passingGrade || 61) + ')';
       } else {
         if (kecCard) kecCard.className = 'bg-white rounded-2xl border-2 border-blue-600 p-5 sm:p-6 shadow-sm space-y-4 transition-all';
         if (kecTag) {
@@ -5288,15 +5986,19 @@
     function renderUserCatExamSection() {
       var psiState = getCurrentUserCatAccessState('PSIKOLOGI');
       var skdState = getCurrentUserCatAccessState('SKD');
+      var akaState = getCurrentUserCatAccessState('AKADEMIK');
       var hasPsi = psiState.active;
       var hasSkd = skdState.active;
-      var hasAny = hasPsi || hasSkd;
-      var anyExpired = psiState.expired || skdState.expired;
+      var hasAka = akaState.active;
+      var hasAny = hasPsi || hasSkd || hasAka;
+      var anyExpired = psiState.expired || skdState.expired || akaState.expired;
 
       // Jika target CAT yang sebelumnya dipilih ternyata dicabut Admin atau kadaluarsa, kembalikan ke KECERMATAN
       if (appState.prepExamTarget === 'CAT_PSIKOLOGI' && !hasPsi) {
         appState.prepExamTarget = 'KECERMATAN';
       } else if (appState.prepExamTarget === 'CAT_SKD' && !hasSkd) {
+        appState.prepExamTarget = 'KECERMATAN';
+      } else if (appState.prepExamTarget === 'CAT_AKADEMIK' && !hasAka) {
         appState.prepExamTarget = 'KECERMATAN';
       }
 
@@ -5311,6 +6013,7 @@
           var openLabels = [];
           if (hasPsi) openLabels.push('Psikologi');
           if (hasSkd) openLabels.push('SKD');
+          if (hasAka) openLabels.push('Akademik');
           accessBadge.className = 'inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200 text-[11px] font-extrabold shrink-0';
           accessBadge.innerHTML = '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/></svg><span>TERBUKA \u2022 ' + escapeHtml(openLabels.join(' & ')) + '</span>';
         } else if (anyExpired) {
@@ -5324,7 +6027,7 @@
 
       var liveCfg = getCurrentUserAksesCatConfig();
 
-      // Kartu 3A: Ujian CAT Psikologi (tampilan ringkas hanya judul, status dibedakan lewat border/warna kartu)
+      // Kartu 3A: Ujian CAT Psikologi
       var psiCard = document.getElementById('prepCatCardPsikologi');
       var psiSelected = (appState.prepExamTarget === 'CAT_PSIKOLOGI' && hasPsi);
       if (psiCard) {
@@ -5339,7 +6042,7 @@
         }
       }
 
-      // Kartu 3B: Ujian CAT SKD (tampilan ringkas hanya judul, sinkronisasi paket SKD tetap terjaga)
+      // Kartu 3B: Ujian CAT SKD
       var skdCard = document.getElementById('prepCatCardSkd');
       var skdSelected = (appState.prepExamTarget === 'CAT_SKD' && hasSkd);
       if (hasSkd) {
@@ -5358,6 +6061,24 @@
         }
       }
 
+      // Kartu 3C: Ujian CAT Akademik
+      var akaCard = document.getElementById('prepCatCardAkademik');
+      var akaSelected = (appState.prepExamTarget === 'CAT_AKADEMIK' && hasAka);
+      if (hasAka) {
+        appState.akademikJalur = sanitizeAkademikJalurLocal(liveCfg.aka.jalur);
+      }
+      if (akaCard) {
+        if (akaState.expired) {
+          akaCard.className = 'rounded-xl border-2 border-rose-200 bg-rose-50/50 px-4 py-5 flex items-center justify-center text-center opacity-70 cursor-not-allowed transition-all select-none';
+        } else if (!hasAka) {
+          akaCard.className = 'rounded-xl border-2 border-slate-200 bg-slate-50/80 px-4 py-5 flex items-center justify-center text-center opacity-60 cursor-not-allowed transition-all select-none';
+        } else if (akaSelected) {
+          akaCard.className = 'rounded-xl border-2 border-emerald-600 bg-emerald-50/70 px-4 py-5 flex items-center justify-center text-center shadow-sm cursor-pointer transition-all select-none';
+        } else {
+          akaCard.className = 'rounded-xl border-2 border-slate-200 bg-white hover:border-emerald-400 hover:bg-emerald-50/30 px-4 py-5 flex items-center justify-center text-center cursor-pointer transition-all select-none';
+        }
+      }
+
       syncPrepSummaryAndHighlights();
       if (typeof updateLockBannerUI === 'function') {
         updateLockBannerUI(checkIfCurrentUserLocked());
@@ -5365,7 +6086,7 @@
     }
 
     function selectPrepCatExam(targetType) {
-      var reqAccess = (targetType === 'CAT_PSIKOLOGI') ? 'PSIKOLOGI' : 'SKD';
+      var reqAccess = (targetType === 'CAT_PSIKOLOGI') ? 'PSIKOLOGI' : (targetType === 'CAT_AKADEMIK' ? 'AKADEMIK' : 'SKD');
       if (!hasCurrentUserCatAccess(reqAccess)) {
         showToast(getCatDeniedMessageLocal(reqAccess), 'error');
         return;
@@ -6741,7 +7462,7 @@
       var shouldShow = false;
       if (shell === 'login') {
         shouldShow = true;
-      } else if (shell === 'user' && !appState.examActive && viewLow !== 'exam' && viewLow !== 'psikologihub' && viewLow !== 'skdhub') {
+      } else if (shell === 'user' && !appState.examActive && viewLow !== 'exam' && viewLow !== 'psikologihub' && viewLow !== 'skdhub' && viewLow !== 'akademikhub') {
         shouldShow = true;
       }
       if (shouldShow) fab.classList.remove('hidden');
@@ -7113,6 +7834,8 @@
       appState.psikologiSessionActive = false;
       appState.psikologiLaunchingSubTest = false;
       appState.skdSessionActive = false;
+      appState.akademikSessionActive = false;
+      appState.akademikSessionResults = {};
       if (appState.catExam) appState.catExam.active = false;
       var finishCatModal = document.getElementById('modalFinishCatPg');
       if (finishCatModal) finishCatModal.classList.add('hidden');
@@ -7719,6 +8442,14 @@
       var list = Array.isArray(soalItems) ? soalItems : [];
       var kcdSubs = createEmptySubmateriTotals();
       var tiuSubs = createEmptySubmateriTotals();
+      var akaSubs = {
+        'PENALARAN NUMERIK': 0,
+        'BAHASA INDONESIA': 0,
+        'BAHASA INGGRIS': 0,
+        'PENGETAHUAN UMUM': 0,
+        'TWK': 0,
+        'UJI KOMPUTER': 0
+      };
       var totals = {
         KECERDASAN: 0,
         KEPRIBADIAN: 0,
@@ -7727,6 +8458,7 @@
         TIU: 0,
         TKP: 0,
         SKD_GABUNGAN: 0,
+        AKADEMIK: 0,
         LAINNYA: 0
       };
 
@@ -7755,6 +8487,10 @@
           totals.TKP += jml;
         } else if (meta.main === 'SKD' && meta.sub === 'GABUNGAN') {
           totals.SKD_GABUNGAN += jml;
+        } else if (meta.main === 'AKADEMIK') {
+          totals.AKADEMIK += jml;
+          var aSub = meta.sub || 'PENALARAN NUMERIK';
+          akaSubs[aSub] = (akaSubs[aSub] || 0) + jml;
         } else {
           totals.LAINNYA += jml;
         }
@@ -7763,7 +8499,8 @@
       return {
         totals: totals,
         kcdSubs: kcdSubs,
-        tiuSubs: tiuSubs
+        tiuSubs: tiuSubs,
+        akaSubs: akaSubs
       };
     }
 
@@ -7831,6 +8568,32 @@
             '<span class="font-cat-mono font-bold text-slate-700 shrink-0">' + grp.totals.SKD_GABUNGAN + '</span>' +
             '</div>';
         }
+        var akaDashMap = [
+          { key: 'PENALARAN NUMERIK', label: 'Penalaran Numerik' },
+          { key: 'BAHASA INDONESIA', label: 'Bahasa Indonesia' },
+          { key: 'BAHASA INGGRIS', label: 'Bahasa Inggris' },
+          { key: 'PENGETAHUAN UMUM', label: 'Pengetahuan Umum' },
+          { key: 'TWK', label: 'Wawasan Kebangsaan (TWK)' },
+          { key: 'UJI KOMPUTER', label: 'Uji Komputer' }
+        ];
+        var akaSubHtml = '';
+        for (var akIdx = 0; akIdx < akaDashMap.length; akIdx++) {
+          var akIt = akaDashMap[akIdx];
+          var akVal = (grp.akaSubs && grp.akaSubs[akIt.key]) ? grp.akaSubs[akIt.key] : 0;
+          akaSubHtml += '<div class="py-1 flex items-center justify-between gap-2 text-[12px]">' +
+            '<span class="text-slate-500">' + escapeHtml(akIt.label) + '</span>' +
+            '<span class="font-cat-mono text-slate-600 shrink-0">' + akVal + '</span>' +
+            '</div>';
+        }
+        htmlSoal += '<div class="py-2.5">' +
+          '<div class="flex items-center justify-between gap-2">' +
+          '<strong class="text-emerald-800 uppercase tracking-wide">AKADEMIK</strong>' +
+          '<span class="font-cat-mono font-bold text-emerald-800 shrink-0">' + (grp.totals.AKADEMIK || 0) + '</span>' +
+          '</div>' +
+          '<div class="mt-1.5 ml-2 pl-3 border-l-2 border-emerald-200 divide-y divide-slate-100/80">' +
+          akaSubHtml +
+          '</div>' +
+          '</div>';
         if (grp.totals.LAINNYA > 0) {
           htmlSoal += '<div class="py-2.5 flex items-center justify-between gap-2">' +
             '<strong class="text-slate-600 uppercase tracking-wide">LAINNYA</strong>' +
@@ -8203,6 +8966,187 @@
         }
       }
       fillSelect(prefix + 'SkdPaket', opts.skdPackages, skdTargetVal, 'Paket 1 \u2014 Tes SKD Lengkap');
+
+      // Populate optional shared TWK package selector for SKD
+      var skdTwkSel = document.getElementById(prefix + 'SkdTwkSoal');
+      if (skdTwkSel) {
+        var twkItems = opts.sharedTwkPackages || [];
+        var twkHtml = '<option value="">-- Ikuti Bawaan Paket SKD / Otomatis --</option>';
+        var curTwkId = cfg.skd.on ? String(cfg.skd.twkSoalId || '') : '';
+        var matchedTwk = false;
+        for (var tw = 0; tw < twkItems.length; tw++) {
+          if (curTwkId && String(twkItems[tw].id) === curTwkId) matchedTwk = true;
+          twkHtml += '<option value="' + escapeHtml(twkItems[tw].id) + '">' + escapeHtml(twkItems[tw].label) + '</option>';
+        }
+        skdTwkSel.innerHTML = twkHtml;
+        skdTwkSel.value = (matchedTwk && curTwkId) ? curTwkId : '';
+      }
+
+      // Populate CAT Akademik controls
+      var akaJalurEl = document.getElementById(prefix + 'AkaJalur');
+      var akaPgEl = document.getElementById(prefix + 'AkaPassingGrade');
+      var jalurVal = sanitizeAkademikJalurLocal(cfg.aka.on ? cfg.aka.jalur : (akaJalurEl ? akaJalurEl.value : 'AKPOL'));
+      if (akaJalurEl) akaJalurEl.value = jalurVal;
+      if (akaPgEl) akaPgEl.value = String(cfg.aka.on ? (cfg.aka.passingGrade !== undefined ? cfg.aka.passingGrade : 61) : 61);
+      populateCatRegAkademikSubtests(jalurVal, cfg.aka.on ? cfg.aka.subtests : null, opts.akaBySub);
+    }
+
+    function populateCatRegAkademikSubtests(jalurVal, savedSubtests, akaBySubOverride) {
+      var spec = getAkademikJalurSpec(jalurVal);
+      var akaMap = akaBySubOverride || getCatRegistrationOptionsFromSoalList().akaBySub || {};
+      var subs = savedSubtests ? sanitizeAkademikSubtestsLocal(savedSubtests) : null;
+      var defs = createDefaultAkademikSubtestsLocal();
+
+      var lblBahasa = document.getElementById('catRegAkaLabelBAHASA');
+      if (lblBahasa) {
+        lblBahasa.textContent = (spec.label === 'Bintara') ? '2. Bahasa Inggris (Bintara)' : ('2. Bahasa Indonesia (' + spec.label + ')');
+      }
+
+      for (var i = 0; i < spec.subtests.length; i++) {
+        var st = spec.subtests[i];
+        var k = st.key;
+        var items = akaMap[st.subKat] || [];
+        var sel = document.getElementById('catRegAkaSoal_' + k);
+        var durEl = document.getElementById('catRegAkaDurasi_' + k);
+        var poinEl = document.getElementById('catRegAkaPoin_' + k);
+        var bobotEl = document.getElementById('catRegAkaBobot_' + k);
+        var curCfg = subs ? subs[k] : defs[k];
+        var selectedId = curCfg ? String(curCfg.soalId || '') : '';
+
+        if (sel) {
+          if (items.length === 0) {
+            sel.innerHTML = '<option value="">Otomatis / Belum ada paket ' + escapeHtml(st.label) + ' di Bank Soal</option>';
+            sel.value = '';
+          } else {
+            var html = '<option value="">-- Otomatis (Paket Pertama Tersedia) --</option>';
+            var matched = false;
+            for (var j = 0; j < items.length; j++) {
+              if (selectedId && String(items[j].id) === selectedId) matched = true;
+              html += '<option value="' + escapeHtml(items[j].id) + '">' + escapeHtml(items[j].label) + '</option>';
+            }
+            sel.innerHTML = html;
+            if (matched && selectedId) {
+              sel.value = selectedId;
+            } else {
+              sel.value = items[0].id;
+            }
+          }
+        }
+
+        if (subs) {
+          if (durEl) durEl.value = String(curCfg.durasi || 60);
+          if (poinEl) poinEl.value = String(curCfg.poin || st.defaultPoin);
+          if (bobotEl) bobotEl.value = String(curCfg.bobot !== undefined ? curCfg.bobot : st.defaultBobot);
+        } else {
+          var chosenId = sel ? String(sel.value || '') : '';
+          var chosenObj = chosenId ? findActiveSoalByIdCached(chosenId) : null;
+          var isAkaSrc = !!(chosenObj && parseSoalKategoriMeta(chosenObj.kategori).main === 'AKADEMIK');
+          var chosenMeta = (chosenObj && isAkaSrc) ? getCatPgMeta(chosenObj) : null;
+          if (durEl) durEl.value = String((chosenMeta && chosenMeta.durasiMenit) ? chosenMeta.durasiMenit : st.defaultDurasi);
+          if (poinEl) poinEl.value = String((chosenMeta && chosenMeta.poinPerSoal) ? chosenMeta.poinPerSoal : st.defaultPoin);
+          if (bobotEl) bobotEl.value = String((chosenMeta && chosenMeta.bobotSubtes !== undefined) ? chosenMeta.bobotSubtes : st.defaultBobot);
+        }
+      }
+
+      updateCatRegAkademikLiveReadout();
+    }
+
+    function onCatRegAkaJalurChange() {
+      var jalurEl = document.getElementById('catRegAkaJalur');
+      var jalur = sanitizeAkademikJalurLocal(jalurEl ? jalurEl.value : 'AKPOL');
+      var currentDraft = collectCatRegAkademikSubtestsFromForm();
+      // Reset soalId pada slot BAHASA saat ganti jalur agar menyesuaikan B. Indonesia vs B. Inggris
+      if (currentDraft && currentDraft.BAHASA) currentDraft.BAHASA.soalId = '';
+      populateCatRegAkademikSubtests(jalur, currentDraft);
+    }
+
+    function onCatRegAkaSoalSelected(subKey) {
+      var sel = document.getElementById('catRegAkaSoal_' + subKey);
+      if (!sel || !sel.value) return;
+      var sObj = findActiveSoalByIdCached(sel.value);
+      if (!sObj) return;
+      // Jangan timpa durasi/poin/bobot Akademik (60m / 2 / 20%) jika Admin memilih paket sumber dari SKD - TWK
+      if (parseSoalKategoriMeta(sObj.kategori).main !== 'AKADEMIK') {
+        updateCatRegAkademikLiveReadout();
+        return;
+      }
+      var cMeta = getCatPgMeta(sObj);
+      var durEl = document.getElementById('catRegAkaDurasi_' + subKey);
+      var poinEl = document.getElementById('catRegAkaPoin_' + subKey);
+      var bobotEl = document.getElementById('catRegAkaBobot_' + subKey);
+      if (durEl && cMeta.durasiMenit) durEl.value = String(cMeta.durasiMenit);
+      if (poinEl && cMeta.poinPerSoal) poinEl.value = String(cMeta.poinPerSoal);
+      if (bobotEl && cMeta.bobotSubtes !== undefined) bobotEl.value = String(cMeta.bobotSubtes);
+      updateCatRegAkademikLiveReadout();
+    }
+
+    function resetCatRegAkademikDefaults() {
+      var defs = createDefaultAkademikSubtestsLocal();
+      for (var i = 0; i < AKADEMIK_SUBTEST_KEYS.length; i++) {
+        var k = AKADEMIK_SUBTEST_KEYS[i];
+        var d = defs[k];
+        var durEl = document.getElementById('catRegAkaDurasi_' + k);
+        var poinEl = document.getElementById('catRegAkaPoin_' + k);
+        var bobotEl = document.getElementById('catRegAkaBobot_' + k);
+        if (durEl) durEl.value = String(d.durasi);
+        if (poinEl) poinEl.value = String(d.poin);
+        if (bobotEl) bobotEl.value = String(d.bobot);
+      }
+      var pgEl = document.getElementById('catRegAkaPassingGrade');
+      if (pgEl) pgEl.value = '61';
+      updateCatRegAkademikLiveReadout();
+      showToast('Pengaturan poin, bobot & durasi Akademik dikembalikan ke bawaan standar (60 menit).', 'info');
+    }
+
+    function updateCatRegAkademikLiveReadout() {
+      var totalBobot = 0;
+      for (var i = 0; i < AKADEMIK_SUBTEST_KEYS.length; i++) {
+        var k = AKADEMIK_SUBTEST_KEYS[i];
+        var poinEl = document.getElementById('catRegAkaPoin_' + k);
+        var bobotEl = document.getElementById('catRegAkaBobot_' + k);
+        var effEl = document.getElementById('catRegAkaEff_' + k);
+        var pVal = poinEl ? (parseFloat(poinEl.value) || 0) : 0;
+        var bVal = bobotEl ? (parseFloat(bobotEl.value) || 0) : 0;
+        totalBobot += bVal;
+        var eff = pVal * (bVal / 100);
+        if (effEl) {
+          effEl.textContent = 'Efektif: ' + formatDecimalId(eff, 3) + ' / benar';
+        }
+      }
+      var totalBadge = document.getElementById('catRegAkaTotalBobotBadge');
+      if (totalBadge) {
+        var roundedTotal = Number(totalBobot.toFixed(2));
+        totalBadge.textContent = 'Total Bobot: ' + formatDecimalId(roundedTotal, 2) + '%';
+        if (Math.abs(roundedTotal - 100) < 0.01) {
+          totalBadge.className = 'px-2.5 py-0.5 rounded-full bg-emerald-600 text-white text-[11px] font-extrabold font-cat-mono';
+        } else {
+          totalBadge.className = 'px-2.5 py-0.5 rounded-full bg-amber-500 text-white text-[11px] font-extrabold font-cat-mono';
+        }
+      }
+    }
+
+    function collectCatRegAkademikSubtestsFromForm() {
+      var defs = createDefaultAkademikSubtestsLocal();
+      var out = {};
+      for (var i = 0; i < AKADEMIK_SUBTEST_KEYS.length; i++) {
+        var k = AKADEMIK_SUBTEST_KEYS[i];
+        var d = defs[k];
+        var sel = document.getElementById('catRegAkaSoal_' + k);
+        var durEl = document.getElementById('catRegAkaDurasi_' + k);
+        var poinEl = document.getElementById('catRegAkaPoin_' + k);
+        var bobotEl = document.getElementById('catRegAkaBobot_' + k);
+        var dur = durEl ? (parseInt(durEl.value, 10) || d.durasi) : d.durasi;
+        var poin = poinEl ? (parseFloat(poinEl.value) || d.poin) : d.poin;
+        var bobot = bobotEl ? parseFloat(bobotEl.value) : d.bobot;
+        if (isNaN(bobot)) bobot = d.bobot;
+        out[k] = {
+          soalId: sel ? sanitizeCatSoalIdLocal(sel.value) : '',
+          durasi: Math.min(300, Math.max(1, dur)),
+          poin: Number(Math.min(100, Math.max(0.05, poin)).toFixed(4)),
+          bobot: Number(Math.min(100, Math.max(0, bobot)).toFixed(2))
+        };
+      }
+      return out;
     }
 
     function openUserModal() {
@@ -8465,6 +9409,20 @@
             cfg: cfg
           });
         }
+        if (cfg.aka.on) {
+          var akaSpecRow = getAkademikJalurSpec(cfg.aka.jalur);
+          rows.push({
+            userId: String(u.id || ''),
+            username: String(u.username || ''),
+            nama: String(u.nama || u.username || ''),
+            tujuan: cfg.aka.tujuan || String(u.cabang || '-'),
+            tanggal: cfg.aka.tanggal || '',
+            jenis: 'AKADEMIK',
+            jenisLabel: 'Akademik (' + akaSpecRow.label + ')',
+            paketSummary: describeAkademikAssignedSummary(cfg.aka),
+            cfg: cfg
+          });
+        }
       }
       rows.sort(function (a, b) {
         var da = a.tanggal || '0000-00-00';
@@ -8547,7 +9505,9 @@
         var no = startIdx + k + 1;
         var jenisBadge = row.jenis === 'PSIKOLOGI'
           ? '<span class="px-2.5 py-0.5 rounded-full bg-indigo-100 text-indigo-800 text-[11px] font-extrabold">Psikologi</span>'
-          : '<span class="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 text-[11px] font-extrabold">SKD</span>';
+          : (row.jenis === 'AKADEMIK'
+            ? '<span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-extrabold">' + escapeHtml(row.jenisLabel || 'Akademik') + '</span>'
+            : '<span class="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 text-[11px] font-extrabold">SKD</span>');
         var isRowExp = row.tanggal ? isCatScheduleExpiredLocal(row.tanggal) : false;
         var tglDisp = row.tanggal
           ? ('<div>' + escapeHtml(row.tanggal) + '</div>' +
@@ -8636,6 +9596,8 @@
       var jenisSel = document.getElementById('catRegJenisSelect');
       var psiWrap = document.getElementById('catRegPsiConfigWrap');
       var skdWrap = document.getElementById('catRegSkdConfigWrap');
+      var akaWrap = document.getElementById('catRegAkaConfigWrap');
+      var modalBox = document.getElementById('modalAdminCatRegBox');
       var jenis = jenisSel ? String(jenisSel.value || '').toUpperCase() : '';
       if (psiWrap) {
         if (jenis === 'PSIKOLOGI') psiWrap.classList.remove('hidden');
@@ -8644,6 +9606,23 @@
       if (skdWrap) {
         if (jenis === 'SKD') skdWrap.classList.remove('hidden');
         else skdWrap.classList.add('hidden');
+      }
+      if (akaWrap) {
+        if (jenis === 'AKADEMIK') {
+          akaWrap.classList.remove('hidden');
+          updateCatRegAkademikLiveReadout();
+        } else {
+          akaWrap.classList.add('hidden');
+        }
+      }
+      if (modalBox) {
+        if (jenis === 'AKADEMIK') {
+          modalBox.classList.remove('max-w-lg');
+          modalBox.classList.add('max-w-2xl');
+        } else {
+          modalBox.classList.remove('max-w-2xl');
+          modalBox.classList.add('max-w-lg');
+        }
       }
     }
 
@@ -8721,7 +9700,7 @@
         userSel.value = key;
         userSel.disabled = true;
       }
-      var node = (jUp === 'SKD') ? cfg.skd : cfg.psi;
+      var node = (jUp === 'SKD') ? cfg.skd : (jUp === 'AKADEMIK' ? cfg.aka : cfg.psi);
       if (tujuanSel) {
         var validTujuanList = ['Konsultasi', 'Seleksi dan Penempatan', 'Pemetaan'];
         tujuanSel.value = (validTujuanList.indexOf(node.tujuan) !== -1) ? node.tujuan : '';
@@ -8767,8 +9746,8 @@
         showToast('Silakan pilih Tanggal Tes terlebih dahulu.', 'error');
         return;
       }
-      if (jenisVal !== 'PSIKOLOGI' && jenisVal !== 'SKD') {
-        showToast('Silakan pilih Jenis Tes (Psikologi atau SKD).', 'error');
+      if (jenisVal !== 'PSIKOLOGI' && jenisVal !== 'SKD' && jenisVal !== 'AKADEMIK') {
+        showToast('Silakan pilih Jenis Tes (Psikologi, SKD, atau Akademik).', 'error');
         return;
       }
 
@@ -8788,8 +9767,25 @@
             kecermatan: kcmEl ? sanitizeCatSoalIdLocal(kcmEl.value) : ''
           }
         };
+      } else if (jenisVal === 'AKADEMIK') {
+        var jalurEl = document.getElementById('catRegAkaJalur');
+        var akaPgEl = document.getElementById('catRegAkaPassingGrade');
+        var akaPgVal = akaPgEl ? parseFloat(akaPgEl.value) : 61;
+        if (isNaN(akaPgVal) || akaPgVal < 0 || akaPgVal > 100) akaPgVal = 61;
+        payloadObj = {
+          mode: 'MERGE_AKA',
+          aka: {
+            on: true,
+            jalur: sanitizeAkademikJalurLocal(jalurEl ? jalurEl.value : 'AKPOL'),
+            tanggal: tglVal,
+            tujuan: tujuanVal,
+            passingGrade: Number(akaPgVal.toFixed(2)),
+            subtests: collectCatRegAkademikSubtestsFromForm()
+          }
+        };
       } else {
         var skdEl = document.getElementById('catRegSkdPaket');
+        var skdTwkEl = document.getElementById('catRegSkdTwkSoal');
         var skdRaw = skdEl ? String(skdEl.value || '1|') : '1|';
         var skdParts = skdRaw.split('|');
         payloadObj = {
@@ -8799,7 +9795,8 @@
             tanggal: tglVal,
             tujuan: tujuanVal,
             paketNo: Math.max(1, parseInt(skdParts[0], 10) || 1),
-            soalId: sanitizeCatSoalIdLocal(skdParts[1] || '')
+            soalId: sanitizeCatSoalIdLocal(skdParts[1] || ''),
+            twkSoalId: skdTwkEl ? sanitizeCatSoalIdLocal(skdTwkEl.value) : ''
           }
         };
       }
@@ -8885,9 +9882,10 @@
         nama: String(nama || username || ''),
         jenis: jUp
       };
+      var jLblDel = jUp === 'SKD' ? 'SKD' : (jUp === 'AKADEMIK' ? 'Akademik' : 'Psikologi');
       var descEl = document.getElementById('deleteCatRegConfirmDesc');
       if (descEl) {
-        descEl.textContent = 'Hapus pendaftaran Ujian CAT ' + (jUp === 'SKD' ? 'SKD' : 'Psikologi') + ' untuk peserta "' + pendingDeleteCatReg.nama + '"? Akses ujian tersebut pada Bagian 3 peserta akan ditutup kembali.';
+        descEl.textContent = 'Hapus pendaftaran Ujian CAT ' + jLblDel + ' untuk peserta "' + pendingDeleteCatReg.nama + '"? Akses ujian tersebut pada Bagian 3 peserta akan ditutup kembali.';
       }
       var modal = document.getElementById('modalConfirmDeleteCatReg');
       if (modal) modal.classList.remove('hidden');
@@ -8902,7 +9900,8 @@
     function executeDeleteCatRegEntry() {
       if (!pendingDeleteCatReg) return;
       var target = pendingDeleteCatReg;
-      var mode = target.jenis === 'SKD' ? 'REMOVE_SKD' : 'REMOVE_PSI';
+      var mode = target.jenis === 'SKD' ? 'REMOVE_SKD' : (target.jenis === 'AKADEMIK' ? 'REMOVE_AKA' : 'REMOVE_PSI');
+      var jLblToast = target.jenis === 'SKD' ? 'SKD' : (target.jenis === 'AKADEMIK' ? 'Akademik' : 'Psikologi');
       var payloadStr = JSON.stringify({ mode: mode });
       var btn = document.getElementById('btnConfirmDeleteCatReg');
       if (btn) btn.disabled = true;
@@ -8921,7 +9920,7 @@
               }
               closeConfirmDeleteCatRegModal();
               renderAdminTestsCatRegTable();
-              showToast('Pendaftaran ' + (target.jenis === 'SKD' ? 'SKD' : 'Psikologi') + ' untuk "' + target.nama + '" berhasil dihapus.', 'success');
+              showToast('Pendaftaran ' + jLblToast + ' untuk "' + target.nama + '" berhasil dihapus.', 'success');
             } else {
               showToast((res && res.message) || 'Gagal menghapus pendaftaran CAT.', 'error');
             }
@@ -8936,7 +9935,7 @@
         var resDel = setUserCatRegistrationLocal(target.userId, payloadStr, target.username);
         closeConfirmDeleteCatRegModal();
         if (resDel.success) {
-          showToast('Pendaftaran ' + (target.jenis === 'SKD' ? 'SKD' : 'Psikologi') + ' untuk "' + target.nama + '" berhasil dihapus.', 'success');
+          showToast('Pendaftaran ' + jLblToast + ' untuk "' + target.nama + '" berhasil dihapus.', 'success');
           loadAdminTestsCatReg(false);
         } else {
           showToast(resDel.message || 'Gagal menghapus pendaftaran.', 'error');
@@ -9335,6 +10334,7 @@
         { key: 'ALL', label: 'Semua' },
         { key: 'PSIKOLOGI', label: 'PSIKOLOGI' },
         { key: 'SKD', label: 'SKD' },
+        { key: 'AKADEMIK', label: 'AKADEMIK' },
         { key: 'LATIHAN KECERMATAN', label: 'LATIHAN KECERMATAN' }
       ];
 
@@ -9354,7 +10354,7 @@
       }
       mainBar.innerHTML = mHtml;
 
-      if (adminSoalFilterState.main === 'PSIKOLOGI' || adminSoalFilterState.main === 'SKD') {
+      if (adminSoalFilterState.main === 'PSIKOLOGI' || adminSoalFilterState.main === 'SKD' || adminSoalFilterState.main === 'AKADEMIK') {
         var subList = SOAL_CATEGORY_TREE[adminSoalFilterState.main] || [];
         var sHtml = '<button type="button" onclick="setAdminSoalSubFilter(\'ALL\')" class="' +
           (adminSoalFilterState.sub === 'ALL'
@@ -9430,11 +10430,17 @@
 
         if (isCatRow) {
           var cMeta = getCatPgMeta(s);
+          var rowKatMeta = parseSoalKategoriMeta(s.kategori);
           jumlahDisplay = cMeta.totalButir + ' Butir';
-          modeBadgeHtml = '<span class="px-2 py-0.5 rounded bg-indigo-100 text-indigo-800 font-bold text-xs">CAT PG (A\u2013E)</span>';
+          modeBadgeHtml = rowKatMeta.main === 'AKADEMIK'
+            ? '<span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold text-xs">CAT AKADEMIK</span>'
+            : '<span class="px-2 py-0.5 rounded bg-indigo-100 text-indigo-800 font-bold text-xs">CAT PG (A\u2013E)</span>';
+          var akaExtraInfo = (rowKatMeta.main === 'AKADEMIK' && cMeta.poinPerSoal !== undefined)
+            ? (' \u2022 ' + formatDecimalId(cMeta.poinPerSoal, 2) + ' Poin \u2022 Bobot ' + formatDecimalId(cMeta.bobotSubtes || 0, 1) + '%')
+            : (' \u2022 PG: ' + cMeta.passingGrade);
           poolHtml = '<div class="flex items-center gap-1.5 flex-wrap">' +
-            '<span class="px-2 py-0.5 rounded-full bg-indigo-600 text-white text-[10px] font-extrabold">Paket ' + cMeta.paketNo + '</span>' +
-            '<span class="text-[11px] font-semibold text-slate-600">' + cMeta.durasiMenit + ' Menit \u2022 PG: ' + cMeta.passingGrade + '</span>' +
+            '<span class="px-2 py-0.5 rounded-full ' + (rowKatMeta.main === 'AKADEMIK' ? 'bg-emerald-600' : 'bg-indigo-600') + ' text-white text-[10px] font-extrabold">Paket ' + cMeta.paketNo + '</span>' +
+            '<span class="text-[11px] font-semibold text-slate-600">' + cMeta.durasiMenit + ' Menit' + akaExtraInfo + '</span>' +
             '</div>';
           extraActionBtn = '<button type="button" data-idx="' + origIdx + '" onclick="openCatQuestionsBySoalIndex(this.getAttribute(\'data-idx\'))" class="px-2.5 py-1 rounded bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold cursor-pointer">Kelola Soal</button>';
         } else if (isImageBasedModeKey(modeUpper)) {
@@ -10233,11 +11239,19 @@
           hintEl.innerHTML = 'Tersimpan pada: <strong class="text-blue-700">LATIHAN KECERMATAN</strong> (tampil pada daftar seluruh soal kecermatan).';
         } else if (composed === 'PSIKOLOGI - KECERMATAN') {
           hintEl.innerHTML = 'Tersimpan pada: <strong class="text-indigo-700">PSIKOLOGI - KECERMATAN</strong> (juga otomatis tampil di kategori Latihan Kecermatan).';
+        } else if (composed === 'SKD - TWK' || composed === 'AKADEMIK - TWK') {
+          hintEl.innerHTML = 'Tersimpan pada: <strong class="text-emerald-700">' + escapeHtml(composed) + '</strong> \u2014 Lintas pakai: otomatis bisa digunakan untuk <strong>Ujian CAT SKD</strong> (ikut penilaian SKD) maupun <strong>Ujian CAT Akademik</strong> (ikut penilaian Akademik).';
         } else if (isCatCat) {
           hintEl.innerHTML = 'Tersimpan pada: <strong class="text-indigo-700">' + escapeHtml(composed) + '</strong> \u2014 Mode otomatis <strong class="text-indigo-700">CAT Pilihan Ganda (A\u2013E)</strong>.';
         } else {
           hintEl.innerHTML = 'Tersimpan pada: <strong class="text-slate-700">' + escapeHtml(composed) + '</strong>.';
         }
+      }
+
+      var akaScoringWrap = document.getElementById('catAkademikScoringWrap');
+      if (akaScoringWrap) {
+        if (mainVal === 'AKADEMIK') akaScoringWrap.classList.remove('hidden');
+        else akaScoringWrap.classList.add('hidden');
       }
 
       if (!skipModeAuto && modeSel) {
@@ -10251,6 +11265,12 @@
             if (pNoEl) pNoEl.value = String(getNextCatPaketNo(composed));
             if (durEl) durEl.value = String(defs.durasiMenit);
             if (pgEl) pgEl.value = String(defs.passingGrade);
+            if (mainVal === 'AKADEMIK') {
+              var poinElA = document.getElementById('formCatPoinPerSoal');
+              var bobotElA = document.getElementById('formCatBobotSubtes');
+              if (poinElA) poinElA.value = String(defs.poinPerSoal !== undefined ? defs.poinPerSoal : 2);
+              if (bobotElA) bobotElA.value = String(defs.bobotSubtes !== undefined ? defs.bobotSubtes : 20);
+            }
           }
           onSoalModeChange();
         } else if (isCatPgModeKey(modeSel.value)) {
@@ -10259,7 +11279,22 @@
         }
       }
 
+      if (mainVal === 'AKADEMIK') {
+        updateSoalModalAkademikEffective();
+      }
+
       return composed;
+    }
+
+    function updateSoalModalAkademikEffective() {
+      var poinEl = document.getElementById('formCatPoinPerSoal');
+      var bobotEl = document.getElementById('formCatBobotSubtes');
+      var effBadge = document.getElementById('formCatEffectiveVal');
+      if (!effBadge) return;
+      var p = poinEl ? (parseFloat(poinEl.value) || 0) : 0;
+      var b = bobotEl ? (parseFloat(bobotEl.value) || 0) : 0;
+      var eff = p * (b / 100);
+      effBadge.textContent = 'Nilai Efektif: ' + formatDecimalId(eff, 3) + ' poin / benar';
     }
 
     // ========================================================================
@@ -12126,7 +13161,7 @@
 
       var defaultMain = 'LATIHAN KECERMATAN';
       var defaultSub = 'SEMUA';
-      if (adminSoalFilterState && (adminSoalFilterState.main === 'PSIKOLOGI' || adminSoalFilterState.main === 'SKD')) {
+      if (adminSoalFilterState && (adminSoalFilterState.main === 'PSIKOLOGI' || adminSoalFilterState.main === 'SKD' || adminSoalFilterState.main === 'AKADEMIK')) {
         defaultMain = adminSoalFilterState.main;
         defaultSub = (adminSoalFilterState.sub && adminSoalFilterState.sub !== 'ALL')
           ? adminSoalFilterState.sub
@@ -12160,7 +13195,7 @@
       var kMeta = parseSoalKategoriMeta(s.kategori);
       var mainSel = document.getElementById('formSoalKategoriUtama');
       if (mainSel) {
-        if (kMeta.main === 'PSIKOLOGI' || kMeta.main === 'SKD' || kMeta.main === 'LATIHAN KECERMATAN') {
+        if (kMeta.main === 'PSIKOLOGI' || kMeta.main === 'SKD' || kMeta.main === 'AKADEMIK' || kMeta.main === 'LATIHAN KECERMATAN') {
           mainSel.value = kMeta.main;
         } else {
           mainSel.value = 'LATIHAN KECERMATAN';
@@ -12185,6 +13220,13 @@
         if (durEl) durEl.value = String(cMeta.durasiMenit);
         if (pgEl) pgEl.value = String(cMeta.passingGrade);
         if (acakEl) acakEl.checked = !!cMeta.acakSoal;
+        if (kMeta.main === 'AKADEMIK') {
+          var poinEditEl = document.getElementById('formCatPoinPerSoal');
+          var bobotEditEl = document.getElementById('formCatBobotSubtes');
+          if (poinEditEl) poinEditEl.value = String(cMeta.poinPerSoal !== undefined ? cMeta.poinPerSoal : 2);
+          if (bobotEditEl) bobotEditEl.value = String(cMeta.bobotSubtes !== undefined ? cMeta.bobotSubtes : 20);
+          updateSoalModalAkademikEffective();
+        }
       }
 
       var cfg = getSoalImageBuilderConfig(modeUpper);
@@ -12311,6 +13353,18 @@
           totalButir: existingTotalButir,
           acakSoal: acakCheck ? !!acakCheck.checked : false
         };
+        var subKmCheck = parseSoalKategoriMeta(payload.kategori);
+        if (subKmCheck.main === 'AKADEMIK') {
+          var poinSubEl = document.getElementById('formCatPoinPerSoal');
+          var bobotSubEl = document.getElementById('formCatBobotSubtes');
+          var akaDefSubmit = getDefaultCatPgSettings('AKADEMIK', subKmCheck.sub);
+          var pSubmitVal = poinSubEl ? parseFloat(poinSubEl.value) : akaDefSubmit.poinPerSoal;
+          var bSubmitVal = bobotSubEl ? parseFloat(bobotSubEl.value) : akaDefSubmit.bobotSubtes;
+          if (isNaN(pSubmitVal) || pSubmitVal <= 0 || pSubmitVal > 100) pSubmitVal = akaDefSubmit.poinPerSoal || 2;
+          if (isNaN(bSubmitVal) || bSubmitVal < 0 || bSubmitVal > 100) bSubmitVal = akaDefSubmit.bobotSubtes || 20;
+          payload.gambarMeta.poinPerSoal = Number(pSubmitVal.toFixed(4));
+          payload.gambarMeta.bobotSubtes = Number(bSubmitVal.toFixed(2));
+        }
       } else if (isImgMode) {
         if (soalImageBuilderState.loading) {
           showToast('Tunggu sebentar, gambar soal masih dimuat.', 'info');
@@ -13556,7 +14610,7 @@
       var viewExamEl = document.getElementById('viewExam');
       var vLow = String(viewName || appState.currentView || '').toLowerCase();
       var isCatPgActive = (vLow === 'exam' && !!(appState.catExam && appState.catExam.active));
-      var isFullBleed = (vLow === 'psikologihub' || vLow === 'skdhub' || isCatPgActive);
+      var isFullBleed = (vLow === 'psikologihub' || vLow === 'skdhub' || vLow === 'akademikhub' || isCatPgActive);
 
       if (mainEl) {
         if (isFullBleed) {
@@ -13592,7 +14646,7 @@
         renderDisplaySlide();
         startDisplayAutoSlide();
       }
-      var views = ['Prep', 'PsikologiHub', 'SkdHub', 'Exam', 'Result', 'Leaderboard'];
+      var views = ['Prep', 'PsikologiHub', 'SkdHub', 'AkademikHub', 'Exam', 'Result', 'Leaderboard'];
       for (var i = 0; i < views.length; i++) {
         var el = document.getElementById('view' + views[i]);
         if (el) {
@@ -13607,7 +14661,7 @@
       var navbar = document.getElementById('mainNavbar');
       if (navbar) {
         var vLow = String(viewName || '').toLowerCase();
-        if (vLow === 'exam' || vLow === 'psikologihub' || vLow === 'skdhub') navbar.classList.add('hidden');
+        if (vLow === 'exam' || vLow === 'psikologihub' || vLow === 'skdhub' || vLow === 'akademikhub') navbar.classList.add('hidden');
         else navbar.classList.remove('hidden');
       }
 
@@ -13944,8 +14998,8 @@
     }
 
     function startSelectedCatExam() {
-      if (appState.prepExamTarget !== 'CAT_PSIKOLOGI' && appState.prepExamTarget !== 'CAT_SKD') {
-        showToast('Silakan pilih Ujian CAT Psikologi atau Ujian CAT SKD terlebih dahulu.', 'error');
+      if (appState.prepExamTarget !== 'CAT_PSIKOLOGI' && appState.prepExamTarget !== 'CAT_SKD' && appState.prepExamTarget !== 'CAT_AKADEMIK') {
+        showToast('Silakan pilih Ujian CAT Psikologi, SKD, atau Akademik terlebih dahulu.', 'error');
         return;
       }
       startSimulation();
@@ -13955,7 +15009,8 @@
       if (appState.isStartingExam) return;
       var isCatExamFlow = !!appState.psikologiLaunchingSubTest ||
         appState.prepExamTarget === 'CAT_PSIKOLOGI' ||
-        appState.prepExamTarget === 'CAT_SKD';
+        appState.prepExamTarget === 'CAT_SKD' ||
+        appState.prepExamTarget === 'CAT_AKADEMIK';
       if (!isCatExamFlow && checkIfCurrentUserLocked()) {
         showToast('silahkan hubungi BG DYAN untuk aktifkan tes', 'error');
         updateLockBannerUI(true);
@@ -13998,6 +15053,15 @@
             return;
           }
           openSkdHub();
+          return;
+        }
+        if (appState.prepExamTarget === 'CAT_AKADEMIK') {
+          if (!hasCurrentUserCatAccess('AKADEMIK')) {
+            showToast(getCatDeniedMessageLocal('AKADEMIK'), 'error');
+            renderUserCatExamSection();
+            return;
+          }
+          openAkademikHub();
           return;
         }
         // Mode aktif = KECERMATAN (Bagian 2): pastikan paket kecermatan aktif terpasang
@@ -15182,6 +16246,539 @@
       switchView('prep');
     }
 
+    // ============================================================================
+    // PORTAL & ENGINE UJIAN CAT AKADEMIK (AKPOL / BINTARA / TAMTAMA — 5 SUB-TES)
+    // ============================================================================
+    function getAkademikSessionStorageKey(akaCfg) {
+      var uname = (appState.loggedInUser && appState.loggedInUser.username) ? String(appState.loggedInUser.username).toLowerCase() : 'guest';
+      var jalur = sanitizeAkademikJalurLocal(akaCfg && akaCfg.jalur);
+      var tgl = (akaCfg && akaCfg.tanggal) ? String(akaCfg.tanggal) : 'flex';
+      return 'sipaling_aka_sess_' + uname + '_' + jalur + '_' + tgl;
+    }
+
+    function loadAkademikSessionResults(akaCfg) {
+      var key = getAkademikSessionStorageKey(akaCfg);
+      try {
+        var raw = sessionStorage.getItem(key);
+        if (raw) {
+          var parsed = JSON.parse(raw);
+          if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+            return parsed;
+          }
+        }
+      } catch (e) { }
+      return {};
+    }
+
+    function saveAkademikSessionResults(akaCfg, resMap) {
+      var key = getAkademikSessionStorageKey(akaCfg);
+      try {
+        sessionStorage.setItem(key, JSON.stringify(resMap || {}));
+      } catch (e) { }
+    }
+
+    function computeAkademikSubtestScore(questions, answersMap, poinPerSoal, bobotSubtes) {
+      var qList = Array.isArray(questions) ? questions : [];
+      var ans = (answersMap && typeof answersMap === 'object') ? answersMap : {};
+      var poin = parseFloat(poinPerSoal);
+      if (isNaN(poin) || poin <= 0) poin = 2;
+      var bobot = parseFloat(bobotSubtes);
+      if (isNaN(bobot) || bobot < 0) bobot = 20;
+
+      var totalSoal = qList.length;
+      var totalDijawab = 0;
+      var totalBenar = 0;
+      var totalSalah = 0;
+      var totalKosong = 0;
+      var breakdownRows = [];
+
+      for (var i = 0; i < totalSoal; i++) {
+        var q = qList[i];
+        var opsiArr = Array.isArray(q.opsi) ? q.opsi : [];
+        var pickKey = ans[q.id] || '';
+        var pickWeight = 0;
+        var bestWeight = -Infinity;
+        var bestKey = 'A';
+
+        for (var o = 0; o < opsiArr.length; o++) {
+          var b = parseFloat(opsiArr[o].bobot);
+          if (isNaN(b)) b = 0;
+          if (b > bestWeight) {
+            bestWeight = b;
+            bestKey = opsiArr[o].key || ['A', 'B', 'C', 'D', 'E'][o];
+          }
+          if (pickKey && String(opsiArr[o].key || '').toUpperCase() === pickKey) {
+            pickWeight = b;
+          }
+        }
+        if (bestWeight === -Infinity) bestWeight = 0;
+
+        var isCorrect = false;
+        if (!pickKey) {
+          totalKosong++;
+        } else {
+          totalDijawab++;
+          if (bestWeight > 0 && pickWeight >= bestWeight) {
+            isCorrect = true;
+            totalBenar++;
+          } else {
+            totalSalah++;
+          }
+        }
+
+        breakdownRows.push({
+          no: i + 1,
+          origNo: q.nomor || (i + 1),
+          pick: pickKey || '-',
+          weight: isCorrect ? Number(poin.toFixed(4)) : 0,
+          maxW: Number(poin.toFixed(4)),
+          bestOpt: bestKey,
+          pemb: String(q.pembahasan || '').substring(0, 220)
+        });
+      }
+
+      var nilaiEfektif = Number((poin * (bobot / 100)).toFixed(4));
+      var skorSubtes = Number((totalBenar * poin).toFixed(2));
+      var maxSkorSubtes = Number((totalSoal * poin).toFixed(2));
+      var kontribusi = Number((totalBenar * poin * (bobot / 100)).toFixed(2));
+      var maxKontribusi = Number((totalSoal * poin * (bobot / 100)).toFixed(2));
+      var akurasi = totalSoal > 0 ? Number(((totalBenar / totalSoal) * 100).toFixed(1)) : 0;
+
+      return {
+        totalSoal: totalSoal,
+        totalDijawab: totalDijawab,
+        totalBenar: totalBenar,
+        totalSalah: totalSalah,
+        totalKosong: totalKosong,
+        poinPerSoal: Number(poin.toFixed(4)),
+        bobotSubtes: Number(bobot.toFixed(2)),
+        nilaiEfektif: nilaiEfektif,
+        skorSubtes: skorSubtes,
+        maxSkorSubtes: maxSkorSubtes,
+        kontribusi: kontribusi,
+        maxKontribusi: maxKontribusi,
+        akurasi: akurasi,
+        answers: breakdownRows
+      };
+    }
+
+    function computeAkademikCombinedSummary(jalur, akaCfg, resultsMap) {
+      var spec = getAkademikJalurSpec(jalur);
+      var subsCfg = (akaCfg && akaCfg.subtests) ? akaCfg.subtests : createDefaultAkademikSubtestsLocal();
+      var resMap = (resultsMap && typeof resultsMap === 'object') ? resultsMap : {};
+      var passingGrade = (akaCfg && akaCfg.passingGrade !== undefined) ? (parseFloat(akaCfg.passingGrade) || 61) : 61;
+
+      var rows = [];
+      var completedCount = 0;
+      var totalBobot = 0;
+      var totalSkorAkhir = 0;
+      var totalMaxAkhir = 0;
+      var totalSoalAll = 0;
+      var totalDijawabAll = 0;
+      var totalBenarAll = 0;
+      var totalSalahAll = 0;
+      var totalKosongAll = 0;
+      var totalDurasiAll = 0;
+
+      for (var i = 0; i < spec.subtests.length; i++) {
+        var st = spec.subtests[i];
+        var cfg = subsCfg[st.key] || { soalId: '', poin: st.defaultPoin, bobot: st.defaultBobot, durasi: st.defaultDurasi };
+        var done = resMap[st.key] || null;
+        var poin = done ? Number(done.poinPerSoal) : Number(cfg.poin || st.defaultPoin);
+        var bobot = done ? Number(done.bobotSubtes) : Number(cfg.bobot !== undefined ? cfg.bobot : st.defaultBobot);
+        var durasi = done ? Number(done.durasiMenit || cfg.durasi || 60) : Number(cfg.durasi || st.defaultDurasi || 60);
+        var nilaiEfektif = Number((poin * (bobot / 100)).toFixed(4));
+        var skorSubtes = done ? Number(done.skorSubtes || 0) : 0;
+        var kontribusi = done ? Number(done.kontribusi || 0) : 0;
+        var soalCount = done ? Number(done.totalSoal || 0) : st.defaultSoal;
+        var maxKontr = Number((soalCount * poin * (bobot / 100)).toFixed(2));
+
+        if (done) {
+          completedCount++;
+          totalSoalAll += Number(done.totalSoal || 0);
+          totalDijawabAll += Number(done.totalDijawab || 0);
+          totalBenarAll += Number(done.totalBenar || 0);
+          totalSalahAll += Number(done.totalSalah || 0);
+          totalKosongAll += Number(done.totalKosong || 0);
+        }
+        totalDurasiAll += durasi;
+        totalBobot += bobot;
+        totalSkorAkhir += kontribusi;
+        totalMaxAkhir += maxKontr;
+
+        rows.push({
+          key: st.key,
+          label: st.label,
+          subKat: st.subKat,
+          done: !!done,
+          soalId: done ? String(done.soalId || cfg.soalId || '') : String(cfg.soalId || ''),
+          soalNama: done ? String(done.soalNama || st.label) : '',
+          durasiMenit: durasi,
+          totalSoal: done ? Number(done.totalSoal || 0) : 0,
+          totalDijawab: done ? Number(done.totalDijawab || 0) : 0,
+          totalBenar: done ? Number(done.totalBenar || 0) : 0,
+          totalSalah: done ? Number(done.totalSalah || 0) : 0,
+          totalKosong: done ? Number(done.totalKosong || 0) : 0,
+          poinPerSoal: poin,
+          bobotSubtes: bobot,
+          nilaiEfektif: nilaiEfektif,
+          skorSubtes: Number(skorSubtes.toFixed(2)),
+          kontribusi: Number(kontribusi.toFixed(2))
+        });
+      }
+
+      totalSkorAkhir = Number(totalSkorAkhir.toFixed(2));
+      totalBobot = Number(totalBobot.toFixed(2));
+      totalMaxAkhir = Number(totalMaxAkhir.toFixed(2));
+      var akurasiAll = totalSoalAll > 0 ? Number(((totalBenarAll / totalSoalAll) * 100).toFixed(1)) : 0;
+      var isLulus = (completedCount > 0 && totalSkorAkhir >= passingGrade);
+
+      return {
+        jalur: sanitizeAkademikJalurLocal(jalur),
+        jalurLabel: spec.label,
+        passingGrade: passingGrade,
+        completedCount: completedCount,
+        totalSubtests: spec.subtests.length,
+        totalBobot: totalBobot,
+        totalDurasiMenit: totalDurasiAll,
+        totalSoal: totalSoalAll,
+        totalDijawab: totalDijawabAll,
+        totalBenar: totalBenarAll,
+        totalSalah: totalSalahAll,
+        totalKosong: totalKosongAll,
+        akurasi: akurasiAll,
+        skorAkhir: totalSkorAkhir,
+        maxScore: totalMaxAkhir > 0 ? totalMaxAkhir : 100,
+        isLulus: isLulus,
+        status: isLulus ? 'LULUS (MEMENUHI SYARAT - MS)' : 'TIDAK LULUS (TMS)',
+        subtests: rows
+      };
+    }
+
+    function resolveAkademikSubtestSoal(subKey, jalur, akaCfg) {
+      var spec = getAkademikJalurSpec(jalur);
+      var stSpec = null;
+      for (var i = 0; i < spec.subtests.length; i++) {
+        if (spec.subtests[i].key === subKey) { stSpec = spec.subtests[i]; break; }
+      }
+      if (!stSpec) return null;
+      var subCfg = (akaCfg && akaCfg.subtests && akaCfg.subtests[subKey]) ? akaCfg.subtests[subKey] : null;
+      if (subCfg && subCfg.soalId) {
+        var direct = findActiveSoalByIdCached(subCfg.soalId);
+        if (direct && isCatPgModeKey(direct.mode)) return direct;
+      }
+      var list = getAllActiveSoalListCached();
+      for (var j = 0; j < list.length; j++) {
+        var it = list[j];
+        if (!isCatPgModeKey(it.mode)) continue;
+        var km = parseSoalKategoriMeta(it.kategori);
+        if (km.main === 'AKADEMIK' && km.sub === stSpec.subKat) return it;
+      }
+      // Lintas pakai TWK: jika AKADEMIK - TWK belum ada, gunakan paket SKD - TWK aktif
+      if (subKey === 'TWK') {
+        for (var k = 0; k < list.length; k++) {
+          var itTwk = list[k];
+          if (!isCatPgModeKey(itTwk.mode)) continue;
+          var kmTwk = parseSoalKategoriMeta(itTwk.kategori);
+          if (kmTwk.main === 'SKD' && kmTwk.sub === 'TWK') return itTwk;
+        }
+      }
+      return null;
+    }
+
+    function buildAkademikScoreTableRowsHtml(rows) {
+      var list = Array.isArray(rows) ? rows : [];
+      var html = '';
+      for (var i = 0; i < list.length; i++) {
+        var r = list[i];
+        var statusCell = r.done
+          ? ('<span class="font-cat-mono font-bold text-emerald-700">' + r.totalBenar + '</span> / <span class="font-cat-mono text-slate-600">' + r.totalSoal + '</span>')
+          : '<span class="text-[11px] italic text-slate-400">Belum</span>';
+        html += '<tr class="hover:bg-slate-50/70">' +
+          '<td class="py-2.5 px-3 font-bold text-slate-900">' + (i + 1) + '. ' + escapeHtml(r.label) + '</td>' +
+          '<td class="py-2.5 px-2.5 text-center font-cat-mono text-slate-600">' + (r.durasiMenit || 60) + ' mnt</td>' +
+          '<td class="py-2.5 px-2.5 text-center">' + statusCell + '</td>' +
+          '<td class="py-2.5 px-2.5 text-center font-cat-mono font-semibold text-slate-700">' + formatDecimalId(r.poinPerSoal, 3) + '</td>' +
+          '<td class="py-2.5 px-2.5 text-center font-cat-mono font-extrabold ' + (r.done ? 'text-slate-900' : 'text-slate-400') + '">' + (r.done ? Number(r.skorSubtes).toFixed(2) : '\u2014') + '</td>' +
+          '<td class="py-2.5 px-2.5 text-center font-cat-mono font-semibold text-slate-700">' + formatDecimalId(r.bobotSubtes, 2) + '%</td>' +
+          '<td class="py-2.5 px-2.5 text-center font-cat-mono text-emerald-700 font-semibold">' + formatDecimalId(r.nilaiEfektif, 3) + '</td>' +
+          '<td class="py-2.5 px-3 text-right font-cat-mono font-black ' + (r.done ? 'text-emerald-700' : 'text-slate-400') + '">' + (r.done ? Number(r.kontribusi).toFixed(2) : '0.00') + '</td>' +
+          '</tr>';
+      }
+      return html;
+    }
+
+    function renderAkademikHubUI() {
+      var liveCfg = getCurrentUserAksesCatConfig();
+      var akaCfg = liveCfg.aka || createEmptyAkademikCfgLocal();
+      var jalur = sanitizeAkademikJalurLocal(akaCfg.jalur);
+      appState.akademikJalur = jalur;
+      var spec = getAkademikJalurSpec(jalur);
+
+      var summary = computeAkademikCombinedSummary(jalur, akaCfg, appState.akademikSessionResults);
+
+      var jalurBadge = document.getElementById('akaHubJalurBadge');
+      var progBadge = document.getElementById('akaHubProgressBadge');
+      var welcomeEl = document.getElementById('akaHubWelcomeTitle');
+      var subInfoEl = document.getElementById('akaHubSubInfo');
+      var dispName = String(
+        (appState.loggedInUser && appState.loggedInUser.nama)
+          ? appState.loggedInUser.nama
+          : (appState.participantName || 'PESERTA')
+      ).trim().toUpperCase();
+
+      if (jalurBadge) jalurBadge.textContent = 'JALUR ' + spec.label.toUpperCase();
+      if (progBadge) progBadge.textContent = summary.completedCount + ' / ' + summary.totalSubtests + ' Sub-Tes Selesai';
+      if (welcomeEl) welcomeEl.textContent = 'Selamat Datang, ' + (dispName || 'PESERTA');
+      if (subInfoEl) {
+        var tglPrefixA = akaCfg.tanggal ? ('Jadwal: ' + formatCatDateDisplayId(akaCfg.tanggal) + ' \u2022 ') : '';
+        subInfoEl.textContent = tglPrefixA + 'CAT Akademik ' + spec.label + ' (5 Mata Pelajaran \u2022 Ambang Batas \u2265 ' + summary.passingGrade + ')';
+      }
+
+      var listEl = document.getElementById('akaHubSubtestList');
+      if (listEl) {
+        var htmlCards = '';
+        for (var i = 0; i < summary.subtests.length; i++) {
+          var row = summary.subtests[i];
+          var resolvedSoal = resolveAkademikSubtestSoal(row.key, jalur, akaCfg);
+          var hasSoal = !!resolvedSoal;
+          var soalLbl = hasSoal
+            ? (resolvedSoal.namaPaket || row.label)
+            : 'Paket soal belum tersedia di Bank Soal';
+          var statusPill = row.done
+            ? '<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200 text-[10px] font-extrabold">SELESAI \u2022 ' + Number(row.skorSubtes).toFixed(1) + '</span>'
+            : (hasSoal
+              ? '<span class="px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-[10px] font-bold">SIAP DIKERJAKAN</span>'
+              : '<span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-200 text-[10px] font-bold">BELUM ADA SOAL</span>');
+          var btnCls = row.done
+            ? 'w-full py-2.5 px-4 rounded-lg bg-slate-800 hover:bg-slate-900 text-white text-xs font-bold transition-all cursor-pointer'
+            : (hasSoal
+              ? 'w-full py-2.5 px-4 rounded-lg bg-[#4A72D6] hover:bg-[#3B62C4] text-white text-xs font-bold transition-all cursor-pointer'
+              : 'w-full py-2.5 px-4 rounded-lg bg-slate-200 text-slate-500 text-xs font-bold cursor-not-allowed');
+          var btnLabel = row.done ? 'Kerjakan Ulang Sub-Tes' : ('Mulai ' + row.label);
+
+          htmlCards += '<div class="rounded-xl border ' + (row.done ? 'border-emerald-300 bg-emerald-50/30' : 'border-slate-200 bg-white') + ' p-4 shadow-xs flex flex-col justify-between gap-3">' +
+            '<div class="space-y-1.5">' +
+            '<div class="flex items-start justify-between gap-2">' +
+            '<h4 class="text-sm font-extrabold text-slate-900 leading-snug">' + (i + 1) + '. ' + escapeHtml(row.label) + '</h4>' +
+            statusPill +
+            '</div>' +
+            '<p class="text-[11px] text-slate-500 truncate" title="' + escapeHtml(soalLbl) + '">' + escapeHtml(soalLbl) + '</p>' +
+            '<div class="flex flex-wrap items-center gap-1.5 pt-1 text-[11px]">' +
+            '<span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-cat-mono font-bold">' + (row.durasiMenit || 60) + ' Menit</span>' +
+            '<span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-cat-mono font-bold">' + formatDecimalId(row.poinPerSoal, 3) + ' Poin/Soal</span>' +
+            '<span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 font-cat-mono font-bold">Bobot ' + formatDecimalId(row.bobotSubtes, 2) + '%</span>' +
+            '<span class="px-2 py-0.5 rounded bg-teal-50 text-teal-800 font-cat-mono font-bold">Efektif ' + formatDecimalId(row.nilaiEfektif, 3) + '</span>' +
+            '</div>' +
+            (row.done ? ('<p class="text-[11px] font-semibold text-emerald-800 pt-0.5">Benar: <strong>' + row.totalBenar + '/' + row.totalSoal + '</strong> &bull; Skor Subtes: <strong>' + Number(row.skorSubtes).toFixed(2) + '</strong> &bull; Kontribusi: <strong>' + Number(row.kontribusi).toFixed(2) + '</strong></p>') : '') +
+            '</div>' +
+            '<button type="button" data-subkey="' + escapeHtml(row.key) + '" onclick="startAkademikSubTest(this.getAttribute(\'data-subkey\'))" class="' + btnCls + '">' + escapeHtml(btnLabel) + '</button>' +
+            '</div>';
+        }
+        listEl.innerHTML = htmlCards;
+      }
+
+      var tbody = document.getElementById('akaHubScoreTableBody');
+      if (tbody) tbody.innerHTML = buildAkademikScoreTableRowsHtml(summary.subtests);
+
+      var totBobotEl = document.getElementById('akaHubTotalBobotVal');
+      var totScoreEl = document.getElementById('akaHubTotalScoreVal');
+      var stBadge = document.getElementById('akaHubStatusBadge');
+      var btnFinish = document.getElementById('btnAkaHubFinishAll');
+      if (totBobotEl) totBobotEl.textContent = formatDecimalId(summary.totalBobot, 2) + '%';
+      if (totScoreEl) totScoreEl.textContent = Number(summary.skorAkhir).toFixed(2);
+      if (stBadge) {
+        if (summary.completedCount === 0) {
+          stBadge.className = 'px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-slate-200 text-slate-700';
+          stBadge.textContent = 'Belum Ada Sub-Tes Selesai';
+        } else if (summary.isLulus) {
+          stBadge.className = 'px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-emerald-100 text-emerald-800 border border-emerald-300';
+          stBadge.textContent = 'MEMENUHI SYARAT (\u2265 ' + summary.passingGrade + ')';
+        } else {
+          stBadge.className = 'px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-amber-100 text-amber-900 border border-amber-300';
+          stBadge.textContent = 'PROGRES ' + summary.completedCount + '/5 (Target \u2265 ' + summary.passingGrade + ')';
+        }
+      }
+      if (btnFinish) {
+        if (summary.completedCount === 0) {
+          btnFinish.disabled = true;
+          btnFinish.className = 'w-full sm:w-auto sm:min-w-[280px] py-3.5 px-6 rounded-md bg-slate-300 text-slate-500 text-sm sm:text-base font-semibold text-center cursor-not-allowed';
+        } else {
+          btnFinish.disabled = false;
+          btnFinish.className = 'w-full sm:w-auto sm:min-w-[280px] py-3.5 px-6 rounded-md bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white text-sm sm:text-base font-semibold shadow-xs transition-all text-center cursor-pointer';
+        }
+      }
+    }
+
+    function openAkademikHub() {
+      if (!hasCurrentUserCatAccess('AKADEMIK')) {
+        showToast(getCatDeniedMessageLocal('AKADEMIK'), 'error');
+        exitAkademikHubToUserPanel();
+        return;
+      }
+      appState.akademikSessionActive = true;
+      appState.psikologiSessionActive = false;
+      appState.skdSessionActive = false;
+      appState.strictFocusArmed = true;
+      pushAppHistoryGuard(3);
+
+      var liveAkaCfg = getCurrentUserAksesCatConfig().aka;
+      appState.akademikJalur = sanitizeAkademikJalurLocal(liveAkaCfg.jalur);
+      var storedRes = loadAkademikSessionResults(liveAkaCfg);
+      if (storedRes && Object.keys(storedRes).length > 0 && Object.keys(appState.akademikSessionResults || {}).length === 0) {
+        appState.akademikSessionResults = storedRes;
+      }
+
+      renderAkademikHubUI();
+      switchView('akademikHub');
+    }
+
+    function exitAkademikHubToUserPanel() {
+      appState.akademikSessionActive = false;
+      switchView('prep');
+    }
+
+    function startAkademikSubTest(subKey) {
+      if (appState.isStartingExam) return;
+      if (!hasCurrentUserCatAccess('AKADEMIK')) {
+        showToast(getCatDeniedMessageLocal('AKADEMIK'), 'error');
+        exitAkademikHubToUserPanel();
+        return;
+      }
+
+      var liveAkaCfg = getCurrentUserAksesCatConfig().aka;
+      var jalur = sanitizeAkademikJalurLocal(liveAkaCfg.jalur);
+      var spec = getAkademikJalurSpec(jalur);
+      var stSpec = null;
+      for (var i = 0; i < spec.subtests.length; i++) {
+        if (spec.subtests[i].key === subKey) { stSpec = spec.subtests[i]; break; }
+      }
+      if (!stSpec) return;
+
+      var targetSoal = resolveAkademikSubtestSoal(subKey, jalur, liveAkaCfg);
+      if (!targetSoal) {
+        showToast('Paket soal ' + stSpec.label + ' belum tersedia di Bank Soal. Hubungi Admin untuk menambahkan soal.', 'error');
+        return;
+      }
+
+      var subCfg = (liveAkaCfg.subtests && liveAkaCfg.subtests[subKey]) ? liveAkaCfg.subtests[subKey] : null;
+      var isAkaSource = (parseSoalKategoriMeta(targetSoal.kategori).main === 'AKADEMIK');
+      var cMeta = isAkaSource ? getCatPgMeta(targetSoal) : null;
+      var durasiMenit = (subCfg && subCfg.durasi) ? parseInt(subCfg.durasi, 10) : ((cMeta && cMeta.durasiMenit) ? cMeta.durasiMenit : (stSpec.defaultDurasi || 60));
+      var poinPerSoal = (subCfg && subCfg.poin) ? parseFloat(subCfg.poin) : ((cMeta && cMeta.poinPerSoal) ? cMeta.poinPerSoal : stSpec.defaultPoin);
+      var bobotSubtes = (subCfg && subCfg.bobot !== undefined) ? parseFloat(subCfg.bobot) : ((cMeta && cMeta.bobotSubtes !== undefined) ? cMeta.bobotSubtes : stSpec.defaultBobot);
+      var passingGrade = (liveAkaCfg.passingGrade !== undefined) ? (parseFloat(liveAkaCfg.passingGrade) || 61) : 61;
+
+      appState.selectedSoalId = String(targetSoal.id || '');
+      appState.selectedSoalNama = String(targetSoal.namaPaket || stSpec.label);
+      appState.selectedSoalKategori = 'AKADEMIK ' + spec.label.toUpperCase() + ' \u2022 ' + stSpec.label.toUpperCase();
+      appState.selectedCharMode = 'CAT_PG';
+      appState.selectedSoalMeta = parseGambarMetaObj(targetSoal.gambarMeta);
+      appState.isStartingExam = true;
+
+      showToast('Memuat soal ' + stSpec.label + ' (' + durasiMenit + ' Menit)...', 'info');
+
+      loadCatQuestionsData(
+        targetSoal.id,
+        function (questions) {
+          appState.isStartingExam = false;
+          if (!Array.isArray(questions) || questions.length === 0) {
+            showToast('Paket soal ' + stSpec.label + ' belum memiliki butir soal. Hubungi Admin untuk menambahkan soal.', 'error');
+            return;
+          }
+          beginCatPgExam(questions, {
+            durasiMenit: durasiMenit,
+            passingGrade: passingGrade,
+            totalButir: questions.length,
+            isAkademikSubtest: true,
+            akademikJalur: jalur,
+            akademikSubKey: subKey,
+            akademikSubLabel: stSpec.label,
+            akademikPoinPerSoal: poinPerSoal,
+            akademikBobotSubtes: bobotSubtes
+          });
+        },
+        function (errMsg) {
+          appState.isStartingExam = false;
+          showToast(errMsg || ('Gagal memuat soal ' + stSpec.label + '.'), 'error');
+        }
+      );
+    }
+
+    function finishAndShowAkademikCombinedResult() {
+      var liveAkaCfg = getCurrentUserAksesCatConfig().aka;
+      var jalur = sanitizeAkademikJalurLocal(liveAkaCfg.jalur);
+      var summary = computeAkademikCombinedSummary(jalur, liveAkaCfg, appState.akademikSessionResults);
+      if (summary.completedCount === 0) {
+        showToast('Kerjakan minimal 1 sub-tes Akademik terlebih dahulu.', 'error');
+        return;
+      }
+
+      appState.akademikSessionActive = false;
+      var modeLabel = 'CAT Akademik (' + summary.jalurLabel + ') \u2022 ' + summary.completedCount + '/5 Sub-Tes';
+      var akaDetailObj = {
+        type: 'AKADEMIK_COMBINED',
+        jalur: summary.jalur,
+        jalurLabel: summary.jalurLabel,
+        passingGrade: summary.passingGrade,
+        totalSoal: summary.totalSoal,
+        durasiMenit: summary.totalDurasiMenit,
+        maxScore: summary.maxScore,
+        totalBobot: summary.totalBobot,
+        completedCount: summary.completedCount,
+        totalSubtests: summary.totalSubtests,
+        subtests: summary.subtests,
+        answers: []
+      };
+
+      renderResultView({
+        isCatPg: true,
+        isAkademikCombined: true,
+        nama: appState.participantName,
+        satuan: appState.participantSatuan,
+        modeKarakter: modeLabel,
+        jumlahKolom: summary.totalSoal,
+        totalDijawab: summary.totalDijawab,
+        totalBenar: summary.totalBenar,
+        totalSalah: summary.totalSalah + summary.totalKosong,
+        akurasi: summary.akurasi,
+        skorAkhir: summary.skorAkhir,
+        maxScore: summary.maxScore,
+        passingGrade: summary.passingGrade,
+        durasiMenit: summary.totalDurasiMenit,
+        isLulus: summary.isLulus,
+        status: summary.status,
+        akademikSummary: summary,
+        catDetail: akaDetailObj
+      });
+
+      switchView('result');
+
+      persistSimulationResult({
+        nama: appState.participantName,
+        satuan: appState.participantSatuan,
+        modeKarakter: modeLabel,
+        jumlahKolom: summary.totalSoal,
+        totalDijawab: summary.totalDijawab,
+        totalBenar: summary.totalBenar,
+        totalSalah: summary.totalSalah + summary.totalKosong,
+        akurasi: summary.akurasi,
+        skorPanker: summary.subtests[0] ? summary.subtests[0].skorSubtes : 0,
+        skorTianker: summary.subtests[1] ? summary.subtests[1].skorSubtes : 0,
+        skorJanker: summary.subtests[2] ? summary.subtests[2].skorSubtes : 0,
+        skorHanker: summary.subtests[3] ? summary.subtests[3].skorSubtes : 0,
+        skorSpeed: summary.subtests[0] ? summary.subtests[0].kontribusi : 0,
+        skorAccuracy: summary.subtests[1] ? summary.subtests[1].kontribusi : 0,
+        skorHardiness: summary.subtests[4] ? summary.subtests[4].skorSubtes : 0,
+        gradeSpeed: summary.jalurLabel,
+        gradeAccuracy: summary.completedCount + '/5',
+        gradeHardiness: summary.isLulus ? 'MS' : 'TMS',
+        skorAkhir: summary.skorAkhir,
+        status: summary.status,
+        detailKolom: akaDetailObj
+      });
+    }
+
     function getSkdSectionByNumber(no) {
       var n = parseInt(no, 10) || 1;
       if (n <= 30) return 'TWK';
@@ -15189,28 +16786,40 @@
       return 'TKP';
     }
 
-    function getLocalSkdCombinedQuestions(paketNo, primarySoalId) {
+    function getLocalSkdCombinedQuestions(paketNo, primarySoalId, twkSoalId) {
       var reqPaketNo = Math.max(1, parseInt(paketNo, 10) || 1);
       var reqPrimaryId = String(primarySoalId || '').trim();
+      var reqTwkId = sanitizeCatSoalIdLocal(twkSoalId);
       var list = (appState.adminCache && appState.adminCache.soalList && appState.adminCache.soalList.length > 0)
         ? appState.adminCache.soalList
         : getLocalSoalList();
 
       var gabId = '', twkId = '', tiuId = '', tkpId = '';
       var fbGab = '', fbTwk = '', fbTiu = '', fbTkp = '';
+      var akaTwkMatchId = '', fbAkaTwkId = '';
 
       for (var i = 0; i < list.length; i++) {
         var s = list[i];
         if (String(s.status || 'AKTIF').toUpperCase() === 'NONAKTIF') continue;
         if (!isCatPgModeKey(s.mode)) continue;
         var km = parseSoalKategoriMeta(s.kategori);
-        if (km.main !== 'SKD') continue;
+        var isSharedTwk = (km.sub === 'TWK' && (km.main === 'SKD' || km.main === 'AKADEMIK'));
+        if (km.main !== 'SKD' && !isSharedTwk) continue;
         var cm = getCatPgMeta(s);
         var sid = String(s.id || '').trim();
 
+        if (reqTwkId && sid === reqTwkId && isSharedTwk) {
+          twkId = sid;
+        }
+        if (km.main === 'AKADEMIK' && km.sub === 'TWK') {
+          if (!fbAkaTwkId) fbAkaTwkId = sid;
+          if (!akaTwkMatchId && cm.paketNo === reqPaketNo) akaTwkMatchId = sid;
+          continue;
+        }
+
         if (sid === reqPrimaryId) {
           if (km.sub === 'GABUNGAN') gabId = sid;
-          else if (km.sub === 'TWK') twkId = sid;
+          else if (km.sub === 'TWK' && !(reqTwkId && twkId === reqTwkId)) twkId = sid;
           else if (km.sub === 'TIU') tiuId = sid;
           else if (km.sub === 'TKP') tkpId = sid;
         }
@@ -15219,7 +16828,7 @@
           if (!gabId && cm.paketNo === reqPaketNo) gabId = sid;
         } else if (km.sub === 'TWK') {
           if (!fbTwk) fbTwk = sid;
-          if (!twkId && cm.paketNo === reqPaketNo) twkId = sid;
+          if (!twkId && cm.paketNo === reqPaketNo && !(reqTwkId && twkId === reqTwkId)) twkId = sid;
         } else if (km.sub === 'TIU') {
           if (!fbTiu) fbTiu = sid;
           if (!tiuId && cm.paketNo === reqPaketNo) tiuId = sid;
@@ -15235,6 +16844,9 @@
         if (!tiuId) tiuId = fbTiu;
         if (!tkpId) tkpId = fbTkp;
       }
+      if (!twkId) {
+        twkId = akaTwkMatchId || fbAkaTwkId;
+      }
 
       var slotMap = {};
       var gabList = gabId ? getLocalCatQuestions(gabId) : [];
@@ -15249,10 +16861,11 @@
       }
 
       var twkList = twkId ? getLocalCatQuestions(twkId) : [];
+      var forceExplicitTwk = !!(reqTwkId && reqTwkId === twkId);
       for (var w = 0; w < twkList.length && w < 30; w++) {
         var qw = JSON.parse(JSON.stringify(twkList[w]));
-        var tNo = (qw.nomor >= 1 && qw.nomor <= 30) ? qw.nomor : (w + 1);
-        if (!slotMap[tNo] || reqPrimaryId === twkId) {
+        var tNo = forceExplicitTwk ? (w + 1) : ((qw.nomor >= 1 && qw.nomor <= 30) ? qw.nomor : (w + 1));
+        if (!slotMap[tNo] || reqPrimaryId === twkId || forceExplicitTwk) {
           qw.nomor = tNo;
           qw.skdSection = 'TWK';
           slotMap[tNo] = qw;
@@ -15399,6 +17012,7 @@
       var liveSkdCfg = getCurrentUserAksesCatConfig().skd;
       var paketNo = Math.max(1, parseInt(liveSkdCfg.paketNo || appState.skdSelectedPaketNo, 10) || 1);
       var primaryId = String(liveSkdCfg.soalId || '').trim();
+      var twkSoalId = String(liveSkdCfg.twkSoalId || '').trim();
       appState.skdSelectedPaketNo = paketNo;
       appState.skdPrimarySoalId = primaryId;
       var btnEl = document.getElementById('btnSkdHubStart');
@@ -15439,7 +17053,7 @@
       }
 
       if (!isGasEnvironment()) {
-        launchWithItems(getLocalSkdCombinedQuestions(paketNo, primaryId));
+        launchWithItems(getLocalSkdCombinedQuestions(paketNo, primaryId, twkSoalId));
         return;
       }
 
@@ -15465,9 +17079,9 @@
           launchWithItems(items);
         })
         .withFailureHandler(function () {
-          launchWithItems(getLocalSkdCombinedQuestions(paketNo, primaryId));
+          launchWithItems(getLocalSkdCombinedQuestions(paketNo, primaryId, twkSoalId));
         })
-        .getSkdCombinedQuestions(paketNo, primaryId);
+        .getSkdCombinedQuestions(paketNo, primaryId, twkSoalId);
     }
 
     // ============================================================================
@@ -15485,13 +17099,26 @@
         jumlah: qList.length
       });
       var isSkdCombined = false;
+      var isAkademikSubtest = false;
+      var akademikJalur = 'AKPOL';
+      var akademikSubKey = '';
+      var akademikSubLabel = '';
+      var akademikPoinPerSoal = cMeta.poinPerSoal || 2;
+      var akademikBobotSubtes = cMeta.bobotSubtes !== undefined ? cMeta.bobotSubtes : 20;
       var pgTwk = 65;
       var pgTiu = 80;
       var pgTkp = 166;
       if (overrideMeta && typeof overrideMeta === 'object') {
         if (overrideMeta.durasiMenit) cMeta.durasiMenit = overrideMeta.durasiMenit;
+        if (overrideMeta.passingGrade !== undefined) cMeta.passingGrade = Number(overrideMeta.passingGrade) || 61;
         if (overrideMeta.totalButir) cMeta.totalButir = overrideMeta.totalButir;
         if (overrideMeta.isSkdCombined) isSkdCombined = true;
+        if (overrideMeta.isAkademikSubtest) isAkademikSubtest = true;
+        if (overrideMeta.akademikJalur) akademikJalur = sanitizeAkademikJalurLocal(overrideMeta.akademikJalur);
+        if (overrideMeta.akademikSubKey) akademikSubKey = String(overrideMeta.akademikSubKey);
+        if (overrideMeta.akademikSubLabel) akademikSubLabel = String(overrideMeta.akademikSubLabel);
+        if (overrideMeta.akademikPoinPerSoal !== undefined) akademikPoinPerSoal = parseFloat(overrideMeta.akademikPoinPerSoal) || 2;
+        if (overrideMeta.akademikBobotSubtes !== undefined) akademikBobotSubtes = parseFloat(overrideMeta.akademikBobotSubtes);
         if (overrideMeta.pgTwk !== undefined) pgTwk = Number(overrideMeta.pgTwk) || 65;
         if (overrideMeta.pgTiu !== undefined) pgTiu = Number(overrideMeta.pgTiu) || 80;
         if (overrideMeta.pgTkp !== undefined) pgTkp = Number(overrideMeta.pgTkp) || 166;
@@ -15515,6 +17142,12 @@
       appState.catExam = {
         active: true,
         isSkdCombined: isSkdCombined,
+        isAkademikSubtest: isAkademikSubtest,
+        akademikJalur: akademikJalur,
+        akademikSubKey: akademikSubKey,
+        akademikSubLabel: akademikSubLabel,
+        akademikPoinPerSoal: akademikPoinPerSoal,
+        akademikBobotSubtes: akademikBobotSubtes,
         soalId: String(appState.selectedSoalId || ''),
         soalNama: String(appState.selectedSoalNama || 'Simulasi CAT Pilihan Ganda'),
         kategoriLabel: String(appState.selectedSoalKategori || 'CAT PILIHAN GANDA'),
@@ -16011,6 +17644,90 @@
           status: skdStatusLabel,
           detailKolom: skdDetailObj
         });
+        return;
+      }
+
+      if (ce.isAkademikSubtest) {
+        var akaRes = computeAkademikSubtestScore(ce.questions, ce.answers, ce.akademikPoinPerSoal, ce.akademikBobotSubtes);
+        var akaJalurSpec = getAkademikJalurSpec(ce.akademikJalur);
+        var subLabelFinal = ce.akademikSubLabel || ce.soalNama || 'Sub-Tes Akademik';
+        var akaSubModeLbl = 'Akademik ' + akaJalurSpec.label + ' \u2022 ' + subLabelFinal;
+        if (akaSubModeLbl.length > 88) akaSubModeLbl = akaSubModeLbl.substring(0, 88);
+        var akaSubPass = akaRes.skorSubtes >= ce.passingGrade;
+        var akaSubStatus = akaSubPass ? 'MEMENUHI SYARAT (MS)' : 'TIDAK MEMENUHI SYARAT (TMS)';
+
+        if (!appState.akademikSessionResults || typeof appState.akademikSessionResults !== 'object') {
+          appState.akademikSessionResults = {};
+        }
+        appState.akademikSessionResults[ce.akademikSubKey] = {
+          key: ce.akademikSubKey,
+          label: subLabelFinal,
+          soalId: ce.soalId,
+          soalNama: ce.soalNama,
+          durasiMenit: ce.durasiMenit,
+          totalSoal: akaRes.totalSoal,
+          totalDijawab: akaRes.totalDijawab,
+          totalBenar: akaRes.totalBenar,
+          totalSalah: akaRes.totalSalah,
+          totalKosong: akaRes.totalKosong,
+          poinPerSoal: akaRes.poinPerSoal,
+          bobotSubtes: akaRes.bobotSubtes,
+          nilaiEfektif: akaRes.nilaiEfektif,
+          skorSubtes: akaRes.skorSubtes,
+          kontribusi: akaRes.kontribusi
+        };
+        saveAkademikSessionResults(getCurrentUserAksesCatConfig().aka, appState.akademikSessionResults);
+
+        var akaSubDetailObj = {
+          type: 'AKADEMIK_SUBTEST',
+          jalur: ce.akademikJalur,
+          jalurLabel: akaJalurSpec.label,
+          subKey: ce.akademikSubKey,
+          subLabel: subLabelFinal,
+          soalId: ce.soalId,
+          paketNo: ce.paketNo,
+          kategori: ce.kategoriLabel,
+          namaPaket: ce.soalNama,
+          totalSoal: akaRes.totalSoal,
+          durasiMenit: ce.durasiMenit,
+          passingGrade: ce.passingGrade,
+          maxScore: akaRes.maxSkorSubtes,
+          poinPerSoal: akaRes.poinPerSoal,
+          bobotSubtes: akaRes.bobotSubtes,
+          nilaiEfektif: akaRes.nilaiEfektif,
+          skorSubtes: akaRes.skorSubtes,
+          kontribusi: akaRes.kontribusi,
+          totalOptimal: akaRes.totalBenar,
+          totalKosong: akaRes.totalKosong,
+          answers: akaRes.answers
+        };
+
+        persistSimulationResult({
+          nama: appState.participantName,
+          satuan: appState.participantSatuan,
+          modeKarakter: akaSubModeLbl,
+          jumlahKolom: akaRes.totalSoal,
+          totalDijawab: akaRes.totalDijawab,
+          totalBenar: akaRes.totalBenar,
+          totalSalah: akaRes.totalSalah + akaRes.totalKosong,
+          akurasi: akaRes.akurasi,
+          skorPanker: akaRes.skorSubtes,
+          skorTianker: akaRes.kontribusi,
+          skorJanker: akaRes.poinPerSoal,
+          skorHanker: akaRes.bobotSubtes,
+          skorSpeed: akaRes.skorSubtes,
+          skorAccuracy: akaRes.kontribusi,
+          skorHardiness: akaRes.nilaiEfektif,
+          gradeSpeed: akaJalurSpec.label,
+          gradeAccuracy: formatDecimalId(akaRes.bobotSubtes, 1) + '%',
+          gradeHardiness: akaSubPass ? 'MS' : 'TMS',
+          skorAkhir: akaRes.skorSubtes,
+          status: akaSubStatus,
+          detailKolom: akaSubDetailObj
+        });
+
+        openAkademikHub();
+        showToast(subLabelFinal + ' selesai! Benar ' + akaRes.totalBenar + '/' + akaRes.totalSoal + ' \u2022 Skor Subtes: ' + akaRes.skorSubtes.toFixed(2) + ' \u2022 Kontribusi: ' + akaRes.kontribusi.toFixed(2), 'success');
         return;
       }
 
@@ -16808,10 +18525,54 @@
         var pgCat = cDet.passingGrade !== undefined ? cDet.passingGrade : (data.passingGrade || 65);
         var durCat = cDet.durasiMenit || data.durasiMenit || 60;
         var skdWrap = document.getElementById('resSkdSubScoresWrap');
+        var akaWrap = document.getElementById('resAkademikSubScoresWrap');
+        var breakdownCard = document.getElementById('resCatPgBreakdownCard');
         var skdSum = data.skdSummary || cDet.skdSummary || null;
         var isSkdRes = !!(data.isSkdCombined || (cDet.type === 'SKD_COMBINED' && skdSum));
+        var isAkaCombinedRes = !!(data.isAkademikCombined || cDet.type === 'AKADEMIK_COMBINED');
 
         document.getElementById('resMetaSubtitle').textContent = data.modeKarakter + ' \u2022 ' + totalSoalCat + ' Butir Soal \u2022 Durasi ' + durCat + ' Menit';
+
+        if (isAkaCombinedRes) {
+          if (skdWrap) skdWrap.classList.add('hidden');
+          if (akaWrap) akaWrap.classList.remove('hidden');
+          if (breakdownCard) breakdownCard.classList.add('hidden');
+          var akaSum = data.akademikSummary || cDet;
+          var akaSubRows = Array.isArray(akaSum.subtests) ? akaSum.subtests : [];
+          var akaTitleEl = document.getElementById('resAkademikHeaderTitle');
+          var akaSubEl = document.getElementById('resAkademikHeaderSub');
+          var akaTbodyEl = document.getElementById('resAkademikTableBody');
+          var akaTotBobotEl = document.getElementById('resAkademikTotalBobotCell');
+          var akaTotScoreEl = document.getElementById('resAkademikTotalScoreCell');
+          if (akaTitleEl) akaTitleEl.textContent = 'Rincian Nilai CAT Akademik \u2014 Jalur ' + (akaSum.jalurLabel || 'Akpol');
+          if (akaSubEl) akaSubEl.textContent = 'Selesai ' + (akaSum.completedCount || akaSubRows.length) + '/5 Sub-Tes \u2022 Ambang Batas Minimal \u2265 ' + pgCat + ' (Skala 0\u2013100).';
+          if (akaTbodyEl) akaTbodyEl.innerHTML = buildAkademikScoreTableRowsHtml(akaSubRows);
+          if (akaTotBobotEl) akaTotBobotEl.textContent = formatDecimalId(akaSum.totalBobot !== undefined ? akaSum.totalBobot : 100, 2) + '%';
+          if (akaTotScoreEl) akaTotScoreEl.textContent = Number(data.skorAkhir || 0).toFixed(2);
+
+          if (scoreTitleEl) scoreTitleEl.textContent = 'Skor Akhir CAT Akademik (' + (akaSum.jalurLabel || 'Akpol') + ')';
+          if (minPassEl) minPassEl.innerHTML = 'Ambang Batas Kelulusan: <strong>&ge; ' + pgCat + '</strong> (Skala 0&ndash;100)';
+          if (formulaEl) {
+            formulaEl.innerHTML = 'Akumulasi Kontribusi 5 Sub-Tes = <strong>' + Number(data.skorAkhir || 0).toFixed(2) + '</strong> dari maks <strong>' + maxScoreCat + '</strong>.' +
+              (!data.isLulus ? ('<span class="block text-rose-700 font-bold mt-0.5">&bull; Skor akhir belum mencapai ambang batas minimal (' + pgCat + ')</span>') : '');
+          }
+          var noteElAka = document.getElementById('resCatPgSummaryNote');
+          if (noteElAka) {
+            noteElAka.textContent = 'CAT Akademik Jalur ' + (akaSum.jalurLabel || 'Akpol') + ' \u2022 Total Skor Akhir: ' + Number(data.skorAkhir || 0).toFixed(2) + ' / 100 (Status: ' + data.status + ').';
+          }
+          if (lbl1) lbl1.textContent = 'Total Soal Dijawab';
+          if (unit1) unit1.textContent = 'dari ' + totalSoalCat + ' soal';
+          if (lbl2) lbl2.textContent = 'Total Jawaban Benar';
+          if (unit2) unit2.textContent = 'soal benar';
+          if (lbl3) lbl3.textContent = 'Salah / Kosong';
+          if (unit3) unit3.textContent = 'soal';
+          if (lbl4) lbl4.textContent = 'Persentase Ketepatan';
+          if (unit4) unit4.textContent = 'akurasi';
+          return;
+        }
+
+        if (akaWrap) akaWrap.classList.add('hidden');
+        if (breakdownCard) breakdownCard.classList.remove('hidden');
 
         if (isSkdRes && skdSum) {
           if (skdWrap) skdWrap.classList.remove('hidden');
@@ -18179,8 +19940,61 @@
         return;
       }
 
-      // Branch khusus untuk Riwayat Ujian CAT Pilihan Ganda (A-E) & SKD Gabungan (110 Soal)
-      if (parsedDetail && !Array.isArray(parsedDetail) && (parsedDetail.type === 'CAT_PG' || parsedDetail.type === 'SKD_COMBINED')) {
+      // Branch khusus untuk Riwayat Ujian CAT Akademik Gabungan (5 Sub-Tes)
+      if (parsedDetail && !Array.isArray(parsedDetail) && parsedDetail.type === 'AKADEMIK_COMBINED') {
+        var akaDet = parsedDetail;
+        var akaModalBody = document.getElementById('modalDetailBody');
+        var akaScore = Number(item.skorAkhir || 0);
+        var akaPg = Number(akaDet.passingGrade || 61);
+        var akaLulus = akaScore >= akaPg;
+        var akaRowsHtml = buildAkademikScoreTableRowsHtml(akaDet.subtests || []);
+        var akaHtml = '';
+
+        akaHtml += '<div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-xs">' +
+          '<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">' +
+          '<div class="space-y-1.5">' +
+          '<div class="flex flex-wrap items-center gap-2">' +
+          '<span class="px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider ' + (akaLulus ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-rose-100 text-rose-800 border border-rose-300') + '">' +
+          (akaLulus ? 'LULUS (MEMENUHI SYARAT - MS)' : 'TIDAK LULUS (TMS)') +
+          '</span>' +
+          '<span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 text-xs font-extrabold">CAT Akademik \u2022 ' + escapeHtml(akaDet.jalurLabel || akaDet.jalur || 'Akpol') + '</span>' +
+          '<span class="text-xs font-medium text-slate-500">ID: ' + escapeHtml(item.id) + '</span>' +
+          '</div>' +
+          '<h3 class="text-lg sm:text-xl font-extrabold text-slate-900 leading-tight">Hasil Evaluasi CAT Akademik: ' + escapeHtml(item.nama) + ' (' + escapeHtml(item.satuan) + ')</h3>' +
+          '<p class="text-xs text-slate-600">' + escapeHtml(item.modeKarakter) + ' \u2022 ' + (akaDet.totalSoal || item.jumlahKolom || 0) + ' Soal \u2022 Durasi Total ' + (akaDet.durasiMenit || 300) + ' Menit</p>' +
+          '</div>' +
+          '<div class="flex items-center gap-4 bg-white border border-slate-200 rounded-2xl px-4 py-3 shrink-0 shadow-xs">' +
+          '<div>' +
+          '<span class="block text-[11px] font-bold uppercase tracking-wider text-slate-500">SKOR AKHIR AKADEMIK</span>' +
+          '<span class="block text-[10px] text-slate-500">Ambang Batas: <strong>\u2265 ' + akaPg + '</strong> (Skala 0\u2013100)</span>' +
+          '<div class="text-[11px] font-semibold text-slate-700 mt-0.5">Total Bobot: ' + formatDecimalId(akaDet.totalBobot !== undefined ? akaDet.totalBobot : 100, 2) + '%</div>' +
+          '</div>' +
+          '<div class="font-cat-mono text-3xl sm:text-4xl font-extrabold text-emerald-700">' + akaScore.toFixed(2) + '</div>' +
+          '</div>' +
+          '</div>' +
+          '</div>';
+
+        akaHtml += '<div class="bg-white rounded-2xl border border-slate-200 p-4 sm:p-5 shadow-xs space-y-3">' +
+          '<h4 class="text-sm sm:text-base font-extrabold text-slate-900">Rincian Penilaian 5 Sub-Tes Akademik</h4>' +
+          '<div class="overflow-x-auto border border-slate-200 rounded-xl">' +
+          '<table class="w-full text-left border-collapse text-xs">' +
+          '<thead><tr class="bg-slate-50 border-b border-slate-200 text-slate-600 font-bold uppercase text-[11px]">' +
+          '<th class="py-2.5 px-3">Mata Pelajaran</th><th class="py-2.5 px-2.5 text-center">Durasi</th><th class="py-2.5 px-2.5 text-center">Benar/Soal</th><th class="py-2.5 px-2.5 text-center">Poin/Soal</th><th class="py-2.5 px-2.5 text-center">Skor Subtes</th><th class="py-2.5 px-2.5 text-center">Bobot</th><th class="py-2.5 px-2.5 text-center">Efektif</th><th class="py-2.5 px-3 text-right">Kontribusi</th>' +
+          '</tr></thead><tbody class="divide-y divide-slate-100">' + akaRowsHtml + '</tbody>' +
+          '<tfoot><tr class="bg-emerald-50 border-t-2 border-emerald-200 font-extrabold text-slate-900">' +
+          '<td colspan="5" class="py-2.5 px-3 text-xs uppercase text-emerald-950">Total Skor Akhir Akademik</td>' +
+          '<td class="py-2.5 px-2.5 text-center font-cat-mono">' + formatDecimalId(akaDet.totalBobot !== undefined ? akaDet.totalBobot : 100, 2) + '%</td>' +
+          '<td class="py-2.5 px-2.5 text-center">&mdash;</td>' +
+          '<td class="py-2.5 px-3 text-right font-cat-mono text-base font-black text-emerald-700">' + akaScore.toFixed(2) + '</td>' +
+          '</tr></tfoot></table></div></div>';
+
+        if (akaModalBody) akaModalBody.innerHTML = akaHtml;
+        document.getElementById('modalHistoryDetail').classList.remove('hidden');
+        return;
+      }
+
+      // Branch khusus untuk Riwayat Ujian CAT Pilihan Ganda (A-E), Sub-Tes Akademik & SKD Gabungan (110 Soal)
+      if (parsedDetail && !Array.isArray(parsedDetail) && (parsedDetail.type === 'CAT_PG' || parsedDetail.type === 'SKD_COMBINED' || parsedDetail.type === 'AKADEMIK_SUBTEST')) {
         var isSkdDet = (parsedDetail.type === 'SKD_COMBINED' && parsedDetail.skdSummary);
         var catScore = Number(item.skorAkhir || 0);
         var catMax = Number(parsedDetail.maxScore || 0);
